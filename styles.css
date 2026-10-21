@@ -1054,3 +1054,4 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .hm--ec { min-width: 600px; }
   .more__links { flex-direction: row; gap: 16px; }
 }
+.ec-per { margin: -8px 0 0; }
