@@ -133,7 +133,7 @@
     'tr.t6': 'SQL', 'tr.t6s': 'Query, subquery, window function, dan CTE di PostgreSQL',
     'tr.t7': 'Pembuatan dashboard', 'tr.t7s': 'Dashboard interaktif di Tableau, plus data storytelling (<a href="#work-tableau">lihat project Olist</a>)',
     'tr.t8': 'Analitik media sosial dan digital', 'tr.t8s': 'Google Analytics, metrik media sosial, channel marketing',
-    'tr.t9': 'Analisis funnel dan cohort', 'tr.t9s': 'Konversi per tahap, retensi per cohort (<a href="#work-funnel">lihat project-nya</a>)',
+    'tr.t9': 'Analisis funnel dan cohort', 'tr.t9s': 'Konversi per tahap, retensi per cohort (lihat <a href="#work-ecom">project e-commerce</a> dan <a href="#work-more">analisis edtech dan fintech</a>)',
     'tr.t10': 'A/B testing', 'tr.t10s': 'Desain tes, signifikansi, membaca hasil',
     'tr.t11': 'Segmentasi pelanggan', 'tr.t11s': 'Teknik segmentasi, hasil di Power BI',
     'tr.t12': 'Final project dan wisuda', 'tr.t12s': 'Capstone, take-home test, dan coding test',
@@ -194,54 +194,45 @@
     'w5.n': 'Skripsi: Pricing Bonus-Malus', 'w5.ns': 'Pemodelan Aktuaria',
     'w6.n': 'Analisis Lainnya', 'w6.ns': '3 Karya Singkat',
     'm3.link': 'Buka file',
-    'fc.n': 'Analisis Funnel dan Cohort',
-    'fc.ns': 'Python · Bootcamp Dibimbing',
-    'fc.data': 'Funnel edtech: 630.338 leads di 3 segmen sekolah. Aplikasi fintech: aktivitas harian user dan revenue selama 2024.',
-    'fc.ctx': 'Tugas Funnel and Cohort, bootcamp Data Analytics and Business Intelligence Dibimbing',
-    'fc.t': 'Analisis Funnel dan Cohort untuk Startup Edukasi dan Aplikasi Fintech',
-    'fc.p': 'Dua bisnis, dua pertanyaan. Di tahap mana calon siswa berhenti sebelum mendaftar? Dan setelah masuk, apakah user fintech bertahan dan tetap membayar? Funnel menjawab yang pertama, cohort menjawab yang kedua.',
-    'fc.f1': 'Booking ke Trial, tahap terlemah di funnel',
-    'fc.f2': 'retensi Februari di bulan pertama, sebelum dan sesudah 9 akun identik dikeluarkan',
-    'fc.f3': 'revenue Januari yang tersisa di Desember, padahal 59% user-nya bertahan',
-    'fc.h1': '1 · Funnel edtech: di mana calon siswa berhenti',
-    'fc.c1': 'Jumlah orang yang mencapai tiap tahap, dan persentase yang lanjut dari tahap sebelumnya.',
-    'fc.mv1': '66,2% lanjut',
-    'fc.mv2': '62,7% lanjut',
-    'fc.mv3': '68,2% lanjut',
-    'fc.c2': 'Konversi per tahap dan segmen. Merah menandai segmen di bawah 50%.',
-    'fc.c3': 'Tambahan user terdaftar kalau satu tahap mencapai target.',
-    'fc.sc1': 'Booking → Trial ke 70%, semua segmen',
-    'fc.sc2': 'Trial → Register ke 60%, Kindergarten & Elementary dan High School',
-    'fc.sc3': 'Lead → Booking Kindergarten & Elementary dan High School ke level Middle School',
-    'fc.k1': '<b>Middle School menutupi kebocoran di angka total.</b> Segmen ini mengubah 83% trial menjadi pendaftaran, sementara Kindergarten &amp; Elementary (47%) dan High School (49%) kehilangan sekitar setengahnya. Menaikkan Booking → Trial ke 70% menambah user baru paling banyak: 20.186.',
-    'fc.h2': '2 · Aplikasi fintech: user mana yang bertahan',
-    'fc.c4': 'Persentase tiap cohort bulanan yang masih aktif n bulan setelah bulan pertamanya. Cohort Maret sampai November hanya 5 sampai 13 user, jadi dibaca sebagai arah.',
-    'fc.tog': 'Keluarkan 9 akun identik di Februari',
-    'fc.c5': 'Revenue bulanan tanpa akun anomali, dalam miliar Rp.',
-    'fc.k2': '<b>Sembilan akun dengan transaksi identik menjatuhkan cohort Februari.</b> Tanpa akun itu, retensi bulan pertama naik dari 27% ke 67%. Januari adalah cohort paling stabil (79% di bulan ke-1, 59% di bulan ke-11), tetapi revenue-nya tinggal 7% dari Januari. Revenue turun dari Rp 12,4 miliar di Agustus ke Rp 3,8 miliar di Desember saat user terbesar berhenti.',
-    'fc.h3': 'Temuan, keputusan, dan target',
-    'fc.th1': 'Temuan',
-    'fc.th2': 'Rekomendasi',
-    'fc.th3': 'Target',
-    'fc.r1a': 'Trial → Register Kindergarten &amp; Elementary 47% dan High School 49%.',
-    'fc.r1b': 'Laporan hasil trial untuk orang tua; trial High School khusus persiapan ujian.',
-    'fc.r1c': 'Trial → Register 60%',
-    'fc.r2a': 'Booking → Trial 62,7%, conversion rate terendah.',
-    'fc.r2b': 'Pengingat WhatsApp H-1 dan slot trial sore atau akhir pekan.',
-    'fc.r2c': 'Booking → Trial 70%',
-    'fc.r3a': 'Trial → Register Middle School 83%, jauh di atas segmen lain.',
-    'fc.r3b': 'Cek definisi register di Middle School, dan tambahkan tahap pembayaran ke data funnel.',
-    'fc.r3c': 'Tahap pembayaran tercatat di funnel',
-    'fc.r4a': '9 akun Februari dengan transaksi identik, lalu hilang.',
-    'fc.r4b': 'Cari tahu asal 9 akun: klien korporat, kampanye, atau kesalahan data.',
-    'fc.r4c': 'Asal 9 akun diketahui',
-    'fc.r5a': 'Revenue turun dari Rp 12,4 ke 3,8 miliar sejak Agustus; user besar berhenti.',
-    'fc.r5b': 'Peringatan dini saat user besar mulai jarang bertransaksi, dan pantau revenue retention.',
-    'fc.r5c': 'Revenue retention dipantau tiap bulan',
-    'fc.open1': 'Buka slide dan kode (Google Drive)',
-    'fc.open2': 'Buka notebook Colab',
-    'm6.t': 'Customer journey e-commerce<small>Python · data latihan toko online, 2023 sampai 2025</small>',
-    'm6.p': 'Traffic turun 21,4% di 2025, tetapi pembeli naik 13,0% dan cart-to-purchase naik ke 37,6%. Kebocoran terbesar ada di halaman produk: 68,4% yang melihat produk pergi tanpa menambahkan ke keranjang.',
+    'w2.n': 'Customer Journey E-commerce',
+    'w2.ns': 'Python · Funnel dan Cohort',
+    'ec.data': 'Dataset latihan toko online, Jan 2023 sampai Des 2025: 56.894 event funnel, 5 persona pembeli, data transaksi',
+    'ec.ctx': 'Hands-on project, bootcamp Data Analytics and Business Intelligence Dibimbing',
+    'ec.t': 'Pengunjung Turun, Pembeli Naik: Customer Journey E-commerce, FY2025',
+    'ec.p': 'Traffic turun di 2025. Apakah penjualan ikut turun? Dan setelah daftar, apakah pelanggan terus belanja? Saya ikuti pelanggan toko yang sama lewat funnel dulu, lalu lewat tahun pertama setelah mereka daftar.',
+    'ec.f1': 'pengunjung, 14.228 → 11.179',
+    'ec.f2': 'pembeli, 630 → 712',
+    'ec.f3': 'cart ke purchase, naik dari 30,3%',
+    'ec.h1': '1 · Funnel: yang datang lebih sedikit, yang membeli lebih banyak',
+    'ec.c1': 'Pelanggan unik di tiap tahap, 2024 (terang) dan 2025 (gelap). Penurunannya mengecil di tiap tahap dan berubah positif di pembelian.',
+    'ec.c2': 'Persentase pelanggan yang lanjut ke tahap berikutnya. Ketiga tahap konversinya lebih baik dari 2024, checkout paling besar (+7,3 poin).',
+    'ec.h2': '2 · Yang masih bocor: halaman produk',
+    'ec.k1': '<b>68,4% yang melihat produk pergi tanpa menambahkan ke keranjang.</b> Angkanya membaik (78,9% di 2023, 71,5% di 2024), tetapi masih sekitar 4.100 pelanggan di 2025 yang membuka produk tanpa menambahkan apa pun. Mereka cukup tertarik untuk membuka halamannya, jadi saya akan mulai dari sini.',
+    'ec.h3': '3 · Siapa yang checkout: empat dari lima persona membaik',
+    'ec.c3': 'Cart ke purchase per persona pembeli, 2024 (terang) dan 2025 (gelap), dengan pengunjung dan pembeli 2025.',
+    'ec.k2': '<b>Everyday Shopper yang mendorong kenaikan.</b> Mereka 40% dari pengunjung dan naik dari 26,6% ke 39,0%. Gift Shopper justru turun (37,4% ke 31,3%), tetapi itu hanya 30 pembeli dari 96 keranjang, jadi perlu dicek dulu sebelum disebut tren.',
+    'ec.h4': '4 · Setelah daftar: lambat di awal, stabil sepanjang tahun pertama',
+    'ec.c4': 'Persentase tiap cohort pendaftar 2024 yang membeli, per bulan sejak daftar (M0 = bulan daftar).',
+    'ec.g1': 'membeli di bulan daftar (M0)',
+    'ec.g2': 'membeli di bulan ke-2',
+    'ec.g3': 'masih membeli di bulan ke-12, dari 599 pelanggan',
+    'ec.k3': '<b>Pendaftar baru mulai membeli lebih cepat, tetapi jumlahnya makin sedikit.</b> 17% pelanggan yang daftar di semester kedua 2024 membeli di bulan pertamanya, dibanding 6% di semester pertama. Cohort menyusut dari 336 (Jan sampai Jun 2024) ke 263 (Jul sampai Des 2024) dan 131 (Jan sampai Jun 2025), sejalan dengan turunnya traffic.',
+    'ec.h5': 'Yang akan saya cek berikutnya',
+    'ec.n1': 'Cari ke mana traffic pergi',
+    'ec.n1p': 'Pengunjung turun 20 sampai 25% di setiap persona, jadi penyebabnya kemungkinan bukan satu kelompok pelanggan. Berikutnya saya pecah sesi per campaign.',
+    'ec.n2': 'Perbaiki halaman produk',
+    'ec.n2p': '68% yang melihat produk tidak menambahkan ke keranjang. Checkout sudah bagus, jadi lebih banyak keranjang berarti lebih banyak pesanan.',
+    'ec.n3': 'Cek checkout Gift Shopper',
+    'ec.n3p': 'Satu-satunya persona yang cart ke purchase-nya turun (37,4% ke 31,3%). Kelompoknya kecil, jadi pastikan dulu dengan data yang lebih banyak.',
+    'ec.n4': 'Buat pendaftar baru membeli lebih cepat',
+    'ec.n4p': 'Hanya 11% pendaftar 2024 yang membeli di bulan mereka daftar. Cohort semester kedua mencapai 17%, jadi angkanya bisa digerakkan.',
+    'ec.lim': '<b>Batasan:</b> saya menghitung pelanggan unik per tahun, bukan sesi. Data ini menunjukkan apa yang berubah, bukan alasannya. Kelompok kecil (Gift Shopper, cohort akhir 2025) bisa berubah banyak hanya karena beberapa pelanggan.',
+    'ec.open1': 'Buka slide (Google Drive)',
+    'ec.open2': 'Buka notebook Colab',
+    'm7.t': 'Analisis funnel dan cohort<small>Python · funnel edtech, cohort aplikasi fintech</small>',
+    'm7.p': 'Dua kasus dari tugas Funnel and Cohort di Dibimbing. Di funnel edtech, Booking ke Trial adalah tahap terlemah (62,7%). Di aplikasi fintech, 9 akun dengan transaksi identik menjatuhkan retensi bulan pertama cohort Februari ke 27%; tanpa akun itu angkanya 67%.',
+    'm7.l1': 'Slide dan kode',
+    'm7.l2': 'Buka notebook',
     'm2.t': 'Engagement media sosial<small>Python · 89 konten, 4 platform</small>',
     'm2.p': 'Menunjukkan bagaimana satu metrik bisa menyesatkan: konten dengan engagement rate tertinggi (27,1%) hanya punya interaksi per reach 3,8%. Format lebih berpengaruh daripada platform: Thread unggul di interaksi, Shorts unggul di klik.',
     'm3.t': 'Actuarial analyst job simulation<small>AIG di Forage</small>',
@@ -1244,32 +1235,22 @@
   setupOil();
 
   /* ------------------------------------------------------------------
-     Funnel & Cohort: retention heatmap from Gambar 2.1; the February row
-     without the 9 identical accounts comes from Gambar 2.2 (n = 6)
+     E-commerce cohorts: share of each 2024 sign-up cohort that purchased,
+     months M0 to M12 after sign-up (portfolio slide 8)
   ------------------------------------------------------------------ */
-  const HM = [['2024-01', 115, [79, 74, 74, 72, 70, 66, 63, 62, 57, 50, 59]], ['2024-02', 15, [27, 33, 33, 20, 27, 20, 7, 13, 13, 27]],
-    ['2024-03', 7, [71, 43, 43, 43, 43, 57, 71, 43, 86]], ['2024-04', 8, [38, 75, 62, 62, 75, 62, 75, 62]], ['2024-05', 9, [67, 67, 78, 67, 78, 44, 56]],
-    ['2024-06', 6, [83, 83, 67, 50, 50, 33]], ['2024-07', 10, [90, 90, 90, 90, 90]], ['2024-08', 12, [58, 75, 67, 75]], ['2024-09', 13, [77, 62, 77]],
-    ['2024-10', 12, [83, 75]], ['2024-11', 5, [80]], ['2024-12', 51, []]];
-  const HM_FEB_CLEAN = ['2024-02', 6, [67, 83, 83, 50, 67, 50, 17, 33, 33, 67]];
-  let hmClean = false;
-  const hmMix = k => 'rgb(' + [[238, 31], [243, 90], [239, 78]].map(([a, b]) => Math.round(a + (b - a) * k)).join(',') + ')';
-  function renderHm() {
-    const el = $('#hm'); if (!el) return;
-    const head = `<thead><tr><th scope="col">Cohort</th>${Array.from({ length: 11 }, (_, i) => `<th scope="col">M${i + 1}</th>`).join('')}</tr></thead>`;
-    const rows = HM.map(r => (hmClean && r[0] === '2024-02') ? HM_FEB_CLEAN : r).map(([c, n, v]) => {
-      const changed = hmClean && c === '2024-02';
-      return `<tr${changed ? ' class="hm__chg"' : ''}><th scope="row">${c} <small>n=${n}</small></th>${Array.from({ length: 11 }, (_, i) => {
-        if (v[i] == null) return '<td class="hm__na"></td>';
-        const k = v[i] / 100, bg = hmMix(Math.min(1, k * 1.05));
-        return `<td style="background:${bg};color:${k > .52 ? '#fff' : '#13264A'}" data-tip="${c}, M${i + 1}: <b>${v[i]}%</b> of ${n} users">${v[i]}%</td>`;
-      }).join('')}</tr>`;
-    }).join('');
-    el.innerHTML = head + `<tbody>${rows}</tbody>`;
-    const b = $('#hmTog'); if (b) b.setAttribute('aria-pressed', String(hmClean));
+  const ECH = [['Jan 2024', 72, [6, 11, 22, 12, 17, 19, 17, 28, 12, 21, 18, 31, 15]], ['Feb 2024', 55, [6, 20, 22, 22, 18, 22, 16, 13, 22, 18, 24, 18, 13]],
+    ['Mar 2024', 63, [10, 13, 22, 13, 21, 11, 14, 25, 19, 29, 16, 14, 11]], ['Apr 2024', 47, [4, 13, 26, 17, 13, 15, 30, 13, 28, 21, 17, 38, 26]],
+    ['May 2024', 56, [7, 21, 23, 25, 12, 23, 20, 21, 20, 25, 25, 25, 34]], ['Jun 2024', 43, [5, 14, 5, 33, 28, 19, 37, 30, 28, 19, 28, 33, 33]],
+    ['Jul 2024', 45, [24, 18, 27, 20, 33, 18, 31, 16, 33, 24, 22, 33, 20]], ['Aug 2024', 49, [10, 26, 20, 16, 22, 12, 29, 26, 37, 29, 35, 29, 22]],
+    ['Sep 2024', 31, [13, 6, 19, 19, 23, 19, 26, 23, 36, 23, 36, 26, 23]], ['Oct 2024', 34, [21, 24, 32, 29, 24, 26, 24, 15, 24, 32, 32, 18, 38]],
+    ['Nov 2024', 52, [15, 27, 29, 23, 17, 33, 31, 17, 19, 29, 27, 35, 40]], ['Dec 2024', 52, [19, 25, 19, 33, 21, 29, 42, 38, 33, 19, 27, 54, 50]]];
+  function renderEcHm() {
+    const el = $('#ecHm'); if (!el) return;
+    const ramp = k => 'rgb(' + [[238, 31], [243, 90], [239, 78]].map(([a, b]) => Math.round(a + (b - a) * k)).join(',') + ')';
+    const of = lang === 'id' ? 'dari' : 'of', cust = lang === 'id' ? 'pelanggan' : 'customers';
+    el.innerHTML = `<thead><tr><th scope="col">${lang === 'id' ? 'Daftar' : 'Signed up'}</th>${Array.from({ length: 13 }, (_, i) => `<th scope="col">M${i}</th>`).join('')}</tr></thead><tbody>` +
+      ECH.map(([c, n, v]) => `<tr><th scope="row">${c} <small>n=${n}</small></th>${v.map((x, i) => { const k = Math.min(1, x / 55); return `<td style="background:${ramp(k)};color:${k > .5 ? '#fff' : '#13264A'}" data-tip="${c}, M${i}: <b>${x}%</b> ${of} ${n} ${cust}">${x}</td>`; }).join('')}</tr>`).join('') + '</tbody>';
   }
-  const hmTog = $('#hmTog'); if (hmTog) hmTog.addEventListener('click', () => { hmClean = !hmClean; renderHm(); });
-  renderHm();
 
   /* ------------------------------------------------------------------
      Churn project: one view per dataset. Every number comes from the
@@ -1298,8 +1279,8 @@
       cols: ['Accuracy', 'F1', 'Precision', 'Recall', 'ROC-AUC', 'PR-AUC', 'Runtime'], best: 'LightGBM', runtimeBest: 'LightGBM',
       rows: [['LightGBM', .732, .6381, .5912, .6929, '0.81', '0.72', '2.5 s'], ['AdaBoost', .7158, .5712, .5881, .5553, '0.74', '0.59', '21 s'],
              ['AdaBoost-SVM', .5552, .4432, .3865, .5193, '0.57', '0.40', '99.6 h'], ['SVM', .559, .4443, .3894, .5172, '0.54', '0.39', '3 h']],
-      figs: { en: [['135,944', 'flight records', ''], ['0.638', 'F1, LightGBM', ''], ['0.693', 'recall, LightGBM', '']],
-              id: [['135.944', 'data penerbangan', ''], ['0,638', 'F1, LightGBM', ''], ['0,693', 'recall, LightGBM', '']] },
+      figs: { en: [['135,944', 'flight records', ''], ['34.1%', 'churned', 'down'], ['0.638', 'F1, LightGBM', '']],
+              id: [['135.944', 'data penerbangan', ''], ['34,1%', 'churn', 'down'], ['0,638', 'F1, LightGBM', '']] },
       concl: {
         en: '<b>LightGBM wins on every metric</b>, including ROC-AUC (0.81), and it is also the fastest at 2.5 seconds. AdaBoost is close on accuracy and precision but misses more churners (recall 0.555 vs 0.693). Both SVM models trail far behind with an F1 around 0.44, close to a random guess on ROC-AUC (0.57 and 0.54), and they took hours to train.',
         id: '<b>LightGBM unggul di semua metrik</b>, termasuk ROC-AUC (0,81), dan paling cepat dengan 2,5 detik. AdaBoost mendekati di accuracy dan precision, tetapi lebih banyak melewatkan pelanggan churn (recall 0,555 vs 0,693). Kedua model SVM tertinggal jauh dengan F1 sekitar 0,44, ROC-AUC-nya mendekati tebakan acak (0,57 dan 0,54), dan training-nya makan waktu berjam-jam.' } },
@@ -1307,8 +1288,8 @@
       cols: ['Accuracy', 'F1', 'Precision', 'Recall', 'ROC-AUC', 'PR-AUC', 'Runtime'], best: 'LightGBM', runtimeBest: 'AdaBoost',
       rows: [['LightGBM', .98, .9827, .966, 1, '0.976', '0.966', '0.06 s'], ['AdaBoost', .98, .9827, .966, 1, '0.976', '0.966', '0.04 s'],
              ['AdaBoost-SVM', .9725, .9762, .9617, .99, '0.998', '0.999', '12.5 s'], ['SVM', .8975, .9175, .8475, 1, '0.997', '0.998', '0.5 s']],
-      figs: { en: [['1,333', 'passengers (781 churned, 552 stayed)', ''], ['0.983', 'F1, LightGBM and AdaBoost', ''], ['1.000', 'recall: every churner in the test set caught', '']],
-              id: [['1.333', 'penumpang (781 churn, 552 bertahan)', ''], ['0,983', 'F1, LightGBM dan AdaBoost', ''], ['1,000', 'recall: semua pelanggan churn di data uji tertangkap', '']] },
+      figs: { en: [['1,333', 'passengers', ''], ['58.6%', 'churned (781)', 'down'], ['0.983', 'F1, LightGBM and AdaBoost', '']],
+              id: [['1.333', 'penumpang', ''], ['58,6%', 'churn (781)', 'down'], ['0,983', 'F1, LightGBM dan AdaBoost', '']] },
       concl: {
         en: '<b>LightGBM and AdaBoost tie on every metric.</b> Both catch every churner in the test set (recall 1.000) with precision 0.966, in under 0.1 seconds. The SVM models score highest on ROC-AUC (0.998 and 0.997), but plain SVM raises more false alarms (precision 0.848).',
         id: '<b>LightGBM dan AdaBoost seri di semua metrik.</b> Keduanya menangkap semua pelanggan churn di data uji (recall 1,000) dengan precision 0,966, dalam waktu kurang dari 0,1 detik. Model SVM punya ROC-AUC tertinggi (0,998 dan 0,997), tetapi SVM biasa lebih banyak salah peringatan (precision 0,848).' },
@@ -1495,7 +1476,7 @@
   });
   if (/^#work-/.test(location.hash)) openProject(location.hash.slice(1), true);
 
-  function renderAll() { renderDashes(); renderOil(); renderTv(); renderChurn(); renderEc(); renderBms(); }
+  function renderAll() { renderDashes(); renderOil(); renderTv(); renderChurn(); renderEc(); renderEcHm(); renderBms(); }
   let rz; let lastW = innerWidth;
   addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; clearTimeout(rz); rz = setTimeout(renderAll, 120); });
 

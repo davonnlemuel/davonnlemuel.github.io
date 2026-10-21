@@ -1024,3 +1024,33 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .hm tbody th { position: sticky; left: 0; background: var(--paper); z-index: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .hm td { transition: none; } }
+
+/* ---------- E-commerce journey: paired-year bars, persona rows, cohort table, next steps ---------- */
+.yyl li { grid-template-columns: 9.5em minmax(0, 1fr) 8.6em 4.6em; }
+.yyl em { font: 700 13px/1 var(--f-head); font-style: normal; text-align: right; }
+.yyl em.up { color: var(--teal); } .yyl em.down { color: var(--red); }
+.yy { display: grid; gap: 3px; }
+.yy i { display: block; height: 10px; width: var(--w); min-width: 3px; border-radius: 0 3px 3px 0; }
+.yy .yy--a { background: #A9C7BD; } .yy .yy--b { background: #1F5A4E; } .yy .yy--b.low { background: var(--red); }
+.yyl--p li { grid-template-columns: 11.5em minmax(0, 1fr) 7.2em; }
+.yyl--p .fz__k small { display: block; font: 500 11.5px/1.3 var(--f-head); color: var(--ink-3); margin-top: 2px; }
+.fz2 i.hi { background: #1F5A4E; }
+.hm--ec { min-width: 640px; }
+.hm--ec td { padding: 7px 1px; font-size: 11.5px; }
+.figs--sm b { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.nx { list-style: none; counter-reset: nx; margin: 6px 0 12px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; border-top: 1px solid var(--ink); }
+.nx li { counter-increment: nx; padding: 12px 0 12px 32px; position: relative; border-bottom: 1px solid var(--rule-2); font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.nx li::before { content: counter(nx); position: absolute; left: 0; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--paper); font: 700 12px/22px var(--f-head); text-align: center; }
+.nx b { display: block; font: 700 14px/1.3 var(--f-head); color: var(--ink); margin-bottom: 3px; }
+.more__links { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+@media (max-width: 760px) {
+  .nx { grid-template-columns: minmax(0, 1fr); }
+  .yyl li { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .yyl li .yy { grid-column: 1 / -1; grid-row: 2; }
+  .yyl em { grid-column: auto; margin-top: 0; }
+  .yyl--p li { grid-template-columns: minmax(0, 1fr) auto; }
+}
+@media (max-width: 639px) {
+  .hm--ec { min-width: 600px; }
+  .more__links { flex-direction: row; gap: 16px; }
+}

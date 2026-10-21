@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=78">
+<link rel="stylesheet" href="styles.css?v=79">
 </head>
 <body>
 
@@ -147,7 +147,7 @@
                 <li class="done"><span class="tr-when" data-i18n="tw.t6">Sep 2026</span><b data-i18n="tr.t6">SQL</b><span data-i18n="tr.t6s">Queries, subqueries, window functions and CTEs in PostgreSQL</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t7">Sep 2026</span><b data-i18n="tr.t7">Dashboard making</b><span data-i18n="tr.t7s">Interactive dashboards in Tableau, plus data storytelling (<a href="#work-tableau">see the Olist project</a>)</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t8">Oct 2026</span><b data-i18n="tr.t8">Social media and digital analytics</b><span data-i18n="tr.t8s">Google Analytics, social media metrics, marketing channels</span></li>
-                <li class="done"><span class="tr-when" data-i18n="tw.t9">Oct 2026</span><b data-i18n="tr.t9">Funnel and cohort analysis</b><span data-i18n="tr.t9s">Conversion by stage, retention by cohort (<a href="#work-funnel">see the project</a>)</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t9">Oct 2026</span><b data-i18n="tr.t9">Funnel and cohort analysis</b><span data-i18n="tr.t9s">Conversion by stage, retention by cohort (see the <a href="#work-ecom">e-commerce project</a> and the <a href="#work-more">edtech and fintech piece</a>)</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t10">Oct 2026</span><b data-i18n="tr.t10">A/B testing</b><span data-i18n="tr.t10s">Test design, significance, reading the result</span></li>
                 <li class="next"><span class="tr-when" data-i18n="tw.t11">Oct 2026</span><em class="tr-next" data-i18n="tr.next">Upcoming</em><b data-i18n="tr.t11">Customer segmentation</b><span data-i18n="tr.t11s">Segmentation techniques, results in Power BI</span></li>
                 <li class="next"><span class="tr-when" data-i18n="tw.t12">Nov to Dec 2026</span><em class="tr-next" data-i18n="tr.next">Upcoming</em><b data-i18n="tr.t12">Final project and graduation</b><span data-i18n="tr.t12s">Capstone, take-home and coding tests</span></li>
@@ -311,7 +311,7 @@
         <div class="pj__list" role="tablist" aria-label="Projects" aria-orientation="vertical">
           <button type="button" role="tab" id="pt-thesis" aria-controls="work-thesis" aria-selected="true"><b data-i18n="w5.n">Thesis: Bonus-Malus Pricing</b><span data-i18n="w5.ns">Actuarial Modelling</span></button>
           <button type="button" role="tab" id="pt-churn" aria-controls="work-churn" aria-selected="false" tabindex="-1"><b data-i18n="w1.n">Customer Churn Prediction</b><span data-i18n="w1.ns">Python · Machine Learning</span></button>
-          <button type="button" role="tab" id="pt-funnel" aria-controls="work-funnel" aria-selected="false" tabindex="-1"><b data-i18n="fc.n">Funnel and Cohort Analysis</b><span data-i18n="fc.ns">Python · Dibimbing Bootcamp</span></button>
+          <button type="button" role="tab" id="pt-ecom" aria-controls="work-ecom" aria-selected="false" tabindex="-1"><b data-i18n="w2.n">E-commerce Customer Journey</b><span data-i18n="w2.ns">Python · Funnel and Cohort</span></button>
           <button type="button" role="tab" id="pt-oil" aria-controls="work-oil" aria-selected="false" tabindex="-1"><b data-i18n="w3.n">Edible-Oil Sales Dashboard</b><span data-i18n="w3.ns">Power BI · DAX</span></button>
           <button type="button" role="tab" id="pt-tableau" aria-controls="work-tableau" aria-selected="false" tabindex="-1"><b data-i18n="w7.n">Olist Sales Data Story</b><span data-i18n="w7.ns">Tableau · Dibimbing Bootcamp</span></button>
           <button type="button" role="tab" id="pt-calc" aria-controls="work-calc" aria-selected="false" tabindex="-1"><b data-i18n="w4.n">Life Premium Calculator</b><span data-i18n="w4.ns">Python · Web App</span></button>
@@ -430,54 +430,63 @@
           </div>
         </article>
 
-        <article class="work" id="work-funnel" role="tabpanel" aria-labelledby="pt-funnel" hidden>
+        <article class="work" id="work-ecom" role="tabpanel" aria-labelledby="pt-ecom" hidden>
           <div class="work__side">
             <dl>
               <div><dt data-i18n="w.tools">Tools</dt><dd>Python, Pandas, Google Colab</dd></div>
-              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="fc.data">Edtech funnel: 630,338 leads across 3 school segments. Fintech app: daily user activity and revenue through 2024.</dd></div>
-              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="fc.ctx">Funnel and Cohort assignment, Dibimbing Data Analytics and Business Intelligence bootcamp</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="ec.data">Practice online-store dataset, Jan 2023 to Dec 2025: 56,894 funnel events, 5 shopper personas, transaction records</dd></div>
+              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="ec.ctx">Hands-on project, Dibimbing Data Analytics and Business Intelligence bootcamp</dd></div>
             </dl>
           </div>
           <div class="work__main">
-            <h3 data-i18n="fc.t">Funnel and Cohort Analysis for an Edtech Startup and a Fintech App</h3>
-            <p data-i18n="fc.p">Two businesses, two questions. Where do would-be students drop out before they register? And once fintech users are in, do they stay and keep paying? The funnel answers the first, the cohorts answer the second.</p>
+            <h3 data-i18n="ec.t">Fewer Visitors, More Buyers: E-commerce Customer Journey, FY2025</h3>
+            <p data-i18n="ec.p">Traffic fell in 2025. Did sales fall with it? And once customers sign up, do they keep buying? I followed the same store's customers through the funnel first, then through their first year after sign-up.</p>
             <div class="figs">
-              <div><b class="down">62.7%</b><span data-i18n="fc.f1">Booking to Trial, the weakest step of the funnel</span></div>
-              <div><b>27% → 67%</b><span data-i18n="fc.f2">February retention in month 1, before and after removing 9 identical accounts</span></div>
-              <div><b class="down">7%</b><span data-i18n="fc.f3">of January revenue left by December, while 59% of those users stayed</span></div>
+              <div><b class="down">−21.4%</b><span data-i18n="ec.f1">visitors, 14,228 → 11,179</span></div>
+              <div><b class="up">+13.0%</b><span data-i18n="ec.f2">buyers, 630 → 712</span></div>
+              <div><b>37.6%</b><span data-i18n="ec.f3">cart to purchase, up from 30.3%</span></div>
             </div>
 
-            <h4 class="h4 ch-h" data-i18n="fc.h1">1 · Edtech funnel: where students drop off</h4>
-            <p class="fz__cap" data-i18n="fc.c1">Everyone who reached each stage, and the share that moved on from the stage before.</p>
-            <ol class="fz"><li><span class="fz__k">Leads</span><i style="--w:100.0%"></i><b>630,338</b><em></em></li><li><span class="fz__k">Bookings</span><i style="--w:66.2%"></i><b>417,400</b><em data-i18n="fc.mv1">66.2% move on</em></li><li><span class="fz__k">Free Trials</span><i style="--w:41.5%" class=low></i><b>261,630</b><em data-i18n="fc.mv2">62.7% move on</em></li><li><span class="fz__k">Register New User</span><i style="--w:28.3%"></i><b>178,560</b><em data-i18n="fc.mv3">68.2% move on</em></li></ol>
-            <p class="fz__cap" data-i18n="fc.c2">Conversion per step and segment. Red marks the segments below 50%.</p>
-            <div class="fz2"><div class="fz2__g"><p class="fz2__h">Lead → Booking</p><div class="fz2__r"><span>Kindergarten & Elementary</span><i style="--w:65%"></i><b>65%</b></div><div class="fz2__r"><span>Middle School</span><i style="--w:72%"></i><b>72%</b></div><div class="fz2__r"><span>High School</span><i style="--w:59%"></i><b>59%</b></div></div><div class="fz2__g"><p class="fz2__h">Booking → Trial</p><div class="fz2__r"><span>Kindergarten & Elementary</span><i style="--w:68%"></i><b>68%</b></div><div class="fz2__r"><span>Middle School</span><i style="--w:63%"></i><b>63%</b></div><div class="fz2__r"><span>High School</span><i style="--w:60%"></i><b>60%</b></div></div><div class="fz2__g"><p class="fz2__h">Trial → Register</p><div class="fz2__r"><span>Kindergarten & Elementary</span><i style="--w:47%" class=low></i><b>47%</b></div><div class="fz2__r"><span>Middle School</span><i style="--w:83%"></i><b>83%</b></div><div class="fz2__r"><span>High School</span><i style="--w:49%" class=low></i><b>49%</b></div></div></div>
-            <p class="fz__cap" data-i18n="fc.c3">Extra registered users if one step reaches its target.</p>
-            <ol class="fz3"><li><span data-i18n="fc.sc1">Booking → Trial to 70%, all segments</span><i style="--w:100.0%" class=hi></i><b>+20,186 <small>(+11.3%)</small></b></li><li><span data-i18n="fc.sc2">Trial → Register to 60%, Kindergarten & Elementary and High School</span><i style="--w:66.1%"></i><b>+13,341 <small>(+7.5%)</small></b></li><li><span data-i18n="fc.sc3">Lead → Booking for Kindergarten & Elementary and High School up to the Middle School level</span><i style="--w:49.6%"></i><b>+10,006 <small>(+5.6%)</small></b></li></ol>
-            <p class="ch-concl" data-i18n="fc.k1"><b>Middle School hides the leak in the total.</b> It converts 83% of trials into registrations, while Kindergarten &amp; Elementary (47%) and High School (49%) lose about half. Raising Booking → Trial to 70% adds the most new users: 20,186.</p>
+            <h4 class="h4 ch-h" data-i18n="ec.h1">1 · The funnel: fewer arrive, more of them buy</h4>
+            <p class="fz__cap" data-i18n="ec.c1">Unique customers at each stage, 2024 (light) and 2025 (dark). The drop shrinks at every step and turns positive at purchase.</p>
+            <ol class="fz yyl"><li><span class="fz__k">Visit site</span><div class="yy"><i style="--w:100.00%" class="yy--a"></i><i style="--w:78.57%" class="yy--b"></i></div><b>14,228 → 11,179</b><em class="down">−21.4%</em></li><li><span class="fz__k">View product page</span><div class="yy"><i style="--w:51.31%" class="yy--a"></i><i style="--w:42.06%" class="yy--b"></i></div><b>7,300 → 5,985</b><em class="down">−18.0%</em></li><li><span class="fz__k">Add to cart</span><div class="yy"><i style="--w:14.63%" class="yy--a"></i><i style="--w:13.31%" class="yy--b"></i></div><b>2,081 → 1,894</b><em class="down">−9.0%</em></li><li><span class="fz__k">Purchase</span><div class="yy"><i style="--w:4.43%" class="yy--a"></i><i style="--w:5.00%" class="yy--b"></i></div><b>630 → 712</b><em class="up">+13.0%</em></li></ol>
+            <p class="fz__cap" data-i18n="ec.c2">Share of customers who move on to the next stage. All three steps convert better than in 2024, checkout the most (+7.3 pts).</p>
+            <div class="fz2"><div class="fz2__g"><p class="fz2__h">Visit → product view</p><div class="fz2__r"><span>2023</span><i style="--w:84.3%"></i><b>50.6%</b></div><div class="fz2__r"><span>2024</span><i style="--w:85.5%"></i><b>51.3%</b></div><div class="fz2__r"><span>2025</span><i style="--w:89.2%" class=hi></i><b>53.5%</b></div></div><div class="fz2__g"><p class="fz2__h">Product view → cart</p><div class="fz2__r"><span>2023</span><i style="--w:35.2%"></i><b>21.1%</b></div><div class="fz2__r"><span>2024</span><i style="--w:47.5%"></i><b>28.5%</b></div><div class="fz2__r"><span>2025</span><i style="--w:52.7%" class=hi></i><b>31.6%</b></div></div><div class="fz2__g"><p class="fz2__h">Cart → purchase</p><div class="fz2__r"><span>2023</span><i style="--w:48.7%"></i><b>29.2%</b></div><div class="fz2__r"><span>2024</span><i style="--w:50.5%"></i><b>30.3%</b></div><div class="fz2__r"><span>2025</span><i style="--w:62.7%" class=hi></i><b>37.6%</b></div></div></div>
 
-            <h4 class="h4 ch-h" data-i18n="fc.h2">2 · Fintech app: which users stay</h4>
-            <p class="fz__cap" data-i18n="fc.c4">Share of each monthly cohort still active n months after their first month. Cohorts from March to November have only 5 to 13 users, so read them as a direction.</p>
-            <button type="button" class="hm__tog" id="hmTog" aria-pressed="false"><span class="hm__box" aria-hidden="true"></span><span data-i18n="fc.tog">Remove the 9 identical February accounts</span></button>
-            <div class="scroll-x"><table class="hm" id="hm" aria-label="Retention rate per monthly cohort"></table></div>
-            <p class="fz__cap" data-i18n="fc.c5">Monthly revenue without the anomaly accounts, in Rp billion.</p>
-            <div class="rv"><div class="rv__c" data-tip="Jan 2024: <b>Rp 2.7 bn</b>"><b>2.7</b><i style="--h:0.218"></i><span>Jan</span></div><div class="rv__c" data-tip="Feb 2024: <b>Rp 5.5 bn</b>"><b>5.5</b><i style="--h:0.444"></i><span>Feb</span></div><div class="rv__c" data-tip="Mar 2024: <b>Rp 4.7 bn</b>"><b>4.7</b><i style="--h:0.379"></i><span>Mar</span></div><div class="rv__c" data-tip="Apr 2024: <b>Rp 3.1 bn</b>"><b>3.1</b><i style="--h:0.250"></i><span>Apr</span></div><div class="rv__c" data-tip="May 2024: <b>Rp 3.5 bn</b>"><b>3.5</b><i style="--h:0.282"></i><span>May</span></div><div class="rv__c" data-tip="Jun 2024: <b>Rp 7.8 bn</b>"><b>7.8</b><i style="--h:0.629"></i><span>Jun</span></div><div class="rv__c" data-tip="Jul 2024: <b>Rp 12.2 bn</b>"><b>12.2</b><i style="--h:0.984"></i><span>Jul</span></div><div class="rv__c" data-tip="Aug 2024: <b>Rp 12.4 bn</b>"><b>12.4</b><i style="--h:1.000" class=hi></i><span>Aug</span></div><div class="rv__c" data-tip="Sep 2024: <b>Rp 8.8 bn</b>"><b>8.8</b><i style="--h:0.710"></i><span>Sep</span></div><div class="rv__c" data-tip="Oct 2024: <b>Rp 6.8 bn</b>"><b>6.8</b><i style="--h:0.548"></i><span>Oct</span></div><div class="rv__c" data-tip="Nov 2024: <b>Rp 7.0 bn</b>"><b>7.0</b><i style="--h:0.565"></i><span>Nov</span></div><div class="rv__c" data-tip="Dec 2024: <b>Rp 3.8 bn</b>"><b>3.8</b><i style="--h:0.306" class=hi></i><span>Dec</span></div></div>
-            <p class="ch-concl" data-i18n="fc.k2"><b>Nine accounts with identical transactions pulled February down.</b> Without them, month-1 retention rises from 27% to 67%. January is the steadiest cohort (79% in month 1, 59% in month 11), yet its revenue fell to 7% of January. Revenue dropped from Rp 12.4 bn in August to Rp 3.8 bn in December as the biggest users stopped.</p>
+            <h4 class="h4 ch-h" data-i18n="ec.h2">2 · Where it still leaks: the product page</h4>
+            <div class="chart">
+              <p class="fz__cap" data-i18n="w2.ch">Out of every 100 visitors</p>
+              <div class="yearsw" role="group" aria-label="Year" id="ecYear"><button type="button" aria-pressed="false" data-y="2023">2023</button><button type="button" aria-pressed="false" data-y="2024">2024</button><button type="button" aria-pressed="true" data-y="2025">2025</button></div>
+              <div class="svg" id="ecFunnel"></div>
+            </div>
+            <p class="ch-concl" data-i18n="ec.k1"><b>68.4% of product viewers leave without adding to cart.</b> It is improving (78.9% in 2023, 71.5% in 2024), but it is still about 4,100 customers in 2025 who opened a product and added nothing. They were interested enough to open the page, so this is where I would start.</p>
 
-            <h4 class="h4 ch-h" data-i18n="fc.h3">Findings, decisions and targets</h4>
-            <div class="scroll-x"><table class="fdt">
-              <thead><tr><th data-i18n="fc.th1">Finding</th><th data-i18n="fc.th2">Recommendation</th><th data-i18n="fc.th3">Target</th></tr></thead>
-              <tbody>
-                <tr><td data-i18n="fc.r1a">Trial → Register is 47% for Kindergarten &amp; Elementary and 49% for High School.</td><td data-i18n="fc.r1b">Send parents a trial report; run an exam-prep trial for High School.</td><td data-i18n="fc.r1c">Trial → Register 60%</td></tr>
-                <tr><td data-i18n="fc.r2a">Booking → Trial is 62.7%, the lowest conversion rate.</td><td data-i18n="fc.r2b">WhatsApp reminder the day before, plus afternoon and weekend trial slots.</td><td data-i18n="fc.r2c">Booking → Trial 70%</td></tr>
-                <tr><td data-i18n="fc.r3a">Middle School converts 83% of trials, far above the other segments.</td><td data-i18n="fc.r3b">Check how Middle School defines a registration, and add the payment step to the funnel data.</td><td data-i18n="fc.r3c">Payment step recorded in the funnel</td></tr>
-                <tr><td data-i18n="fc.r4a">9 February accounts with identical transactions, then gone.</td><td data-i18n="fc.r4b">Find where they came from: a corporate client, a campaign or a data error.</td><td data-i18n="fc.r4c">Source of the 9 accounts known</td></tr>
-                <tr><td data-i18n="fc.r5a">Revenue fell from Rp 12.4 bn to Rp 3.8 bn after August as big users stopped.</td><td data-i18n="fc.r5b">Early warning when a big user starts transacting less, and track revenue retention.</td><td data-i18n="fc.r5c">Revenue retention tracked every month</td></tr>
-              </tbody>
-            </table></div>
+            <h4 class="h4 ch-h" data-i18n="ec.h3">3 · Who checks out: four of five personas improved</h4>
+            <p class="fz__cap" data-i18n="ec.c3">Cart to purchase by shopper persona, 2024 (light) and 2025 (dark), with 2025 visitors and buyers.</p>
+            <ol class="fz yyl yyl--p"><li><span class="fz__k">Everyday Shopper<small>4,514 visitors · 297 buyers</small></span><div class="yy"><i style="--w:66.5%" class="yy--a"></i><i style="--w:97.5%" class="yy--b"></i></div><b>26.6% → 39.0%</b></li><li><span class="fz__k">Bargain Hunter<small>2,809 visitors · 175 buyers</small></span><div class="yy"><i style="--w:89.5%" class="yy--a"></i><i style="--w:94.5%" class="yy--b"></i></div><b>35.8% → 37.8%</b></li><li><span class="fz__k">Tech Enthusiast<small>2,244 visitors · 144 buyers</small></span><div class="yy"><i style="--w:69.2%" class="yy--a"></i><i style="--w:90.8%" class="yy--b"></i></div><b>27.7% → 36.3%</b></li><li><span class="fz__k">Practical Buyer<small>1,062 visitors · 66 buyers</small></span><div class="yy"><i style="--w:77.5%" class="yy--a"></i><i style="--w:93.8%" class="yy--b"></i></div><b>31.0% → 37.5%</b></li><li><span class="fz__k">Gift Shopper<small>550 visitors · 30 buyers</small></span><div class="yy"><i style="--w:93.5%" class="yy--a"></i><i style="--w:78.2%" class="yy--b low"></i></div><b>37.4% → 31.3%</b></li></ol>
+            <p class="ch-concl" data-i18n="ec.k2"><b>Everyday Shoppers drove the gain.</b> They are 40% of visitors and moved from 26.6% to 39.0%. Gift Shoppers went the other way (37.4% to 31.3%), but that is 30 buyers out of 96 carts, so I would check it before calling it a trend.</p>
+
+            <h4 class="h4 ch-h" data-i18n="ec.h4">4 · After sign-up: slow to start, steady through year one</h4>
+            <p class="fz__cap" data-i18n="ec.c4">Share of each 2024 sign-up cohort that bought, by months since sign-up (M0 = sign-up month).</p>
+            <div class="scroll-x"><table class="hm hm--ec" id="ecHm" aria-label="Share of each 2024 sign-up cohort that purchased, by month since sign-up"></table></div>
+            <div class="figs figs--sm">
+              <div><b>11%</b><span data-i18n="ec.g1">buy in their sign-up month (M0)</span></div>
+              <div><b>22%</b><span data-i18n="ec.g2">buy in month 2</span></div>
+              <div><b>26%</b><span data-i18n="ec.g3">still buy in month 12, across 599 customers</span></div>
+            </div>
+            <p class="ch-concl" data-i18n="ec.k3"><b>Newer sign-ups start buying sooner, but fewer are joining.</b> 17% of customers who signed up in the second half of 2024 bought in their first month, against 6% in the first half. Cohorts shrank from 336 (Jan to Jun 2024) to 263 (Jul to Dec 2024) and 131 (Jan to Jun 2025), which fits the drop in traffic.</p>
+
+            <h4 class="h4 ch-h" data-i18n="ec.h5">What I would look at next</h4>
+            <ol class="nx">
+              <li><b data-i18n="ec.n1">Find where the traffic went</b><span data-i18n="ec.n1p">Visitors fell 20 to 25% in every persona, so the cause is probably not one customer group. I would split sessions by campaign next.</span></li>
+              <li><b data-i18n="ec.n2">Work on the product page</b><span data-i18n="ec.n2p">68% of viewers do not add to cart. Checkout already converts well, so more carts should mean more orders.</span></li>
+              <li><b data-i18n="ec.n3">Check the Gift Shopper checkout</b><span data-i18n="ec.n3p">The only persona whose cart to purchase fell (37.4% to 31.3%). The group is small, so confirm it with more data first.</span></li>
+              <li><b data-i18n="ec.n4">Get new sign-ups to buy sooner</b><span data-i18n="ec.n4p">Only 11% of 2024 sign-ups bought in the month they joined. The second-half cohorts reached 17%, so the number can move.</span></li>
+            </ol>
+            <p class="note" data-i18n="ec.lim"><b>Limits:</b> I counted unique customers per year, not sessions. The data shows what changed, not why. Small groups (Gift Shoppers, late-2025 cohorts) can swing a lot on a few customers.</p>
             <div class="actions" style="margin-top:14px">
-              <a class="btn" href="https://drive.google.com/file/d/1wsXOpe1ZhfORYU1Z9KvkK0iU4xWel3nL/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fc.open1">Open the slides and code (Google Drive)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
-              <a class="btn" href="https://colab.research.google.com/drive/1mMJLdPM8xWvfqdBhYpMdsgsTCSdK8Nre?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fc.open2">Open the Colab notebook</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://drive.google.com/file/d/1TROW1I6URR2MhNZ0erql31UtHJeKDM1U/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="ec.open1">Open the slides (Google Drive)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://colab.research.google.com/drive/1MadLMw-Xp_t2ndvEnE9h2FS-5-BXqc04?usp=sharing" target="_blank" rel="noopener"><span data-i18n="ec.open2">Open the Colab notebook</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
             </div>
           </div>
         </article>
@@ -624,15 +633,10 @@
           <div class="work__main">
         <h3 class="h4" data-i18n="w.more">More analyses</h3>
         <ul class="more">
-          <li class="more--ec">
-            <h4 data-i18n="m6.t">E-commerce customer journey<small>Python · practice online-store data, 2023 to 2025</small></h4>
-            <p data-i18n="m6.p">Traffic fell 21.4% in 2025, yet buyers rose 13.0% and cart-to-purchase climbed to 37.6%. The biggest leak is the product page: 68.4% of viewers leave without adding to cart.</p>
-            <span></span>
-            <div class="chart ec-mini">
-              <h4 data-i18n="w2.ch">Out of every 100 visitors</h4>
-              <div class="yearsw" role="group" aria-label="Year" id="ecYear"><button type="button" aria-pressed="false" data-y="2023">2023</button><button type="button" aria-pressed="false" data-y="2024">2024</button><button type="button" aria-pressed="true" data-y="2025">2025</button></div>
-              <div class="svg" id="ecFunnel"></div>
-            </div>
+          <li class="more--t11">
+            <h4 data-i18n="m7.t">Funnel and cohort analysis<small>Python · edtech funnel, fintech app cohorts</small></h4>
+            <p data-i18n="m7.p">Two cases from the Dibimbing Funnel and Cohort assignment. In the edtech funnel, Booking to Trial is the weakest step (62.7%). In the fintech app, 9 accounts with identical transactions pulled February month-1 retention down to 27%; without them it is 67%.</p>
+            <span class="more__links"><a href="https://drive.google.com/file/d/1wsXOpe1ZhfORYU1Z9KvkK0iU4xWel3nL/view?usp=sharing" target="_blank" rel="noopener" data-i18n="m7.l1">Slides and code</a><a href="https://colab.research.google.com/drive/1mMJLdPM8xWvfqdBhYpMdsgsTCSdK8Nre?usp=sharing" target="_blank" rel="noopener" data-i18n="m7.l2">Open notebook</a></span>
           </li>
           <li>
             <h4 data-i18n="m2.t">Social media engagement<small>Python · 89 posts, 4 platforms</small></h4>
@@ -728,6 +732,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=77"></script>
+<script src="app.js?v=79"></script>
 </body>
 </html>
