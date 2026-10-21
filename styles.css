@@ -1076,3 +1076,12 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .figs--ec span { font-size: 15px; font-weight: 600; color: var(--ink-2); }
 .hl-note { margin-top: 4px; }
 .figs--ec b { white-space: nowrap; font-size: clamp(1.4rem, 2.5vw, 1.95rem); }
+
+/* phone: KPI strips sit in a clean 2-column grid; a lone last figure spans the row */
+@media (max-width: 639px) {
+  .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figs > div, .figs > div + div { padding: 12px 12px 12px 0; border-left: 0; }
+  .figs > div:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--rule-2); }
+  .figs > div:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
+  .figs > div:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; }
+}
