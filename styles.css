@@ -1055,3 +1055,20 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .more__links { flex-direction: row; gap: 16px; }
 }
 .ec-per { margin: -8px 0 0; }
+/* cohort: how-to-read note, half-year split, slide 9 chart */
+.howto { margin: 12px 0 10px; padding: 12px 14px; background: #E5EEE9; border-radius: 6px; }
+.howto b { display: block; margin-bottom: 4px; font: 700 13.5px/1.3 var(--f-head); color: var(--ink); }
+.howto p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+.howto strong { color: var(--ink); }
+.hm tr.hm__h2 th, .hm tr.hm__h2 td { box-shadow: inset 0 2px 0 var(--ink); }
+.hy { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 10px 28px; margin: 6px 0 4px; }
+.hy__g { margin-bottom: 10px; }
+.hy__g > span { display: block; margin-bottom: 4px; font: 700 13px/1.3 var(--f-head); color: var(--ink); }
+.hy__r { display: grid; grid-template-columns: 7.5em minmax(0, 1fr) 3.6em; align-items: center; gap: 8px; margin-bottom: 5px; }
+.hy__r em { font: 500 12.5px/1.2 var(--f-head); font-style: normal; color: var(--ink-3); }
+.hy__r i { display: block; height: 14px; width: var(--w); background: #A9C7BD; border-radius: 0 3px 3px 0; }
+.hy__r i.hi { background: #1F5A4E; } .hy__r i.lo { background: var(--red); }
+.hy__r b { font: 700 13px/1 var(--f-head); font-variant-numeric: tabular-nums; text-align: right; }
+.hy__r--n { grid-template-columns: 8.5em minmax(0, 1fr) 3em; }
+.hy__r--n em { color: var(--ink-2); }
+@media (max-width: 760px) { .hy { grid-template-columns: minmax(0, 1fr); } }

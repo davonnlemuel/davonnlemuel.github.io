@@ -197,6 +197,20 @@
     'w2.n': 'Customer Journey E-commerce',
     'w2.ns': 'Python · Funnel dan Cohort',
     'ec.per': 'FY2025 = tahun penuh 2025 (Jan sampai Des), dibandingkan dengan 2024. Data mencakup Jan 2023 sampai Des 2025.',
+    'ec.ht': 'Cara membaca tabel ini',
+    'ec.c6': 'Persentase tiap kelompok semester yang membeli',
+    'ec.hy1': 'Daftar Jan sampai Jun 2024',
+    'ec.hy2': 'Daftar Jul sampai Des 2024',
+    'ec.m0': 'Bulan daftar',
+    'ec.m1': 'Bulan berikutnya',
+    'ec.c7': 'Jumlah pelanggan per kelompok semester',
+    'ec.v1': '6,3%',
+    'ec.v2': '15,2%',
+    'ec.v3': '17,1%',
+    'ec.v4': '22,1%',
+    'ec.y1': 'Jan sampai Jun 2024',
+    'ec.y2': 'Jul sampai Des 2024',
+    'ec.y3': 'Jan sampai Jun 2025',
     'ec.data': 'Dataset latihan toko online, Jan 2023 sampai Des 2025: 56.894 event funnel, 5 persona pembeli, data transaksi',
     'ec.ctx': 'Hands-on project, bootcamp Data Analytics and Business Intelligence Dibimbing',
     'ec.t': 'Pengunjung Turun, Pembeli Naik: Customer Journey E-commerce, FY2025',
@@ -213,7 +227,7 @@
     'ec.c3': 'Cart ke purchase per persona pembeli, 2024 (terang) dan 2025 (gelap), dengan pengunjung dan pembeli 2025.',
     'ec.k2': '<b>Everyday Shopper yang mendorong kenaikan.</b> Mereka 40% dari pengunjung dan naik dari 26,6% ke 39,0%. Gift Shopper justru turun (37,4% ke 31,3%), tetapi itu hanya 30 pembeli dari 96 keranjang, jadi perlu dicek dulu sebelum disebut tren.',
     'ec.h4': '4 · Setelah daftar: lambat di awal, stabil sepanjang tahun pertama',
-    'ec.c4': 'Persentase tiap cohort pendaftar 2024 yang melakukan pembelian, per bulan sejak daftar. M0 adalah bulan daftar, jadi nilainya bukan 100%: mendaftar belum tentu membeli, dan hanya 6% kelompok Januari yang membeli di bulan mereka daftar.',
+    'ec.c4': 'Setiap baris adalah kelompok pelanggan yang daftar di bulan yang sama di 2024. Setiap kotak adalah persentase kelompok itu yang membeli di bulan tersebut setelah daftar. <strong>M0 adalah bulan daftar, jadi tidak dimulai dari 100%:</strong> mendaftar belum tentu membeli. Hanya 6% kelompok Januari yang membeli di bulan mereka daftar.',
     'ec.g1': 'membeli di bulan daftar (M0)',
     'ec.g2': 'membeli di bulan ke-2',
     'ec.g3': 'masih membeli di bulan ke-12, dari 599 pelanggan',
@@ -1250,7 +1264,7 @@
     const ramp = k => 'rgb(' + [[238, 31], [243, 90], [239, 78]].map(([a, b]) => Math.round(a + (b - a) * k)).join(',') + ')';
     const of = lang === 'id' ? 'dari' : 'of', cust = lang === 'id' ? 'pelanggan' : 'customers';
     el.innerHTML = `<thead><tr><th scope="col">${lang === 'id' ? 'Daftar' : 'Signed up'}</th>${Array.from({ length: 13 }, (_, i) => `<th scope="col">M${i}</th>`).join('')}</tr></thead><tbody>` +
-      ECH.map(([c, n, v]) => `<tr><th scope="row">${c} <small>n=${n}</small></th>${v.map((x, i) => { const k = Math.min(1, x / 55); return `<td style="background:${ramp(k)};color:${k > .5 ? '#fff' : '#13264A'}" data-tip="${c}, M${i}: <b>${x}%</b> ${of} ${n} ${cust}">${x}</td>`; }).join('')}</tr>`).join('') + '</tbody>';
+      ECH.map(([c, n, v]) => `<tr${c === 'Jul 2024' ? ' class="hm__h2"' : ''}><th scope="row">${c} <small>n=${n}</small></th>${v.map((x, i) => { const k = Math.min(1, x / 55); return `<td style="background:${ramp(k)};color:${k > .5 ? '#fff' : '#13264A'}" data-tip="${c}, M${i}: <b>${x}%</b> ${of} ${n} ${cust}">${x}</td>`; }).join('')}</tr>`).join('') + '</tbody>';
   }
 
   /* ------------------------------------------------------------------
