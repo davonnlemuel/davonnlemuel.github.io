@@ -1072,3 +1072,4 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .hy__r--n { grid-template-columns: 8.5em minmax(0, 1fr) 3em; }
 .hy__r--n em { color: var(--ink-2); }
 @media (max-width: 760px) { .hy { grid-template-columns: minmax(0, 1fr); } }
+.hl-note { display: inline-block; margin: 0 0 10px; padding: 6px 10px; background: #F6E7B8; border-radius: 4px; font: 600 13px/1.4 var(--f-head); color: var(--ink); }
