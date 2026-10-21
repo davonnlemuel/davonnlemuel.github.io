@@ -643,24 +643,11 @@
             <h3 data-i18n="hb.t">Who Cancels a Hotel Booking,<br>and What It Costs</h3>
             <p data-i18n="hb.p">37% of the 83,293 bookings in this dataset were canceled. I looked for the bookings most likely to cancel, measured how much booking value the cancellations cost, and turned that into three changes a hotel could test.</p>
             <div class="figs">
-              <div><b class="down" data-i18n="hb.b1">37.0%</b><span data-i18n="hb.f1">of bookings canceled</span></div>
-              <div><b data-i18n="hb.b2">$9.13M</b><span data-i18n="hb.f2">booking value lost, Jul 2017 to Aug 2019</span></div>
-              <div><b data-i18n="hb.b3">18.5% → 67.4%</b><span data-i18n="hb.f3">cancellation rate, booked within 30 days vs more than a year ahead</span></div>
+              <div><b class="down" data-i18n="hb.b1">37%</b><span data-i18n="hb.f1">of bookings canceled</span></div>
+              <div><b data-i18n="hb.b2">$9.13M</b><span data-i18n="hb.f2">booking value lost<br>Jul 2017 to Aug 2019</span></div>
             </div>
-            <p class="note" data-i18n="hb.per">Booking value = ADR (average daily rate) × nights. July and August appear in 3 years of data and the other months in 2, so monthly figures are averaged per year.</p>
 
-            <h4 class="h4 ch-h" data-i18n="hb.h1">1 · The earlier the booking, the more likely it cancels</h4>
-            <p class="fz__cap" data-i18n="hb.c1">Cancellation rate by lead time, the days between booking and arrival. In brackets: that group's share of all bookings.</p>
-            <div class="fz2 fz2--1"><div class="fz2__g">
-              <div class="fz2__r"><span data-i18n="hb.l1">0 to 30 days (32.3%)</span><i style="--w:26.4%"></i><b>18.5%</b></div>
-              <div class="fz2__r"><span data-i18n="hb.l2">31 to 90 days (24.9%)</span><i style="--w:53.7%"></i><b>37.6%</b></div>
-              <div class="fz2__r"><span data-i18n="hb.l3">91 to 180 days (22.2%)</span><i style="--w:63.9%"></i><b>44.7%</b></div>
-              <div class="fz2__r"><span data-i18n="hb.l4">181 to 365 days (17.9%)</span><i style="--w:78.9%" class="low"></i><b>55.2%</b></div>
-              <div class="fz2__r"><span data-i18n="hb.l5">More than 365 days (2.7%)</span><i style="--w:96.3%" class="low"></i><b>67.4%</b></div>
-            </div></div>
-            <p class="ch-concl" data-i18n="hb.k1"><b>Bookings made more than 180 days ahead are 20.6% of all bookings, and 55 to 67% of them cancel.</b> Bookings made within a month cancel at 18.5%.</p>
-
-            <h4 class="h4 ch-h" data-i18n="hb.h2">2 · What cancellations cost</h4>
+            <h4 class="h4 ch-h" data-i18n="hb.h2">1 · What cancellations cost</h4>
             <p class="fz__cap" data-i18n="hb.c2">Where the $29.84M of booking value went, Jul 2017 to Aug 2019.</p>
             <div class="hb-split" role="img" aria-label="Stayed 60.9%, canceled 30.6%, Non Refund canceled 8.5%"><i style="--w:60.9%" class="s1"></i><i style="--w:30.6%" class="s2"></i><i style="--w:8.5%" class="s3"></i></div>
             <ul class="hb-leg">
@@ -685,6 +672,17 @@
             </div>
             <p class="ch-concl" data-i18n="hb.k2"><b>July and August lose the most: $1.22M a year, 31% of the yearly loss.</b> Rooms cost the most in those months (ADR $127 in July, $140 in August), so each canceled night loses more.</p>
 
+            <h4 class="h4 ch-h" data-i18n="hb.h1">2 · The earlier the booking, the more likely it cancels</h4>
+            <p class="fz__cap" data-i18n="hb.c1">Cancellation rate by lead time, the days between booking and arrival. In brackets: that group's share of all bookings.</p>
+            <div class="fz2 fz2--1"><div class="fz2__g">
+              <div class="fz2__r"><span data-i18n="hb.l1">0 to 30 days (32.3%)</span><i style="--w:26.4%"></i><b>18.5%</b></div>
+              <div class="fz2__r"><span data-i18n="hb.l2">31 to 90 days (24.9%)</span><i style="--w:53.7%"></i><b>37.6%</b></div>
+              <div class="fz2__r"><span data-i18n="hb.l3">91 to 180 days (22.2%)</span><i style="--w:63.9%"></i><b>44.7%</b></div>
+              <div class="fz2__r"><span data-i18n="hb.l4">181 to 365 days (17.9%)</span><i style="--w:78.9%" class="low"></i><b>55.2%</b></div>
+              <div class="fz2__r"><span data-i18n="hb.l5">More than 365 days (2.7%)</span><i style="--w:96.3%" class="low"></i><b>67.4%</b></div>
+            </div></div>
+            <p class="ch-concl" data-i18n="hb.k1"><b>Bookings made more than 180 days ahead are 20.6% of all bookings, and 55 to 67% of them cancel.</b> Bookings made within a month cancel at 18.5%.</p>
+
             <h4 class="h4 ch-h" data-i18n="hb.h3">3 · Guest behaviour linked to cancelling</h4>
             <p class="fz__cap" data-i18n="hb.c4">Cancellation rate for guests with and without each behaviour.</p>
             <div class="fz2 fz2--2">
@@ -705,9 +703,6 @@
             </div>
             <p class="ch-concl" data-i18n="hb.k3"><b>A guest who canceled before cancels again 91.3% of the time.</b> Guests who made at least one special request cancel at 21.7%, less than half the rate of guests who made none. These are associations: a guest who already plans to come is more likely to ask for something.</p>
 
-            <h4 class="h4 ch-h" data-i18n="hb.h4">4 · A number I checked before using it</h4>
-            <p data-i18n="hb.k4">Non Refund bookings cancel at 99.3%, 3.5 times the 28.2% of No Deposit bookings. A non-refundable deposit should do the opposite. 97.2% of these bookings come from Portugal and 62.9% are Group bookings, so the pattern looks like the way group blocks were recorded, not how guests behave. I kept it out of the recommendations.</p>
-
             <h4 class="h4 ch-h" data-i18n="hb.h5">What I would recommend</h4>
             <ol class="nx">
               <li><b data-i18n="hb.n1">Ask long-lead bookings to reconfirm</b><span data-i18n="hb.n1p">For bookings made more than 180 days ahead, ask for reconfirmation closer to arrival and a partial prepayment. They are 20.6% of bookings and cancel at 55 to 67%.</span></li>
@@ -717,9 +712,8 @@
 
             <h4 class="h4 ch-h" data-i18n="hb.h6">What I took from it</h4>
             <ul class="hb-learn">
-              <li data-i18n="hb.t1"><b>Average by year before comparing months.</b> Raw totals made August look like the busiest month. Per year, May is busier: 4,111 bookings.</li>
-              <li data-i18n="hb.t2"><b>Check a surprising number before building on it.</b> The 99.3% Non Refund rate turned out to be a recording pattern, not guest behaviour.</li>
-              <li data-i18n="hb.t3"><b>A significant test shows a difference, not a cause.</b> With 83,000 rows almost any gap is significant, so I report how big the gap is too.</li>
+              <li data-i18n="hb.t1"><b>Compare months per year, not in total.</b> July and August appear 3 times in the data and the other months only twice, so their totals look bigger than they are.</li>
+              <li data-i18n="hb.t2"><b>A difference is not a cause.</b> Guests with a special request cancel less, but that does not prove the request is what keeps them from canceling.</li>
             </ul>
             <div class="actions" style="margin-top:14px">
               <a class="btn" href="https://drive.google.com/file/d/1Gj3-96s3x7clcUoqOTGdqpfRIF1bOSwy/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="hb.open1">Open the slides (PDF)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
@@ -830,6 +824,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=88"></script>
+<script src="app.js?v=89"></script>
 </body>
 </html>
