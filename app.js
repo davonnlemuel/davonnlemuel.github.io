@@ -100,13 +100,7 @@
     'w1.drh': 'Variabel terpenting',
     'w1.open': 'Baca laporan (Google Drive)',
     'w1.m': 'Model', 'w1.tnote': 'Nilai terbaik per kolom berwarna hijau. Model terbaik secara keseluruhan disorot.',
-    'w2.data': 'Dataset latihan toko online, Jan 2023 - Des 2025: 56.894 event funnel, 5 persona pembeli',
-    'w2.method': 'Funnel per tahun, cohort per bulan daftar',
-    'w2.t': 'Pengunjung Turun, Pembeli Naik: Customer Journey E-commerce, FY2025',
-    'w2.p': 'Traffic turun di 2025. Apakah penjualan ikut turun? Saya hitung pelanggan unik yang mencapai tiap tahap setiap tahun dan berapa persen yang lanjut ke tahap berikutnya.',
-    'w2.f1': 'pengunjung, 14.228 → 11.179', 'w2.f2': 'pembeli, 630 → 712', 'w2.f3': 'cart ke purchase, naik dari 30,3%',
     'w2.ch': 'Dari setiap 100 pengunjung',
-    'w2.reco': '<b>Saya akan mulai dari sini:</b> checkout sudah bagus. Kebocoran terbesar ada di halaman produk: 68,4% yang melihat produk pergi tanpa menambahkan ke keranjang (78,9% di 2023). Itu sekitar 4.100 pelanggan di 2025 yang membuka produk tapi tidak menambahkan apa pun.',
     'w3.data': '2.000 data penjualan level toko, 2022-2024, 12 kota, 10 merek, 5 jenis minyak',
     'w3.t': 'Dashboard Penjualan Satu Halaman untuk Retailer Minyak Goreng',
     'w3.p': 'Bisa difilter per tahun, bulan, kota, dan merek, dengan kartu KPI untuk penjualan, volume, dan toko aktif, serta measure DAX yang memilih merek dan kota terlaris.',
@@ -139,7 +133,7 @@
     'tr.t6': 'SQL', 'tr.t6s': 'Query, subquery, window function, dan CTE di PostgreSQL',
     'tr.t7': 'Pembuatan dashboard', 'tr.t7s': 'Dashboard interaktif di Tableau, plus data storytelling (<a href="#work-tableau">lihat project Olist</a>)',
     'tr.t8': 'Analitik media sosial dan digital', 'tr.t8s': 'Google Analytics, metrik media sosial, channel marketing',
-    'tr.t9': 'Analisis funnel dan cohort', 'tr.t9s': 'Konversi per tahap, retensi per cohort',
+    'tr.t9': 'Analisis funnel dan cohort', 'tr.t9s': 'Konversi per tahap, retensi per cohort (<a href="#work-funnel">lihat project-nya</a>)',
     'tr.t10': 'A/B testing', 'tr.t10s': 'Desain tes, signifikansi, membaca hasil',
     'tr.t11': 'Segmentasi pelanggan', 'tr.t11s': 'Teknik segmentasi, hasil di Power BI',
     'tr.t12': 'Final project dan wisuda', 'tr.t12s': 'Capstone, take-home test, dan coding test',
@@ -195,15 +189,59 @@
     'w3.note': 'Dibangun ulang di browser dari data model laporannya sendiri: layout sama, measure sama, seluruh 2.000 data. Pakai slicer dan dropdown-nya seperti di Power BI.',
     'pj.hint': 'Pilih proyek untuk membukanya.',
     'w1.n': 'Prediksi Churn Pelanggan', 'w1.ns': 'Python · Machine Learning',
-    'w2.n': 'Customer Journey E-commerce', 'w2.ns': 'Python · Funnel dan Cohort',
     'w3.n': 'Dashboard Penjualan Minyak Goreng', 'w3.ns': 'Power BI · DAX',
     'w4.n': 'Kalkulator Premi Jiwa', 'w4.ns': 'Python · Aplikasi Web',
     'w5.n': 'Skripsi: Pricing Bonus-Malus', 'w5.ns': 'Pemodelan Aktuaria',
     'w6.n': 'Analisis Lainnya', 'w6.ns': '3 Karya Singkat',
-    'm1.t': 'Analisis funnel dan cohort<small>Python · funnel edtech, cohort aplikasi fintech</small>',
-    'm1.p': 'Menemukan 9 akun dengan transaksi identik yang menjatuhkan retensi bulan pertama cohort Februari ke 27%; tanpa akun itu angkanya 67%. Juga menunjukkan user Januari bertahan 59% sementara revenue-nya tinggal 7%.',
-    'm1.link': 'Buka notebook',
     'm3.link': 'Buka file',
+    'fc.n': 'Analisis Funnel dan Cohort',
+    'fc.ns': 'Python · Bootcamp Dibimbing',
+    'fc.data': 'Funnel edtech: 630.338 leads di 3 segmen sekolah. Aplikasi fintech: aktivitas harian user dan revenue selama 2024.',
+    'fc.ctx': 'Tugas Funnel and Cohort, bootcamp Data Analytics and Business Intelligence Dibimbing',
+    'fc.t': 'Analisis Funnel dan Cohort untuk Startup Edukasi dan Aplikasi Fintech',
+    'fc.p': 'Dua bisnis, dua pertanyaan. Di tahap mana calon siswa berhenti sebelum mendaftar? Dan setelah masuk, apakah user fintech bertahan dan tetap membayar? Funnel menjawab yang pertama, cohort menjawab yang kedua.',
+    'fc.f1': 'Booking ke Trial, tahap terlemah di funnel',
+    'fc.f2': 'retensi Februari di bulan pertama, sebelum dan sesudah 9 akun identik dikeluarkan',
+    'fc.f3': 'revenue Januari yang tersisa di Desember, padahal 59% user-nya bertahan',
+    'fc.h1': '1 · Funnel edtech: di mana calon siswa berhenti',
+    'fc.c1': 'Jumlah orang yang mencapai tiap tahap, dan persentase yang lanjut dari tahap sebelumnya.',
+    'fc.mv1': '66,2% lanjut',
+    'fc.mv2': '62,7% lanjut',
+    'fc.mv3': '68,2% lanjut',
+    'fc.c2': 'Konversi per tahap dan segmen. Merah menandai segmen di bawah 50%.',
+    'fc.c3': 'Tambahan user terdaftar kalau satu tahap mencapai target.',
+    'fc.sc1': 'Booking → Trial ke 70%, semua segmen',
+    'fc.sc2': 'Trial → Register ke 60%, Kindergarten & Elementary dan High School',
+    'fc.sc3': 'Lead → Booking Kindergarten & Elementary dan High School ke level Middle School',
+    'fc.k1': '<b>Middle School menutupi kebocoran di angka total.</b> Segmen ini mengubah 83% trial menjadi pendaftaran, sementara Kindergarten &amp; Elementary (47%) dan High School (49%) kehilangan sekitar setengahnya. Menaikkan Booking → Trial ke 70% menambah user baru paling banyak: 20.186.',
+    'fc.h2': '2 · Aplikasi fintech: user mana yang bertahan',
+    'fc.c4': 'Persentase tiap cohort bulanan yang masih aktif n bulan setelah bulan pertamanya. Cohort Maret sampai November hanya 5 sampai 13 user, jadi dibaca sebagai arah.',
+    'fc.tog': 'Keluarkan 9 akun identik di Februari',
+    'fc.c5': 'Revenue bulanan tanpa akun anomali, dalam miliar Rp.',
+    'fc.k2': '<b>Sembilan akun dengan transaksi identik menjatuhkan cohort Februari.</b> Tanpa akun itu, retensi bulan pertama naik dari 27% ke 67%. Januari adalah cohort paling stabil (79% di bulan ke-1, 59% di bulan ke-11), tetapi revenue-nya tinggal 7% dari Januari. Revenue turun dari Rp 12,4 miliar di Agustus ke Rp 3,8 miliar di Desember saat user terbesar berhenti.',
+    'fc.h3': 'Temuan, keputusan, dan target',
+    'fc.th1': 'Temuan',
+    'fc.th2': 'Rekomendasi',
+    'fc.th3': 'Target',
+    'fc.r1a': 'Trial → Register Kindergarten &amp; Elementary 47% dan High School 49%.',
+    'fc.r1b': 'Laporan hasil trial untuk orang tua; trial High School khusus persiapan ujian.',
+    'fc.r1c': 'Trial → Register 60%',
+    'fc.r2a': 'Booking → Trial 62,7%, conversion rate terendah.',
+    'fc.r2b': 'Pengingat WhatsApp H-1 dan slot trial sore atau akhir pekan.',
+    'fc.r2c': 'Booking → Trial 70%',
+    'fc.r3a': 'Trial → Register Middle School 83%, jauh di atas segmen lain.',
+    'fc.r3b': 'Cek definisi register di Middle School, dan tambahkan tahap pembayaran ke data funnel.',
+    'fc.r3c': 'Tahap pembayaran tercatat di funnel',
+    'fc.r4a': '9 akun Februari dengan transaksi identik, lalu hilang.',
+    'fc.r4b': 'Cari tahu asal 9 akun: klien korporat, kampanye, atau kesalahan data.',
+    'fc.r4c': 'Asal 9 akun diketahui',
+    'fc.r5a': 'Revenue turun dari Rp 12,4 ke 3,8 miliar sejak Agustus; user besar berhenti.',
+    'fc.r5b': 'Peringatan dini saat user besar mulai jarang bertransaksi, dan pantau revenue retention.',
+    'fc.r5c': 'Revenue retention dipantau tiap bulan',
+    'fc.open1': 'Buka slide dan kode (Google Drive)',
+    'fc.open2': 'Buka notebook Colab',
+    'm6.t': 'Customer journey e-commerce<small>Python · data latihan toko online, 2023 sampai 2025</small>',
+    'm6.p': 'Traffic turun 21,4% di 2025, tetapi pembeli naik 13,0% dan cart-to-purchase naik ke 37,6%. Kebocoran terbesar ada di halaman produk: 68,4% yang melihat produk pergi tanpa menambahkan ke keranjang.',
     'm2.t': 'Engagement media sosial<small>Python · 89 konten, 4 platform</small>',
     'm2.p': 'Menunjukkan bagaimana satu metrik bisa menyesatkan: konten dengan engagement rate tertinggi (27,1%) hanya punya interaksi per reach 3,8%. Format lebih berpengaruh daripada platform: Thread unggul di interaksi, Shorts unggul di klik.',
     'm3.t': 'Actuarial analyst job simulation<small>AIG di Forage</small>',
@@ -1204,6 +1242,34 @@
     }
   }
   setupOil();
+
+  /* ------------------------------------------------------------------
+     Funnel & Cohort: retention heatmap from Gambar 2.1; the February row
+     without the 9 identical accounts comes from Gambar 2.2 (n = 6)
+  ------------------------------------------------------------------ */
+  const HM = [['2024-01', 115, [79, 74, 74, 72, 70, 66, 63, 62, 57, 50, 59]], ['2024-02', 15, [27, 33, 33, 20, 27, 20, 7, 13, 13, 27]],
+    ['2024-03', 7, [71, 43, 43, 43, 43, 57, 71, 43, 86]], ['2024-04', 8, [38, 75, 62, 62, 75, 62, 75, 62]], ['2024-05', 9, [67, 67, 78, 67, 78, 44, 56]],
+    ['2024-06', 6, [83, 83, 67, 50, 50, 33]], ['2024-07', 10, [90, 90, 90, 90, 90]], ['2024-08', 12, [58, 75, 67, 75]], ['2024-09', 13, [77, 62, 77]],
+    ['2024-10', 12, [83, 75]], ['2024-11', 5, [80]], ['2024-12', 51, []]];
+  const HM_FEB_CLEAN = ['2024-02', 6, [67, 83, 83, 50, 67, 50, 17, 33, 33, 67]];
+  let hmClean = false;
+  const hmMix = k => 'rgb(' + [[238, 31], [243, 90], [239, 78]].map(([a, b]) => Math.round(a + (b - a) * k)).join(',') + ')';
+  function renderHm() {
+    const el = $('#hm'); if (!el) return;
+    const head = `<thead><tr><th scope="col">Cohort</th>${Array.from({ length: 11 }, (_, i) => `<th scope="col">M${i + 1}</th>`).join('')}</tr></thead>`;
+    const rows = HM.map(r => (hmClean && r[0] === '2024-02') ? HM_FEB_CLEAN : r).map(([c, n, v]) => {
+      const changed = hmClean && c === '2024-02';
+      return `<tr${changed ? ' class="hm__chg"' : ''}><th scope="row">${c} <small>n=${n}</small></th>${Array.from({ length: 11 }, (_, i) => {
+        if (v[i] == null) return '<td class="hm__na"></td>';
+        const k = v[i] / 100, bg = hmMix(Math.min(1, k * 1.05));
+        return `<td style="background:${bg};color:${k > .52 ? '#fff' : '#13264A'}" data-tip="${c}, M${i + 1}: <b>${v[i]}%</b> of ${n} users">${v[i]}%</td>`;
+      }).join('')}</tr>`;
+    }).join('');
+    el.innerHTML = head + `<tbody>${rows}</tbody>`;
+    const b = $('#hmTog'); if (b) b.setAttribute('aria-pressed', String(hmClean));
+  }
+  const hmTog = $('#hmTog'); if (hmTog) hmTog.addEventListener('click', () => { hmClean = !hmClean; renderHm(); });
+  renderHm();
 
   /* ------------------------------------------------------------------
      Churn project: one view per dataset. Every number comes from the
