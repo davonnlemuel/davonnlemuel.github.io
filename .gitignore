@@ -1,0 +1,11 @@
+# Personal documents: never publish (KTP, KK, ijazah, transkrip, tanda tangan, form data)
+Apply/
+Sertifikat/
+
+# Local tooling
+.impeccable/
+.claude/
+
+# Design notes for local use: they list folders on this laptop and internal notes
+PRODUCT.md
+DESIGN.md

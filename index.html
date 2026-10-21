@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Davonn Lemuel · Data Analyst</title>
+<meta name="description" content="Portfolio of Davonn Lemuel Halomoan, Data Analyst. Dashboards, pricing tools and models built from raw insurance and business data.">
+<meta name="theme-color" content="#13264A">
+<meta property="og:title" content="Davonn Lemuel · Data Analyst">
+<meta property="og:description" content="Dashboards, pricing tools and models built from raw insurance and business data.">
+<meta property="og:image" content="assets/davonn-portrait.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2313264A'/%3E%3Cpath d='M8 8h5.5c4.4 0 7 3 7 8s-2.6 8-7 8H8zM11.5 11v10h2c2.3 0 3.6-1.8 3.6-5s-1.3-5-3.6-5zM21 8h3.4v13H29v3h-8z' fill='%23F6F7F2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=75">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6l8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="strip">
+  <div class="strip__in">
+    <a class="strip__mark" href="#top" data-i18n="nav.home">Davonn's Portfolio</a>
+    <nav aria-label="Sections">
+      <a href="#experience" data-i18n="nav.exp">Experience</a>
+      <a href="#projects" data-i18n="nav.work">Projects</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#certifications" data-i18n="nav.cert">Certifications</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <nav class="nav-sm" aria-label="Sections (short)">
+      <a href="#projects" data-i18n="nav.work">Projects</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="id" aria-pressed="false">ID</button>
+    </div>
+  </div>
+</header>
+
+<main class="sheet" id="top">
+  <div class="frame" aria-hidden="true"><i class="t"></i><i class="b"></i><i class="l"></i><i class="r"></i></div>
+  <div class="sheet__in">
+
+    <!-- ================= INTRO ================= -->
+    <section class="sched" aria-labelledby="t-name">
+      <svg class="rosette" id="rosette" viewBox="-280 -280 560 560" aria-hidden="true"></svg>
+      <div class="sched__head">
+        <h1 id="t-name"><span class="name">Davonn Lemuel</span><small data-i18n="h.sub">Mathematics · Data Analyst · Actuarial Science</small></h1>
+        <dl class="meta">
+          <div><dt data-i18n="m.loc">Domicile</dt><dd>Jakarta, Indonesia</dd></div>
+          <div><dt data-i18n="m.now">Now</dt><dd data-i18n="m.nowv">Underwriting Intern at Asuransi Asei</dd></div>
+          <div><dt data-i18n="m.open">Open to</dt><dd data-i18n="m.openv">Data Analyst, Business Intelligence and Data Scientist roles</dd></div>
+          <div><dt data-i18n="m.phone">Phone</dt><dd><a href="tel:+6281285144266">+62 812 8514 4266</a></dd></div>
+        </dl>
+      </div>
+
+      <div class="sched__body">
+        <div>
+          <p class="lead" data-i18n="h.lead">I turn raw datasets into dashboards and tools that people use to make decisions. The part I enjoy most is when a messy table finally starts to make sense. Lately I have gone further into data science, building models that predict churn, claims and premiums, and I want to bring that to a team as an analyst. Below is the work I have done so far, in internships, at university and on my own.</p>
+
+          <div class="actions actions--top">
+            <a class="btn btn--ink" href="mailto:davonnlemuel@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="a.mail">Email me</span></a>
+            <a class="btn btn--li" href="https://www.linkedin.com/in/davonnlemuel" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"/></svg><span>LinkedIn</span></a>
+            <a class="btn btn--wa" href="https://wa.me/6281285144266" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+          </div>
+
+          <table class="cover cover--2">
+            <caption data-i18n="c.cap">At a glance</caption>
+            <thead><tr><th data-i18n="c.h1">What I do</th><th data-i18n="c.h2">Where it's shown</th></tr></thead>
+            <tbody>
+              <tr><td data-i18n="c.r1">Management dashboards</td><td data-i18n="c.r1e"><a href="#exA">ASEI company dashboard</a> · <a href="#work-oil">Edible-oil sales (Power BI)</a> · <a href="#work-tableau">Olist data story (Tableau)</a></td></tr>
+              <tr><td data-i18n="c.r2">Raw data, ready to act on</td><td data-i18n="c.r2e"><a href="#experience">Production, claims and renewal reports the team follows up on</a></td></tr>
+              <tr><td data-i18n="c.r3">Predictive modelling</td><td data-i18n="c.r3e"><a href="#work-churn">Customer churn, classification ML models</a></td></tr>
+              <tr><td data-i18n="c.r5">Actuarial pricing</td><td data-i18n="c.r5e"><a href="#work-calc">Live life-insurance premium calculator, TMI IV table</a></td></tr>
+              <tr><td data-i18n="c.r6">And more</td><td data-i18n="c.r6e"><a href="#work-thesis">Bonus-Malus thesis</a> · <a href="#work-more">SQL database and other projects</a></td></tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <figure class="pass">
+          <img src="assets/davonn-portrait.jpg" alt="Davonn Lemuel in a dark suit and glasses" width="1066" height="1600" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="clause" id="about" aria-labelledby="t-about">
+      <div class="band"><h2 id="t-about" data-i18n="c1.t">About</h2></div>
+      <div class="wrap">
+        <div class="prose">
+          <p data-i18n="c1.a">I'm a Mathematics graduate with hands-on insurance experience. I build dashboards and reports for senior management from raw system data, and I use Excel and Python for exploratory analysis and machine learning.</p>
+          <p data-i18n="c1.b">I'm looking for a Data Analyst role focused on turning operational data into business decisions.</p>
+        </div>
+
+        <h3 class="h4 edu-h" data-i18n="c1.edu">Education</h3>
+        <h4 class="edu-sub" data-i18n="e.formal">Formal education</h4>
+        <ol class="schools">
+          <li>
+            <img class="school-logo" src="assets/logo-unpar.png" alt="Universitas Katolik Parahyangan logo" width="240" height="236" loading="lazy">
+            <div>
+              <h4>Universitas Katolik Parahyangan <small>Bandung</small></h4>
+              <p data-i18n="c1.e2v">Bachelor of Mathematics, actuarial science specialization</p>
+              <p class="school-note"><span data-i18n="c1.e4">Coursework</span>: <span data-i18n="c1.e4v">Data Modeling with Python, Machine Learning with Python, Mathematical Statistics, Time Series Analysis, Risk Theory</span></p>
+              <p class="school-note"><span data-i18n="c1.th">Thesis</span>: <a href="#work-thesis" data-i18n="c1.thv">Determination of Motor Vehicle Insurance Premiums Using a Bonus-Malus System with Claim Frequency Following a Geometric Distribution and Claim Severity Following a Lomax Distribution</a></p>
+            </div>
+            <span class="school-when" data-i18n="d.uni">Sep 2021 to Feb 2026</span>
+          </li>
+          <li>
+            <img class="school-logo" src="assets/logo-sma78.png?v=2" alt="SMA Negeri 78 Jakarta logo" width="188" height="163" loading="lazy">
+            <div>
+              <h4>SMA Negeri 78 Jakarta <small data-i18n="e.smaw">West Jakarta</small></h4>
+              <p data-i18n="e.sma">High school, science track (IPA)</p>
+              <p class="school-note"><span data-i18n="e.ach">Achievement</span>: <span data-i18n="e.achv">2nd place in solo guitar at FLS2N West Jakarta</span></p>
+            </div>
+            <span class="school-when" data-i18n="d.sma">Jul 2018 to Jul 2021</span>
+          </li>
+        </ol>
+
+        <h4 class="edu-sub" data-i18n="e.nonformal">Non-formal education</h4>
+        <ol class="schools">
+          <li>
+            <img class="school-logo" src="assets/logo-dibimbing-mark.png" alt="Dibimbing logo" width="242" height="242" loading="lazy">
+            <div>
+              <h4>Dibimbing <small>Bootcamp</small></h4>
+              <p data-i18n="e.db">Data Analytics and Business Intelligence</p>
+              <p class="school-note" data-i18n="e.dbn">Evening classes with mentors, project presentations along the way, and live coding tests in Python and SQL. Graduation is in December 2026.</p>
+              <ul class="tools-used" aria-label="Tools">
+                <li>Excel</li><li>Python</li><li>pandas</li><li>Matplotlib</li><li>Seaborn</li><li>SQL (PostgreSQL)</li><li>DBeaver</li><li>Tableau</li><li>Google Analytics</li><li>Google Colab</li>
+              </ul>
+              <h5 class="track-h" data-i18n="e.track">What I have covered so far</h5>
+              <ol class="track">
+                <li class="done"><span class="tr-when" data-i18n="tw.t1">Jul 2026</span><b data-i18n="tr.t1">Excel and dashboards</b><span data-i18n="tr.t1s">Lookups, PivotTables, interactive dashboards with slicers</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t2">Aug 2026</span><b data-i18n="tr.t2">Python</b><span data-i18n="tr.t2s">Data types to OOP and modular code, in Jupyter and Colab</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t3">Aug 2026</span><b data-i18n="tr.t3">Statistics for data</b><span data-i18n="tr.t3s">Descriptive statistics, distributions, t-tests, ANOVA, p-values</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t4">Aug 2026</span><b data-i18n="tr.t4">Data cleaning</b><span data-i18n="tr.t4s">Missing values, outliers, encoding, pandas joins and group-bys</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t5">Sep 2026</span><b data-i18n="tr.t5">Visualisation and EDA</b><span data-i18n="tr.t5s">Matplotlib, Seaborn, cross-tabs, sampling</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t6">Sep 2026</span><b data-i18n="tr.t6">SQL</b><span data-i18n="tr.t6s">Queries, subqueries, window functions and CTEs in PostgreSQL</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t7">Sep 2026</span><b data-i18n="tr.t7">Dashboard making</b><span data-i18n="tr.t7s">Interactive dashboards in Tableau, plus data storytelling (<a href="#work-tableau">see the Olist project</a>)</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t8">Oct 2026</span><b data-i18n="tr.t8">Social media and digital analytics</b><span data-i18n="tr.t8s">Google Analytics, social media metrics, marketing channels</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t9">Oct 2026</span><b data-i18n="tr.t9">Funnel and cohort analysis</b><span data-i18n="tr.t9s">Conversion by stage, retention by cohort</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t10">Oct 2026</span><b data-i18n="tr.t10">A/B testing</b><span data-i18n="tr.t10s">Test design, significance, reading the result</span></li>
+                <li class="next"><span class="tr-when" data-i18n="tw.t11">Oct 2026</span><em class="tr-next" data-i18n="tr.next">Upcoming</em><b data-i18n="tr.t11">Customer segmentation</b><span data-i18n="tr.t11s">Segmentation techniques, results in Power BI</span></li>
+                <li class="next"><span class="tr-when" data-i18n="tw.t12">Nov to Dec 2026</span><em class="tr-next" data-i18n="tr.next">Upcoming</em><b data-i18n="tr.t12">Final project and graduation</b><span data-i18n="tr.t12s">Capstone, take-home and coding tests</span></li>
+              </ol>
+            </div>
+            <span class="school-when" data-i18n="d.db">Jul 2026 to present</span>
+          </li>
+        </ol>
+        <p class="langs"><b data-i18n="c1.e5">Languages</b> <span data-i18n="c1.e5v">Indonesian (native), English (EF SET C1 Advanced)</span></p>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= EXPERIENCE: ASEI ================= -->
+    <section class="clause" id="experience" aria-labelledby="t-exp">
+      <div class="band"><h2 id="t-exp" data-i18n="c2.t">Experience</h2></div>
+      <div class="wrap">
+        <img class="co-logo" src="assets/logo-asei.png" alt="Asuransi Asei logo" width="499" height="96" loading="lazy">
+        <h3 class="h3">PT Asuransi Asei Indonesia</h3>
+        <p class="when"><span data-i18n="c2.role">Underwriting Intern</span><span>Jakarta</span><span class="num" data-i18n="c2.date">Aug 2026 to present</span></p>
+
+        <ul class="duties">
+          <li data-i18n="c2.d1">Built a portfolio monitoring dashboard covering 40 products, including premiums, claims, loss ratios, branch performance and policy risk distribution, and presented the insights to the CTO and department heads.</li>
+          <li data-i18n="c2.d2">Developed a premium rate calculator and risk classification tool to support risk assessment and treaty/facultative reinsurance placement decisions.</li>
+          <li data-i18n="c2.d3">Built a pending matters monitoring system to track outstanding underwriting tasks and assess staff workload and performance.</li>
+          <li data-i18n="c2.d4">Prepared weekly facultative reports for department heads, monitoring premium retention and the allocation of premiums to treaty and facultative reinsurance.</li>
+          <li data-i18n="c2.d5">Performed claims data modelling to identify the significant factors associated with claim occurrence and support risk analysis.</li>
+          <li data-i18n="c2.d6">Prepared production, claims and renewal pipeline reports from 200,000+ raw system rows, and consolidated production, reinsurance, actuarial and claims data for external consulting requests.</li>
+        </ul>
+
+        <div class="exhibit" id="exA">
+          <div class="ex__head">
+            <h3 data-i18n="ex.at">Company dashboard (replica)</h3>
+            <span class="illus" data-i18n="ex.illus">Dummy data</span>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Dashboard modules">
+            <button role="tab" id="tA1" aria-controls="pA1" aria-selected="true" data-i18n="ta.1">Portfolio monitor</button>
+            <button role="tab" id="tA2" aria-controls="pA2" aria-selected="false" tabindex="-1" data-i18n="ta.2">Risk distribution</button>
+            <button role="tab" id="tA3" aria-controls="pA3" aria-selected="false" tabindex="-1" data-i18n="ta.3">Pending matters</button>
+            <button role="tab" id="tA4" aria-controls="pA4" aria-selected="false" tabindex="-1" data-i18n="ta.4">Facultative weekly</button>
+            <button role="tab" id="tA5" aria-controls="pA5" aria-selected="false" tabindex="-1" data-i18n="ta.5">Claims profile</button>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pA1" aria-labelledby="tA1">
+            <p class="panel__intro" data-i18n="pa1.i">Premium, claims and loss ratio by product and branch, with the risk profile of the book. Filter by year and line of business.</p>
+            <div class="dash" data-mod="a1"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pA2" aria-labelledby="tA2" hidden>
+            <p class="panel__intro" data-i18n="pa2.i">To see the portfolio each class of business holds in every branch, from low to very high risk. I used it in meetings with the branch offices: I presented each branch’s risk profile per class of business, then followed up on what my supervisor decided in those meetings.</p>
+            <div class="dash" data-mod="a2"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pA3" aria-labelledby="tA3" hidden>
+            <p class="panel__intro" data-i18n="pa3.i">To see which underwriters in each branch still have pending requests, and how long those requests have been waiting.</p>
+            <div class="dash" data-mod="a3"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pA4" aria-labelledby="tA4" hidden>
+            <p class="panel__intro" data-i18n="pa4.i">How each week's written premium was shared between own retention, treaty and facultative reinsurance, as in the weekly report for department heads.</p>
+            <div class="dash" data-mod="a4"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pA5" aria-labelledby="tA5" hidden>
+            <p class="panel__intro" data-i18n="pa5.i">Settled claims: what caused the loss, which insureds claimed the most, and when in the policy period the loss happened.</p>
+            <div class="dash" data-mod="a5"></div>
+          </div>
+        </div>
+        <p class="note" data-i18n="ex.note"><b>Notes:</b> the real dashboard runs on the company’s data and stays inside the company. This replica keeps its structure and the questions it answers; every number, insured and underwriter here is dummy data. What you see here is only part of it: the full dashboard has many more pages.</p>
+
+        <!-- earlier roles -->
+        <div class="sub two">
+          <div>
+            <img class="co-logo co-logo--tall" src="assets/logo-kka-nurichwan.png" alt="KKA Nurichwan logo" width="527" height="199" loading="lazy">
+            <h3 class="h3">Konsultan Aktuaria Nurichwan</h3>
+            <p class="when"><span data-i18n="c3.r1">Actuarial Intern</span><span>Jakarta</span><span class="num" data-i18n="d.nur">Jul 2024 to Sep 2024</span></p>
+            <ul class="duties">
+              <li data-i18n="c3.d1">Validated and cleaned employee demographic and payroll data in Excel so it was ready for Defined Benefit Obligation valuation.</li>
+              <li data-i18n="c3.d2">Performed supervised case-based PSAK 24 valuation exercises with the Projected Unit Credit method under different actuarial assumptions.</li>
+            </ul>
+          </div>
+          <div>
+            <img class="co-logo" src="assets/logo-ssb.png" alt="Sido Sumber Berkat logo" width="640" height="118" loading="lazy">
+            <h3 class="h3">PT Sido Sumber Berkat</h3>
+            <p class="when"><span data-i18n="c3.r2">Part-time Administrative &amp; Finance Assistant</span><span class="num" data-i18n="d.ssb">Jan 2022 to Aug 2023</span></p>
+            <ul class="duties">
+              <li data-i18n="c3.d3">Monitored about 2,200 daily transactions (sales, operating expenses and capital purchases) in Excel for a poultry distributor serving 97 active clients.</li>
+              <li data-i18n="c3.d4">Managed accounts receivable: tracked outstanding balances and coordinated payment follow-ups across the client base.</li>
+              <li data-i18n="c3.d5">Kept financial records organised for internal cash-flow monitoring and reporting.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exhibit" id="exB">
+          <div class="ex__head">
+            <h3 data-i18n="ex.bt">Sales &amp; receivables dashboard (replica)</h3>
+            <span class="illus" data-i18n="ex.illus">Dummy data</span>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Dashboard pages">
+            <button role="tab" id="tB1" aria-controls="pB1" aria-selected="true" data-i18n="tb.1">Sales &amp; margin</button>
+            <button role="tab" id="tB2" aria-controls="pB2" aria-selected="false" tabindex="-1" data-i18n="tb.2">Receivables</button>
+            <button role="tab" id="tB3" aria-controls="pB3" aria-selected="false" tabindex="-1" data-i18n="tb.3">Customer map</button>
+          </div>
+            <div class="panel" role="tabpanel" id="pB1" aria-labelledby="tB1">
+            <p class="panel__intro" data-i18n="pb1.i">Monthly sales, gross profit and the spread between selling price and cost per kilogram, built from the sales ledger.</p>
+            <div class="dash" data-mod="b1"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pB2" aria-labelledby="tB2" hidden>
+            <p class="panel__intro" data-i18n="pb2.i">New credit given to customers against payments received each month, and how old the open balances are.</p>
+            <div class="dash" data-mod="b2"></div>
+          </div>
+
+            <div class="panel" role="tabpanel" id="pB3" aria-labelledby="tB3" hidden>
+            <p class="panel__intro" data-i18n="pb3.i">Each customer placed by how quickly they pay and how much of their credit they clear, so collection starts with the bottom group.</p>
+            <div class="dash" data-mod="b3"></div>
+          </div>
+        </div>
+        <p class="note" data-i18n="ex.noteb">Customer names and amounts are replaced with generated values. The pages follow the real dashboard.</p>
+
+        <div class="sub venture" id="entrepreneurship">
+          <h3 class="h4" data-i18n="v.h">Entrepreneurship</h3>
+          <div class="venture__grid">
+            <div class="venture__text">
+              <div class="venture__id">
+                <img class="venture-logo" src="assets/logo-kopi17.png" alt="Kopi 17 logo" width="228" height="240" loading="lazy">
+                <div>
+                  <h3 class="h3">Kopi 17</h3>
+                  <p class="when"><span data-i18n="v.role">Co-Founder</span><span>Bandung</span><span data-i18n="v.kind">Student coffee business</span><span class="num" data-i18n="d.kopi">Jan 2024 to Jul 2025</span></p>
+                </div>
+              </div>
+              <ul class="duties">
+                <li data-i18n="v.d1">Co-founded a student-focused coffee business and managed sales through pre-orders and direct distribution.</li>
+                <li data-i18n="v.d2">Ran the tenant at campus events, selling about 150 cups of coffee a day.</li>
+                <li data-i18n="v.d3">Set up partnerships with local retail stores to widen distribution.</li>
+                <li data-i18n="v.d4">Handled the financial records, pricing, promotions and coordination with campus event organisers.</li>
+              </ul>
+            </div>
+            <figure class="venture__photo">
+              <div class="venture__stack">
+                <img class="venture__tenant" src="assets/kopi17-tenant.jpg" alt="Davonn and a co-founder holding the Kopi 17 banner in front of their tent at a campus event" width="900" height="1200" loading="lazy">
+                <img class="venture__bottles" src="assets/kopi17-bottles.png" alt="Three bottles of Kopi 17 coffee" width="377" height="534" loading="lazy">
+              </div>
+              <figcaption data-i18n="v.cap">At our tent during a campus event, with my co-founder. Bottled coffee for pre-orders and retailers in front.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="clause" id="projects" aria-labelledby="t-proj">
+      <div class="band"><h2 id="t-proj" data-i18n="c4.t">Projects</h2></div>
+      <div class="wrap">
+
+        <p class="pj__hint" data-i18n="pj.hint">Pick a project to open it.</p>
+        <div class="pj">
+        <div class="pj__list" role="tablist" aria-label="Projects" aria-orientation="vertical">
+          <button type="button" role="tab" id="pt-thesis" aria-controls="work-thesis" aria-selected="true"><b data-i18n="w5.n">Thesis: Bonus-Malus Pricing</b><span data-i18n="w5.ns">Actuarial Modelling</span></button>
+          <button type="button" role="tab" id="pt-churn" aria-controls="work-churn" aria-selected="false" tabindex="-1"><b data-i18n="w1.n">Customer Churn Prediction</b><span data-i18n="w1.ns">Python · Machine Learning</span></button>
+          <button type="button" role="tab" id="pt-ecom" aria-controls="work-ecom" aria-selected="false" tabindex="-1"><b data-i18n="w2.n">E-commerce Customer Journey</b><span data-i18n="w2.ns">Python · Funnel and Cohort</span></button>
+          <button type="button" role="tab" id="pt-oil" aria-controls="work-oil" aria-selected="false" tabindex="-1"><b data-i18n="w3.n">Edible-Oil Sales Dashboard</b><span data-i18n="w3.ns">Power BI · DAX</span></button>
+          <button type="button" role="tab" id="pt-tableau" aria-controls="work-tableau" aria-selected="false" tabindex="-1"><b data-i18n="w7.n">Olist Sales Data Story</b><span data-i18n="w7.ns">Tableau · Dibimbing Bootcamp</span></button>
+          <button type="button" role="tab" id="pt-calc" aria-controls="work-calc" aria-selected="false" tabindex="-1"><b data-i18n="w4.n">Life Premium Calculator</b><span data-i18n="w4.ns">Python · Web App</span></button>
+          <button type="button" role="tab" id="pt-more" aria-controls="work-more" aria-selected="false" tabindex="-1"><b data-i18n="w6.n">More Analyses</b><span data-i18n="w6.ns">4 Shorter Pieces</span></button>
+        </div>
+        <div class="pj__view">
+        <article class="work" id="work-thesis" role="tabpanel" aria-labelledby="pt-thesis">
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.type">Type</dt><dd data-i18n="w5.type">Undergraduate thesis, Mathematics, UNPAR</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w5.data">Belgian third-party motor liability portfolio, 1997: 14,505 policyholders. Claim severity simulated in Python.</dd></div>
+              <div><dt data-i18n="w.method">Method</dt><dd data-i18n="w5.method">Bayesian premium, maximum likelihood, Chi-square test, Python and Excel</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w5.t">Motor Insurance Premiums under a Bonus-Malus System</h3>
+            <p data-i18n="w5.p">Motor premiums in Indonesia are still mostly flat rates, so a careful driver pays the same as one who claims every year. A Bonus-Malus system is a fairer way to price it: the premium drops after claim-free years and rises after claims. I modelled claim frequency as Poisson with an exponential parameter, which gives a geometric distribution, and claim severity as exponential with an inverse gamma parameter, which gives a Lomax distribution.</p>
+
+            <div class="params">
+              <section class="pg">
+                <h5 class="pg-h" data-i18n="w5.gd">Data</h5>
+                <div class="pc"><b>14,505</b><span data-i18n="w5.f1">policyholders<br>89.4% made no claim in the year</span></div>
+              </section>
+              <section class="pg">
+                <h5 class="pg-h" data-i18n="w5.gg">Geometric · claim frequency</h5>
+                <div class="pc"><b><i class="hat hat--tall">θ</i> = 8.3506</b><span data-i18n="w5.f2">χ² = 1.579, below the 7.815 critical value at α = 5%</span></div>
+              </section>
+              <section class="pg pg--two">
+                <h5 class="pg-h" data-i18n="w5.gl">Lomax · claim severity</h5>
+                <div class="pc"><b><i class="hat">s</i> = 2.4824</b><span data-i18n="w5.ps">shape parameter</span></div>
+                <div class="pc"><b><i class="hat">m</i> = 3,053.38</b><span data-i18n="w5.pm">scale parameter</span></div>
+              </section>
+            </div>
+            <p class="params-note" data-i18n="w5.pnote">The hat marks an estimate from the data. Together they give a starting premium of $246.66.</p>
+
+            <h4 class="h4 bm-h" data-i18n="w5.simh">Try it: how the premium moves</h4>
+            <p class="bm-intro" data-i18n="w5.simp">The table is the premium for the next year after <i>t</i> years with <i>K</i> claims in total. Add years below and the highlighter follows you through the table.</p>
+
+            <div class="bm-ctl">
+              <div class="bm-seg" role="group" aria-label="Model" id="bmModel">
+                <button type="button" aria-pressed="true" data-m="sev" data-i18n="w5.msev">Frequency and severity</button>
+                <button type="button" aria-pressed="false" data-m="freq" data-i18n="w5.mfreq">Frequency only</button>
+              </div>
+              <label class="bm-t" id="bmTWrap"><span data-i18n="w5.tlab">Total claim severity (T)</span>
+                <select id="bmT"><option value="1500">$1,500 · Table 4.5</option><option value="2000">$2,000 · Table 4.7</option><option value="3000">$3,000 · Table 4.8</option><option value="5000">$5,000 · Table 4.9</option></select>
+              </label>
+            </div>
+
+            <div class="bm-wrap">
+              <div class="bm-scroll">
+                <div class="bm-grid" id="bmGrid">
+                  <span class="bm-hl" id="bmHl" aria-hidden="true"></span>
+                  <span class="bm-ghost" id="bmGhost" aria-hidden="true"></span>
+                  <table class="bm-table" id="bmTable"><caption id="bmCap"></caption><thead></thead><tbody></tbody></table>
+                </div>
+              </div>
+            </div>
+
+            <div class="bm-play">
+              <div class="bm-btns">
+                <button type="button" class="btn" data-bm="0" data-i18n="w5.y0">Year with no claim</button>
+                <button type="button" class="btn" data-bm="1" data-i18n="w5.y1">Year with 1 claim</button>
+                <button type="button" class="btn" data-bm="2" data-i18n="w5.y2">Year with 2 claims</button>
+                <button type="button" class="btn btn--plain" data-bm="reset" data-i18n="w5.reset">Reset</button>
+              </div>
+              <p class="bm-read" id="bmRead" aria-live="polite"></p>
+              <ol class="bm-log" id="bmLog" aria-label="Years so far"></ol>
+            </div>
+
+            <h4 class="h4 bm-h" data-i18n="w5.findh">What the thesis found</h4>
+            <ol class="bm-finds">
+              <li data-i18n="w5.k1"><b>A geometric model fits the claim counts.</b> With <i class="hat hat--tall">θ</i> = 8.3506, the Chi-square statistic was 1.579 against a critical value of 7.815 (df = 3, α = 5%), so the model was not rejected.</li>
+              <li data-i18n="w5.k2"><b>Counting claim size makes the malus fairer.</b> Three claims in the first year raise the premium by 257.22% when only frequency counts (Table 4.6), but by 76.17% when claim severity is included (Table 4.5).</li>
+              <li data-i18n="w5.k3"><b>Larger claims raise the malus; the no-claim bonus does not change.</b> A higher total severity T raises the malus in every K column of Tables 4.7 to 4.9, while the bonus for no claims stays the same: 26.43% after three claim-free years.</li>
+              <li data-i18n="w5.k4"><b>The parameters pull bonus and malus in different directions.</b> A higher θ lowers the bonus and raises the malus. A higher scale m lowers the malus, and a higher shape s raises it; neither changes the bonus.</li>
+            </ol>
+
+            <div class="actions" style="margin-top:18px">
+              <a class="btn" href="https://repository.unpar.ac.id/items/b185cae5-3231-4024-9535-252fa59194eb" target="_blank" rel="noopener"><span data-i18n="w5.repo">Read thesis (UNPAR repository)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work" id="work-churn" role="tabpanel" aria-labelledby="pt-churn" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Python, Pandas, Scikit-learn, LightGBM</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w1.data">Three churn datasets: Telco Customer Churn (Kaggle, 7,032 customers), recurring flights and flight passengers</dd></div>
+              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="w1.ctx">Group of 4, Mathematical Modeling final project, UNPAR</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w1.t">Customer Churn Prediction on Telecom and Airline Data</h3>
+            <p data-i18n="w1.p">A service company loses recurring revenue every time a customer leaves. If it can spot the customers most likely to leave, it can reach them with an offer first. We compared classification models on three churn datasets and looked at which variables drive churn.</p>
+            <div class="chsw">
+              <span class="chsw__l" id="chDsL" data-i18n="w1.ds">Dataset</span>
+              <div class="yearsw" role="group" aria-labelledby="chDsL" id="chDs"><button type="button" aria-pressed="true" data-ds="telco" data-i18n="w1.ds1">Telecom</button><button type="button" aria-pressed="false" data-ds="rflight" data-i18n="w1.ds2">Recurring flights</button><button type="button" aria-pressed="false" data-ds="pass" data-i18n="w1.ds3">Flight passengers</button></div>
+            </div>
+            <div class="figs" id="chFigs" aria-live="polite"></div>
+            <ol class="steps">
+              <li><b data-i18n="w1.s1">Prepare</b><span data-i18n="w1.s1p">Clean, encode categoricals, standardise numerics.</span></li>
+              <li><b data-i18n="w1.s2">Balance</b><span data-i18n="w1.s2p">Oversample churners so models don't just predict "stay".</span></li>
+              <li><b data-i18n="w1.s3">Model</b><span data-i18n="w1.s3p">Tune SVM, LightGBM, AdaBoost and a hybrid AdaBoost-SVM. On the telecom data we added our own AdaBoost-Naive Bayes.</span></li>
+              <li><b data-i18n="w1.s4">Evaluate</b><span data-i18n="w1.s4p">Accuracy, F1, precision, recall, ROC-AUC, PR-AUC and runtime on held-out test data.</span></li>
+            </ol>
+            <h4 class="h4 ch-h" data-i18n="w1.evh">Model evaluation</h4>
+            <div class="scroll-x" id="chTable"></div>
+            <p class="note" style="margin-top:6px" data-i18n="w1.tnote">Best value per column in teal. The best overall model is highlighted.</p>
+            <p class="ch-concl" id="chConcl"></p>
+            <h4 class="h4 ch-h" data-i18n="w1.drh">Most important variables</h4>
+            <div id="chDrv"></div>
+            <p class="reco" id="chReco"></p>
+            <div class="actions" style="margin-top:14px">
+              <a class="btn" href="https://drive.google.com/file/d/14q5q-wnIUVCEGapt05bdBqjZeDigMBmb/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="w1.open">Read the report (Google Drive)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work" id="work-ecom" role="tabpanel" aria-labelledby="pt-ecom" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Python, Pandas</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w2.data">Practice online-store dataset, Jan 2023 to Dec 2025: 56,894 funnel events, 5 shopper personas</dd></div>
+              <div><dt data-i18n="w.method">Method</dt><dd data-i18n="w2.method">Funnel by year, cohort by sign-up month</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w2.t">Fewer Visitors, More Buyers: E-commerce Customer Journey, FY2025</h3>
+            <p data-i18n="w2.p">Traffic fell in 2025. Did sales fall with it? I counted the unique customers reaching each stage every year and the share that moved on to the next one.</p>
+            <div class="figs">
+              <div><b class="down">−21.4%</b><span data-i18n="w2.f1">visitors, 14,228 → 11,179</span></div>
+              <div><b class="up">+13.0%</b><span data-i18n="w2.f2">buyers, 630 → 712</span></div>
+              <div><b>37.6%</b><span data-i18n="w2.f3">cart to purchase, up from 30.3%</span></div>
+            </div>
+            <div class="chart">
+              <h4 data-i18n="w2.ch">Out of every 100 visitors</h4>
+              <div class="yearsw" role="group" aria-label="Year" id="ecYear"><button type="button" aria-pressed="false" data-y="2023">2023</button><button type="button" aria-pressed="false" data-y="2024">2024</button><button type="button" aria-pressed="true" data-y="2025">2025</button></div>
+              <div class="svg" id="ecFunnel"></div>
+            </div>
+            <p class="reco" data-i18n="w2.reco"><b>Where I would start:</b> checkout is in good shape. The biggest leak is the product page: 68.4% of viewers leave without adding to cart (it was 78.9% in 2023). That is about 4,100 customers in 2025 who opened a product and added nothing.</p>
+          </div>
+        </article>
+
+        <article class="work" id="work-oil" role="tabpanel" aria-labelledby="pt-oil" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Power BI, DAX</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w3.data">2,000 store-level sales records, 2022-2024, 12 cities, 10 brands, 5 oil types</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w3.t">One-Page Sales Dashboard for an Edible-Oil Retailer</h3>
+            <p data-i18n="w3.p">Filterable by year, month, city and brand, with KPI cards for sales, volume and active stores, and DAX measures that pick the best-selling brand and city.</p>
+            <div class="pbi-frame">
+              <div class="pbi" id="pbi" aria-label="Interactive rebuild of the Power BI sales dashboard">
+                <header class="pbi__title">
+                  <svg class="pbi__ico pbi__ico--dark" viewBox="0 0 32 40" aria-hidden="true"><path d="M12 2h8v4h-8zM11 6h10l3 5v25a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V11zM8 15h16M8 30h16M16 19c-2 3-3 4.2-3 5.6a3 3 0 0 0 6 0c0-1.4-1-2.6-3-5.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                  <div><b>Sales Dashboard</b><span>Edible Oil Store</span></div>
+                </header>
+                <div class="pbi__drops">
+                  <label><span>City</span><select id="pbiCity"><option value="">All</option></select></label>
+                  <label><span>Brand</span><select id="pbiBrand"><option value="">All</option></select></label>
+                </div>
+                <fieldset class="pbi__slicer pbi__slicer--year"><legend>Year</legend><div id="pbiYear"></div></fieldset>
+                <fieldset class="pbi__slicer pbi__slicer--month"><legend>Month</legend><div id="pbiMonth"></div></fieldset>
+                <div class="pbi__kpis">
+                  <div class="pbi__card"><svg class="pbi__ico" viewBox="0 0 40 28" aria-hidden="true"><rect x="2" y="7" width="30" height="18" rx="2"/><path d="M6 7V4h30v18h-4M10 4V1h28v18h-2"/><path d="M17 20v-1.5c-1.8 0-3-.8-3-2m6-5.5c0-1.2-1.2-2-3-2s-3 .8-3 2.2c0 3 6 1.6 6 4.6 0 1.4-1.2 2.2-3 2.2M17 9V7.5"/></svg><span class="pbi__k">Total Sales</span><b class="pbi__v" id="pbiSales"></b></div>
+                  <div class="pbi__card"><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4h12v12L16 32a3 3 0 0 1-4 0l-8-8a3 3 0 0 1 0-4z"/><circle cx="27" cy="9" r="2.4"/><path d="M28 9c4-6 9-3 7 2"/></svg><span class="pbi__k">Average Selling Price</span><b class="pbi__v" id="pbiPrice"></b></div>
+                  <div class="pbi__card"><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M14 9l7-4 7 4v8l-7 4-7-4zM14 9l7 4 7-4M21 13v8"/><path d="M4 18v9c0 2 1 3 2.5 4.5L13 38M36 18v9c0 2-1 3-2.5 4.5L27 38M9 22l5 6M31 22l-5 6"/></svg><span class="pbi__k">Volume Sold</span><b class="pbi__v" id="pbiVol"></b></div>
+                </div>
+                <section class="pbi__tile pbi__tile--line"><h5><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="30" height="27" rx="3"/><path d="M5 15h30M12 4v7M28 4v7M11 21h3M18 21h3M25 21h3M11 28h3M18 28h3M25 28h3"/></svg>Monthly Sales</h5><div class="pbi__plot" id="pbiLine"></div></section>
+                <section class="pbi__tile pbi__tile--tree"><h5><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 18l9-5 9 5v10l-9 5-9-5zM8 18l9 5 9-5M17 23v10M18 9l7-4 7 4v8l-7 4"/></svg>Product</h5><div class="pbi__plot pbi__plot--tree" id="pbiTree"></div></section>
+                <section class="pbi__tile pbi__tile--city"><h5><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 36V16h10v20M16 36V4h12v32M28 36V14h7v22M3 36h35M10 21h2M10 26h2M10 31h2M20 9h4M20 15h4M20 21h4M20 27h4"/></svg>Revenue by City</h5><div class="pbi__plot" id="pbiCityBars"></div></section>
+                <section class="pbi__tile pbi__tile--class"><h5><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M22 4a15 15 0 0 1 15 15H22z"/><path d="M19 8a14 14 0 1 0 12 21"/><circle cx="14" cy="27" r="5"/><path d="M18 31l5 5"/></svg>Revenue by Class</h5><div class="pbi__plot" id="pbiClassBars"></div></section>
+                <div class="pbi__best pbi__best--brand"><b>Best Selling Brand</b><strong id="pbiBestBrand"></strong><span>Sales</span><strong id="pbiBestBrandV"></strong></div>
+                <div class="pbi__best pbi__best--city"><b>Best Selling City</b><strong id="pbiBestCity"></strong><span>Sales</span><strong id="pbiBestCityV"></strong></div>
+                <div class="pbi__card pbi__card--stores"><svg class="pbi__ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M14 9l7-4 7 4v8l-7 4-7-4zM14 9l7 4 7-4M21 13v8"/><path d="M4 18v9c0 2 1 3 2.5 4.5L13 38M36 18v9c0 2-1 3-2.5 4.5L27 38"/></svg><span class="pbi__k">Active Stores</span><b class="pbi__v" id="pbiStores"></b></div>
+              </div>
+              <p class="note" data-i18n="w3.note">Rebuilt in the browser from the report's own data model: same layout, same measures, all 2,000 records. Use the slicers and dropdowns the way you would in Power BI.</p>
+            </div>
+            <p class="reco" data-i18n="w3.reco"><b>What to do:</b> plan promotions ahead of the May dip, stock up for July and the November-December peak, and learn what drives Al Baha to lift the other cities.</p>
+            <div class="actions" style="margin-top:14px">
+              <a class="btn" href="https://drive.google.com/drive/folders/16ZERohEGgtArFxBaHNeZqxx5VnmDTSay?usp=sharing" target="_blank" rel="noopener"><span data-i18n="w3.drive">Open the Power BI file (Google Drive)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work" id="work-tableau" role="tabpanel" aria-labelledby="pt-tableau" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Tableau Public</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w7.data">Olist, a Brazilian online marketplace: 97,688 orders from 27 states, Jan 2017 to Oct 2018</dd></div>
+              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="w7.ctx">Assignment 8, Dibimbing Data Analytics and Business Intelligence bootcamp</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w7.t">Olist Sales Grew Fast, but Deliveries to Some States Still Run Late</h3>
+            <p data-i18n="w7.p">My Tableau data story for Olist, an online marketplace in Brazil. It follows monthly revenue, the categories that sell most, how people pay and which states get their orders late.</p>
+            <div class="figs">
+              <div><b>R$1.44M</b><span data-i18n="w7.f2">from health and beauty, the top category</span></div>
+              <div><b class="down">21.4%</b><span data-i18n="w7.f3">late deliveries to Alagoas (São Paulo: 4.5%)</span></div>
+            </div>
+            <p class="tv-note" data-i18n="w7.note"><b>Sample view.</b> Rebuilt from the workbook's data, so the numbers match Tableau. Click a state on the map to filter.</p>
+            <div class="tv-frame">
+              <div class="tv" id="tv" aria-label="Interactive rebuild of the Tableau dashboard">
+                <header class="tv__mast"><span class="tv__logo" aria-hidden="true">D</span><div><b>Davonn Lemuel Halomoan</b><span>Dibimbing Bootcamp DaBi 2 Weekdays</span></div><em>Tugas Data Story DaBi 2 Weekdays · Olist E-Commerce</em></header>
+                <div class="tv__hero">
+                  <p class="tv__kick">Olist E-Commerce · Brasil 2017–2018</p>
+                  <b class="tv__title">Penjualan Olist Naik Pesat, Tapi Pengiriman ke Beberapa Provinsi Masih Telat</b>
+                  <p class="tv__lede">Gambaran kinerja penjualan Olist dari 97.688 pesanan di 27 provinsi Brasil, periode Jan 2017 – Agu 2018.</p>
+                </div>
+                <div class="tv__kpis">
+                  <div class="tv__kpi"><span>Total Revenue</span><b id="tvRev">–</b></div>
+                  <div class="tv__kpi"><span>Total Pesanan</span><b id="tvOrd">–</b></div>
+                  <div class="tv__kpi"><span>Pelanggan Unik</span><b id="tvCust">–</b></div>
+                  <div class="tv__kpi"><span>Rata-rata per Pesanan</span><b id="tvAvg">–</b></div>
+                </div>
+                <div class="tv__filter">
+                  <span class="tv__fl">Filter</span>
+                  <label><span>Tahun</span><select id="tvYear"><option value="">(Semua)</option><option>2017</option><option>2018</option></select></label>
+                  <label><span>Kategori Produk</span><select id="tvCat"><option value="">(Semua)</option></select></label>
+                  <span class="tv__prov"><span>Provinsi</span><button type="button" id="tvState" class="tv__chip" hidden></button><em id="tvHint">Klik provinsi di peta Bagian 04</em></span>
+                </div>
+                <section class="tv__sec tv__sec--line">
+                  <header><i>Bagian 01</i><span>Tren Penjualan</span></header>
+                  <h6>Revenue per bulan, Jan 2017 – Agu 2018</h6>
+                  <p class="tv__legend"><b>Measure Names</b><span class="tv__li"><span class="tv__sw tv__sw--ma"></span>Average 3 Months</span><span class="tv__li"><span class="tv__sw"></span>Payment Value</span></p>
+                  <div class="tv__plot" id="tvLine"></div>
+                  <p class="tv__cap">Chart 01 · Tren revenue bulanan</p>
+                </section>
+                <section class="tv__sec tv__sec--cat">
+                  <header><i>Bagian 02</i><span>Kategori Produk</span></header>
+                  <h6>Top 10 kategori berdasarkan revenue</h6>
+                  <div class="tv__bars" id="tvCats"></div>
+                  <p class="tv__cap">Chart 02 · Top 10 kategori produk</p>
+                </section>
+                <section class="tv__sec tv__sec--pay">
+                  <header><i>Bagian 03</i><span>Metode Pembayaran</span></header>
+                  <h6>Jumlah transaksi per metode pembayaran</h6>
+                  <div class="tv__bars" id="tvPay"></div>
+                  <p class="tv__cap">Chart 03 · Transaksi per metode pembayaran</p>
+                </section>
+                <section class="tv__sec tv__sec--late">
+                  <header><i>Bagian 04</i><span>Pengiriman &amp; Wilayah</span></header>
+                  <h6>Persentase pesanan telat per provinsi</h6>
+                  <div class="tv__map"><div class="tv__mapsvg" id="tvLate"></div><div class="tv__leg"><b>Persen Telat</b><i aria-hidden="true"></i><span><span id="tvLegLo">–</span><span id="tvLegHi">–</span></span></div></div>
+                  <p class="tv__cap">Map 01 · Tingkat keterlambatan per provinsi</p>
+                </section>
+              </div>
+            </div>
+            <p class="reco" data-i18n="w7.reco"><b>Recommendation:</b> fix delivery in Alagoas, Maranhão and Rio de Janeiro first, stock the top categories before the November peak, and run credit card promos, since about 3 in 4 payments use a credit card.</p>
+            <div class="actions" style="margin-top:14px">
+              <a class="btn" href="https://public.tableau.com/app/profile/davonn.halomoan/viz/DavonnLemuel-Tugas8DibimbingDataStory/DashboardOlist" target="_blank" rel="noopener"><span data-i18n="w7.open">Open in Tableau Public</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work" id="work-calc" role="tabpanel" aria-labelledby="pt-calc" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Python, Excel, HTML, CSS, JavaScript</dd></div>
+              <div><dt data-i18n="w.host">Hosted on</dt><dd>Railway</dd></div>
+              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="w4.ctx">Built with Fidellya Sitorus</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="w4.t">Web-Based Life Insurance Premium Calculator</h3>
+            <p data-i18n="w4.p">Turns a life insurance net premium into a few inputs, so the result comes back in seconds instead of building the actuarial present values by hand.</p>
+            <dl class="spec">
+              <div><dt data-i18n="w4.k1">Products</dt><dd data-i18n="w4.v1">Whole life, term insurance, endowment, pure endowment</dd></div>
+              <div><dt data-i18n="w4.k2">Lives</dt><dd data-i18n="w4.v2">Single life, joint life, last survivor</dd></div>
+              <div><dt data-i18n="w4.k3">Inputs</dt><dd data-i18n="w4.v3">Age, interest rate, coverage term, premium payment term, sum assured</dd></div>
+              <div><dt data-i18n="w4.k4">Basis</dt><dd data-i18n="w4.v4">Net premium, benefit paid at the end of the year of death, Indonesian Mortality Table IV (2019)</dd></div>
+            </dl>
+            <p class="src"><b data-i18n="w4.src">Formulas from</b> Dickson, D. C. M., Hardy, M. R., &amp; Waters, H. R. (2020). <i>Actuarial Mathematics for Life Contingent Risks</i> (3rd ed.). Cambridge University Press.</p>
+            <div class="actions" style="margin-top:12px">
+              <a class="btn" href="https://actuarial-premium-calculator-production.up.railway.app" target="_blank" rel="noopener"><span data-i18n="w4.open">Open the calculator</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work work--more" id="work-more" role="tabpanel" aria-labelledby="pt-more" hidden>
+          <div class="work__main">
+        <h3 class="h4" data-i18n="w.more">More analyses</h3>
+        <ul class="more">
+          <li>
+            <h4 data-i18n="m1.t">Funnel and cohort analysis<small>Python · edtech funnel, fintech app cohorts</small></h4>
+            <p data-i18n="m1.p">Found 9 accounts with identical transactions that dragged the February cohort to 27% month-1 retention; without them it is 67%. Also showed that January users stayed at 59% while their revenue fell to 7%.</p>
+            <a href="https://colab.research.google.com/drive/1mMJLdPM8xWvfqdBhYpMdsgsTCSdK8Nre?usp=sharing" target="_blank" rel="noopener" data-i18n="m1.link">Open notebook</a>
+          </li>
+          <li class="more--sql">
+            <h4 data-i18n="m5.t">E-commerce database design<small>PostgreSQL · Dibimbing bootcamp</small></h4>
+            <p data-i18n="m5.p">Built the database for an online shop: 5 linked tables with primary keys, foreign keys and CHECK rules, so a price can't go negative and a quantity has to be above zero. Then wrote the inserts, an update, a delete and two ALTER TABLE changes.</p>
+            <span></span>
+            <figure class="erd" aria-label="Database schema: 5 tables and their keys">
+              <div class="erd__grid"><div class="erd__t"><b>categories</b><ul><li class="pk"><code>category_id</code></li><li><code>category_name</code></li></ul></div><div class="erd__t"><b>products</b><ul><li class="pk"><code>product_id</code></li><li><code>product_name</code></li><li><code>price</code></li><li><code>category_id</code><em>→ categories</em></li></ul></div><div class="erd__t"><b>order_details</b><ul><li class="pk"><code>order_id</code><em>→ orders</em></li><li class="pk"><code>product_id</code><em>→ products</em></li><li><code>quantity</code></li><li><code>unit_price</code></li></ul></div><div class="erd__t"><b>orders</b><ul><li class="pk"><code>order_id</code></li><li><code>customer_id</code><em>→ customers</em></li><li><code>order_date</code></li></ul></div><div class="erd__t"><b>customers</b><ul><li class="pk"><code>customer_id</code></li><li><code>customer_name</code></li><li><code>email</code></li><li><code>registration_date</code></li><li><code>phone_number</code></li></ul></div></div>
+              <figcaption data-i18n="m5.cap"><span class="erd__k">Bold</span> = primary key, → = foreign key to that table</figcaption>
+            </figure>
+              <div class="sqlrun">
+                <h5 data-i18n="m5.runh">Run in PostgreSQL 17</h5>
+                <p data-i18n="m5.runp">The whole script runs without errors. This is the products table after the price update:</p>
+                <pre class="sqlrun__out" tabindex="0" aria-label="psql output">tugas7=# SELECT * FROM products;
+ product_id |      product_name       |  price  | category_id
+------------+-------------------------+---------+-------------
+          1 | Handphone               | 5000000 |           1
+          2 | Detol Sabun Cuci Tangan |   12000 |           2
+          3 | Jaket Denim             |  278000 |           3
+(3 rows)</pre>
+                <p data-i18n="m5.testp">Then I tried to break the rules. PostgreSQL rejected every bad row:</p>
+                <div class="scroll-x"><table class="sqlrun__t"><thead><tr><th data-i18n="m5.th1">Tried</th><th data-i18n="m5.th2">Rejected by</th></tr></thead><tbody><tr><td><code>price = -5000</code></td><td>ERROR: products_price_check</td></tr><tr><td><code>quantity = 0</code></td><td>ERROR: order_details_quantity_check</td></tr><tr><td><code>delete a customer who has orders</code></td><td>ERROR: orders_customer_id_fkey</td></tr><tr><td><code>category_id = 9 (not in categories)</code></td><td>ERROR: products_category_id_fkey</td></tr></tbody></table></div>
+              </div>
+          </li>
+          <li>
+            <h4 data-i18n="m2.t">Social media engagement<small>Python · 89 posts, 4 platforms</small></h4>
+            <p data-i18n="m2.p">Showed how a single metric can mislead: the post with the highest engagement rate (27.1%) had only 3.8% interaction per reach. Format mattered more than platform: Thread posts led interaction and Shorts led clicks.</p>
+            <span></span>
+          </li>
+          <li>
+            <h4 data-i18n="m3.t">Actuarial analyst job simulation<small>AIG on Forage</small></h4>
+            <p data-i18n="m3.p">Priced a marine liability case from claims data.</p>
+            <a href="https://drive.google.com/drive/folders/1I0OPiHatp7InTQ0Y8jt9FiKXOkiIMS5f?usp=sharing" target="_blank" rel="noopener" data-i18n="m3.link">Open files</a>
+          </li>
+        </ul>
+          </div>
+        </article>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="clause" id="skills" aria-labelledby="t-skills">
+      <div class="band"><h2 id="t-skills" data-i18n="c5.t">Skills</h2></div>
+      <div class="wrap">
+        <table class="inst">
+          <tr><th data-i18n="s.1">Programming</th><td>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL (PostgreSQL), R</td></tr>
+          <tr><th data-i18n="s.2">BI and reporting</th><td>Power BI (DAX), Tableau, Looker Studio, Google Analytics 4</td></tr>
+          <tr><th>Excel</th><td data-i18n="s.3v">Pivot tables, XLOOKUP, VLOOKUP, SUMIFS, cleaning large system exports</td></tr>
+          <tr><th>Web</th><td data-i18n="s.4v">HTML, CSS and JavaScript for dashboards and tools that open in a browser</td></tr>
+          <tr><th data-i18n="s.5">Methods</th><td data-i18n="s.5v">Exploratory data analysis, data cleaning, data visualisation, dashboard development, statistical analysis, predictive modelling, machine learning, funnel and cohort analysis, A/B testing, web analytics, social media analysis</td></tr>
+          <tr><th data-i18n="s.7">Working style</th><td data-i18n="s.7v">Teamwork and collaboration, problem solving, data interpretation, presenting findings to management</td></tr>
+          <tr><th data-i18n="s.6">Insurance</th><td data-i18n="s.6v">Underwriting data, loss ratio, treaty and facultative reinsurance, life premium pricing, PSAK 24 valuation</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= CERTIFICATIONS ================= -->
+    <section class="clause" id="certifications" aria-labelledby="t-cert">
+      <div class="band"><h2 id="t-cert" data-i18n="e.t">Certifications</h2></div>
+      <div class="wrap">
+        <div class="scroll-x">
+          <table class="certs">
+            <thead><tr><th data-i18n="e.h1">Certification</th><th data-i18n="e.h2">Issuer</th><th data-i18n="e.h3">Date</th><th data-i18n="e.h4">Credential</th></tr></thead>
+            <tbody>
+              <tr><td>CISDM (Foundation)<small data-i18n="e1">Certified International Specialist in Data Modelling</small></td><td>PASAS Institute, Singapore</td><td class="num" data-i18n="e1d">Aug 2025, valid to Aug 2028</td><td><a class="num" href="assets/certificates/cisdm-foundation.pdf" target="_blank" rel="noopener">CISDM15317</a></td></tr>
+              <tr><td>A60 Matematika Aktuaria<small data-i18n="e2">Actuarial mathematics exam</small></td><td>Persatuan Aktuaris Indonesia (PAI)</td><td class="num" data-i18n="e2d">Feb 2026</td><td><a class="num" href="assets/certificates/pai-a60.pdf" target="_blank" rel="noopener">1878/KP/PAI/II/2026</a></td></tr>
+              <tr><td>EF SET English, C1 Advanced<small data-i18n="e3">70/100; speaking C2</small></td><td>EF</td><td class="num" data-i18n="e3d">Jul 2026</td><td><a href="https://cert.efset.org/baQXjx" target="_blank" rel="noopener">cert.efset.org/baQXjx</a></td></tr>
+              <tr><td>Actuarial Analyst Job Simulation<small data-i18n="e5">Marine liability case study</small></td><td>AIG, Forage</td><td class="num" data-i18n="e5d">Aug 2026</td><td><a class="num" href="assets/certificates/aig-forage-actuarial.pdf" target="_blank" rel="noopener">6a8cf7178f5fb1ac61562005</a></td></tr>
+              <tr><td>Data Analytics Job Simulation<small data-i18n="e6">Data analysis, forensic technology</small></td><td>Deloitte, Forage</td><td class="num" data-i18n="e6d">Aug 2026</td><td><a class="num" href="assets/certificates/deloitte-forage-data-analytics.pdf" target="_blank" rel="noopener">6a7b35e24df52fb03ba53da6</a></td></tr>
+              <tr><td>OMNI Sales<small data-i18n="e7">Grade A (Outstanding), score 9.75</small></td><td>MarkPlus Institute</td><td class="num" data-i18n="e7d">Jun 2024, valid to Jun 2027</td><td><a class="num" href="assets/certificates/markplus-omni-sales.pdf" target="_blank" rel="noopener">MI-MICP-3094-VI-2024</a></td></tr>
+              <tr><td><span data-i18n="e8t">Data Analyst, BNSP certification prep</span></td><td>Yureka Education Center (YEC)</td><td class="num" data-i18n="e8d">Jul 2026</td><td><a class="num" href="assets/certificates/yec-data-analyst-bnsp.pdf" target="_blank" rel="noopener">00172886</a></td></tr>
+              <tr><td><span data-i18n="e9t">Microsoft Excel for office administration</span></td><td>Yureka Education Center (YEC)</td><td class="num" data-i18n="e9d">Jul 2026</td><td><a class="num" href="assets/certificates/yec-excel.pdf" target="_blank" rel="noopener">00172761</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="perf" aria-hidden="true"></div>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="clause" id="contact" aria-labelledby="t-con" style="padding-bottom:clamp(28px,4vw,48px)">
+      <div class="band"><h2 id="t-con" data-i18n="k.t">Contact</h2></div>
+      <div class="wrap">
+        <div class="claims">
+          <p class="big" data-i18n="k.big">Hiring a Data Analyst in Jakarta? Send me an email.</p>
+          <div>
+            <dl class="rows">
+              <div><dt>Email</dt><dd><a href="mailto:davonnlemuel@gmail.com">davonnlemuel@gmail.com</a></dd></div>
+              <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/davonnlemuel" target="_blank" rel="noopener">linkedin.com/in/davonnlemuel</a></dd></div>
+              <div><dt data-i18n="m.phone">Phone</dt><dd><a href="tel:+6281285144266">+62 812 8514 4266</a></dd></div>
+              <div><dt>WhatsApp</dt><dd><a href="https://wa.me/6281285144266" target="_blank" rel="noopener">wa.me/6281285144266</a></dd></div>
+            </dl>
+            <div class="actions">
+              <a class="btn btn--ink" href="mailto:davonnlemuel@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="a.mail">Email me</span></a>
+              <a class="btn btn--li" href="https://www.linkedin.com/in/davonnlemuel" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"/></svg><span>LinkedIn</span></a>
+              <a class="btn btn--wa" href="https://wa.me/6281285144266" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="sign">
+          <div><strong>Davonn Lemuel Halomoan</strong><span>Jakarta, 2026</span></div>
+          <a href="#top" data-i18n="k.top">Back to top</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="tip" id="tip" aria-hidden="true"></div>
+<script src="assets/oil-data.js"></script>
+<script src="app.js?v=75"></script>
+</body>
+</html>
