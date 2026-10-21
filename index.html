@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=75">
+<link rel="stylesheet" href="styles.css?v=76">
 </head>
 <body>
 
@@ -76,11 +76,10 @@
             <caption data-i18n="c.cap">At a glance</caption>
             <thead><tr><th data-i18n="c.h1">What I do</th><th data-i18n="c.h2">Where it's shown</th></tr></thead>
             <tbody>
-              <tr><td data-i18n="c.r1">Management dashboards</td><td data-i18n="c.r1e"><a href="#exA">ASEI company dashboard</a> · <a href="#work-oil">Edible-oil sales (Power BI)</a> · <a href="#work-tableau">Olist data story (Tableau)</a></td></tr>
-              <tr><td data-i18n="c.r2">Raw data, ready to act on</td><td data-i18n="c.r2e"><a href="#experience">Production, claims and renewal reports the team follows up on</a></td></tr>
-              <tr><td data-i18n="c.r3">Predictive modelling</td><td data-i18n="c.r3e"><a href="#work-churn">Customer churn, classification ML models</a></td></tr>
-              <tr><td data-i18n="c.r5">Actuarial pricing</td><td data-i18n="c.r5e"><a href="#work-calc">Live life-insurance premium calculator, TMI IV table</a></td></tr>
-              <tr><td data-i18n="c.r6">And more</td><td data-i18n="c.r6e"><a href="#work-thesis">Bonus-Malus thesis</a> · <a href="#work-more">SQL database and other projects</a></td></tr>
+              <tr><td data-i18n="c.r1">Management Dashboards</td><td data-i18n="c.r1e"><a href="#exA">ASEI company dashboard</a> · <a href="#work-oil">Edible-oil sales (Power BI)</a> · <a href="#work-tableau">Olist data story (Tableau)</a></td></tr>
+              <tr><td data-i18n="c.r2">Raw Data Preparation</td><td data-i18n="c.r2e"><a href="#experience">Production, claims and renewal reports the team follows up on</a></td></tr>
+              <tr><td data-i18n="c.r3">Predictive Modelling</td><td data-i18n="c.r3e"><a href="#work-churn">Customer churn, classification ML models</a></td></tr>
+              <tr><td data-i18n="c.r5">Actuarial Pricing</td><td data-i18n="c.r5e"><a href="#work-calc">Live life-insurance premium calculator, TMI IV table</a></td></tr>
             </tbody>
           </table>
 
@@ -316,7 +315,7 @@
           <button type="button" role="tab" id="pt-oil" aria-controls="work-oil" aria-selected="false" tabindex="-1"><b data-i18n="w3.n">Edible-Oil Sales Dashboard</b><span data-i18n="w3.ns">Power BI · DAX</span></button>
           <button type="button" role="tab" id="pt-tableau" aria-controls="work-tableau" aria-selected="false" tabindex="-1"><b data-i18n="w7.n">Olist Sales Data Story</b><span data-i18n="w7.ns">Tableau · Dibimbing Bootcamp</span></button>
           <button type="button" role="tab" id="pt-calc" aria-controls="work-calc" aria-selected="false" tabindex="-1"><b data-i18n="w4.n">Life Premium Calculator</b><span data-i18n="w4.ns">Python · Web App</span></button>
-          <button type="button" role="tab" id="pt-more" aria-controls="work-more" aria-selected="false" tabindex="-1"><b data-i18n="w6.n">More Analyses</b><span data-i18n="w6.ns">4 Shorter Pieces</span></button>
+          <button type="button" role="tab" id="pt-more" aria-controls="work-more" aria-selected="false" tabindex="-1"><b data-i18n="w6.n">More Analyses</b><span data-i18n="w6.ns">3 Shorter Pieces</span></button>
         </div>
         <div class="pj__view">
         <article class="work" id="work-thesis" role="tabpanel" aria-labelledby="pt-thesis">
@@ -400,7 +399,7 @@
           <div class="work__side">
             <dl>
               <div><dt data-i18n="w.tools">Tools</dt><dd>Python, Pandas, Scikit-learn, LightGBM</dd></div>
-              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w1.data">Three churn datasets: Telco Customer Churn (Kaggle, 7,032 customers), recurring flights and flight passengers</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="w1.data">Three churn datasets: Telco Customer Churn (Kaggle, 7,032 customers), recurring flights (135,944 flight records) and flight passengers (1,333 passengers)</dd></div>
               <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="w1.ctx">Group of 4, Mathematical Modeling final project, UNPAR</dd></div>
             </dl>
           </div>
@@ -603,28 +602,6 @@
             <p data-i18n="m1.p">Found 9 accounts with identical transactions that dragged the February cohort to 27% month-1 retention; without them it is 67%. Also showed that January users stayed at 59% while their revenue fell to 7%.</p>
             <a href="https://colab.research.google.com/drive/1mMJLdPM8xWvfqdBhYpMdsgsTCSdK8Nre?usp=sharing" target="_blank" rel="noopener" data-i18n="m1.link">Open notebook</a>
           </li>
-          <li class="more--sql">
-            <h4 data-i18n="m5.t">E-commerce database design<small>PostgreSQL · Dibimbing bootcamp</small></h4>
-            <p data-i18n="m5.p">Built the database for an online shop: 5 linked tables with primary keys, foreign keys and CHECK rules, so a price can't go negative and a quantity has to be above zero. Then wrote the inserts, an update, a delete and two ALTER TABLE changes.</p>
-            <span></span>
-            <figure class="erd" aria-label="Database schema: 5 tables and their keys">
-              <div class="erd__grid"><div class="erd__t"><b>categories</b><ul><li class="pk"><code>category_id</code></li><li><code>category_name</code></li></ul></div><div class="erd__t"><b>products</b><ul><li class="pk"><code>product_id</code></li><li><code>product_name</code></li><li><code>price</code></li><li><code>category_id</code><em>→ categories</em></li></ul></div><div class="erd__t"><b>order_details</b><ul><li class="pk"><code>order_id</code><em>→ orders</em></li><li class="pk"><code>product_id</code><em>→ products</em></li><li><code>quantity</code></li><li><code>unit_price</code></li></ul></div><div class="erd__t"><b>orders</b><ul><li class="pk"><code>order_id</code></li><li><code>customer_id</code><em>→ customers</em></li><li><code>order_date</code></li></ul></div><div class="erd__t"><b>customers</b><ul><li class="pk"><code>customer_id</code></li><li><code>customer_name</code></li><li><code>email</code></li><li><code>registration_date</code></li><li><code>phone_number</code></li></ul></div></div>
-              <figcaption data-i18n="m5.cap"><span class="erd__k">Bold</span> = primary key, → = foreign key to that table</figcaption>
-            </figure>
-              <div class="sqlrun">
-                <h5 data-i18n="m5.runh">Run in PostgreSQL 17</h5>
-                <p data-i18n="m5.runp">The whole script runs without errors. This is the products table after the price update:</p>
-                <pre class="sqlrun__out" tabindex="0" aria-label="psql output">tugas7=# SELECT * FROM products;
- product_id |      product_name       |  price  | category_id
-------------+-------------------------+---------+-------------
-          1 | Handphone               | 5000000 |           1
-          2 | Detol Sabun Cuci Tangan |   12000 |           2
-          3 | Jaket Denim             |  278000 |           3
-(3 rows)</pre>
-                <p data-i18n="m5.testp">Then I tried to break the rules. PostgreSQL rejected every bad row:</p>
-                <div class="scroll-x"><table class="sqlrun__t"><thead><tr><th data-i18n="m5.th1">Tried</th><th data-i18n="m5.th2">Rejected by</th></tr></thead><tbody><tr><td><code>price = -5000</code></td><td>ERROR: products_price_check</td></tr><tr><td><code>quantity = 0</code></td><td>ERROR: order_details_quantity_check</td></tr><tr><td><code>delete a customer who has orders</code></td><td>ERROR: orders_customer_id_fkey</td></tr><tr><td><code>category_id = 9 (not in categories)</code></td><td>ERROR: products_category_id_fkey</td></tr></tbody></table></div>
-              </div>
-          </li>
           <li>
             <h4 data-i18n="m2.t">Social media engagement<small>Python · 89 posts, 4 platforms</small></h4>
             <p data-i18n="m2.p">Showed how a single metric can mislead: the post with the highest engagement rate (27.1%) had only 3.8% interaction per reach. Format mattered more than platform: Thread posts led interaction and Shorts led clicks.</p>
@@ -719,6 +696,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=75"></script>
+<script src="app.js?v=76"></script>
 </body>
 </html>
