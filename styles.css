@@ -1113,3 +1113,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .hb-cols b.hb-jul { visibility: hidden; }
 }
 
+
+/* UNPAR course groups: same list as the Dibimbing track, without the date column */
+.track--plain li { grid-template-columns: minmax(0, 1fr); align-content: start; }
