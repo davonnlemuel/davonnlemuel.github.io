@@ -1113,7 +1113,3 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .hb-cols b.hb-jul { visibility: hidden; }
 }
 
-/* More Analyses: an item with a full-width screenshot under its text */
-.more__shot { grid-column: 1 / -1; display: block; margin-top: 6px; border: 1px solid var(--rule-2); border-radius: 4px; overflow: hidden; background: #fff; }
-.more__shot img { display: block; width: 100%; height: auto; }
-.more__shot:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }

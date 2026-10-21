@@ -269,6 +269,7 @@
     'm7.l2': 'Buka notebook',
     'm8.t': 'Dashboard Excel untuk toko alat tulis<small>Excel · PivotTable, slicer · Dibimbing</small>',
     'm8.p': 'Dashboard satu halaman untuk toko alat tulis kecil: 10.005 order dari Jan 2022 sampai Jun 2025. Tiga slicer (kota, tahun, status order) memfilter kelima chart dan keempat KPI sekaligus. Denpasar dan Surabaya menyumbang 52% nilai order.',
+    'm8.link': 'Buka file Excel',
     'm2.t': 'Engagement media sosial<small>Python · 89 konten, 4 platform</small>',
     'm2.p': 'Menunjukkan bagaimana satu metrik bisa menyesatkan: konten dengan engagement rate tertinggi (27,1%) hanya punya interaksi per reach 3,8%. Format lebih berpengaruh daripada platform: Thread unggul di interaksi, Shorts unggul di klik.',
     'm3.t': 'Actuarial analyst job simulation<small>AIG di Forage</small>',
