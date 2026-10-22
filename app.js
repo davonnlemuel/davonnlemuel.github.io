@@ -508,12 +508,12 @@
     en: {
       allCob: 'All classes', cobN: { Property: 'Property', Engineering: 'Engineering', Marine: 'Marine hull and cargo', Liability: 'Liability' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'All branches', pols: 'policies', polIn: 'Policies in view', loMed: 'Low or medium risk', hiVh: 'High or very high risk',
-      riskT: 'Risk profile of each branch', riskS: 'Share of each branch’s policies at each risk level, largest branches first',
+      riskT: 'Risk distribution of policies by branch',
       totCase: 'Pending cases', over30c: 'Pending cases over 30 days', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision',
       topUwT: 'Top 10 underwriters by pending cases', lapUwT: 'How long requests wait, per underwriter', lapUwS: 'Average lapse days since the request came in, longest first', avgLap: 'Average lapse',
       lapCT: 'Pending cases by days waiting', lapCS: 'Grouped by how many days each request has been open', caseT: 'Pending requests', caseS: 'Every request still waiting for a decision, longest wait first', reqNo: 'Request no.', reqType: 'Type', newPol: 'New', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Fire', 'Contractors all risk', 'Marine cargo', 'Heavy equipment', 'Machinery breakdown', 'Hull', 'Money insurance', 'Public liability', 'Earthquake', 'Erection all risk', 'Property all risks'],
-      nClaims: 'Claims settled', shareP: 'Company share of settled claims', topCause: 'Top cause of loss', ofClaims: 'of claims',
+      nClaims: 'Claims settled 2021-2026', shareP: 'Claims paid, company share', topCause: 'Top cause of loss', ofClaims: 'of claims',
       causes: ['Fire', 'Flood', 'Theft', 'Collision', 'Machinery breakdown', 'Short circuit', 'Earthquake', 'Water damage', 'Riot', 'Other'],
       causeT: 'What caused the losses', causeS: 'Settled claims counted by cause of loss', cause: 'Cause', claimsN: 'Claims',
       insured: 'Insured', insT: 'Top 10 insureds by claims paid', insS: 'Company share of settled claims, in Rp billion', yrT: 'Settled claims per year', yrS: 'Number of claims settled each year',
@@ -550,12 +550,12 @@
     id: {
       allCob: 'Semua kelas', cobN: { Property: 'Properti', Engineering: 'Engineering', Marine: 'Marine hull dan cargo', Liability: 'Tanggung gugat' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'Semua cabang', pols: 'polis', polIn: 'Polis ditampilkan', loMed: 'Risiko low atau medium', hiVh: 'Risiko high atau very high',
-      riskT: 'Profil risiko tiap cabang', riskS: 'Porsi polis tiap cabang di setiap tingkat risiko, cabang terbesar di atas',
+      riskT: 'Persebaran Risiko Polis per Cabang',
       totCase: 'Kasus pending', over30c: 'Kasus pending yang lebih dari 30 hari', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting',
       topUwT: 'Top 10 underwriter dengan kasus pending terbanyak', lapUwT: 'Lama pengajuan menunggu, per underwriter', lapUwS: 'Rata-rata lapse day sejak pengajuan masuk, terlama di atas', avgLap: 'Rata-rata lapse',
       lapCT: 'Kasus pending menurut lama menunggu', lapCS: 'Dikelompokkan dari berapa hari pengajuan sudah terbuka', caseT: 'Daftar pengajuan pending', caseS: 'Semua pengajuan yang masih menunggu keputusan, yang paling lama di atas', reqNo: 'No. pengajuan', reqType: 'Jenis', newPol: 'Baru', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Kebakaran', 'Contractors all risk', 'Marine cargo', 'Alat berat', 'Machinery breakdown', 'Hull', 'Asuransi uang', 'Tanggung gugat publik', 'Gempa bumi', 'Erection all risk', 'Property all risks'],
-      nClaims: 'Klaim settled', shareP: 'Share perusahaan atas klaim settled', topCause: 'Penyebab klaim teratas', ofClaims: 'dari klaim',
+      nClaims: 'Klaim settled 2021-2026', shareP: 'Klaim dibayar share perusahaan', topCause: 'Penyebab klaim teratas', ofClaims: 'dari klaim',
       causes: ['Kebakaran', 'Banjir', 'Pencurian', 'Tabrakan', 'Kerusakan mesin', 'Korsleting', 'Gempa bumi', 'Kerusakan air', 'Kerusuhan', 'Lainnya'],
       causeT: 'Penyebab kerugian', causeS: 'Klaim settled dihitung per penyebab kerugian', cause: 'Penyebab', claimsN: 'Klaim',
       insured: 'Tertanggung', insT: 'Top 10 tertanggung menurut klaim dibayar', insS: 'Share perusahaan atas klaim settled, dalam miliar rupiah', yrT: 'Klaim settled per tahun', yrS: 'Jumlah klaim yang selesai tiap tahun',
@@ -882,7 +882,7 @@
             { k: d('hiVh'), v: pct(100 - loShare) }
           ],
           cards: [
-            { title: d('riskT'), sub: d('riskS'), wide: true, legend: lv.map((n, k) => [n, cols[k]]),
+            { title: d('riskT'), wide: true, legend: lv.map((n, k) => [n, cols[k]]),
               chart: w => dStack(w, [{ name: d('allBr'), parts: tot, n: N, total: true }].concat(rows), cols, lv, { label: d('riskT') }),
               table: [[d('branch')].concat(lv, [d('pol')]), [[d('allBr')].concat(tot.map(v => nf(v)), [nf(N)])].concat(rows.map(x => [x.name].concat(x.parts.map(v => nf(v)), [nf(x.n)])))] }
           ]
@@ -964,8 +964,8 @@
         const bn2 = v => bn(v);
         return {
           tiles: [
-            { k: d('nClaims'), v: nf(nClaims), n: '2021 - 2026' },
-            { k: d('cl'), v: bn2(paid), n: d('shareP') },
+            { k: d('nClaims'), v: nf(nClaims) },
+            { k: d('shareP'), v: bn2(paid) },
             { k: d('topCause'), v: byCause[0][0], chip: chip('crit', pct(byCause[0][1] / nClaims * 100, 0) + ' ' + d('ofClaims')) }
           ],
           cards: [
