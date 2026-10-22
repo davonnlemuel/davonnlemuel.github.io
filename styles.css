@@ -1103,6 +1103,16 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .hb-cols i.low { background: var(--red); }
 .hb-cols span { margin-top: 5px; font: 600 11.5px/1 var(--f-head); color: var(--ink-3); }
 .hb-cols b { font: 700 11.5px/1 var(--f-head); color: var(--red); margin-bottom: 4px; white-space: nowrap; }
+.hb-cols--15 { grid-template-columns: repeat(15, minmax(0, 1fr)); }
+/* spotify: the before → after figure is too wide for half a phone row, so it takes the full row */
+@media (max-width: 639px) {
+  .figs--sp > div:first-child { grid-column: 1 / -1; }
+  .figs--sp > div:nth-child(2) { padding-left: 0; border-left: 0; }
+  .figs.figs--sp > div:nth-child(3):last-child { grid-column: auto; padding-left: 14px; border-left: 1px solid var(--rule-2); }
+  .figs--sp > div:nth-child(n+2) { border-top: 1px solid var(--rule-2); }
+}
+.hb-cols i.hi { background: #1F5A4E; }
+.hb-cols b.hi { color: #1F5A4E; }
 .hb-learn { margin: 6px 0 0; padding-left: 18px; }
 .hb-learn li { margin-bottom: 8px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
 .hb-learn b { color: var(--ink); }
