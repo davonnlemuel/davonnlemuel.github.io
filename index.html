@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=94">
+<link rel="stylesheet" href="styles.css?v=95">
 </head>
 <body>
 
@@ -748,15 +748,7 @@
               <div><b>+52%</b><span data-i18n="sp.f3">daily users after the rollout</span></div>
             </div>
 
-            <h4 class="h4 ch-h" data-i18n="sp.h1">1 · Making sure the test was fair</h4>
-            <p class="fz__cap" data-i18n="sp.c1">The test needed at least 9,359 users per group to catch a 2-point lift (α 0.05, power 80%), and it had 50,000. 1,132 values were out of range, almost all in the Target group. Users left in each group under two ways of handling them:</p>
-            <div class="scroll-x"><table class="models" aria-label="Users per group and SRM p-value for each way of handling out-of-range values">
-              <thead data-i18n="sp.th"><tr><th></th><th>Control</th><th>Target</th><th>SRM p</th></tr></thead>
-              <tbody data-i18n="sp.tb"><tr><td>Raw data</td><td>50,000</td><td>50,000</td><td>1.0000</td></tr><tr><td>Drop the rows</td><td>49,997</td><td>48,871</td><td>0.0003</td></tr><tr class="best"><td>Cap the values (used)</td><td>50,000</td><td>50,000</td><td>1.0000</td></tr></tbody>
-            </table></div>
-            <p class="ch-concl" data-i18n="sp.k1"><b>Dropping rows would have cost Target 1,129 users and failed the SRM check, so I capped the values instead.</b> Engagement above 1 became 1, and the two negative listening times became 0. Both groups stayed at 50,000.</p>
-
-            <h4 class="h4 ch-h" data-i18n="sp.h2a">2 · The campaign lifted Premium without hurting listening</h4>
+            <h4 class="h4 ch-h" data-i18n="sp.h2a">1 · The campaign lifted Premium without hurting listening</h4>
             <p class="fz__cap" data-i18n="sp.c2">Average per group: grey without the campaign, green with it. Listening time bars are scaled to the higher value.</p>
             <div class="fz2">
               <div class="fz2__g"><p class="fz2__h" data-i18n="sp.g1">Premium share (main metric)</p>
@@ -772,9 +764,9 @@
                 <div class="fz2__r"><span data-i18n="sp.r1">With</span><i style="--w:100%" class="hi"></i><b data-i18n="sp.v6">159.9</b></div>
               </div>
             </div>
-            <p class="ch-concl" data-i18n="sp.k2"><b>Premium share rose 20.5 points (95% CI 20.0 to 21.1, p &lt; 0.001).</b> Even the low end of that range is ten times the 2-point minimum set before the test. Engagement and listening time both rose 33%, so users did not listen less to get there.</p>
+            <p class="ch-concl" data-i18n="sp.k2"><b>Premium share rose 20.5 points</b>, about ten times the 2-point lift I set as the minimum before the test. Engagement and listening time both went up 33%, so the extra Premium users did not come with less listening.</p>
 
-            <h4 class="h4 ch-h" data-i18n="sp.h3">3 · After the rollout, daily users rose</h4>
+            <h4 class="h4 ch-h" data-i18n="sp.h3">2 · After the rollout, daily users rose</h4>
             <p class="fz__cap" data-i18n="sp.c3">Daily users, 1 to 15 March 2026. Grey: the week before. Green: from 8 March, when every user got the campaign.</p>
             <div class="hb-cols hb-cols--15" role="img" aria-label="Daily users from 1 to 15 March 2026. Before 8 March between 11,660 and 19,304. From 8 March between 20,960 and 29,803, with the peak on 11 March.">
               <div><i style="--h:64.8"></i><span>1</span></div>
@@ -793,7 +785,7 @@
               <div><i style="--h:87.9" class="hi"></i><span>14</span></div>
               <div><i style="--h:82.0" class="hi"></i><span>15</span></div>
             </div>
-            <p class="ch-concl" data-i18n="sp.k3"><b>Average daily users went from 16,184 to 24,642, up 52% (Welch t-test p = 0.00005).</b> Every day of the week beat the same day a week earlier, Saturday the most at +125%. This data has no control group, so anything else that happened that week is in the rise too.</p>
+            <p class="ch-concl" data-i18n="sp.k3"><b>Average daily users went from 16,184 to 24,642 (+52%).</b> Every day of the week beat the same day a week earlier, and Saturday rose the most at +125%. There was no control group this time, so anything else that happened that week is part of the rise too.</p>
 
             <h4 class="h4 ch-h" data-i18n="sp.h2">What I would recommend</h4>
             <ol class="nx">
@@ -914,6 +906,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=94"></script>
+<script src="app.js?v=95"></script>
 </body>
 </html>
