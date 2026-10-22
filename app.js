@@ -56,7 +56,7 @@
     'pa2.i': 'Untuk melihat portofolio yang dipegang setiap kelas bisnis (COB) di tiap cabang, dari risiko low, medium, high, sampai very high. Saya memakainya di rapat dengan kantor cabang: saya mempresentasikan profil risiko tiap cabang per kelas bisnis, lalu menindaklanjuti arahan atasan dari rapat itu.',
     'f.cob': 'Kelas bisnis (COB)', 'f.occ': 'Okupasi / risiko', 'f.si': 'Nilai pertanggungan', 'f.ded': 'Deductible',
     'ch.split': 'Penempatan nilai pertanggungan', 'lg.own': 'Retensi sendiri', 'lg.treaty': 'Treaty', 'lg.fac': 'Fakultatif',
-    'pa3.i': 'Untuk melihat underwriter di tiap cabang yang masih punya pengajuan pending, dan sudah berapa lama pengajuan itu menunggu.',
+    'pa3.i': 'Untuk melihat underwriter di tiap cabang yang masih punya pengajuan pending dan sudah berapa lama pengajuan itu menunggu.',
     'ch.pend': 'Kasus pending per underwriter, menurut lama menunggu (hari)', 'ch.br2': 'Kasus pending per cabang',
     'pa4.i': 'Pembagian premi tertulis tiap minggu antara retensi sendiri, treaty, dan reasuransi fakultatif, seperti di laporan mingguan untuk kepala divisi.',
     'ch.fac': 'Alokasi premi per minggu',
@@ -509,9 +509,9 @@
       allCob: 'All classes', cobN: { Property: 'Property', Engineering: 'Engineering', Marine: 'Marine hull and cargo', Liability: 'Liability' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'All branches', pols: 'policies', polIn: 'Policies in view', loMed: 'Low or medium risk', hiVh: 'High or very high risk',
       riskT: 'Risk profile of each branch', riskS: 'Share of each branch’s policies at each risk level, largest branches first',
-      totCase: 'Pending cases', newB: 'new', renewB: 'renewal', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision',
+      totCase: 'Pending cases', over30c: 'Pending cases over 30 days', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision',
       topUwT: 'Top 10 underwriters by pending cases', lapUwT: 'How long requests wait, per underwriter', lapUwS: 'Average lapse days since the request came in, longest first', avgLap: 'Average lapse',
-      lapCT: 'Pending cases by days waiting', lapCS: 'Grouped by how many days each request has been open', tocT: 'Types of cover with the most pending cases', tocS: 'Top 10 types of cover (TOC) by pending requests',
+      lapCT: 'Pending cases by days waiting', lapCS: 'Grouped by how many days each request has been open', caseT: 'Pending requests', caseS: 'Every request still waiting for a decision, longest wait first', reqNo: 'Request no.', reqType: 'Type', newPol: 'New', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Fire', 'Contractors all risk', 'Marine cargo', 'Heavy equipment', 'Machinery breakdown', 'Hull', 'Money insurance', 'Public liability', 'Earthquake', 'Erection all risk', 'Property all risks'],
       nClaims: 'Claims settled', shareP: 'Company share of settled claims', topCause: 'Top cause of loss', ofClaims: 'of claims',
       causes: ['Fire', 'Flood', 'Theft', 'Collision', 'Machinery breakdown', 'Short circuit', 'Earthquake', 'Water damage', 'Riot', 'Other'],
@@ -551,9 +551,9 @@
       allCob: 'Semua kelas', cobN: { Property: 'Properti', Engineering: 'Engineering', Marine: 'Marine hull dan cargo', Liability: 'Tanggung gugat' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'Semua cabang', pols: 'polis', polIn: 'Polis ditampilkan', loMed: 'Risiko low atau medium', hiVh: 'Risiko high atau very high',
       riskT: 'Profil risiko tiap cabang', riskS: 'Porsi polis tiap cabang di setiap tingkat risiko, cabang terbesar di atas',
-      totCase: 'Kasus pending', newB: 'baru', renewB: 'renewal', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting',
+      totCase: 'Kasus pending', over30c: 'Kasus pending yang lebih dari 30 hari', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting',
       topUwT: 'Top 10 underwriter dengan kasus pending terbanyak', lapUwT: 'Lama pengajuan menunggu, per underwriter', lapUwS: 'Rata-rata lapse day sejak pengajuan masuk, terlama di atas', avgLap: 'Rata-rata lapse',
-      lapCT: 'Kasus pending menurut lama menunggu', lapCS: 'Dikelompokkan dari berapa hari pengajuan sudah terbuka', tocT: 'Jenis pertanggungan dengan kasus pending terbanyak', tocS: '10 TOC teratas menurut jumlah pengajuan pending',
+      lapCT: 'Kasus pending menurut lama menunggu', lapCS: 'Dikelompokkan dari berapa hari pengajuan sudah terbuka', caseT: 'Daftar pengajuan pending', caseS: 'Semua pengajuan yang masih menunggu keputusan, yang paling lama di atas', reqNo: 'No. pengajuan', reqType: 'Jenis', newPol: 'Baru', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Kebakaran', 'Contractors all risk', 'Marine cargo', 'Alat berat', 'Machinery breakdown', 'Hull', 'Asuransi uang', 'Tanggung gugat publik', 'Gempa bumi', 'Erection all risk', 'Property all risks'],
       nClaims: 'Klaim settled', shareP: 'Share perusahaan atas klaim settled', topCause: 'Penyebab klaim teratas', ofClaims: 'dari klaim',
       causes: ['Kebakaran', 'Banjir', 'Pencurian', 'Tabrakan', 'Kerusakan mesin', 'Korsleting', 'Gempa bumi', 'Kerusakan air', 'Kerusuhan', 'Lainnya'],
@@ -893,31 +893,37 @@
       state: { br: 'all' },
       filters: s => [{ key: 'br', label: d('branch'), value: s.br, options: [['all', d('allBr')]].concat(BRANCHES.map(b => [b, b])) }],
       build(s) {
-        const r = rng(hash('pending2')), uws = Array.from({ length: 16 }, (_, i) => 'UW ' + String.fromCharCode(65 + i));
+        // two underwriters per branch, so no underwriter can hold more cases than their branch has
+        const r = rng(hash('pending2')), uw = (bi, j) => 'UW ' + String.fromCharCode(65 + bi * 2 + j);
+        // most requests are under a week old; [share, first day, last day] per waiting band
+        const LAPSE = [[.52, 1, 7], [.22, 8, 14], [.16, 15, 30], [.10, 31, 60]];
+        const lapse = () => { let u = r(); const g = LAPSE.find(([p]) => (u -= p) < 0) || LAPSE[3]; return g[1] + Math.floor(r() * (g[2] - g[1] + 1)); };
         const tocs = d('tocs'), cases = [];
         BRANCHES.forEach((b, bi) => {
           const n = 4 + Math.round(r() * 26);
-          for (let i = 0; i < n; i++) cases.push({ br: b, uw: uws[(bi * 2 + Math.floor(r() * 3)) % uws.length], toc: tocs[Math.floor(Math.pow(r(), 1.6) * tocs.length)], lapse: Math.round(Math.pow(r(), 1.8) * 48) + 1, renew: r() < .38 });
+          for (let i = 0; i < n; i++) cases.push({ br: b, uw: uw(bi, r() < .55 ? 0 : 1), toc: tocs[Math.floor(Math.pow(r(), 1.6) * tocs.length)], lapse: lapse(), renew: r() < .38 });
         });
+        cases.forEach((c, i) => { c.no = 'PND-' + String(1001 + i); c.ins = d('insured') + ' ' + String(101 + Math.floor(r() * 899)); });
         const view = s.br === 'all' ? cases : cases.filter(c => c.br === s.br);
         const cnt = (arr, k) => { const m = {}; arr.forEach(c => { m[c[k]] = (m[c[k]] || 0) + 1; }); return Object.entries(m).sort((a, b) => b[1] - a[1]); };
-        const byBr = cnt(cases, 'br'), byUw = cnt(view, 'uw').slice(0, 10), byToc = cnt(view, 'toc').slice(0, 10);
+        const byBr = cnt(cases, 'br'), byUw = cnt(view, 'uw').slice(0, 10), oldest = view.slice().sort((a, b) => b.lapse - a.lapse);
         const lapUw = Object.entries(view.reduce((m, c) => { (m[c.uw] = m[c.uw] || []).push(c.lapse); return m; }, {})).map(([u, a]) => [u, sum(a) / a.length]).sort((a, b) => b[1] - a[1]).slice(0, 10);
         const groups = [['<= 7', 0, 7], ['8-14', 8, 14], ['15-30', 15, 30], ['> 30', 31, 999]], gcol = [D.o1, D.o2, D.o4, D.crit];
         const gN = groups.map(([, a, b]) => view.filter(c => c.lapse >= a && c.lapse <= b).length);
         const nUw = new Set(view.map(c => c.uw)).size, renew = view.filter(c => c.renew).length;
         return {
           tiles: [
-            { k: d('totCase'), v: nf(view.length), n: `${nf(view.length - renew)} ${d('newB')} · ${nf(renew)} ${d('renewB')}` },
-            { k: d('nUw'), v: nf(nUw), n: s.br === 'all' ? d('allBr') : s.br },
-            { k: d('over30'), v: nf(gN[3]), chip: chip('crit', pct(gN[3] / (view.length || 1) * 100)) }
+            { k: d('totCase'), v: nf(view.length), n: lang === 'id' ? `${nf(view.length - renew)} polis baru dan ${nf(renew)} renewal` : `${nf(view.length - renew)} new policies and ${nf(renew)} renewals` },
+            { k: d('nUw'), v: nf(nUw) },
+            { k: d('over30c'), v: nf(gN[3]) }
           ],
           cards: [
             { title: d('pbrT'), sub: d('pbrS'), chart: w => dHbar(w, byBr.map(([b, n]) => ({ name: b, value: n, color: b === s.br ? D.brand : D.s1 })), { fmt: v => nf(v), labW: 100, label: d('pbrT') }), table: [[d('branch'), d('cases')], byBr.map(([b, n]) => [b, nf(n)])] },
             { title: d('topUwT'), sub: d('topUwS') + ' ' + (s.br === 'all' ? d('allBr').toLowerCase() : s.br), chart: w => dHbar(w, byUw.map(([u, n]) => ({ name: u, value: n, color: D.s1 })), { fmt: v => nf(v), labW: 80, label: d('topUwT') }), table: [[d('uw'), d('cases')], byUw.map(([u, n]) => [u, nf(n)])] },
             { title: d('lapUwT'), sub: d('lapUwS'), chart: w => dHbar(w, lapUw.map(([u, v]) => ({ name: u, value: v, color: v > 30 ? D.crit : v > 14 ? '#E3A21A' : D.s3 })), { fmt: v => nf(v, 1) + ' ' + d('days'), tick: v => nf(v), labW: 80, label: d('lapUwT') }), table: [[d('uw'), d('avgLap')], lapUw.map(([u, v]) => [u, nf(v, 1) + ' ' + d('days')])] },
             { title: d('lapCT'), sub: d('lapCS'), chart: w => dPie(w, groups.map((g, k) => ({ name: g[0] + ' ' + d('days'), value: gN[k], color: gcol[k], ink: k === 0 ? D.ink : '#fff', detail: nf(gN[k]) + ' ' + d('cases').toLowerCase() })), { label: d('lapCT') }), table: [[d('bucket'), d('cases')], groups.map((g, k) => [g[0], nf(gN[k])])] },
-            { title: d('tocT'), sub: d('tocS'), wide: true, chart: w => dHbar(w, byToc.map(([t, n]) => ({ name: t, value: n, color: D.o3 })), { fmt: v => nf(v), labW: 190, label: d('tocT') }), table: [['TOC', d('cases')], byToc.map(([t, n]) => [t, nf(n)])] }
+            { title: d('caseT'), sub: d('caseS'), wide: true, left: 6,
+              table: [[d('reqNo'), d('insured'), d('branch'), 'TOC', d('uw'), d('reqType'), d('lapseD')], oldest.map(c => [c.no, c.ins, c.br, c.toc, c.uw, c.renew ? 'Renewal' : d('newPol'), nf(c.lapse) + ' ' + d('days')])] }
           ]
         };
       }
@@ -1048,15 +1054,15 @@
     main.innerHTML =
       `<div class="htiles">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v${tl.cls ? ' ' + tl.cls : ''}">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
       (spec.stats ? `<dl class="dstats">${spec.stats.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '') +
-      `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(c.title)}</h4>${c.sub ? `<p class="cs">${esc(c.sub)}</p>` : ''}</div><div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div></div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
+      `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(c.title)}</h4>${c.sub ? `<p class="cs">${esc(c.sub)}</p>` : ''}</div>${c.chart ? `<div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div>` : ''}</div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
     $$('.dcard', main).forEach(card => {
       const c = spec.cards[+card.dataset.i], key = id + ':' + card.dataset.i, body = $('.dbody', card);
       const paint = () => {
-        const v = dashViews[key] || 'chart';
+        const v = c.chart ? dashViews[key] || 'chart' : 'table', al = i => (i < (c.left || 1) ? ' class="l"' : '');
         $$('.tog button', card).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
         if (v === 'table') {
           const [cols, rows] = c.table;
-          body.innerHTML = `<div class="dtable"><table><thead><tr>${cols.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${c.tableNote ? `<p class="cs">${esc(c.tableNote)}</p>` : ''}`;
+          body.innerHTML = `<div class="dtable"><table><thead><tr>${cols.map((h, i) => `<th${al(i)}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((x, i) => `<td${al(i)}>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${c.tableNote ? `<p class="cs">${esc(c.tableNote)}</p>` : ''}`;
         } else body.innerHTML = c.chart(Math.max(260, body.clientWidth || card.clientWidth - 36));
       };
       $$('.tog button', card).forEach(b => b.addEventListener('click', () => { dashViews[key] = b.dataset.v; paint(); }));
