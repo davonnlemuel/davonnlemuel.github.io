@@ -60,7 +60,7 @@
     'ch.pend': 'Kasus pending per underwriter, menurut lama menunggu (hari)', 'ch.br2': 'Kasus pending per cabang',
     'pa4.i': 'Pembagian premi tertulis tiap minggu antara retensi sendiri, treaty, dan reasuransi fakultatif, seperti di laporan mingguan untuk atasan.',
     'ch.fac': 'Alokasi premi per minggu',
-    'pa5.i': 'Klaim yang sudah settled: apa penyebab kerugiannya, tertanggung mana yang klaimnya paling besar, dan kapan kerugian terjadi dalam periode polis.',
+    'pa5.i': 'Dashboard profil klaim yang sudah settled. Dipakai untuk melihat penyebab kerugian, tertanggung dengan klaim terbesar, dan kapan kerugian terjadi dalam periode polis.',
     'ch.odds': 'Odds ratio klaim per faktor', 'ch.freq': 'Klaim per 100 polis, per kelompok nilai pertanggungan',
     'ex.note': '<b>Catatan:</b> dashboard aslinya berjalan dengan data perusahaan dan tetap berada di dalam perusahaan. Replika ini mempertahankan struktur dan pertanyaan yang dijawabnya; semua angka, tertanggung, dan underwriter di sini adalah data dummy. Yang ditampilkan di sini hanya sebagian dari fiturnya.',
     'c3.r1': 'Actuarial Intern',
@@ -533,8 +533,8 @@
       capT: 'Capacity used per layer', capS: 'placed vs layer limit, Rp bn', layer: 'Layer', placed: 'Placed', limit: 'Limit',
       pend: 'Pending cases', over30: 'Over 30 days', med: 'Median wait', days: 'days', uwT: 'Pending cases per underwriter', uwS: 'by days waiting',
       brPT: 'Pending cases per branch', lapT: 'Pending cases by days waiting', uw: 'Underwriter', cases: 'Cases', bucket: 'Days waiting',
-      wprem: 'Written premium, 8 weeks', retP: 'Kept as own retention', facP: 'Placed facultative', wk: 'Wk', week: 'Week',
-      wkT: 'Where each week’s premium goes', wkS: 'Written premium split into own retention, treaty and facultative, in Rp billion', retT: 'Premium kept as own retention', retS: 'Share of each week’s written premium the company keeps', splitT: 'Premium split over the last 8 weeks', splitS: 'Own retention, treaty and facultative as a share of written premium',
+      wprem: 'Total premium, 1 month', retP: 'Kept as own retention', facP: 'Placed facultative', wk: 'Wk', week: 'Week',
+      wkT: 'Where each week’s premium goes', wkS: 'Written premium split into own retention, treaty and facultative, in Rp billion', retT: 'Premium kept as own retention', retS: 'Share of each week’s written premium the company keeps', splitT: 'Premium split over the month', splitS: 'Own retention, treaty and facultative as a share of written premium',
       polA: 'Policies analysed', crate: 'Claim rate', ftest: 'Factors tested', orT: 'Odds ratio of a claim, by factor', orS: 'base level = 1.0',
       fqT: 'Claims per 100 policies', fqS: 'by sum-insured band', factor: 'Factor', or: 'Odds ratio',
       sales: 'Sales', gprof: 'Gross profit', margin: 'Margin', vol: 'Volume sold', cust: 'Active customers', price: 'Avg selling price',
@@ -575,8 +575,8 @@
       capT: 'Kapasitas terpakai per layer', capS: 'ditempatkan vs batas layer, Rp miliar', layer: 'Layer', placed: 'Ditempatkan', limit: 'Batas',
       pend: 'Kasus pending', over30: 'Lebih dari 30 hari', med: 'Median tunggu', days: 'hari', uwT: 'Kasus pending per underwriter', uwS: 'menurut lama menunggu',
       brPT: 'Kasus pending per cabang', lapT: 'Kasus pending menurut lama menunggu', uw: 'Underwriter', cases: 'Kasus', bucket: 'Lama menunggu',
-      wprem: 'Premi tertulis, 8 minggu', retP: 'Ditahan sebagai retensi', facP: 'Ditempatkan fakultatif', wk: 'Mg', week: 'Minggu',
-      wkT: 'Ke mana premi tiap minggu dialokasikan', wkS: 'Premi tertulis dibagi ke retensi sendiri, treaty, dan fakultatif, dalam miliar rupiah', retT: 'Premi yang ditahan sebagai retensi sendiri', retS: 'Porsi premi tertulis tiap minggu yang ditahan perusahaan', splitT: 'Pembagian premi 8 minggu terakhir', splitS: 'Retensi sendiri, treaty, dan fakultatif terhadap premi tertulis',
+      wprem: 'Total premi 1 bulan', retP: 'Ditahan sebagai retensi', facP: 'Ditempatkan fakultatif', wk: 'Mg', week: 'Minggu',
+      wkT: 'Ke mana premi tiap minggu dialokasikan', wkS: 'Premi tertulis dibagi ke retensi sendiri, treaty, dan fakultatif, dalam miliar rupiah', retT: 'Premi yang ditahan sebagai retensi sendiri', retS: 'Porsi premi tertulis tiap minggu yang ditahan perusahaan', splitT: 'Pembagian premi dalam 1 bulan', splitS: 'Retensi sendiri, treaty, dan fakultatif terhadap premi tertulis',
       polA: 'Polis dianalisis', crate: 'Tingkat klaim', ftest: 'Faktor diuji', orT: 'Odds ratio klaim per faktor', orS: 'level dasar = 1,0',
       fqT: 'Klaim per 100 polis', fqS: 'per kelompok nilai pertanggungan', factor: 'Faktor', or: 'Odds ratio',
       sales: 'Penjualan', gprof: 'Laba kotor', margin: 'Margin', vol: 'Volume terjual', cust: 'Pelanggan aktif', price: 'Rata-rata harga jual',
@@ -931,7 +931,7 @@
     a4: {
       state: {},
       build() {
-        const r = rng(hash('fac')), wk = Array.from({ length: 8 }, (_, i) => d('wk') + ' ' + (i + 1));
+        const r = rng(hash('fac')), wk = Array.from({ length: 4 }, (_, i) => d('wk') + ' ' + (i + 1));
         const tot = wk.map(() => 18 + r() * 26), own = tot.map(v => v * (.42 + r() * .12)), fac = tot.map(v => v * (.04 + r() * .1)), tre = tot.map((v, i) => v - own[i] - fac[i]);
         const T = sum(tot);
         return {
