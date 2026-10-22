@@ -58,7 +58,7 @@
     'ch.split': 'Penempatan nilai pertanggungan', 'lg.own': 'Retensi sendiri', 'lg.treaty': 'Treaty', 'lg.fac': 'Fakultatif',
     'pa3.i': 'Untuk melihat underwriter di tiap cabang yang masih punya pengajuan pending dan sudah berapa lama pengajuan itu menunggu.',
     'ch.pend': 'Kasus pending per underwriter, menurut lama menunggu (hari)', 'ch.br2': 'Kasus pending per cabang',
-    'pa4.i': 'Pembagian premi tertulis tiap minggu antara retensi sendiri, treaty, dan reasuransi fakultatif, seperti di laporan mingguan untuk kepala divisi.',
+    'pa4.i': 'Pembagian premi tertulis tiap minggu antara retensi sendiri, treaty, dan reasuransi fakultatif, seperti di laporan mingguan untuk atasan.',
     'ch.fac': 'Alokasi premi per minggu',
     'pa5.i': 'Klaim yang sudah settled: apa penyebab kerugiannya, tertanggung mana yang klaimnya paling besar, dan kapan kerugian terjadi dalam periode polis.',
     'ch.odds': 'Odds ratio klaim per faktor', 'ch.freq': 'Klaim per 100 polis, per kelompok nilai pertanggungan',
@@ -933,9 +933,9 @@
       build() {
         const r = rng(hash('fac')), wk = Array.from({ length: 8 }, (_, i) => d('wk') + ' ' + (i + 1));
         const tot = wk.map(() => 18 + r() * 26), own = tot.map(v => v * (.42 + r() * .12)), fac = tot.map(v => v * (.04 + r() * .1)), tre = tot.map((v, i) => v - own[i] - fac[i]);
-        const T = sum(tot), fp = sum(fac) / T * 100;
+        const T = sum(tot);
         return {
-          tiles: [{ k: d('wprem'), v: bn(T) }, { k: d('retP'), v: pct(sum(own) / T * 100), n: bn(sum(own)) }, { k: d('facP'), v: pct(fp), chip: fp > 10 ? chip('warn', d('watch')) : chip('good', d('healthy')) }],
+          tiles: [{ k: d('wprem'), v: bn(T) }, { k: d('own'), v: pct(sum(own) / T * 100) }, { k: d('tre'), v: pct(sum(tre) / T * 100) }, { k: d('fac'), v: pct(sum(fac) / T * 100) }],
           cards: [
             { title: d('wkT'), sub: d('wkS'), wide: true, chart: w => dBars(w, wk, [{ name: d('own'), color: D.s1, values: own }, { name: d('tre'), color: D.s3, values: tre }, { name: d('fac'), color: D.s2, values: fac }], { stacked: true, fmt: bn, short: v => nf(v, 1), label: d('wkT') }),
               legend: [[d('own'), D.s1], [d('tre'), D.s3], [d('fac'), D.s2]], table: [[d('week'), d('own'), d('tre'), d('fac')], wk.map((x, i) => [x, bn(own[i]), bn(tre[i]), bn(fac[i])])] },
@@ -1052,7 +1052,7 @@
     }
     const main = $('.dash__main', el);
     main.innerHTML =
-      `<div class="htiles">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v${tl.cls ? ' ' + tl.cls : ''}">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
+      `<div class="htiles${spec.tiles.length === 4 ? ' htiles--4' : ''}">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v${tl.cls ? ' ' + tl.cls : ''}">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
       (spec.stats ? `<dl class="dstats">${spec.stats.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '') +
       `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(c.title)}</h4>${c.sub ? `<p class="cs">${esc(c.sub)}</p>` : ''}</div>${c.chart ? `<div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div>` : ''}</div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
     $$('.dcard', main).forEach(card => {
