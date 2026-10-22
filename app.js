@@ -71,14 +71,12 @@
     'c3.d4': 'Mengelola piutang: melacak saldo yang belum dibayar dan mengoordinasikan penagihan ke seluruh klien.',
     'c3.d5': 'Merapikan catatan keuangan untuk monitoring arus kas dan pelaporan internal.',
     'ex.bt': 'Dashboard penjualan &amp; piutang (replika)',
-    'tb.1': 'Penjualan &amp; margin', 'tb.2': 'Piutang', 'tb.3': 'Peta pelanggan',
+    'tb.1': 'Penjualan &amp; margin', 'tb.2': 'Piutang',
     'pb1.i': 'Penjualan bulanan, laba kotor, dan selisih harga jual terhadap HPP per kilogram, dibangun dari buku penjualan.',
     'ch.sales': 'Penjualan per bulan, HPP dan laba kotor', 'lg.sales': 'Penjualan', 'lg.gp': 'Laba kotor',
     'ch.price': 'Harga jual vs HPP', 'lg.sell': 'Harga jual', 'lg.cost': 'HPP',
-    'pb2.i': 'Utang baru pelanggan dibandingkan pembayaran yang masuk tiap bulan, dan umur saldo yang masih terbuka.',
-    'ch.debt': 'Utang baru vs pembayaran', 'lg.new': 'Utang baru', 'lg.paid': 'Pembayaran', 'ch.age': 'Piutang terbuka per umur',
-    'pb3.i': 'Setiap pelanggan dipetakan berdasarkan kecepatan bayar dan seberapa banyak utangnya dilunasi, sehingga penagihan dimulai dari kelompok paling bawah.',
-    'ch.map': 'Siapa yang perlu ditagih duluan?', 'lg.q1': 'Bayar tepat waktu', 'lg.q2': 'Lambat tapi melunasi', 'lg.q3': 'Prioritas penagihan',
+    'pb2.i': 'Utang baru pelanggan dibandingkan pembayaran yang masuk tiap bulan.',
+    'ch.debt': 'Utang baru vs pembayaran', 'lg.new': 'Utang baru', 'lg.paid': 'Pembayaran',
     'ex.noteb': 'Nama pelanggan dan nominal diganti dengan nilai acak. Halaman-halamannya mengikuti dashboard aslinya.',
     'c4.t': 'Proyek',
     'w.tools': 'Tools', 'w.data': 'Data', 'w.ctx': 'Konteks', 'w.method': 'Metode', 'w.host': 'Hosting', 'w.type': 'Jenis',
@@ -537,7 +535,7 @@
       wkT: 'Where each week’s premium goes', wkS: 'Written premium split into own retention, treaty and facultative, in Rp billion', retT: 'Premium kept as own retention', retS: 'Share of each week’s written premium the company keeps', splitT: 'Premium split over the month', splitS: 'Own retention, treaty and facultative as a share of written premium',
       polA: 'Policies analysed', crate: 'Claim rate', ftest: 'Factors tested', orT: 'Odds ratio of a claim, by factor', orS: 'base level = 1.0',
       fqT: 'Claims per 100 policies', fqS: 'by sum-insured band', factor: 'Factor', or: 'Odds ratio',
-      sales: 'Sales', gprof: 'Gross profit', margin: 'Margin', vol: 'Volume sold', cust: 'Active customers', price: 'Avg selling price',
+      sales: 'Sales', gprof: 'Gross profit', netp: 'Net profit', allM: 'All months', volKg: 'Volume sold (kg)', volBird: 'Volume sold (birds)', cust: 'Active customers', price: 'Avg selling price',
       salesT: 'Sales per month', salesS: 'Split into cost of goods and gross profit, in Rp million', priceT: 'Selling price against cost', priceS: 'Average per kilogram, in Rp thousand', sell: 'Selling price', cost: 'Cost of goods', month: 'Month',
       openR: 'Open receivables', newC: 'New credit, 12 months', payR: 'Payment ratio', flowT: 'New credit against payments received', flowS: 'Per month, in Rp million',
       newc: 'New credit', paid: 'Payments', ageT: 'How long unpaid balances have been open', ageS: 'Open receivables by age, in Rp million', balT: 'What customers owe at month end', balS: 'Total open receivables, in Rp million', age: 'Age',
@@ -579,7 +577,7 @@
       wkT: 'Ke mana premi tiap minggu dialokasikan', wkS: 'Premi tertulis dibagi ke retensi sendiri, treaty, dan fakultatif, dalam miliar rupiah', retT: 'Premi yang ditahan sebagai retensi sendiri', retS: 'Porsi premi tertulis tiap minggu yang ditahan perusahaan', splitT: 'Pembagian premi dalam 1 bulan', splitS: 'Retensi sendiri, treaty, dan fakultatif terhadap premi tertulis',
       polA: 'Polis dianalisis', crate: 'Tingkat klaim', ftest: 'Faktor diuji', orT: 'Odds ratio klaim per faktor', orS: 'level dasar = 1,0',
       fqT: 'Klaim per 100 polis', fqS: 'per kelompok nilai pertanggungan', factor: 'Faktor', or: 'Odds ratio',
-      sales: 'Penjualan', gprof: 'Laba kotor', margin: 'Margin', vol: 'Volume terjual', cust: 'Pelanggan aktif', price: 'Rata-rata harga jual',
+      sales: 'Penjualan', gprof: 'Laba kotor', netp: 'Laba bersih', allM: 'Semua bulan', volKg: 'Volume terjual (kg)', volBird: 'Volume terjual (ekor)', cust: 'Pelanggan aktif', price: 'Rata-rata harga jual',
       salesT: 'Penjualan per bulan', salesS: 'Dibagi ke HPP dan laba kotor, dalam juta rupiah', priceT: 'Harga jual dibanding HPP', priceS: 'Rata-rata per kilogram, dalam ribu rupiah', sell: 'Harga jual', cost: 'HPP', month: 'Bulan',
       openR: 'Piutang terbuka', newC: 'Utang baru, 12 bulan', payR: 'Rasio pembayaran', flowT: 'Utang baru dibanding pembayaran yang masuk', flowS: 'Per bulan, dalam juta rupiah',
       newc: 'Utang baru', paid: 'Pembayaran', ageT: 'Sudah berapa lama piutang belum dibayar', ageS: 'Piutang terbuka per umur, dalam juta rupiah', balT: 'Utang pelanggan di akhir bulan', balS: 'Total piutang terbuka, dalam juta rupiah', age: 'Umur',
@@ -755,18 +753,6 @@
     return `<div class="pie-wrap"><div class="pie-fig">${dsvg(S, S, b, o.label)}</div><div class="pie-leg">${leg}</div></div>`;
   }
 
-  function dScatter(w, pts, o) {
-    const H = Math.max(260, Math.min(360, w * .5)), L0 = 46, R0 = 14, T0 = 14, B0 = 38, pw = w - L0 - R0, ph = H - T0 - B0;
-    const x = v => L0 + v / o.xMax * pw, y = v => T0 + ph - (v - o.yMin) / (o.yMax - o.yMin) * ph;
-    let b = '';
-    for (let g = 0; g <= 5; g++) { const v = o.yMin + (o.yMax - o.yMin) * g / 5; b += `<line x1="${L0}" x2="${w - R0}" y1="${y(v)}" y2="${y(v)}" stroke="${D.rule}"/>` + mt(L0 - 7, y(v) + 3.5, nf(v) + '%', `text-anchor="end" font-size="10.5" fill="${D.ink3}" font-family='${MONO}'`); }
-    for (let g = 0; g <= o.xMax; g += 10) b += mt(x(g), T0 + ph + 15, g, `text-anchor="middle" font-size="10.5" fill="${D.ink3}" font-family='${MONO}'`);
-    b += `<line x1="${x(o.qx)}" x2="${x(o.qx)}" y1="${T0}" y2="${T0 + ph}" stroke="${D.axis}" stroke-dasharray="4 3"/><line x1="${L0}" x2="${w - R0}" y1="${y(o.qy)}" y2="${y(o.qy)}" stroke="${D.axis}" stroke-dasharray="4 3"/>`;
-    b += mt(w - R0, H - 4, o.xLabel + ' →', `text-anchor="end" font-size="11" fill="${D.ink2}"`) + mt(L0 + 4, T0 + 12, '↑ ' + o.yLabel, `font-size="11" fill="${D.ink2}"`);
-    pts.forEach(p => { b += `<circle cx="${x(p.x)}" cy="${y(p.y)}" r="${p.r}" fill="${p.color}" fill-opacity=".8" stroke="${D.surface}" stroke-width="1.2" data-tip="${esc(p.tip)}"/>`; });
-    return dsvg(w, H, b, o.label);
-  }
-
   /* ---------- illustrative data ---------- */
   const PRODUCTS = [
     ['Property', ['Industrial', 'Commercial', 'Residential', 'Earthquake', 'Business interruption']],
@@ -801,14 +787,17 @@
     'Marine Cargo': { base: .65, occ: ['General goods, container', 'Foodstuffs', 'Electronics', 'Bulk commodities', 'Hazardous goods'] }
   };
   const CLASS_F = [.7, 1, 1.45, 2.15, 3.3], RETAIN = [30, 24, 18, 12, 7], LINES = 8;
+  // about Rp 3.5 bn of sales a year at around Rp 27,000 per kg; money in Rp million, volume in kg
   function ssb(year) {
-    const r = rng(hash('ssb' + year)), m = d('months');
-    const vol = m.map((_, i) => 52 + r() * 16 + (i === 3 || i === 11 ? 12 : 0));
-    const sell = m.map((_, i) => 34200 + i * 120 + r() * 1800 + (year === '2023' ? 900 : 0));
-    const cost = sell.map(s => s - 1700 - r() * 1500);
-    const sales = vol.map((v, i) => v * sell[i] / 1000), gp = vol.map((v, i) => v * (sell[i] - cost[i]) / 1000);
+    const r = rng(hash('ssb' + year)), m = d('months'), target = year === '2022' ? 3360 : 3500;
+    const sell = m.map((_, i) => 25800 + i * 50 + r() * 900 + (year === '2023' ? 400 : 0));
+    const cost = sell.map(s => s - 2100 - r() * 700);
+    const w = m.map((_, i) => 1 + r() * .25 + (i === 3 || i === 11 ? .2 : 0)), k = target * 1e6 / sum(w.map((v, i) => v * sell[i]));
+    const vol = w.map(v => v * k), birds = vol.map(v => Math.round(v / (1.9 + r() * .2)));
+    const sales = vol.map((v, i) => v * sell[i] / 1e6), gp = vol.map((v, i) => v * (sell[i] - cost[i]) / 1e6);
+    const net = gp.map((g, i) => g - sales[i] * (.045 + r() * .012));
     const newc = sales.map(s => s * (.55 + r() * .15)), paid = newc.map(v => v * (.86 + r() * .2));
-    return { m, vol, sell, cost, sales, gp, newc, paid };
+    return { m, vol, birds, sell, cost, sales, gp, net, newc, paid };
   }
   const chip = (cls, text) => `<span class="chip ${cls}">${esc(text)}</span>`;
   const sum = a => a.reduce((s, v) => s + v, 0);
@@ -980,17 +969,21 @@
       }
     },
     b1: {
-      state: { year: '2023' },
-      filters: s => [{ key: 'year', label: d('year'), value: s.year, options: [['2022', '2022'], ['2023', '2023']] }],
+      state: { year: '2023', month: 'all' },
+      filters: s => [
+        { key: 'year', label: d('year'), value: s.year, options: [['2022', '2022'], ['2023', '2023']] },
+        { key: 'month', label: d('month'), value: s.month, options: [['all', d('allM')]].concat(d('months').map((mm, i) => [String(i), mm])) }
+      ],
       build(s) {
-        const x = ssb(s.year), S = sum(x.sales), G = sum(x.gp), m = G / S * 100;
+        const x = ssb(s.year), idx = s.month === 'all' ? x.m.map((_, i) => i) : [+s.month], pick = a => sum(idx.map(i => a[i]));
+        const kg = pick(x.vol), money = v => (v >= 1000 ? bn(v / 1000) : mn(v));
         return {
-          tiles: [{ k: d('sales'), v: bn(S / 1000) }, { k: d('gprof'), v: mn(G) }, { k: d('margin'), v: pct(m), chip: m < 6 ? chip('warn', d('watch')) : chip('good', d('healthy')) }],
-          stats: [[d('vol'), nf(sum(x.vol)) + ' t'], [d('cust'), '97'], [d('price'), 'Rp ' + nf(sum(x.sell) / 12000, 1) + (lang === 'id' ? ' rb/kg' : 'k/kg')]],
+          tiles: [{ k: d('sales'), v: money(pick(x.sales)) }, { k: d('gprof'), v: money(pick(x.gp)) }, { k: d('netp'), v: money(pick(x.net)) }],
+          stats: [[d('volKg'), nf(kg) + ' kg'], [d('volBird'), nf(pick(x.birds)) + (lang === 'id' ? ' ekor' : ' birds')], [d('cust'), '97'], [d('price'), 'Rp ' + nf(pick(x.sales) * 1000 / kg, 1) + (lang === 'id' ? ' rb/kg' : 'k/kg')]],
           cards: [
-            { title: d('salesT'), sub: d('salesS'), chart: w => dBars(w, x.m, [{ name: d('gprof'), color: D.s3, values: x.gp }, { name: d('cost'), color: D.s1, values: x.sales.map((v, i) => v - x.gp[i]) }], { stacked: true, labels: false, fmt: mn, label: d('salesT') }),
+            { title: d('salesT'), chart: w => dBars(w, x.m, [{ name: d('gprof'), color: D.s3, values: x.gp }, { name: d('cost'), color: D.s1, values: x.sales.map((v, i) => v - x.gp[i]) }], { stacked: true, labels: false, fmt: mn, label: d('salesT') }),
               legend: [[d('gprof'), D.s3], [d('cost'), D.s1]], table: [[d('month'), d('sales'), d('gprof')], x.m.map((mm, i) => [mm, mn(x.sales[i]), mn(x.gp[i])])] },
-            { title: d('priceT'), sub: d('priceS'), chart: w => dLine(w, x.m, [{ name: d('sell'), color: D.s1, values: x.sell.map(v => v / 1000) }, { name: d('cost'), color: D.s2, values: x.cost.map(v => v / 1000) }], { min: 30, fmt: v => nf(v, 1), short: v => nf(v, 1), label: d('priceT') }),
+            { title: d('priceT'), chart: w => dLine(w, x.m, [{ name: d('sell'), color: D.s1, values: x.sell.map(v => v / 1000) }, { name: d('cost'), color: D.s2, values: x.cost.map(v => v / 1000) }], { min: 20, fmt: v => nf(v, 1), short: v => nf(v, 1), label: d('priceT') }),
               legend: [[d('sell'), D.s1], [d('cost'), D.s2]], table: [[d('month'), d('sell'), d('cost')], x.m.map((mm, i) => [mm, nf(x.sell[i]), nf(x.cost[i])])] }
           ]
         };
@@ -999,36 +992,15 @@
     b2: {
       state: {},
       build() {
-        const x = ssb('2023'), bal = []; let b = 820; x.newc.forEach((v, i) => { b += v - x.paid[i]; bal.push(Math.max(300, b)); });
-        const ages = [['0-7', 640, D.o1], ['8-14', 410, D.o2], ['15-30', 260, D.o4], ['31-60', 120, D.crit], ['> 60', 55, D.crit]], open = sum(ages.map(a => a[1]));
+        const x = ssb('2023'), bal = []; let b = 210; x.newc.forEach((v, i) => { b += v - x.paid[i]; bal.push(Math.max(80, b)); });
+        const ages = [['0-7', 96], ['8-14', 62], ['15-30', 39], ['31-60', 18], ['> 60', 8]], open = sum(ages.map(a => a[1])), late = ages[3][1] + ages[4][1];
         const pr = sum(x.paid) / sum(x.newc) * 100;
         return {
-          tiles: [{ k: d('openR'), v: mn(open), chip: chip('crit', pct(175 / open * 100) + (lang === 'id' ? ' > 30 hari' : ' > 30 days')) }, { k: d('newC'), v: mn(sum(x.newc)) }, { k: d('payR'), v: pct(pr), chip: pr < 98 ? chip('warn', d('watch')) : chip('good', d('healthy')) }],
+          tiles: [{ k: d('openR'), v: mn(open), chip: chip('crit', pct(late / open * 100) + (lang === 'id' ? ' > 30 hari' : ' > 30 days')) }, { k: d('newC'), v: mn(sum(x.newc)) }, { k: d('payR'), v: pct(pr), chip: pr < 98 ? chip('warn', d('watch')) : chip('good', d('healthy')) }],
           cards: [
             { title: d('flowT'), sub: d('flowS'), wide: true, chart: w => dBars(w, x.m, [{ name: d('newc'), color: D.s2, values: x.newc }, { name: d('paid'), color: D.s3, values: x.paid }], { labels: false, fmt: mn, label: d('flowT') }),
               legend: [[d('newc'), D.s2], [d('paid'), D.s3]], table: [[d('month'), d('newc'), d('paid')], x.m.map((mm, i) => [mm, mn(x.newc[i]), mn(x.paid[i])])] },
-            { title: d('ageT'), sub: d('ageS'), chart: w => dHbar(w, ages.map(([a, v, c]) => ({ name: a + ' ' + d('days'), value: v, color: c })), { fmt: mn, labW: 90, label: d('ageT') }), table: [[d('age'), d('openR')], ages.map(a => [a[0] + ' ' + d('days'), mn(a[1])])] },
             { title: d('balT'), sub: d('balS'), chart: w => dLine(w, x.m, [{ name: d('balT'), color: D.brand, values: bal }], { fmt: mn, short: v => nf(v), label: d('balT') }), table: [[d('month'), d('balT')], x.m.map((mm, i) => [mm, mn(bal[i])])] }
-          ]
-        };
-      }
-    },
-    b3: {
-      state: {},
-      build() {
-        const r = rng(hash('map'));
-        const pts = Array.from({ length: 97 }, (_, i) => {
-          const fast = r() < .55, x = fast ? 2 + r() * 13 : 10 + r() * 34, y = Math.min(100, (fast ? 88 : 70) + r() * 14 - (x > 30 ? r() * 18 : 0)), rev = .4 + Math.pow(r(), 2) * 6;
-          const q = y < 85 ? 3 : x <= 14 ? 1 : 2;
-          return { id: (lang === 'id' ? 'Pelanggan ' : 'Customer ') + String(i + 1).padStart(2, '0'), x, y, r: 3 + rev, q, color: [0, D.s3, D.s1, D.crit][q] };
-        });
-        pts.forEach(p => { p.tip = `${esc(p.id)}<br>${esc(d('dpay'))}: <b>${nf(p.x)}</b><br>${esc(d('settle'))}: <b>${pct(p.y, 0)}</b>`; });
-        const n = q => pts.filter(p => p.q === q).length, pri = pts.filter(p => p.q === 3).sort((a, b) => a.y - b.y).slice(0, 10);
-        return {
-          tiles: [{ k: d('q1'), v: nf(n(1)), chip: chip('good', pct(n(1) / 97 * 100, 0)) }, { k: d('q2'), v: nf(n(2)), chip: chip('warn', pct(n(2) / 97 * 100, 0)) }, { k: d('q3'), v: nf(n(3)), chip: chip('crit', pct(n(3) / 97 * 100, 0)) }],
-          cards: [
-            { title: d('mapT'), sub: d('mapS'), wide: true, chart: w => dScatter(w, pts, { xMax: 50, yMin: 50, yMax: 100, qx: 14, qy: 85, xLabel: d('dpay'), yLabel: d('settle'), label: d('mapT') }),
-              legend: [[d('q1'), D.s3], [d('q2'), D.s1], [d('q3'), D.crit]], table: [[d('customer'), d('dpay'), d('settle')], pri.map(p => [p.id, nf(p.x), pct(p.y, 0)])], tableNote: d('topQ') + ' · ' + d('topQS') }
           ]
         };
       }

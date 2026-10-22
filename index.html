@@ -257,7 +257,6 @@
           <div class="tabs" role="tablist" aria-label="Dashboard pages">
             <button role="tab" id="tB1" aria-controls="pB1" aria-selected="true" data-i18n="tb.1">Sales &amp; margin</button>
             <button role="tab" id="tB2" aria-controls="pB2" aria-selected="false" tabindex="-1" data-i18n="tb.2">Receivables</button>
-            <button role="tab" id="tB3" aria-controls="pB3" aria-selected="false" tabindex="-1" data-i18n="tb.3">Customer map</button>
           </div>
             <div class="panel" role="tabpanel" id="pB1" aria-labelledby="tB1">
             <p class="panel__intro" data-i18n="pb1.i">Monthly sales, gross profit and the spread between selling price and cost per kilogram, built from the sales ledger.</p>
@@ -265,13 +264,8 @@
           </div>
 
             <div class="panel" role="tabpanel" id="pB2" aria-labelledby="tB2" hidden>
-            <p class="panel__intro" data-i18n="pb2.i">New credit given to customers against payments received each month, and how old the open balances are.</p>
+            <p class="panel__intro" data-i18n="pb2.i">New credit given to customers against payments received each month.</p>
             <div class="dash" data-mod="b2"></div>
-          </div>
-
-            <div class="panel" role="tabpanel" id="pB3" aria-labelledby="tB3" hidden>
-            <p class="panel__intro" data-i18n="pb3.i">Each customer placed by how quickly they pay and how much of their credit they clear, so collection starts with the bottom group.</p>
-            <div class="dash" data-mod="b3"></div>
           </div>
         </div>
         <p class="note" data-i18n="ex.noteb">Customer names and amounts are replaced with generated values. The pages follow the real dashboard.</p>
@@ -906,6 +900,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=101"></script>
+<script src="app.js?v=102"></script>
 </body>
 </html>
