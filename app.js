@@ -62,7 +62,7 @@
     'ch.fac': 'Alokasi premi per minggu',
     'pa5.i': 'Klaim yang sudah settled: apa penyebab kerugiannya, tertanggung mana yang klaimnya paling besar, dan kapan kerugian terjadi dalam periode polis.',
     'ch.odds': 'Odds ratio klaim per faktor', 'ch.freq': 'Klaim per 100 polis, per kelompok nilai pertanggungan',
-    'ex.note': '<b>Catatan:</b> dashboard aslinya berjalan dengan data perusahaan dan tetap berada di dalam perusahaan. Replika ini mempertahankan struktur dan pertanyaan yang dijawabnya; semua angka, tertanggung, dan underwriter di sini adalah data dummy. Yang ditampilkan di sini hanya sebagian; dashboard aslinya punya jauh lebih banyak halaman.',
+    'ex.note': '<b>Catatan:</b> dashboard aslinya berjalan dengan data perusahaan dan tetap berada di dalam perusahaan. Replika ini mempertahankan struktur dan pertanyaan yang dijawabnya; semua angka, tertanggung, dan underwriter di sini adalah data dummy. Yang ditampilkan di sini hanya sebagian dari fiturnya.',
     'c3.r1': 'Actuarial Intern',
     'c3.d1': 'Memvalidasi dan membersihkan data demografi dan gaji karyawan di Excel agar siap untuk valuasi Defined Benefit Obligation.',
     'c3.d2': 'Mengerjakan latihan valuasi PSAK 24 berbasis kasus dengan supervisi, memakai metode Projected Unit Credit dengan berbagai asumsi aktuaria.',
