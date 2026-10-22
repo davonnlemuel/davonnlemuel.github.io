@@ -450,6 +450,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .chip.good { background: rgba(12, 163, 12, .12); color: var(--d-good); }
 .chip.warn { background: rgba(250, 178, 25, .2); color: var(--d-warn); }
 .chip.crit { background: rgba(208, 59, 59, .12); color: var(--d-crit); }
+.htile .v.good { color: var(--d-good); } .htile .v.warn { color: var(--d-warn); } .htile .v.crit { color: var(--d-crit); }
 .dstats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin: 0 0 14px; background: var(--d-surface); border: 1px solid var(--d-ring); border-radius: 11px; overflow: hidden; }
 .dstats > div { padding: 10px 14px; border-right: 1px solid var(--d-rule); min-width: 0; }
 .dstats > div:last-child { border-right: 0; }

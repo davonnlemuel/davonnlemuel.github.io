@@ -507,7 +507,7 @@
   const DL = {
     en: {
       allCob: 'All classes', cobN: { Property: 'Property', Engineering: 'Engineering', Marine: 'Marine hull and cargo', Liability: 'Liability' },
-      lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'All branches', pols: 'policies', polIn: 'Policies in view', hiVh: 'High or very high risk', vhOnly: 'Very high risk',
+      lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'All branches', pols: 'policies', polIn: 'Policies in view', loMed: 'Low or medium risk', hiVh: 'High or very high risk',
       riskT: 'Risk profile of each branch', riskS: 'Share of each branch’s policies at each risk level, largest branches first',
       totCase: 'Pending cases', newB: 'new', renewB: 'renewal', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision',
       topUwT: 'Top 10 underwriters by pending cases', lapUwT: 'How long requests wait, per underwriter', lapUwS: 'Average lapse days since the request came in, longest first', avgLap: 'Average lapse',
@@ -549,7 +549,7 @@
     },
     id: {
       allCob: 'Semua kelas', cobN: { Property: 'Properti', Engineering: 'Engineering', Marine: 'Marine hull dan cargo', Liability: 'Tanggung gugat' },
-      lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'Semua cabang', pols: 'polis', polIn: 'Polis ditampilkan', hiVh: 'Risiko high atau very high', vhOnly: 'Risiko very high',
+      lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'Semua cabang', pols: 'polis', polIn: 'Polis ditampilkan', loMed: 'Risiko low atau medium', hiVh: 'Risiko high atau very high',
       riskT: 'Profil risiko tiap cabang', riskS: 'Porsi polis tiap cabang di setiap tingkat risiko, cabang terbesar di atas',
       totCase: 'Kasus pending', newB: 'baru', renewB: 'renewal', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting',
       topUwT: 'Top 10 underwriter dengan kasus pending terbanyak', lapUwT: 'Lama pengajuan menunggu, per underwriter', lapUwS: 'Rata-rata lapse day sejak pengajuan masuk, terlama di atas', avgLap: 'Rata-rata lapse',
@@ -562,7 +562,7 @@
       cobCT: 'Klaim per kelas bisnis', cobCS: 'Porsi klaim settled di tiap kelas', sevT: 'Seberapa besar klaimnya', sevS: 'Klaim settled dihitung per besar klaim, dalam rupiah',
       dolT: 'Kapan kerugian terjadi dalam periode polis', dolS: 'Jarak hari dari tanggal mulai polis sampai tanggal kerugian', dayOf: 'Hari ke-',
       topUwS: 'Pengajuan pending per underwriter di',
-      chart: 'Grafik', table: 'Tabel', year: 'Tahun', line: 'Lini', all: 'Semua lini', vsPrev: 'vs tahun lalu', none: 'Tidak ada data pada filter ini.',
+      chart: 'Grafik', table: 'Tabel', year: 'Tahun', line: 'Lini', all: 'Semua lini', vsPrev: 'dibanding tahun lalu', none: 'Tidak ada data pada filter ini.',
       gp: 'Premi bruto', cl: 'Klaim dibayar', lr: 'Loss ratio', pol: 'Polis', prod: 'Produk', br: 'Cabang', avgp: 'Rata-rata premi / polis',
       healthy: 'Sehat', watch: 'Pantau', above: 'Di atas 60%',
       lrProd: 'Produk dengan loss ratio tertinggi', lrProdS: '10 produk terburuk tahun ini. Garis merah menandai loss ratio 60%.', mix: 'Asal premi bruto', mixS: 'Porsi tiap lini bisnis terhadap premi bruto',
@@ -811,7 +811,6 @@
     return { m, vol, sell, cost, sales, gp, newc, paid };
   }
   const chip = (cls, text) => `<span class="chip ${cls}">${esc(text)}</span>`;
-  const lrChip = v => v > 60 ? chip('crit', d('above')) : v > 50 ? chip('warn', d('watch')) : chip('good', d('healthy'));
   const sum = a => a.reduce((s, v) => s + v, 0);
   const PIE = [D.brand, D.s1, D.o2, D.o1, D.s3, D.s2, D.axis];
 
@@ -834,9 +833,9 @@
         const top = p.prods.slice().sort((a, b) => b.lr - a.lr).slice(0, 10);
         return {
           tiles: [
-            { k: d('gp'), v: bn(prem), n: d('vsPrev'), chip: s.year === '2026' ? '' : chip(g >= 0 ? 'good' : 'crit', (g >= 0 ? '+' : '') + pct(g)) },
-            { k: d('cl'), v: bn(cl), n: (k => lang === 'id' ? `${k} produk di atas 60%` : `${k} product${k === 1 ? '' : 's'} above 60%`)(top.filter(x => x.lr > 60).length) },
-            { k: d('lr'), v: pct(lr), chip: lrChip(lr) }
+            { k: d('gp'), v: bn(prem), chip: s.year === '2026' ? '' : chip(g >= 0 ? 'good' : 'crit', (g >= 0 ? '+' : '') + pct(g) + ' ' + d('vsPrev')) },
+            { k: d('cl'), v: bn(cl) },
+            { k: d('lr'), v: pct(lr), cls: lr > 60 ? 'crit' : lr > 50 ? 'warn' : 'good' }
           ],
           stats: [[d('pol'), nf(pol)], [d('prod'), nf(p.prods.length)], [d('br'), nf(BRANCHES.length)]],
           cards: [
@@ -855,27 +854,37 @@
       state: { cob: 'all' },
       filters: s => [{ key: 'cob', label: d('cob'), value: s.cob, options: [['all', d('allCob')]].concat(RISK_COB.map(c => [c, d('cobN')[c]])) }],
       build(s) {
-        const r = rng(hash('risk' + s.cob)), lv = d('lvls'), cols = [D.s3, D.s1, '#E3A21A', D.crit];
-        const scale = s.cob === 'all' ? 1 : .32;
-        const rows = BRANCHES.map(b => {
-          const n = Math.max(8, Math.round((14 + r() * 110) * scale));
-          const raw = [r() * 4, r() * 3, 1.5 + r() * 5, r() * 2.4].map(v => (r() < .14 ? 0 : v));
-          const t = raw.reduce((a, v) => a + v, 0) || 1;
-          let parts = raw.map(v => Math.round(v / t * n)); parts[2] += n - parts.reduce((a, v) => a + v, 0);
-          parts = parts.map(v => Math.max(0, v));
-          return { name: b, parts, n: parts.reduce((a, v) => a + v, 0) };
+        const lv = d('lvls'), cols = [D.s3, D.s1, '#E3A21A', D.crit];
+        // every class shares out the same policy count as the portfolio page (2025, all lines), so the classes add up to "all"
+        const T = sum(portfolio('2025', 'all').counts);
+        const raw = RISK_COB.map(c => {
+          const r = rng(hash('risk' + c));
+          return BRANCHES.map(() => {
+            const n = 14 + r() * 110, w = [r() * 4, r() * 3, 1.5 + r() * 5, r() * 2.4].map(v => (r() < .14 ? 0 : v));
+            const t = sum(w) || 1;
+            return w.map(v => v / t * n);
+          });
+        });
+        const f = T / sum(raw.flat(2)), cells = raw.flat(2).map(v => v * f), whole = cells.map(Math.floor);
+        // largest remainder, so the rounded counts still add up to T
+        cells.map((v, i) => [v - whole[i], i]).sort((a, b) => b[0] - a[0]).slice(0, T - sum(whole)).forEach(([, i]) => { whole[i]++; });
+        const at = (c, b, k) => whole[(c * BRANCHES.length + b) * 4 + k];
+        const pick = s.cob === 'all' ? RISK_COB.map((_, c) => c) : [RISK_COB.indexOf(s.cob)];
+        const rows = BRANCHES.map((b, bi) => {
+          const parts = [0, 1, 2, 3].map(k => sum(pick.map(c => at(c, bi, k))));
+          return { name: b, parts, n: sum(parts) };
         }).sort((a, b) => b.n - a.n);
-        const tot = [0, 1, 2, 3].map(k => sum(rows.map(x => x.parts[k]))), N = sum(tot), hiShare = (tot[2] + tot[3]) / N * 100;
+        const tot = [0, 1, 2, 3].map(k => sum(rows.map(x => x.parts[k]))), N = sum(tot), loShare = (tot[0] + tot[1]) / N * 100;
         return {
           tiles: [
-            { k: d('polIn'), v: nf(N), n: s.cob === 'all' ? d('allCob') : d('cobN')[s.cob] },
-            { k: d('hiVh'), v: pct(hiShare), chip: hiShare > 60 ? chip('crit', d('watch')) : chip('warn', d('watch')) },
-            { k: d('vhOnly'), v: pct(tot[3] / N * 100), n: nf(tot[3]) + ' ' + d('pols') }
+            { k: d('polIn'), v: nf(N) },
+            { k: d('loMed'), v: pct(loShare) },
+            { k: d('hiVh'), v: pct(100 - loShare) }
           ],
           cards: [
             { title: d('riskT'), sub: d('riskS'), wide: true, legend: lv.map((n, k) => [n, cols[k]]),
               chart: w => dStack(w, [{ name: d('allBr'), parts: tot, n: N, total: true }].concat(rows), cols, lv, { label: d('riskT') }),
-              table: [[d('branch')].concat(lv, [d('pol')]), [[d('allBr')].concat(tot.map(nf), [nf(N)])].concat(rows.map(x => [x.name].concat(x.parts.map(nf), [nf(x.n)])))] }
+              table: [[d('branch')].concat(lv, [d('pol')]), [[d('allBr')].concat(tot.map(v => nf(v)), [nf(N)])].concat(rows.map(x => [x.name].concat(x.parts.map(v => nf(v)), [nf(x.n)])))] }
           ]
         };
       }
@@ -1037,7 +1046,7 @@
     }
     const main = $('.dash__main', el);
     main.innerHTML =
-      `<div class="htiles">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
+      `<div class="htiles">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v${tl.cls ? ' ' + tl.cls : ''}">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
       (spec.stats ? `<dl class="dstats">${spec.stats.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '') +
       `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(c.title)}</h4>${c.sub ? `<p class="cs">${esc(c.sub)}</p>` : ''}</div><div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div></div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
     $$('.dcard', main).forEach(card => {
