@@ -17,8 +17,6 @@
     'nav.home': 'Portofolio Davonn', 'm.phone': 'Telepon', 'e.db': 'Data Analytics dan Business Intelligence', 'd.db': 'Jul 2026 - sekarang', 'e.sma': 'SMA, jurusan IPA', 'e.smaw': 'Jakarta Barat', 'd.sma': 'Jul 2018 - Jul 2021',
     'm.loc': 'Domisili', 'm.now': 'Sekarang', 'm.nowv': 'Underwriting Intern di Asuransi Asei', 'm.open': 'Terbuka untuk', 'm.openv': 'Posisi Data Analyst, Business Intelligence, dan Data Scientist',
     'h.lead': 'Saya mengubah dataset mentah menjadi dashboard dan tool yang dipakai orang untuk mengambil keputusan. Bagian yang paling saya nikmati adalah saat tabel yang berantakan akhirnya mulai masuk akal. Belakangan saya juga mendalami data science, membangun model untuk memprediksi churn, klaim, dan premi, dan saya ingin membawa itu ke sebuah tim sebagai analis. Di bawah ini karya saya sejauh ini, dari magang, kuliah, dan proyek pribadi.',
-    's.7': 'Cara kerja',
-    's.7v': 'Kerja sama tim dan kolaborasi, problem solving, interpretasi data, mempresentasikan temuan ke manajemen',
     'c.cap': 'Ringkasan', 'c.h1': 'Yang saya kerjakan', 'c.h2': 'Contohnya',
     'c.r1': 'Dashboard Manajemen', 'c.r1e': '<a href="#exA">Company dashboard ASEI</a> · <a href="#work-oil">Penjualan minyak goreng (Power BI)</a> · <a href="#work-tableau">Data story Olist (Tableau)</a>',
     'c.r2': 'Persiapan Data Mentah', 'c.r2e': '<a href="#experience">Laporan produksi, klaim, dan renewal yang ditindaklanjuti tim</a>',
