@@ -370,7 +370,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .tools { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 10px 20px; }
 .tools li { display: flex; align-items: center; gap: 9px; min-width: 0; font: 600 15px/1.25 var(--f-head); color: var(--ink); }
 .tools img { width: 20px; height: 20px; flex: none; object-fit: contain; }
-.tools__note { margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
 @media (max-width: 600px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; } .inst th { padding-top: 14px; } .inst td { padding-top: 6px; } }
 
 /* ---------- certifications ---------- */
@@ -630,8 +629,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .schools p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-2); max-width: 70ch; }
 .schools .school-note { margin-top: 6px; font-size: 14.5px; color: var(--ink-3); }
 .school-when { font: 600 14px/1.4 var(--f-head); color: var(--ink); white-space: nowrap; padding-top: 2px; font-variant-numeric: tabular-nums; }
-.langs { margin: 14px 0 0; font-size: 15.5px; color: var(--ink-2); }
-.langs b { font-family: var(--f-head); color: var(--ink); margin-right: 8px; }
 @media (max-width: 640px) {
   .schools li { grid-template-columns: 48px minmax(0, 1fr); }
   .school-mark, .school-logo { width: 48px; height: 48px; }
