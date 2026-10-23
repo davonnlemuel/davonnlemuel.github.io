@@ -366,6 +366,12 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .inst td { padding: 12px 0; border-bottom: 1px solid var(--rule-2); font-size: 16px; }
 .inst tr:first-child th, .inst tr:first-child td { border-top: 2px solid var(--ink); }
 @media (max-width: 600px) { .inst th, .inst td { display: block; width: auto; } .inst th { border-bottom: 0; padding-bottom: 2px; } .inst tr:first-child td { border-top: 0; } }
+/* tool rows in the skills table: logo and name, set in even columns so every row lines up */
+.tools { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 10px 20px; }
+.tools li { display: flex; align-items: center; gap: 9px; min-width: 0; font: 600 15px/1.25 var(--f-head); color: var(--ink); }
+.tools img { width: 20px; height: 20px; flex: none; object-fit: contain; }
+.tools__note { margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+@media (max-width: 600px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; } .inst th { padding-top: 14px; } .inst td { padding-top: 6px; } }
 
 /* ---------- certifications ---------- */
 .certs { width: 100%; border-collapse: collapse; font-size: 15.5px; min-width: 640px; }
