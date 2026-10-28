@@ -1132,3 +1132,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 
 /* UNPAR course groups: same list as the Dibimbing track, without the date column */
 .track--plain li { grid-template-columns: minmax(0, 1fr); align-content: start; }
+
+/* Skills: core competencies as the same quiet chips used in Education */
+.inst .comp { margin: 0; }
