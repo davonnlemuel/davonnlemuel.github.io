@@ -118,13 +118,8 @@ html { scrollbar-color: var(--ink-3) var(--desk); }
 .meta dd a { color: inherit; text-decoration-color: var(--teal-2); }
 .meta dt { color: var(--ink-3); font-weight: 500; } .meta dd { margin: 0; color: var(--ink); font-weight: 600; line-height: 1.35; }
 
-.sched__body { --gap: clamp(22px, 3.4vw, 48px); position: relative; display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 23vw, 270px); gap: var(--gap); margin-top: clamp(18px, 2.4vw, 28px); }
+.sched__body { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 23vw, 270px); gap: clamp(22px, 3.4vw, 48px); margin-top: clamp(18px, 2.4vw, 28px); }
 .lead { margin: 0 0 16px; font-size: clamp(1.08rem, 1.5vw, 1.32rem); line-height: 1.45; max-width: 58ch; color: var(--ink); text-wrap: pretty; }
-/* intro as a speech bubble; the tail points at the portrait (right on desktop, up on phone) */
-.bubble { position: relative; max-width: none; padding: clamp(14px, 1.8vw, 20px) clamp(16px, 2vw, 24px); background: #fff; border: 1px solid var(--rule); border-radius: 6px; box-shadow: 0 1px 1px rgba(19,38,74,.06), 0 10px 22px -16px rgba(19,38,74,.5); }
-.bubble::before, .bubble::after { content: ""; position: absolute; clip-path: polygon(0 0, 100% 0, 0 100%); }
-.bubble::before { top: 88px; left: 100%; width: calc(var(--gap) - 6px); height: 26px; background: var(--rule); }
-.bubble::after { top: 89px; left: calc(100% - 1px); width: calc(var(--gap) - 8.5px); height: 23.5px; background: #fff; }
 
 .rows { margin: 0; border-top: 1px solid var(--ink); }
 .rows > div { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--rule-2); align-items: baseline; }
@@ -174,9 +169,6 @@ html { scrollbar-color: var(--ink-3) var(--desk); }
   .meta { width: 100%; }
   .sched__body { grid-template-columns: 1fr; }
   .pass { order: -1; width: min(200px, 52%); margin: 0 0 4px; }
-  .bubble::before, .bubble::after { top: auto; clip-path: polygon(0 0, 0 100%, 100% 100%); }
-  .bubble::before { bottom: 100%; left: 64px; width: 26px; height: calc(var(--gap) - 2px); }
-  .bubble::after { bottom: calc(100% - 1px); left: 65px; width: 23.5px; height: calc(var(--gap) - 4.5px); }
   .rosette { width: 380px; height: 380px; right: -150px; top: -110px; }
 }
 @media (max-width: 520px) {
