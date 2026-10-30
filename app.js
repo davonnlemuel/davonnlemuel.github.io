@@ -293,7 +293,7 @@
     'm7.l1': 'Slide dan kode',
     'm7.l2': 'Buka notebook',
     'm9.t': 'Segmentasi pelanggan dengan RFM<small>Power BI · DAX · Superstore · Dibimbing</small>',
-    'm9.p': 'Memberi skor 1 sampai 5 untuk recency, frequency, dan monetary setiap pelanggan Superstore, memakai kuintil di DAX, lalu mengelompokkannya ke 11 segmen RFM dan tiga level nilai. Dashboard satu halamannya menampilkan jumlah pelanggan per segmen, rata-rata skor RFM per negara bagian, pelanggan aktif bulanan per level, dan profit per tipe pelanggan, dengan filter tipe pelanggan dan periode order.',
+    'm9.p': 'RFM singkatan dari Recency, Frequency, Monetary: seberapa baru, seberapa sering, dan seberapa banyak pelanggan belanja. Setiap pelanggan Superstore diberi skor 1 sampai 5 untuk ketiganya di DAX, lalu dikelompokkan ke 11 segmen dalam dashboard Power BI satu halaman.',
     'm9.link': 'Buka file Power BI',
     'm8.t': 'Dashboard Excel untuk toko alat tulis<small>Excel · PivotTable, slicer · Dibimbing</small>',
     'm8.p': 'Dashboard satu halaman untuk toko alat tulis kecil: 10.005 order dari Jan 2022 sampai Jun 2025. Tiga slicer (kota, tahun, status order) memfilter kelima chart dan keempat KPI sekaligus. Denpasar dan Surabaya menyumbang 52% nilai order.',
