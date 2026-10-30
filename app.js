@@ -13,9 +13,9 @@
 
   const ID = {
     'nav.exp': 'Pengalaman', 'nav.work': 'Proyek', 'nav.skills': 'Keahlian', 'nav.cert': 'Sertifikasi', 'nav.contact': 'Kontak',
-    'h.sub': 'Matematika · Data Analyst · Ilmu Aktuaria',
+    'h.sub': '<span class="nw">Matematika ·</span> <span class="nw">Data Analyst ·</span> <span class="nw">Data Scientist ·</span> <span class="nw">Business Intelligence ·</span> <span class="nw">Ilmu Aktuaria</span>',
     'nav.home': 'Portofolio Davonn', 'm.phone': 'Telepon', 'e.db': 'Data Analytics dan Business Intelligence', 'd.db': 'Jul 2026 - sekarang', 'e.sma': 'SMA, jurusan IPA', 'e.smaw': 'Jakarta Barat', 'd.sma': 'Jul 2018 - Jul 2021',
-    'm.loc': 'Domisili', 'm.now': 'Sekarang', 'm.nowv': 'Underwriting Intern di Asuransi Asei', 'm.open': 'Terbuka untuk', 'm.openv': 'Posisi Data Analyst, Business Intelligence, dan Data Scientist',
+    'm.loc': 'Domisili', 'm.now': 'Sekarang', 'm.nowv': 'Underwriting Intern di Asuransi Asei', 'm.open': 'Terbuka untuk', 'm.openv': 'Posisi Data Analyst, Data Scientist, Business Intelligence, dan Aktuaria',
     'h.lead': 'Saya mengubah dataset mentah menjadi dashboard dan tool yang dipakai orang untuk mengambil keputusan. Bagian yang paling saya nikmati adalah saat tabel yang berantakan akhirnya mulai masuk akal. Belakangan saya juga mendalami data science, membangun model untuk memprediksi churn, klaim, dan premi, dan saya ingin membawa itu ke sebuah tim sebagai analis. Di bawah ini karya saya sejauh ini, dari magang, kuliah, dan proyek pribadi.',
     'c.cap': 'Ringkasan', 'c.h1': 'Yang saya kerjakan', 'c.h2': 'Contohnya',
     'c.r1': 'Dashboard Manajemen', 'c.r1e': '<a href="#exA">Company dashboard ASEI</a> · <a href="#work-oil">Penjualan minyak goreng (Power BI)</a> · <a href="#work-tableau">Data story Olist (Tableau)</a>',
@@ -25,8 +25,8 @@
     'd.uni': 'Sep 2021 - Feb 2026', 'd.nur': 'Jul 2024 - Sep 2024', 'd.ssb': 'Jan 2022 - Agu 2023',
     'a.mail': 'Kirim email',
     'c1.t': 'Tentang saya',
-    'c1.a': 'Saya lulusan Matematika dengan pengalaman langsung di industri asuransi. Saya membangun dashboard dan laporan untuk manajemen senior dari data mentah sistem, dan memakai Excel serta Python untuk analisis eksploratif dan machine learning.',
-    'c1.b': 'Saya mencari posisi Data Analyst yang fokus mengubah data operasional menjadi keputusan bisnis.',
+    'c1.a': 'Saya lulusan Matematika dengan pengalaman langsung di industri asuransi. Saya membangun dashboard dan laporan untuk manajemen senior dari data mentah sistem, supaya hal yang perlu mereka perhatikan mudah ditemukan. Saya menganalisis data dengan Excel dan SQL, membuat visualisasi dengan Power BI dan Tableau, dan memakai Python untuk analisis eksploratif dan machine learning. Saya juga memakai AI untuk menyelesaikan pekerjaan sehari-hari lebih cepat.',
+    'c1.b': 'Saya mencari posisi Data Analyst, Data Scientist, atau Business Intelligence yang fokus mengubah data operasional menjadi keputusan bisnis.',
     'c1.cof': 'Semasa kuliah saya ikut mendirikan usaha kopi mahasiswa yang menjual 150 gelas per hari lewat event kampus, pre-order, dan retailer lokal.',
     'c1.edu': 'Pendidikan', 'c1.e1': 'Universitas', 'c1.e2': 'Gelar', 'c1.e2v': 'Sarjana Matematika, peminatan ilmu aktuaria', 'c1.e3': 'Periode',
     'c1.th': 'Skripsi',

@@ -1135,3 +1135,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 
 /* Skills: core competencies as the same quiet chips used in Education */
 .inst .comp { margin: 0; }
+
+/* header subtitle: each label keeps its dot, so a wrapped line never starts with one */
+.nw { white-space: nowrap; }
