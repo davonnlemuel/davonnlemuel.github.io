@@ -502,23 +502,23 @@
     en: {
       allCob: 'All classes', cobN: { Property: 'Property', Engineering: 'Engineering', Marine: 'Marine hull and cargo', Liability: 'Liability' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'All branches', pols: 'policies', polIn: 'Policies in view', loMed: 'Low or medium risk', hiVh: 'High or very high risk',
-      riskT: 'Risk distribution of policies by branch',
-      totCase: 'Pending cases', over30c: 'Pending cases over 30 days', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision',
-      topUwT: 'Top 10 underwriters by pending cases', lapUwT: 'How long requests wait, per underwriter', lapUwS: 'Average lapse days since the request came in, longest first', avgLap: 'Average lapse',
+      riskT: 'Risk distribution of policies by branch', riskSP: 'All branches, then the 5 with the most policies',
+      totCase: 'Pending cases', over30c: 'Pending cases over 30 days', nUw: 'Underwriters with pending cases', pbrT: 'Pending cases in each branch', pbrS: 'Requests still waiting for an underwriting decision', pbrSP: 'Top 5 branches by requests still waiting for an underwriting decision',
+      topUwT: 'Top 10 underwriters by pending cases', topUwTP: 'Top 5 underwriters by pending cases', lapUwT: 'How long requests wait, per underwriter', lapUwS: 'Average lapse days since the request came in, longest first', lapUwSP: 'Average lapse days since the request came in, the 5 longest', avgLap: 'Average lapse',
       lapCT: 'Pending cases by days waiting', lapCS: 'Grouped by how many days each request has been open', caseT: 'Pending requests', caseS: 'Every request still waiting for a decision, longest wait first', reqNo: 'Request no.', reqType: 'Type', newPol: 'New', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Fire', 'Contractors all risk', 'Marine cargo', 'Heavy equipment', 'Machinery breakdown', 'Hull', 'Money insurance', 'Public liability', 'Earthquake', 'Erection all risk', 'Property all risks'],
       nClaims: 'Claims settled 2021-2026', shareP: 'Claims paid, company share', topCause: 'Top cause of loss', ofClaims: 'of claims',
       causes: ['Fire', 'Flood', 'Theft', 'Collision', 'Machinery breakdown', 'Short circuit', 'Earthquake', 'Water damage', 'Riot', 'Other'],
-      causeT: 'What caused the losses', causeS: 'Settled claims counted by cause of loss', cause: 'Cause', claimsN: 'Claims',
-      insured: 'Insured', insT: 'Top 10 insureds by claims paid', insS: 'Company share of settled claims, in Rp billion', yrT: 'Settled claims per year', yrS: 'Number of claims settled each year',
+      causeT: 'What caused the losses', causeS: 'Settled claims counted by cause of loss', causeSP: 'Settled claims by cause of loss, the 5 most common', cause: 'Cause', claimsN: 'Claims',
+      insured: 'Insured', insT: 'Top 10 insureds by claims paid', insTP: 'Top 5 insureds by claims paid', insS: 'Company share of settled claims, in Rp billion', yrT: 'Settled claims per year', yrS: 'Number of claims settled each year',
       cobCT: 'Claims by class of business', cobCS: 'Share of settled claims in each class', sevT: 'How large the claims are', sevS: 'Settled claims counted by claim size, in Rp',
       dolT: 'When in the policy the loss happened', dolS: 'Days between the policy start date and the date of loss', dayOf: 'Policy day',
       topUwS: 'Pending requests per underwriter in',
       chart: 'Chart', table: 'Table', year: 'Year', line: 'Line', all: 'All lines', vsPrev: 'vs prior year', none: 'No data for this filter.',
       gp: 'Gross premium', cl: 'Claims paid', lr: 'Loss ratio', pol: 'Policies', prod: 'Products', br: 'Branches', avgp: 'Avg premium / policy',
       healthy: 'Healthy', watch: 'Watch', above: 'Above 60%',
-      lrProd: 'Products with the highest loss ratio', lrProdS: 'The 10 worst products this year. The red line marks a 60% loss ratio.', mix: 'Where the gross premium comes from', mixS: 'Each line of business as a share of gross premium',
-      brT: 'Gross premium and claims paid per branch', brS: 'In Rp billion', siT: 'Policies by sum insured', siS: 'How many policies fall in each sum-insured band, in Rp billion',
+      lrProd: 'Products with the highest loss ratio', lrProdS: 'The 10 worst products this year. The red line marks a 60% loss ratio.', lrProdSP: 'The 5 worst products this year. The red line marks a 60% loss ratio.', mix: 'Where the gross premium comes from', mixS: 'Each line of business as a share of gross premium',
+      brT: 'Gross premium and claims paid per branch', brS: 'In Rp billion', brSP: 'Top 5 branches by premium, in Rp billion', siT: 'Policies by sum insured', siS: 'How many policies fall in each sum-insured band, in Rp billion',
       product: 'Product', lob: 'Line', premium: 'Premium', claims: 'Claims', branch: 'Branch', band: 'Band', share: 'Share', others: 'Others',
       cob: 'Class of business', occ: 'Occupancy', si: 'Sum insured', ded: 'Deductible', std: 'Standard', hi1: 'Higher (-8%)', hi2: 'High (-15%)',
       cls: 'Risk class', clsN: 'class', rate: 'Indicative rate', prem: 'Indicative premium', place: 'Placement',
@@ -544,23 +544,23 @@
     id: {
       allCob: 'Semua kelas', cobN: { Property: 'Properti', Engineering: 'Engineering', Marine: 'Marine hull dan cargo', Liability: 'Tanggung gugat' },
       lvls: ['Low', 'Medium', 'High', 'Very high'], allBr: 'Semua cabang', pols: 'polis', polIn: 'Polis ditampilkan', loMed: 'Risiko low atau medium', hiVh: 'Risiko high atau very high',
-      riskT: 'Persebaran Risiko Polis per Cabang',
-      totCase: 'Kasus pending', over30c: 'Kasus pending yang lebih dari 30 hari', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting',
-      topUwT: 'Top 10 underwriter dengan kasus pending terbanyak', lapUwT: 'Lama pengajuan menunggu, per underwriter', lapUwS: 'Rata-rata lapse day sejak pengajuan masuk, terlama di atas', avgLap: 'Rata-rata lapse',
+      riskT: 'Persebaran Risiko Polis per Cabang', riskSP: 'Semua cabang, lalu 5 cabang dengan polis terbanyak',
+      totCase: 'Kasus pending', over30c: 'Kasus pending yang lebih dari 30 hari', nUw: 'Underwriter dengan kasus pending', pbrT: 'Kasus pending di tiap cabang', pbrS: 'Pengajuan yang masih menunggu keputusan underwriting', pbrSP: '5 cabang dengan pengajuan terbanyak yang masih menunggu keputusan underwriting',
+      topUwT: 'Top 10 underwriter dengan kasus pending terbanyak', topUwTP: 'Top 5 underwriter dengan kasus pending terbanyak', lapUwT: 'Lama pengajuan menunggu, per underwriter', lapUwS: 'Rata-rata lapse day sejak pengajuan masuk, terlama di atas', lapUwSP: 'Rata-rata lapse day sejak pengajuan masuk, 5 yang terlama', avgLap: 'Rata-rata lapse',
       lapCT: 'Kasus pending menurut lama menunggu', lapCS: 'Dikelompokkan dari berapa hari pengajuan sudah terbuka', caseT: 'Daftar pengajuan pending', caseS: 'Semua pengajuan yang masih menunggu keputusan, yang paling lama di atas', reqNo: 'No. pengajuan', reqType: 'Jenis', newPol: 'Baru', lapseD: 'Lapse',
       tocs: ['Industrial all risks', 'Kebakaran', 'Contractors all risk', 'Marine cargo', 'Alat berat', 'Machinery breakdown', 'Hull', 'Asuransi uang', 'Tanggung gugat publik', 'Gempa bumi', 'Erection all risk', 'Property all risks'],
       nClaims: 'Klaim settled 2021-2026', shareP: 'Klaim dibayar share perusahaan', topCause: 'Penyebab klaim teratas', ofClaims: 'dari klaim',
       causes: ['Kebakaran', 'Banjir', 'Pencurian', 'Tabrakan', 'Kerusakan mesin', 'Korsleting', 'Gempa bumi', 'Kerusakan air', 'Kerusuhan', 'Lainnya'],
-      causeT: 'Penyebab kerugian', causeS: 'Klaim settled dihitung per penyebab kerugian', cause: 'Penyebab', claimsN: 'Klaim',
-      insured: 'Tertanggung', insT: 'Top 10 tertanggung menurut klaim dibayar', insS: 'Share perusahaan atas klaim settled, dalam miliar rupiah', yrT: 'Klaim settled per tahun', yrS: 'Jumlah klaim yang selesai tiap tahun',
+      causeT: 'Penyebab kerugian', causeS: 'Klaim settled dihitung per penyebab kerugian', causeSP: 'Klaim settled per penyebab kerugian, 5 penyebab terbanyak', cause: 'Penyebab', claimsN: 'Klaim',
+      insured: 'Tertanggung', insT: 'Top 10 tertanggung menurut klaim dibayar', insTP: 'Top 5 tertanggung menurut klaim dibayar', insS: 'Share perusahaan atas klaim settled, dalam miliar rupiah', yrT: 'Klaim settled per tahun', yrS: 'Jumlah klaim yang selesai tiap tahun',
       cobCT: 'Klaim per kelas bisnis', cobCS: 'Porsi klaim settled di tiap kelas', sevT: 'Seberapa besar klaimnya', sevS: 'Klaim settled dihitung per besar klaim, dalam rupiah',
       dolT: 'Kapan kerugian terjadi dalam periode polis', dolS: 'Jarak hari dari tanggal mulai polis sampai tanggal kerugian', dayOf: 'Hari ke-',
       topUwS: 'Pengajuan pending per underwriter di',
       chart: 'Grafik', table: 'Tabel', year: 'Tahun', line: 'Lini', all: 'Semua lini', vsPrev: 'dibanding tahun lalu', none: 'Tidak ada data pada filter ini.',
       gp: 'Premi bruto', cl: 'Klaim dibayar', lr: 'Loss ratio', pol: 'Polis', prod: 'Produk', br: 'Cabang', avgp: 'Rata-rata premi / polis',
       healthy: 'Sehat', watch: 'Pantau', above: 'Di atas 60%',
-      lrProd: 'Produk dengan loss ratio tertinggi', lrProdS: '10 produk terburuk tahun ini. Garis merah menandai loss ratio 60%.', mix: 'Asal premi bruto', mixS: 'Porsi tiap lini bisnis terhadap premi bruto',
-      brT: 'Premi bruto dan klaim dibayar per cabang', brS: 'Dalam miliar rupiah', siT: 'Polis menurut nilai pertanggungan', siS: 'Jumlah polis di tiap kelompok nilai pertanggungan, dalam miliar rupiah',
+      lrProd: 'Produk dengan loss ratio tertinggi', lrProdS: '10 produk terburuk tahun ini. Garis merah menandai loss ratio 60%.', lrProdSP: '5 produk terburuk tahun ini. Garis merah menandai loss ratio 60%.', mix: 'Asal premi bruto', mixS: 'Porsi tiap lini bisnis terhadap premi bruto',
+      brT: 'Premi bruto dan klaim dibayar per cabang', brS: 'Dalam miliar rupiah', brSP: '5 cabang dengan premi terbesar, dalam miliar rupiah', siT: 'Polis menurut nilai pertanggungan', siS: 'Jumlah polis di tiap kelompok nilai pertanggungan, dalam miliar rupiah',
       product: 'Produk', lob: 'Lini', premium: 'Premi', claims: 'Klaim', branch: 'Cabang', band: 'Kelompok', share: 'Porsi', others: 'Lainnya',
       cob: 'Kelas bisnis', occ: 'Okupasi', si: 'Nilai pertanggungan', ded: 'Deductible', std: 'Standar', hi1: 'Lebih tinggi (-8%)', hi2: 'Tinggi (-15%)',
       cls: 'Kelas risiko', clsN: 'kelas', rate: 'Rate indikatif', prem: 'Premi indikatif', place: 'Penempatan',
@@ -604,7 +604,7 @@
 
   function dHbar(w, items, o = {}) {
     if (!items.length) return `<p class="dash__empty">${d('none')}</p>`;
-    if (PHONE()) return dHbarPhone(w, items, o);
+    if (PHONE()) return dHbarPhone(w, o.all ? items : items.slice(0, 5), o);
     const rowH = 25, top = o.ref != null ? 22 : 8, bot = 24, H = top + items.length * rowH + bot;
     const padR = w < 420 ? 50 : 72, labW = Math.min(o.labW || 150, Math.max(100, w - 120 - padR));
     const max = niceMax(Math.max(...items.map(i => i.value), o.ref || 0, o.min || 0));
@@ -657,7 +657,8 @@
   }
 
   function dBars(w, cats, series, o = {}) {
-    if (PHONE() && !o.stacked && series.length > 1 && cats.length > 7) return dBarsPhone(w, cats, series, o);
+    if (PHONE() && !o.stacked && series.length > 1) return dBarsPhone(w, cats, series, o);
+    if (PHONE() && series.length === 1 && Math.max(...cats.map(c => c.length)) * 6.2 > (w - 62) / cats.length - 6) return dHbarPhone(w, cats.map((c, i) => ({ name: c, value: series[0].values[i], color: series[0].color })), { fmt: o.fmt, label: o.label });
     const H = o.h || 230, padL = 52, padR = 10, padT = 18, padB = 30, pw = w - padL - padR, ph = H - padT - padB;
     const tot = cats.map((_, i) => o.stacked ? series.reduce((s, se) => s + se.values[i], 0) : Math.max(...series.map(se => se.values[i])));
     const max = niceMax(Math.max(...tot) || 1), Y = v => padT + ph - v / max * ph;
@@ -824,10 +825,10 @@
           ],
           stats: [[d('pol'), nf(pol)], [d('prod'), nf(p.prods.length)], [d('br'), nf(BRANCHES.length)]],
           cards: [
-            { title: d('lrProd'), sub: d('lrProdS'), chart: w => dHbar(w, top.map(x => ({ name: x.name, value: x.lr, color: x.lr > 60 ? D.crit : x.lr > 50 ? D.warn : D.s1, tip: `${esc(x.name)} (${esc(d('lines')[x.line])})<br>${d('lr')}: <b>${pct(x.lr)}</b>` })), { ref: 60, refLabel: '60%', fmt: v => pct(v, 0), tick: v => nf(v) + '%', label: d('lrProd') }),
+            { title: d('lrProd'), sub: d('lrProdS'), subP: d('lrProdSP'), chart: w => dHbar(w, top.map(x => ({ name: x.name, value: x.lr, color: x.lr > 60 ? D.crit : x.lr > 50 ? D.warn : D.s1, tip: `${esc(x.name)} (${esc(d('lines')[x.line])})<br>${d('lr')}: <b>${pct(x.lr)}</b>` })), { ref: 60, refLabel: '60%', fmt: v => pct(v, 0), tick: v => nf(v) + '%', label: d('lrProd') }),
               table: [[d('product'), d('lob'), d('premium'), d('claims'), d('lr')], top.map(x => [x.name, d('lines')[x.line], bn(x.prem), bn(x.claims), pct(x.lr)])] },
             { title: d('mix'), sub: d('mixS'), chart: w => dPie(w, mix, { label: d('mix') }), table: [[d('lob'), d('premium'), d('share')], mix.map(x => [x.name, x.detail, pct(x.value / prem * 100)])] },
-            { title: d('brT'), sub: d('brS'), chart: w => dBars(w, p.branches.map(b => b.b), [{ name: d('premium'), color: D.s1, values: p.branches.map(b => b.p) }, { name: d('claims'), color: D.s2, values: p.branches.map(b => b.c) }], { fmt: bn, labels: false, label: d('brT') }),
+            { title: d('brT'), sub: d('brS'), chart: w => { const br = PHONE() ? p.branches.slice().sort((a, b) => b.p - a.p).slice(0, 5) : p.branches; return dBars(w, br.map(b => b.b), [{ name: d('premium'), color: D.s1, values: br.map(b => b.p) }, { name: d('claims'), color: D.s2, values: br.map(b => b.c) }], { fmt: bn, labels: false, label: d('brT') }); }, subP: d('brSP'),
               legend: [[d('premium'), D.s1], [d('claims'), D.s2]], table: [[d('branch'), d('premium'), d('claims'), d('lr')], p.branches.map(b => [b.b, bn(b.p), bn(b.c), pct(b.c / b.p * 100)])] },
             { title: d('siT'), sub: d('siS'), chart: w => dBars(w, BANDS.map(x => x + (lang === 'id' ? ' M' : ' bn')), [{ name: d('pol'), color: D.o3, values: p.counts }], { fmt: v => nf(v), short: v => nf(v), label: d('siT') }),
               table: [[d('band'), d('pol')], BANDS.map((x, i) => ['Rp ' + x + (lang === 'id' ? ' M' : ' bn'), nf(p.counts[i])])] }
@@ -868,7 +869,7 @@
           ],
           cards: [
             { title: d('riskT'), wide: true, legend: lv.map((n, k) => [n, cols[k]]),
-              chart: w => dStack(w, [{ name: d('allBr'), parts: tot, n: N, total: true }].concat(rows), cols, lv, { label: d('riskT') }),
+              subP: d('riskSP'), chart: w => dStack(w, [{ name: d('allBr'), parts: tot, n: N, total: true }].concat(PHONE() ? rows.slice(0, 5) : rows), cols, lv, { label: d('riskT') }),
               table: [[d('branch')].concat(lv, [d('pol')]), [[d('allBr')].concat(tot.map(v => nf(v)), [nf(N)])].concat(rows.map(x => [x.name].concat(x.parts.map(v => nf(v)), [nf(x.n)])))] }
           ]
         };
@@ -903,9 +904,9 @@
             { k: d('over30c'), v: nf(gN[3]) }
           ],
           cards: [
-            { title: d('pbrT'), sub: d('pbrS'), chart: w => dHbar(w, byBr.map(([b, n]) => ({ name: b, value: n, color: b === s.br ? D.brand : D.s1 })), { fmt: v => nf(v), labW: 100, label: d('pbrT') }), table: [[d('branch'), d('cases')], byBr.map(([b, n]) => [b, nf(n)])] },
-            { title: d('topUwT'), sub: d('topUwS') + ' ' + (s.br === 'all' ? d('allBr').toLowerCase() : s.br), chart: w => dHbar(w, byUw.map(([u, n]) => ({ name: u, value: n, color: D.s1 })), { fmt: v => nf(v), labW: 80, label: d('topUwT') }), table: [[d('uw'), d('cases')], byUw.map(([u, n]) => [u, nf(n)])] },
-            { title: d('lapUwT'), sub: d('lapUwS'), chart: w => dHbar(w, lapUw.map(([u, v]) => ({ name: u, value: v, color: v > 30 ? D.crit : v > 14 ? '#E3A21A' : D.s3 })), { fmt: v => nf(v, 1) + ' ' + d('days'), tick: v => nf(v), labW: 80, label: d('lapUwT') }), table: [[d('uw'), d('avgLap')], lapUw.map(([u, v]) => [u, nf(v, 1) + ' ' + d('days')])] },
+            { title: d('pbrT'), sub: d('pbrS'), subP: d('pbrSP'), chart: w => dHbar(w, byBr.map(([b, n]) => ({ name: b, value: n, color: b === s.br ? D.brand : D.s1 })), { fmt: v => nf(v), labW: 100, label: d('pbrT') }), table: [[d('branch'), d('cases')], byBr.map(([b, n]) => [b, nf(n)])] },
+            { title: d('topUwT'), titleP: d('topUwTP'), sub: d('topUwS') + ' ' + (s.br === 'all' ? d('allBr').toLowerCase() : s.br), chart: w => dHbar(w, byUw.map(([u, n]) => ({ name: u, value: n, color: D.s1 })), { fmt: v => nf(v), labW: 80, label: d('topUwT') }), table: [[d('uw'), d('cases')], byUw.map(([u, n]) => [u, nf(n)])] },
+            { title: d('lapUwT'), sub: d('lapUwS'), subP: d('lapUwSP'), chart: w => dHbar(w, lapUw.map(([u, v]) => ({ name: u, value: v, color: v > 30 ? D.crit : v > 14 ? '#E3A21A' : D.s3 })), { fmt: v => nf(v, 1) + ' ' + d('days'), tick: v => nf(v), labW: 80, label: d('lapUwT') }), table: [[d('uw'), d('avgLap')], lapUw.map(([u, v]) => [u, nf(v, 1) + ' ' + d('days')])] },
             { title: d('lapCT'), sub: d('lapCS'), chart: w => dPie(w, groups.map((g, k) => ({ name: g[0] + ' ' + d('days'), value: gN[k], color: gcol[k], ink: k === 0 ? D.ink : '#fff', detail: nf(gN[k]) + ' ' + d('cases').toLowerCase() })), { label: d('lapCT') }), table: [[d('bucket'), d('cases')], groups.map((g, k) => [g[0], nf(gN[k])])] },
             { title: d('caseT'), sub: d('caseS'), wide: true, left: 6,
               table: [[d('reqNo'), d('insured'), d('branch'), 'TOC', d('uw'), d('reqType'), d('lapseD')], oldest.map(c => [c.no, c.ins, c.br, c.toc, c.uw, c.renew ? 'Renewal' : d('newPol'), nf(c.lapse) + ' ' + d('days')])] }
@@ -954,8 +955,8 @@
             { k: d('topCause'), v: byCause[0][0], chip: chip('crit', pct(byCause[0][1] / nClaims * 100, 0) + ' ' + d('ofClaims')) }
           ],
           cards: [
-            { title: d('causeT'), sub: d('causeS'), chart: w => dHbar(w, byCause.map(([c, n], i) => ({ name: c, value: n, color: i === 0 ? D.crit : D.s1 })), { fmt: v => nf(v), labW: 130, label: d('causeT') }), table: [[d('cause'), d('claimsN')], byCause.map(([c, n]) => [c, nf(n)])] },
-            { title: d('insT'), sub: d('insS'), chart: w => dHbar(w, ins.map(([n, v]) => ({ name: n, value: v, color: D.o3 })), { fmt: bn2, tick: v => nf(v), labW: 100, label: d('insT') }), table: [[d('insured'), d('cl')], ins.map(([n, v]) => [n, bn2(v)])] },
+            { title: d('causeT'), sub: d('causeS'), subP: d('causeSP'), chart: w => dHbar(w, byCause.map(([c, n], i) => ({ name: c, value: n, color: i === 0 ? D.crit : D.s1 })), { fmt: v => nf(v), labW: 130, label: d('causeT') }), table: [[d('cause'), d('claimsN')], byCause.map(([c, n]) => [c, nf(n)])] },
+            { title: d('insT'), titleP: d('insTP'), sub: d('insS'), chart: w => dHbar(w, ins.map(([n, v]) => ({ name: n, value: v, color: D.o3 })), { fmt: bn2, tick: v => nf(v), labW: 100, label: d('insT') }), table: [[d('insured'), d('cl')], ins.map(([n, v]) => [n, bn2(v)])] },
             { title: d('yrT'), sub: d('yrS'), chart: w => dBars(w, yrs, [{ name: d('claimsN'), color: D.s1, values: yr }], { fmt: v => nf(v), short: v => nf(v), label: d('yrT') }), table: [[d('year'), d('claimsN')], yrs.map((y, i) => [y, nf(yr[i])])] },
             { title: d('cobCT'), sub: d('cobCS'), chart: w => dPie(w, cobs.map(([c, n], i) => ({ name: c, value: n, color: PIE[i], detail: nf(n) + ' ' + d('claimsN').toLowerCase() })), { label: d('cobCT') }), table: [[d('cob'), d('claimsN')], cobs.map(([c, n]) => [c, nf(n)])] },
             { title: d('sevT'), sub: d('sevS'), chart: w => dBars(w, sev, [{ name: d('claimsN'), color: D.o4, values: sevN }], { fmt: v => nf(v), short: v => nf(v), label: d('sevT') }), table: [[d('band'), d('claimsN')], sev.map((x, i) => [x, nf(sevN[i])])] },
@@ -1018,15 +1019,15 @@
         renderDash(el, true);
       }));
     }
-    const main = $('.dash__main', el);
+    const main = $('.dash__main', el), ph = PHONE();
     main.innerHTML =
       `<div class="htiles${spec.tiles.length === 4 ? ' htiles--4' : ''}">${spec.tiles.map(tl => `<div class="htile"><span class="k">${esc(tl.k)}</span><span class="v${tl.cls ? ' ' + tl.cls : ''}">${esc(tl.v)}</span>${tl.n ? `<span class="n">${esc(tl.n)}</span>` : ''}${tl.chip || ''}</div>`).join('')}</div>` +
       (spec.stats ? `<dl class="dstats">${spec.stats.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '') +
-      `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(c.title)}</h4>${c.sub ? `<p class="cs">${esc(c.sub)}</p>` : ''}</div>${c.chart ? `<div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div>` : ''}</div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
+      `<div class="dgrid">${spec.cards.map((c, i) => `<section class="dcard${c.wide ? ' wide' : ''}" data-i="${i}"><div class="chead"><div><h4>${esc(ph && c.titleP || c.title)}</h4>${c.sub || c.subP ? `<p class="cs">${esc(ph && c.subP || c.sub || '')}</p>` : ''}</div>${c.chart && !ph ? `<div class="tog" role="group" aria-label="${esc(c.title)}"><button type="button" data-v="chart">${d('chart')}</button><button type="button" data-v="table">${d('table')}</button></div>` : ''}</div>${c.legend ? `<div class="dlegend">${c.legend.map(([n, col]) => `<span><i class="sw" style="background:${col}"></i>${esc(n)}</span>`).join('')}</div>` : ''}<div class="dbody"></div></section>`).join('')}</div>`;
     $$('.dcard', main).forEach(card => {
       const c = spec.cards[+card.dataset.i], key = id + ':' + card.dataset.i, body = $('.dbody', card);
       const paint = () => {
-        const v = c.chart ? dashViews[key] || 'chart' : 'table', al = i => (i < (c.left || 1) ? ' class="l"' : '');
+        const v = c.chart ? (ph ? 'chart' : dashViews[key] || 'chart') : 'table', al = i => (i < (c.left || 1) ? ' class="l"' : '');
         $$('.tog button', card).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
         if (v === 'table') {
           const [cols, rows] = c.table;
@@ -1481,7 +1482,8 @@
     const emptyMsg = '<p class="tv__empty">Tidak ada data untuk filter ini.</p>';
     const ts = []; for (let t = 0; t < 24; t++) if (mHas[t]) ts.push(t);
     if (!ts.length) $('#tvLine').innerHTML = emptyMsg; else tvLine($('#tvLine'), ts, ts.map(t => month[t]));
-    const top = O.cats.map((nm, i) => [nm, catRev[i]]).filter(p => p[1] > 0).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const top = O.cats.map((nm, i) => [nm, catRev[i]]).filter(p => p[1] > 0).sort((a, b) => b[1] - a[1]).slice(0, PHONE() ? 5 : 10);
+    $('#tvCats').previousElementSibling.textContent = `Top ${PHONE() ? 5 : 10} kategori berdasarkan revenue`;
     if (none) { $('#tvCats').innerHTML = emptyMsg; $('#tvPay').innerHTML = emptyMsg; }
     else {
       tvBars($('#tvCats'), top, (v, long) => long ? `Revenue: <b>R$${en.format(Math.round(v))}</b>` : brl(v), '#4E79A7');
