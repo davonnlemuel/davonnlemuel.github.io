@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=112">
+<link rel="stylesheet" href="styles.css?v=113">
 </head>
 <body>
 
@@ -310,7 +310,7 @@
         <div class="pj">
         <div class="pj__list" role="tablist" aria-label="Projects" aria-orientation="vertical">
           <button type="button" role="tab" id="pt-thesis" aria-controls="work-thesis" aria-selected="true"><b data-i18n="w5.n">Thesis: Bonus-Malus Pricing</b><span data-i18n="w5.ns">Actuarial Modelling</span></button>
-          <button type="button" role="tab" id="pt-prosper" aria-controls="work-prosper" aria-selected="false" tabindex="-1"><b data-i18n="fp.n">Credit Risk Segmentation</b><span data-i18n="fp.ns">Python · SQL · Power BI · Final Project</span></button>
+          <button type="button" role="tab" id="pt-prosper" aria-controls="work-prosper" aria-selected="false" tabindex="-1"><img class="pj__logo" src="assets/prosper-logo.svg" alt="Prosper" width="630" height="102"><b data-i18n="fp.n">Credit Risk Segmentation</b><span data-i18n="fp.ns"><strong>Final Project</strong> · Python · SQL · Power BI</span></button>
           <button type="button" role="tab" id="pt-churn" aria-controls="work-churn" aria-selected="false" tabindex="-1"><b data-i18n="w1.n">Customer Churn Prediction</b><span data-i18n="w1.ns">Python · Machine Learning</span></button>
           <button type="button" role="tab" id="pt-oil" aria-controls="work-oil" aria-selected="false" tabindex="-1"><b data-i18n="w3.n">Edible-Oil Sales Dashboard</b><span data-i18n="w3.ns">Power BI · DAX</span></button>
           <button type="button" role="tab" id="pt-tableau" aria-controls="work-tableau" aria-selected="false" tabindex="-1"><b data-i18n="w7.n">Olist Sales Data Story</b><span data-i18n="w7.ns">Tableau · Dibimbing Bootcamp</span></button>
@@ -408,8 +408,9 @@
             </dl>
           </div>
           <div class="work__main">
-            <h3 data-i18n="fp.t">Which Prosper Borrowers Make Investors Money,<br>and Which Lose It</h3>
-            <p data-i18n="fp.p">Prosper is a US peer-to-peer lending platform: people borrow online, and investors fund the loans and take the loss when a borrower stops paying. Working as a data analyst on the credit risk team, I asked four questions: which borrowers make or lose investors money, what rejecting the riskiest ones would change, whether risky borrowers pay enough interest to cover their losses, and which traits predict default.</p>
+            <div class="fp-org"><img src="assets/logo-dibimbing.png" alt="Dibimbing" width="738" height="222"><p><span data-i18n="fp.org1">Data Analytics and Business Intelligence Bootcamp</span><b data-i18n="fp.org2">Final Project</b></p></div>
+            <h3 data-i18n="fp.t">Credit Risk Segmentation of Prosper Borrowers</h3>
+            <p data-i18n="fp.p">Prosper is a US peer-to-peer lending platform where investors fund loans and take the loss when a borrower stops paying. As a data analyst on the credit risk team, I segmented 113,937 loans to find which borrowers make investors money, which lose it, and how risk could be priced better.</p>
             <div class="fp-nav" role="tablist" aria-label="Project sections"><button type="button" role="tab" id="fpt-1" aria-controls="fpp-1" aria-selected="true"><small>01</small><span data-i18n="fp.n1t">Results</span></button><button type="button" role="tab" id="fpt-2" aria-controls="fpp-2" aria-selected="false" tabindex="-1"><small>02</small><span data-i18n="fp.n2t">About the data</span></button><button type="button" role="tab" id="fpt-3" aria-controls="fpp-3" aria-selected="false" tabindex="-1"><small>03</small><span data-i18n="fp.n3t">EDA</span></button><button type="button" role="tab" id="fpt-4" aria-controls="fpp-4" aria-selected="false" tabindex="-1"><small>04</small><span data-i18n="fp.n4t">Segmentation</span></button><button type="button" role="tab" id="fpt-5" aria-controls="fpp-5" aria-selected="false" tabindex="-1"><small>05</small><span data-i18n="fp.n5t">Dashboard</span></button></div>
             <div class="fp-pane" role="tabpanel" id="fpp-1" aria-labelledby="fpt-1">
               <p class="fp-lead" data-i18n="fp.r0">Rejecting more borrowers is not where Prosper's extra profit is. Every rating already earns more interest than it loses to defaults; the gain is in pricing risk more sharply inside each rating.</p>
@@ -1065,6 +1066,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=116"></script>
+<script src="app.js?v=117"></script>
 </body>
 </html>
