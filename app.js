@@ -220,7 +220,7 @@
     'fp.n5t': 'Dashboard',
     'fp.r0': 'Menolak lebih banyak peminjam bukan sumber tambahan untung Prosper. Setiap rating sudah menghasilkan bunga lebih besar dari kerugian akibat macet; tambahannya ada di penilaian risiko yang lebih tajam di dalam setiap rating.',
     'fp.f1': 'tingkat macet setelah<br>aturan 2009', 'fp.f1b': 'dari 36,9%',
-    'fp.kp1': 'Tingkat kemacetan', 'fp.kp1a': '36,9%', 'fp.kp1b': '16,3%', 'fp.kpP1': 'Periode 1', 'fp.kpP2': 'Periode 2',
+    'fp.kp1': 'Tingkat kemacetan', 'fp.kp1n': 'Setelah perubahan sistem pada 2009, tingkat kemacetan turun lebih dari setengahnya.', 'fp.kp2n': 'Setelah perubahan yang sama, keuntungan investor meningkat drastis, dari rugi menjadi untung.', 'fp.kp3n': 'Model yang saya pilih lebih baik membedakan pinjaman macet dibanding klasifikasi rating yang dipakai Prosper.', 'fp.kp1a': '36,9%', 'fp.kp1b': '16,3%', 'fp.kpP1': 'Periode 1', 'fp.kpP2': 'Periode 2',
     'fp.kp2': 'Total keuntungan', 'fp.kp2a': '−$14,71 jt', 'fp.kp2b': '+$4,35 jt',
     'fp.kp3': 'AUC score', 'fp.kp3a': '72,7%', 'fp.kp3b': 'Model random forest', 'fp.kp3c': '68,8%', 'fp.kp3d': 'Klasifikasi rating risiko Prosper',
     'fp.f4': 'untung investor per $100,<br>$5,32 jt dari 10.535 pinjaman',
