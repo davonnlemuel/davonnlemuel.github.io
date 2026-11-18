@@ -420,16 +420,16 @@
               </div>
               <h4 class="h4 ch-h" data-i18n="fp.rh1">The four business questions, answered</h4>
               <ol class="fp-bq">
-                <li><b data-i18n="fp.q1">Who makes or loses investors money?</b><span data-i18n="fp.q1a">The most profitable group was high-risk (HR) borrowers with high income, earning up to $27.09 per $100 lent. Most of the loss-making groups had no debt-to-income (DTI) data.</span></li>
+                <li><b data-i18n="fp.q1">Who makes or loses investors money?</b><span data-i18n="fp.q1a">The most profitable group was high-risk (HR) borrowers with high income, earning up to $27.09 per $100 lent. On the other hand, most of the loss-making groups had no debt-to-income (DTI) data.</span></li>
                 <li><b data-i18n="fp.q2">What if the riskiest were rejected?</b><span data-i18n="fp.q2a">529 defaults avoided, but 1,456 good loans were lost too and profit fell by $0.94M.</span></li>
                 <li><b data-i18n="fp.q3">Does interest cover the losses?</b><span data-i18n="fp.q3a">Yes. Prosper's interest covered default losses in every rating, so no rating lost money.</span></li>
-                <li><b data-i18n="fp.q4">Which traits predict default?</b><span data-i18n="fp.q4a">According to the random forest model, credit score, term and payment to income are the most important factors in default. A random forest built on these traits also ranks risk better than the rating.</span></li>
+                <li><b data-i18n="fp.q4">Which traits predict default?</b><span data-i18n="fp.q4a">According to the random forest model, credit score and term are the most important factors in default. A random forest built on these traits also ranks risk better than the rating.</span></li>
               </ol>
               <h4 class="h4 ch-h" data-i18n="fp.h8">What I would recommend</h4>
               <ol class="nx">
                 <li><b data-i18n="fp.n1">Do not reject risky segments wholesale</b><span data-i18n="fp.n1p">Rejecting the riskiest segments cuts profit by $0.94M. High-income HR borrowers and HR repeat borrowers are the biggest earners.</span></li>
-                <li><b data-i18n="fp.n2">Require DTI and price it inside each rating</b><span data-i18n="fp.n2p">Loans with no DTI default like rating D and appear in the loss-making groups. AA borrowers at 30-40% DTI default like D but pay AA interest.</span></li>
-                <li><b data-i18n="fp.n3">Give credit score, term and payment to income more weight</b><span data-i18n="fp.n3p">A model built on these traits ranks risk better than the current rating (AUC 0.727 vs 0.688).</span></li>
+                <li><b data-i18n="fp.n2">Require DTI and use it to set interest in each segment</b><span data-i18n="fp.n2p">Loans with no DTI default at the same rate as rating D loans and show up among the loss-making segments. AA borrowers with 30-40% DTI also default like rating D, yet pay much lower interest.</span></li>
+                <li><b data-i18n="fp.n3">Give credit score and term more weight in risk</b><span data-i18n="fp.n3p">These two are the most important variables in the model, so they can carry more weight in setting each loan's risk segment.</span></li>
               </ol>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/16" target="_blank" rel="noopener"><span data-i18n="fp.l1a">Slide: conclusion</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/5" target="_blank" rel="noopener"><span data-i18n="fp.l1b">Slide: business questions</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-2" aria-labelledby="fpt-2" hidden>
@@ -1059,6 +1059,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=122"></script>
+<script src="app.js?v=123"></script>
 </body>
 </html>
