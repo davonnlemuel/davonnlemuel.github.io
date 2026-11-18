@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=114">
+<link rel="stylesheet" href="styles.css?v=115">
 </head>
 <body>
 
@@ -413,7 +413,6 @@
             <p data-i18n="fp.p">Prosper is a US peer-to-peer lending platform where investors fund loans and take the loss when a borrower stops paying. In this project, I put myself in the role of a data analyst on Prosper's credit risk team and segmented 113,937 loans to see which loans make or lose investors money, and which borrower traits contribute most to defaults.</p>
             <div class="fp-nav" role="tablist" aria-label="Project sections"><button type="button" role="tab" id="fpt-1" aria-controls="fpp-1" aria-selected="true"><small>01</small><span data-i18n="fp.n1t">Results</span></button><button type="button" role="tab" id="fpt-2" aria-controls="fpp-2" aria-selected="false" tabindex="-1"><small>02</small><span data-i18n="fp.n2t">About the data</span></button><button type="button" role="tab" id="fpt-3" aria-controls="fpp-3" aria-selected="false" tabindex="-1"><small>03</small><span data-i18n="fp.n3t">EDA</span></button><button type="button" role="tab" id="fpt-4" aria-controls="fpp-4" aria-selected="false" tabindex="-1"><small>04</small><span data-i18n="fp.n4t">Segmentation</span></button><button type="button" role="tab" id="fpt-5" aria-controls="fpp-5" aria-selected="false" tabindex="-1"><small>05</small><span data-i18n="fp.n5t">Dashboard</span></button></div>
             <div class="fp-pane" role="tabpanel" id="fpp-1" aria-labelledby="fpt-1">
-              <p class="fp-lead" data-i18n="fp.r0">Rejecting more borrowers is not where Prosper's extra profit is. Every rating already earns more interest than it loses to defaults; the gain is in pricing risk more sharply inside each rating.</p>
               <div class="figs figs--fp">
                 <div><b class="up">16.3% <small data-i18n="fp.f1b">from 36.9%</small></b><span data-i18n="fp.f1">default rate after the 2009<br>rule change</span></div>
                 <div><b>$10.45</b><span data-i18n="fp.f4">kept by investors per $100 lent,<br>$5.32M across 10,535 loans</span></div>
@@ -433,11 +432,6 @@
                 <li><b data-i18n="fp.n2">Require DTI and price it inside each rating</b><span data-i18n="fp.n2p">Loans with no DTI default like rating D and appear in the loss-making groups. AA borrowers at 30-40% DTI default like D but pay AA interest.</span></li>
                 <li><b data-i18n="fp.n3">Give credit score, term and payment to income more weight</b><span data-i18n="fp.n3p">A model built on these traits ranks risk better than the current rating (AUC 0.727 vs 0.688).</span></li>
               </ol>
-              <h4 class="h4 ch-h" data-i18n="fp.h9">What I took from it</h4>
-              <ul class="hb-learn">
-                <li data-i18n="fp.x1"><b>Judge a loan by what investors keep, not only by whether it defaulted.</b> A borrower who defaults in month 30 may already have paid more interest than the principal still owed.</li>
-                <li data-i18n="fp.x2"><b>Only count loans whose term has ended.</b> 57,963 loans from 2011 on were still being repaid in March 2014; counting them would make default rates look far lower than they are.</li>
-              </ul>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/16" target="_blank" rel="noopener"><span data-i18n="fp.l1a">Slide: conclusion</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/5" target="_blank" rel="noopener"><span data-i18n="fp.l1b">Slide: business questions</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-2" aria-labelledby="fpt-2" hidden>
               <p data-i18n="fp.a0">Real loan records from Prosper, published on Kaggle: one row per loan, from the first loans in November 2005 to a snapshot on 12 March 2014.</p>

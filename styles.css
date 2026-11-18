@@ -1232,8 +1232,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-lead { margin: 10px 0 0; font-size: 19px; line-height: 1.45; color: var(--ink); max-width: 60ch; }
 .figs--fp5 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .fp-bq { list-style: none; counter-reset: bq; margin: 4px 0 6px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; border-top: 1px solid var(--ink); }
-.fp-bq li { counter-increment: bq; padding: 12px 0 12px 46px; position: relative; border-bottom: 1px solid var(--rule-2); font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
-.fp-bq li::before { content: "BQ" counter(bq); position: absolute; left: 0; top: 13px; font: 800 12px/1 var(--f-head); color: var(--teal); letter-spacing: .02em; }
+.fp-bq li { counter-increment: bq; padding: 12px 0 12px 40px; position: relative; border-bottom: 1px solid var(--rule-2); font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.fp-bq li::before { content: counter(bq); position: absolute; left: 0; top: 10px; font: 800 28px/1 var(--f-head); color: var(--teal); }
 .fp-bq b { display: block; font: 700 14px/1.3 var(--f-head); color: var(--ink); margin-bottom: 3px; }
 .fp-fn { list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 8px; max-width: 720px; }
 .fp-fn li { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr) 5.2em; grid-template-areas: "n b v" ". e e"; align-items: center; gap: 2px 12px; }
