@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=110">
+<link rel="stylesheet" href="styles.css?v=111">
 </head>
 <body>
 
@@ -140,11 +140,11 @@
             <div>
               <h4>Dibimbing <small>Bootcamp</small></h4>
               <p data-i18n="e.db">Data Analytics and Business Intelligence</p>
-              <p class="school-note" data-i18n="e.dbn">Evening classes with mentors, project presentations along the way, and live coding tests in Python and SQL. Graduation is in December 2026.</p>
+              <p class="school-note" data-i18n="e.dbn">Evening classes with mentors, project presentations along the way, live coding tests in Python and SQL, and a final project on credit risk. All modules are complete.</p>
               <ul class="tools-used" aria-label="Tools">
-                <li>Excel</li><li>Python</li><li>pandas</li><li>Matplotlib</li><li>Seaborn</li><li>SQL (PostgreSQL)</li><li>DBeaver</li><li>Tableau</li><li>Google Analytics</li><li>Google Colab</li>
+                <li>Excel</li><li>Python</li><li>pandas</li><li>Matplotlib</li><li>Seaborn</li><li>SQL (PostgreSQL)</li><li>DBeaver</li><li>Tableau</li><li>Power BI</li><li>scikit-learn</li><li>Google Analytics</li><li>Google Colab</li>
               </ul>
-              <h5 class="track-h" data-i18n="e.track">What I have covered so far</h5>
+              <h5 class="track-h" data-i18n="e.track">What I covered</h5>
               <ol class="track">
                 <li class="done"><span class="tr-when" data-i18n="tw.t1">Jul 2026</span><b data-i18n="tr.t1">Excel and dashboards</b><span data-i18n="tr.t1s">Lookups, PivotTables, interactive dashboards with slicers (see the <a href="#work-more">stationery shop dashboard</a>)</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t2">Aug 2026</span><b data-i18n="tr.t2">Python</b><span data-i18n="tr.t2s">Data types to OOP and modular code, in Jupyter and Colab</span></li>
@@ -157,10 +157,10 @@
                 <li class="done"><span class="tr-when" data-i18n="tw.t9">Oct 2026</span><b data-i18n="tr.t9">Funnel and cohort analysis</b><span data-i18n="tr.t9s">Conversion by stage, retention by cohort (see the <a href="#work-ecom">e-commerce project</a> and the <a href="#work-more">edtech and fintech piece</a>)</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t10">Oct 2026</span><b data-i18n="tr.t10">A/B testing</b><span data-i18n="tr.t10s">Test design, significance, reading the result (see the <a href="#work-spotify">Spotify campaign test</a>)</span></li>
                 <li class="done"><span class="tr-when" data-i18n="tw.t11">Oct 2026</span><b data-i18n="tr.t11">Customer segmentation</b><span data-i18n="tr.t11s">Segmentation techniques, results in Power BI (see the <a href="#work-more">RFM customer segmentation</a>)</span></li>
-                <li class="next"><span class="tr-when" data-i18n="tw.t12">Nov to Dec 2026</span><em class="tr-next" data-i18n="tr.next">Upcoming</em><b data-i18n="tr.t12">Final project and graduation</b><span data-i18n="tr.t12s">Capstone, take-home and coding tests</span></li>
+                <li class="done"><span class="tr-when" data-i18n="tw.t12">Nov 2026</span><b data-i18n="tr.t12">Final project</b><span data-i18n="tr.t12s">Credit risk segmentation on 113,060 Prosper loans with Python, SQL, Power BI and a random forest (see the <a href="#work-prosper">final project</a>)</span></li>
               </ol>
             </div>
-            <span class="school-when" data-i18n="d.db">Jul 2026 to present</span>
+            <span class="school-when" data-i18n="d.db">Jul to Nov 2026</span>
           </li>
         </ol>
       </div>
@@ -310,6 +310,7 @@
         <div class="pj">
         <div class="pj__list" role="tablist" aria-label="Projects" aria-orientation="vertical">
           <button type="button" role="tab" id="pt-thesis" aria-controls="work-thesis" aria-selected="true"><b data-i18n="w5.n">Thesis: Bonus-Malus Pricing</b><span data-i18n="w5.ns">Actuarial Modelling</span></button>
+          <button type="button" role="tab" id="pt-prosper" aria-controls="work-prosper" aria-selected="false" tabindex="-1"><b data-i18n="fp.n">Credit Risk Segmentation</b><span data-i18n="fp.ns">Python · SQL · Power BI · Final Project</span></button>
           <button type="button" role="tab" id="pt-churn" aria-controls="work-churn" aria-selected="false" tabindex="-1"><b data-i18n="w1.n">Customer Churn Prediction</b><span data-i18n="w1.ns">Python · Machine Learning</span></button>
           <button type="button" role="tab" id="pt-oil" aria-controls="work-oil" aria-selected="false" tabindex="-1"><b data-i18n="w3.n">Edible-Oil Sales Dashboard</b><span data-i18n="w3.ns">Power BI · DAX</span></button>
           <button type="button" role="tab" id="pt-tableau" aria-controls="work-tableau" aria-selected="false" tabindex="-1"><b data-i18n="w7.n">Olist Sales Data Story</b><span data-i18n="w7.ns">Tableau · Dibimbing Bootcamp</span></button>
@@ -393,6 +394,111 @@
 
             <div class="actions" style="margin-top:18px">
               <a class="btn" href="https://repository.unpar.ac.id/items/b185cae5-3231-4024-9535-252fa59194eb" target="_blank" rel="noopener"><span data-i18n="w5.repo">Read thesis (UNPAR repository)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work" id="work-prosper" role="tabpanel" aria-labelledby="pt-prosper" hidden>
+          <div class="work__side">
+            <dl>
+              <div><dt data-i18n="w.tools">Tools</dt><dd>Python, pandas, SciPy, scikit-learn, PostgreSQL, Power BI, Google Colab</dd></div>
+              <div><dt data-i18n="w.data">Data</dt><dd data-i18n="fp.data">Prosper Loan Data (Kaggle): 113,937 loans, 81 columns, Nov 2005 to Mar 2014</dd></div>
+              <div><dt data-i18n="w.method">Method</dt><dd data-i18n="fp.method">Chi-square and Welch t-test, segment analysis in SQL, random forest, permutation importance</dd></div>
+              <div><dt data-i18n="w.ctx">Context</dt><dd data-i18n="fp.ctx">Final project, Dibimbing Data Analytics and Business Intelligence bootcamp</dd></div>
+            </dl>
+          </div>
+          <div class="work__main">
+            <h3 data-i18n="fp.t">Which Prosper Borrowers Make Investors Money,<br>and Which Lose It</h3>
+            <p data-i18n="fp.p">Prosper is a US peer-to-peer lending platform: people borrow online, and investors fund the loans and take the loss when a borrower stops paying. Working as a data analyst on the credit risk team, I asked four questions: which borrowers make or lose investors money, what rejecting the riskiest ones would change, whether risky borrowers pay enough interest to cover their losses, and which traits predict default. The answers end in a credit policy recommendation.</p>
+            <div class="figs figs--fp">
+              <div><b class="up">36.9% → 16.3%</b><span data-i18n="fp.f1">default rate, loans from<br>2006-2008 vs 2009-2010</span></div>
+              <div><b class="down">−$0.94M</b><span data-i18n="fp.f2">investor profit if the riskiest<br>segments were rejected</span></div>
+              <div><b>0.727 <small>vs 0.688</small></b><span data-i18n="fp.f3">AUC: my model vs<br>Prosper's own rating</span></div>
+            </div>
+            <ol class="steps">
+              <li><b data-i18n="fp.s1">Clean</b><span data-i18n="fp.s1p">113,937 rows to 113,060 loans: 871 duplicates and 6 bad rows out, 15 new columns such as net return.</span></li>
+              <li><b data-i18n="fp.s2">Explore and test</b><span data-i18n="fp.s2p">Trends, borrower profiles, and two hypothesis tests on the 2009 rule change.</span></li>
+              <li><b data-i18n="fp.s3">Segment in SQL</b><span data-i18n="fp.s3p">10,535 loans from Jul 2009 whose term has ended, split by rating, DTI, income, term and new or repeat borrower.</span></li>
+              <li><b data-i18n="fp.s4">Model</b><span data-i18n="fp.s4p">Random forest on 14 borrower traits, with rating and interest rate left out. 80% to train, 20% to test.</span></li>
+            </ol>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h1">1 · A default is not always a loss</h4>
+            <p class="fz__cap" data-i18n="fp.c1">Two rating D loans from 2010, both 36 months, borrowers with the same credit score. What the investors got back:</p>
+            <div class="scroll-x"><table class="fdt fdt--fp">
+              <thead><tr><th></th><th data-i18n="fp.ta">Loan A · repaid</th><th data-i18n="fp.tb">Loan B · defaulted</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="fp.t1">Interest received</td><td>+$1,448.61</td><td>+$1,395.51</td></tr>
+                <tr><td data-i18n="fp.t2">Prosper service fee</td><td>−$60.39</td><td>−$49.16</td></tr>
+                <tr><td data-i18n="fp.t3">Principal lost</td><td>$0</td><td class="fp-neg">−$425.53</td></tr>
+                <tr class="fp-tot"><td data-i18n="fp.t4">Net return to investors</td><td>+$1,388.22</td><td>+$920.82</td></tr>
+              </tbody>
+            </table></div>
+            <p class="ch-concl" data-i18n="fp.k1"><b>Loan B defaulted, yet its investors still made $920.82.</b> Before stopping, the borrower paid more interest than the principal that was lost. So every segment in this project is judged by net return to investors, not only by whether its loans defaulted.</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h2">2 · After the 2009 rule change, defaults fell by more than half</h4>
+            <p class="fz__cap" data-i18n="fp.c2">Default rate by the year the loan was made, among loans already repaid or defaulted. Prosper stopped lending from Oct 2008 to Jul 2009 and came back with a new rating system and a minimum credit score of 600.</p>
+            <div class="hb-cols fp-yrs" role="img" aria-label="Default rate: 2006 39.4%, 2007 39.5%, 2008 33.0%, then a pause, 2009 15.2%, 2010 16.7%"><div><b class="low">39.4%</b><i style="--h:99.7" class="low"></i><span>2006</span></div><div><b class="low">39.5%</b><i style="--h:100.0" class="low"></i><span>2007</span></div><div><b class="low">33.0%</b><i style="--h:83.5" class="low"></i><span>2008</span></div><div class="fp-gap" aria-hidden="true"><em><span data-i18n="fp.gap">paused</span></em></div><div><b class="hi">15.2%</b><i style="--h:38.5" class="hi"></i><span>2009</span></div><div><b class="hi">16.7%</b><i style="--h:42.3" class="hi"></i><span>2010</span></div></div>
+            <p class="ch-concl" data-i18n="fp.k2"><b>Loans from 2006-2008 defaulted at 36.9% and cost investors $14.71M. Loans from 2009-2010 defaulted at 16.3% and made them $4.35M.</b> Both gaps are statistically significant at α = 5%: Chi-square 1,171 for the default rate and Welch t 43.6 for profit per $100. The tests show the gap is real, not what caused it; the economy was also recovering after 2008. Because the rating rules changed, the segment analysis below only uses loans from July 2009.</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h3">3 · Inside one rating, DTI still separates risk</h4>
+            <p class="fz__cap" data-i18n="fp.c3">Default rate by Prosper rating (AA safest, HR riskiest) and debt-to-income ratio (DTI). 10,535 loans from Jul 2009 whose term has ended.</p>
+            <div class="scroll-x"><table class="hm hm--fp" aria-label="Default rate by rating and DTI">
+              <thead><tr><th scope="col">Rating</th><th scope="col">DTI &lt;10%</th><th scope="col">10-20%</th><th scope="col">20-30%</th><th scope="col">30-40%</th><th scope="col">40%+</th><th scope="col" data-i18n="fp.hn">Not recorded</th></tr></thead>
+              <tbody><tr><th scope="row">AA</th><td style="background:#FFFFFF;color:#13264A" data-tip="AA, DTI &lt;10%: <b>0.7%</b> of 410 loans">0.7%</td><td style="background:#F9EFEE;color:#13264A" data-tip="AA, DTI 10-20%: <b>3.1%</b> of 448 loans">3.1%</td><td style="background:#F0D7D5;color:#13264A" data-tip="AA, DTI 20-30%: <b>6.7%</b> of 178 loans">6.7%</td><td class="fp-hl" style="background:#E0AEAA;color:#13264A" data-tip="AA, DTI 30-40%: <b>12.9%</b> of 70 loans">12.9%</td><td style="background:#EAC7C4;color:#13264A" data-tip="AA, DTI 40%+: <b>9.1%</b> of 22 loans">9.1%</td><td style="background:#EAC7C4;color:#13264A" data-tip="AA, DTI not recorded: <b>9.1%</b> of 66 loans">9.1%</td></tr><tr><th scope="row">A</th><td style="background:#F5E5E4;color:#13264A" data-tip="A, DTI &lt;10%: <b>4.6%</b> of 261 loans">4.6%</td><td style="background:#F1D9D7;color:#13264A" data-tip="A, DTI 10-20%: <b>6.4%</b> of 653 loans">6.4%</td><td style="background:#EAC8C5;color:#13264A" data-tip="A, DTI 20-30%: <b>9.0%</b> of 409 loans">9.0%</td><td style="background:#E8C1BE;color:#13264A" data-tip="A, DTI 30-40%: <b>10.0%</b> of 200 loans">10.0%</td><td style="background:#DEA8A3;color:#13264A" data-tip="A, DTI 40%+: <b>13.8%</b> of 123 loans">13.8%</td><td style="background:#E9C6C3;color:#13264A" data-tip="A, DTI not recorded: <b>9.3%</b> of 140 loans">9.3%</td></tr><tr><th scope="row">B</th><td style="background:#EAC7C4;color:#13264A" data-tip="B, DTI &lt;10%: <b>9.1%</b> of 143 loans">9.1%</td><td style="background:#E9C4C2;color:#13264A" data-tip="B, DTI 10-20%: <b>9.5%</b> of 410 loans">9.5%</td><td style="background:#EDCECC;color:#13264A" data-tip="B, DTI 20-30%: <b>8.0%</b> of 275 loans">8.0%</td><td style="background:#E2B2AE;color:#13264A" data-tip="B, DTI 30-40%: <b>12.3%</b> of 114 loans">12.3%</td><td style="background:#E3B4B1;color:#13264A" data-tip="B, DTI 40%+: <b>11.9%</b> of 59 loans">11.9%</td><td style="background:#DCA29E;color:#13264A" data-tip="B, DTI not recorded: <b>14.6%</b> of 89 loans">14.6%</td></tr><tr><th scope="row">C</th><td style="background:#D6928D;color:#fff" data-tip="C, DTI &lt;10%: <b>17.0%</b> of 159 loans">17.0%</td><td style="background:#E4B8B5;color:#13264A" data-tip="C, DTI 10-20%: <b>11.3%</b> of 373 loans">11.3%</td><td style="background:#E1B0AD;color:#13264A" data-tip="C, DTI 20-30%: <b>12.5%</b> of 335 loans">12.5%</td><td style="background:#DB9F9A;color:#13264A" data-tip="C, DTI 30-40%: <b>15.1%</b> of 218 loans">15.1%</td><td style="background:#DDA4A0;color:#13264A" data-tip="C, DTI 40%+: <b>14.3%</b> of 133 loans">14.3%</td><td style="background:#DEA6A2;color:#13264A" data-tip="C, DTI not recorded: <b>14.0%</b> of 136 loans">14.0%</td></tr><tr><th scope="row">D</th><td style="background:#CB766F;color:#fff" data-tip="D, DTI &lt;10%: <b>21.3%</b> of 329 loans">21.3%</td><td style="background:#CD7A73;color:#fff" data-tip="D, DTI 10-20%: <b>20.7%</b> of 773 loans">20.7%</td><td style="background:#CD7B75;color:#fff" data-tip="D, DTI 20-30%: <b>20.5%</b> of 528 loans">20.5%</td><td class="fp-hl" style="background:#DEA7A3;color:#13264A" data-tip="D, DTI 30-40%: <b>13.9%</b> of 294 loans">13.9%</td><td style="background:#CB746E;color:#fff" data-tip="D, DTI 40%+: <b>21.5%</b> of 209 loans">21.5%</td><td style="background:#BD5047;color:#fff" data-tip="D, DTI not recorded: <b>27.0%</b> of 315 loans">27.0%</td></tr><tr><th scope="row">E</th><td style="background:#CF807A;color:#fff" data-tip="E, DTI &lt;10%: <b>19.7%</b> of 127 loans">19.7%</td><td style="background:#C15C54;color:#fff" data-tip="E, DTI 10-20%: <b>25.2%</b> of 306 loans">25.2%</td><td style="background:#CF817B;color:#fff" data-tip="E, DTI 20-30%: <b>19.6%</b> of 311 loans">19.6%</td><td style="background:#B9463D;color:#fff" data-tip="E, DTI 30-40%: <b>28.5%</b> of 200 loans">28.5%</td><td style="background:#BA4840;color:#fff" data-tip="E, DTI 40%+: <b>28.1%</b> of 178 loans">28.1%</td><td style="background:#CB766F;color:#fff" data-tip="E, DTI not recorded: <b>21.3%</b> of 216 loans">21.3%</td></tr><tr><th scope="row">HR</th><td style="background:#C25D55;color:#fff" data-tip="HR, DTI &lt;10%: <b>25.0%</b> of 104 loans">25.0%</td><td style="background:#C0574F;color:#fff" data-tip="HR, DTI 10-20%: <b>25.9%</b> of 294 loans">25.9%</td><td style="background:#C15B53;color:#fff" data-tip="HR, DTI 20-30%: <b>25.3%</b> of 269 loans">25.3%</td><td style="background:#BC4C44;color:#fff" data-tip="HR, DTI 30-40%: <b>27.5%</b> of 160 loans">27.5%</td><td style="background:#B8433A;color:#fff" data-tip="HR, DTI 40%+: <b>28.9%</b> of 159 loans">28.9%</td><td style="background:#C86D66;color:#fff" data-tip="HR, DTI not recorded: <b>22.6%</b> of 208 loans">22.6%</td></tr></tbody>
+            </table></div>
+            <p class="ch-concl" data-i18n="fp.k3"><b>At a DTI of 30-40%, AA borrowers defaulted 12.9% of the time, close to D borrowers at 13.9%, yet AA paid 9.1% interest against 25.5% for D.</b> Within AA, defaults climb from 0.7% to 12.9% as DTI rises, so the rating does not fully price debt load. Loans with no DTI on file defaulted 19.6%, about the same as rating D (20.8%). The AA 30-40% cell holds 70 loans, so read it as a direction, not an exact number.</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h4">4 · Every rating made money, and the riskiest made the most</h4>
+            <p class="fz__cap" data-i18n="fp.c4">Where the interest from each $100 lent went. Bar length is the interest received; the number is what investors kept.</p>
+            <ul class="hb-leg"><li><i class="s2"></i><span data-i18n="fp.l1">Principal lost</span></li><li><i class="s3"></i><span data-i18n="fp.l2">Prosper fees</span></li><li><i class="s1"></i><span data-i18n="fp.l3">Kept by investors</span></li></ul>
+            <div class="fp-st" role="img" aria-label="Net return per 100 dollars lent: AA 5.43, A 6.72, B 8.63, C 11.25, D 13.85, E 13.96, HR 18.90"><div class="fp-st__r" data-tip="AA · interest $9.69, principal lost $3.10, fees $1.16<br>Kept by investors: <b>$5.43</b> per $100"><span>AA</span><div class="fp-st__b" style="--w:24.9%"><i class="s2" style="--w:32.0%"></i><i class="s3" style="--w:12.0%"></i><i class="s1" style="--w:56.0%"></i></div><b>$5.43</b></div><div class="fp-st__r" data-tip="A · interest $12.09, principal lost $4.10, fees $1.27<br>Kept by investors: <b>$6.72</b> per $100"><span>A</span><div class="fp-st__b" style="--w:31.1%"><i class="s2" style="--w:33.9%"></i><i class="s3" style="--w:10.5%"></i><i class="s1" style="--w:55.6%"></i></div><b>$6.72</b></div><div class="fp-st__r" data-tip="B · interest $15.81, principal lost $5.87, fees $1.31<br>Kept by investors: <b>$8.63</b> per $100"><span>B</span><div class="fp-st__b" style="--w:40.7%"><i class="s2" style="--w:37.1%"></i><i class="s3" style="--w:8.3%"></i><i class="s1" style="--w:54.6%"></i></div><b>$8.63</b></div><div class="fp-st__r" data-tip="C · interest $21.37, principal lost $8.71, fees $1.41<br>Kept by investors: <b>$11.25</b> per $100"><span>C</span><div class="fp-st__b" style="--w:55.0%"><i class="s2" style="--w:40.8%"></i><i class="s3" style="--w:6.6%"></i><i class="s1" style="--w:52.6%"></i></div><b>$11.25</b></div><div class="fp-st__r" data-tip="D · interest $29.35, principal lost $13.96, fees $1.54<br>Kept by investors: <b>$13.85</b> per $100"><span>D</span><div class="fp-st__b" style="--w:75.6%"><i class="s2" style="--w:47.6%"></i><i class="s3" style="--w:5.2%"></i><i class="s1" style="--w:47.2%"></i></div><b>$13.85</b></div><div class="fp-st__r" data-tip="E · interest $32.65, principal lost $17.10, fees $1.59<br>Kept by investors: <b>$13.96</b> per $100"><span>E</span><div class="fp-st__b" style="--w:84.1%"><i class="s2" style="--w:52.4%"></i><i class="s3" style="--w:4.9%"></i><i class="s1" style="--w:42.8%"></i></div><b>$13.96</b></div><div class="fp-st__r" data-tip="HR · interest $38.84, principal lost $18.18, fees $1.76<br>Kept by investors: <b>$18.90</b> per $100"><span>HR</span><div class="fp-st__b" style="--w:100.0%"><i class="s2" style="--w:46.8%"></i><i class="s3" style="--w:4.5%"></i><i class="s1" style="--w:48.7%"></i></div><b>$18.90</b></div></div>
+            <p class="ch-concl" data-i18n="fp.k4"><b>Interest covered lost principal and fees in every rating: investors kept $5.43 per $100 in AA and $18.90 in HR.</b> The best borrower groups were HR borrowers earning $100,000+ a year ($27.09 per $100) and HR repeat borrowers ($24.44). The groups that lost money all had something missing: AA loans with no DTI on file (−$3.21), 12-month loans with no DTI (−$2.72) and new borrowers with no income (−$1.39).</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h5">5 · Turning risky borrowers away costs more than it saves</h4>
+            <p class="fz__cap" data-i18n="fp.c5">Two rejection scenarios on the same 10,535 loans: 1,618 defaulted, 8,917 repaid, $5.32M net return to investors.</p>
+            <div class="scroll-x"><table class="fdt fdt--fp2">
+              <thead><tr><th data-i18n="fp.u0">Scenario</th><th data-i18n="fp.u1">Defaults avoided</th><th data-i18n="fp.u2">Repaid loans lost</th><th data-i18n="fp.u3">Investor profit</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="fp.u4">Reject the 9 riskiest rating and DTI pairs (default rate 25%+)</td><td>529 <small>(32.7%)</small></td><td>1,456 <small>(16.3%)</small></td><td class="fp-neg">−$0.94M <small>(−17.7%)</small></td></tr>
+                <tr><td data-i18n="fp.u5">Reject the 5 borrower pairs with the lowest profit</td><td>73 <small>(4.5%)</small></td><td>370 <small>(4.1%)</small></td><td class="fp-pos">+$9,576 <small>(+0.2%)</small></td></tr>
+              </tbody>
+            </table></div>
+            <p class="ch-concl" data-i18n="fp.k5"><b>Rejecting the riskiest pairs avoids 529 defaults but loses $0.94M of profit, because their high interest more than paid for their losses.</b> Rejecting the worst-earning pairs adds only $9,576. Rejecting more borrowers is not where the extra profit is.</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h6">6 · A model on borrower traits ranks risk better than Prosper's rating</h4>
+            <p class="fz__cap" data-i18n="fp.c6">Random forest with 300 trees, tested on 2,107 loans it never saw. AUC is the share of (defaulted, repaid) loan pairs where the defaulted loan gets the higher risk score.</p>
+            <div class="fz2 fz2--fp">
+              <div class="fz2__g"><p class="fz2__h" data-i18n="fp.g1">AUC on test data</p>
+                <div class="fz2__r"><span data-i18n="fp.g1a">Prosper rating</span><i style="--w:68.8%" class="mute"></i><b>0.688</b></div>
+                <div class="fz2__r"><span>Random forest</span><i style="--w:72.7%" class="hi"></i><b>0.727</b></div>
+              </div>
+              <div class="fz2__g"><p class="fz2__h" data-i18n="fp.g2">Drop in AUC when the column is shuffled</p>
+                <div class="fz2__r"><span data-i18n="fp.i1">Credit score</span><i style="--w:100.0%" class="hi"></i><b>0.079</b></div><div class="fz2__r"><span data-i18n="fp.i2">Term</span><i style="--w:65.8%" class="hi"></i><b>0.052</b></div><div class="fz2__r"><span data-i18n="fp.i3">Payment to income</span><i style="--w:32.9%" class="hi"></i><b>0.026</b></div><div class="fz2__r"><span data-i18n="fp.i4">Credit checks, last 6 months</span><i style="--w:17.7%" class="hi"></i><b>0.014</b></div><div class="fz2__r"><span data-i18n="fp.i5">Repeat borrower</span><i style="--w:15.2%" class="hi"></i><b>0.012</b></div>
+              </div>
+            </div>
+            <p class="ch-concl" data-i18n="fp.k6"><b>Credit score and term drive default the most, then payment to income.</b> The model never saw the rating or the interest rate, yet it ranks risky borrowers a little better than the rating does (72.7% of pairs against 68.8%), so these traits deserve more weight in pricing.</p>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h7">The Power BI dashboard</h4>
+            <p class="fz__cap" data-i18n="fp.c7">Two pages: the whole portfolio, and risk and profit by segment. Rebuilt in the browser from the same data and DAX measures, with the same filters.</p>
+            <div class="yearsw" role="group" aria-label="Dashboard page" id="pbxPages"><button type="button" aria-pressed="true" data-pg="1" data-i18n="fp.pg1">Loan portfolio</button><button type="button" aria-pressed="false" data-pg="2">Customer Segmentation</button></div>
+            <div class="pbx-frame"><div class="pbx" id="pbx" data-pg="1" aria-label="Interactive rebuild of the Power BI dashboard"></div></div>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h8">What I would recommend</h4>
+            <ol class="nx">
+              <li><b data-i18n="fp.n1">Do not reject risky segments wholesale</b><span data-i18n="fp.n1p">Rejecting the riskiest segments cuts profit by $0.94M. High-income HR borrowers and HR repeat borrowers are the biggest earners.</span></li>
+              <li><b data-i18n="fp.n2">Require DTI and price it inside each rating</b><span data-i18n="fp.n2p">Loans with no DTI default like rating D and appear in the loss-making groups. AA borrowers at 30-40% DTI default like D but pay AA interest.</span></li>
+              <li><b data-i18n="fp.n3">Give credit score, term and payment to income more weight</b><span data-i18n="fp.n3p">A model built on these traits ranks risk better than the current rating (AUC 0.727 vs 0.688).</span></li>
+            </ol>
+
+            <h4 class="h4 ch-h" data-i18n="fp.h9">What I took from it</h4>
+            <ul class="hb-learn">
+              <li data-i18n="fp.x1"><b>Judge a loan by what investors keep, not only by whether it defaulted.</b> The riskiest ratings default the most and still earn the most.</li>
+              <li data-i18n="fp.x2"><b>Only count loans whose term has ended.</b> 57,963 loans from 2011 on were still being repaid in March 2014; counting them would make default rates look far lower than they are.</li>
+            </ul>
+            <div class="actions" style="margin-top:14px">
+              <a class="btn btn--ink" href="prosper/" target="_blank" rel="noopener"><span data-i18n="fp.o1">Open the slides</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://colab.research.google.com/drive/1k4pZlPJBYEqWk4JE8x67S8qtw5uPn8pE?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.o2">Open the Colab notebook</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://drive.google.com/drive/folders/1fqf25KRUmAeymgeu7kNQZmOu7ndt110g?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.o3">Full project folder (Google Drive)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
             </div>
           </div>
         </article>
@@ -923,6 +1029,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=114"></script>
+<script src="app.js?v=115"></script>
 </body>
 </html>

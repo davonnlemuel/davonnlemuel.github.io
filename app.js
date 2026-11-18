@@ -14,7 +14,7 @@
   const ID = {
     'nav.exp': 'Pengalaman', 'nav.work': 'Proyek', 'nav.skills': 'Keahlian', 'nav.cert': 'Sertifikasi', 'nav.contact': 'Kontak',
     'h.sub': '<span class="nw">Matematika ·</span> <span class="nw">Data Analyst ·</span> <span class="nw">Data Scientist ·</span> <span class="nw">Business Intelligence ·</span> <span class="nw">Ilmu Aktuaria</span>',
-    'nav.home': 'Portofolio Davonn', 'm.phone': 'Telepon', 'e.db': 'Data Analytics dan Business Intelligence', 'd.db': 'Jul 2026 - sekarang', 'e.sma': 'SMA, jurusan IPA', 'e.smaw': 'Jakarta Barat', 'd.sma': 'Jul 2018 - Jul 2021',
+    'nav.home': 'Portofolio Davonn', 'm.phone': 'Telepon', 'e.db': 'Data Analytics dan Business Intelligence', 'd.db': 'Jul - Nov 2026', 'e.sma': 'SMA, jurusan IPA', 'e.smaw': 'Jakarta Barat', 'd.sma': 'Jul 2018 - Jul 2021',
     'm.loc': 'Domisili', 'm.now': 'Sekarang', 'm.nowv': 'Underwriting Intern di Asuransi Asei', 'm.open': 'Terbuka untuk', 'm.openv': 'Posisi Data Analyst, Data Scientist, Business Intelligence, dan Aktuaria',
     'h.lead': 'Saya mengubah dataset mentah menjadi dashboard dan tool yang dipakai orang untuk mengambil keputusan. Bagian yang paling saya nikmati adalah saat tabel yang berantakan akhirnya mulai masuk akal. Belakangan saya juga mendalami data science, membangun model untuk memprediksi churn, klaim, dan premi, dan saya ingin membawa itu ke sebuah tim sebagai analis. Di bawah ini karya saya sejauh ini, dari magang, kuliah, dan proyek pribadi.',
     'c.cap': 'Ringkasan', 'c.h1': 'Yang saya kerjakan', 'c.h2': 'Contohnya',
@@ -123,8 +123,8 @@
     'ut.3': 'Pemrograman dan machine learning', 'ut.3s': 'Pemrograman Komputer, Komputasi Numerik, Pemodelan Data dengan Python, Pembelajaran Mesin dengan Python, Pengantar Artificial Intelligence',
     'ut.4': 'Matematika', 'ut.4s': 'Kalkulus 1 dan 2, Kalkulus Vektor, Aljabar Matriks, Aljabar Linear, Matematika Diskret, Pemrograman Linear, Persamaan Diferensial Biasa dan Parsial, Analisis Real, Fungsi Kompleks, Pemodelan Matematis',
     'ut.5': 'Riset dan magang', 'ut.5s': 'Seminar, Skripsi, Kerja Praktik',
-    'e.formal': 'Pendidikan formal', 'e.nonformal': 'Pendidikan non-formal', 'e.track': 'Materi yang sudah saya pelajari',
-    'e.dbn': 'Kelas malam bersama mentor, presentasi proyek di sepanjang program, dan live coding test Python dan SQL. Wisuda pada Desember 2026.',
+    'e.formal': 'Pendidikan formal', 'e.nonformal': 'Pendidikan non-formal', 'e.track': 'Materi yang saya pelajari',
+    'e.dbn': 'Kelas malam bersama mentor, presentasi proyek di sepanjang program, live coding test Python dan SQL, dan final project tentang risiko kredit. Semua materi sudah selesai.',
     'tr.next': 'Akan datang',
     'tr.t1': 'Excel dan dashboard', 'tr.t1s': 'Lookup, PivotTable, dashboard interaktif dengan slicer (lihat <a href="#work-more">dashboard toko alat tulis</a>)',
     'tr.t2': 'Python', 'tr.t2s': 'Tipe data sampai OOP dan kode modular, di Jupyter dan Colab',
@@ -137,8 +137,8 @@
     'tr.t9': 'Analisis funnel dan cohort', 'tr.t9s': 'Konversi per tahap, retensi per cohort (lihat <a href="#work-ecom">project e-commerce</a> dan <a href="#work-more">analisis edtech dan fintech</a>)',
     'tr.t10': 'A/B testing', 'tr.t10s': 'Desain tes, signifikansi, membaca hasil (lihat <a href="#work-spotify">tes campaign Spotify</a>)',
     'tr.t11': 'Segmentasi pelanggan', 'tr.t11s': 'Teknik segmentasi, hasil di Power BI (lihat <a href="#work-more">segmentasi pelanggan RFM</a>)',
-    'tr.t12': 'Final project dan wisuda', 'tr.t12s': 'Capstone, take-home test, dan coding test',
-    'tw.t1': 'Jul 2026', 'tw.t2': 'Agu 2026', 'tw.t3': 'Agu 2026', 'tw.t4': 'Agu 2026', 'tw.t5': 'Sep 2026', 'tw.t6': 'Sep 2026', 'tw.t7': 'Sep 2026', 'tw.t8': 'Okt 2026', 'tw.t9': 'Okt 2026', 'tw.t10': 'Okt 2026', 'tw.t11': 'Okt 2026', 'tw.t12': 'Nov - Des 2026',
+    'tr.t12': 'Final project', 'tr.t12s': 'Credit risk segmentation dari 113.060 pinjaman Prosper dengan Python, SQL, Power BI, dan random forest (lihat <a href="#work-prosper">final project</a>)',
+    'tw.t1': 'Jul 2026', 'tw.t2': 'Agu 2026', 'tw.t3': 'Agu 2026', 'tw.t4': 'Agu 2026', 'tw.t5': 'Sep 2026', 'tw.t6': 'Sep 2026', 'tw.t7': 'Sep 2026', 'tw.t8': 'Okt 2026', 'tw.t9': 'Okt 2026', 'tw.t10': 'Okt 2026', 'tw.t11': 'Okt 2026', 'tw.t12': 'Nov 2026',
     'v.cap': 'Di tenda kami saat event kampus, bersama co-founder saya. Di depan: kopi botolan untuk pre-order dan retailer.',
     'd.kopi': 'Jan 2024 - Jul 2025',
     'v.h': 'Kewirausahaan', 'v.role': 'Co-Founder', 'v.kind': 'Usaha kopi mahasiswa',
@@ -192,6 +192,83 @@
     'w1.n': 'Prediksi Churn Pelanggan', 'w1.ns': 'Python · Machine Learning',
     'w3.n': 'Dashboard Penjualan Minyak Goreng', 'w3.ns': 'Power BI · DAX',
     'w4.n': 'Kalkulator Premi Jiwa', 'w4.ns': 'Python · Aplikasi Web',
+    'fp.gap': 'berhenti',
+    'fp.i1': 'Skor kredit',
+    'fp.i2': 'Tenor',
+    'fp.i3': 'Cicilan/pendapatan',
+    'fp.i4': 'Pengajuan kredit 6 bulan',
+    'fp.i5': 'Peminjam ulang',
+    'fp.data': 'Prosper Loan Data (Kaggle): 113.937 pinjaman, 81 kolom, Nov 2005 sampai Mar 2014',
+    'fp.method': 'Chi-square dan uji t Welch, analisis segmen di SQL, random forest, permutation importance',
+    'fp.ctx': 'Final project, bootcamp Data Analytics dan Business Intelligence Dibimbing',
+    'fp.t': 'Peminjam Prosper Mana yang Membuat Investor Untung,<br>dan Mana yang Merugikan',
+    'fp.p': 'Prosper adalah platform P2P lending di Amerika Serikat: orang meminjam secara online, lalu investor mendanai pinjamannya dan menanggung kerugian kalau peminjam berhenti membayar. Dengan peran sebagai data analyst di tim credit risk, saya menjawab empat pertanyaan: peminjam mana yang membuat investor untung atau rugi, apa dampaknya kalau peminjam paling berisiko ditolak, apakah peminjam berisiko sudah membayar bunga yang cukup untuk menutup kerugiannya, dan ciri apa yang paling menentukan macet. Jawabannya berujung pada rekomendasi kebijakan kredit.',
+    'fp.f1': 'tingkat macet, pinjaman<br>2006-2008 vs 2009-2010',
+    'fp.f2': 'untung investor kalau segmen<br>paling berisiko ditolak',
+    'fp.f3': 'AUC: model saya vs<br>rating Prosper sendiri',
+    'fp.s1': 'Cleaning',
+    'fp.s1p': '113.937 baris jadi 113.060 pinjaman: 871 duplikat dan 6 baris bermasalah dibuang, 15 kolom baru seperti untung bersih.',
+    'fp.s2': 'EDA dan uji',
+    'fp.s2p': 'Tren, profil peminjam, dan dua uji hipotesis untuk perubahan aturan 2009.',
+    'fp.s3': 'Segmentasi di SQL',
+    'fp.s3p': '10.535 pinjaman sejak Jul 2009 yang tenornya sudah habis, dibagi per rating, DTI, pendapatan, tenor, dan peminjam baru atau ulang.',
+    'fp.s4': 'Modelling',
+    'fp.s4p': 'Random forest dari 14 ciri peminjam, tanpa rating dan bunga. 80% data latih, 20% data uji.',
+    'fp.h1': '1 · Macet tidak selalu berarti rugi',
+    'fp.c1': 'Dua pinjaman rating D dari 2010, sama-sama 36 bulan, peminjamnya punya skor kredit yang sama. Yang diterima investor:',
+    'fp.ta': 'Pinjaman A · lunas',
+    'fp.tb': 'Pinjaman B · macet',
+    'fp.t1': 'Bunga diterima',
+    'fp.t2': 'Biaya layanan Prosper',
+    'fp.t3': 'Pokok hilang',
+    'fp.t4': 'Untung bersih investor',
+    'fp.k1': '<b>Pinjaman B macet, tapi investornya tetap untung $920,82.</b> Sebelum berhenti membayar, peminjam sudah membayar bunga yang lebih besar dari pokok yang hilang. Karena itu setiap segmen di project ini dinilai dari untung bersih investor, bukan hanya dari macet atau tidaknya.',
+    'fp.h2': '2 · Setelah aturan berubah di 2009, macet turun lebih dari separuh',
+    'fp.c2': 'Tingkat macet per tahun cair, dari pinjaman yang sudah lunas atau macet. Prosper berhenti menyalurkan pinjaman dari Okt 2008 sampai Jul 2009, lalu kembali dengan sistem rating baru dan skor kredit minimal 600.',
+    'fp.k2': '<b>Pinjaman 2006-2008 macet 36,9% dan membuat investor rugi $14,71 jt. Pinjaman 2009-2010 macet 16,3% dan memberi untung $4,35 jt.</b> Kedua perbedaan signifikan secara statistik dengan α = 5%: Chi-square 1.171 untuk tingkat macet dan uji t Welch 43,6 untuk untung per $100. Uji ini membuktikan perbedaannya nyata, bukan penyebabnya; ekonomi juga sedang pulih setelah 2008. Karena aturan rating berubah, analisis segmen di bawah hanya memakai pinjaman sejak Juli 2009.',
+    'fp.h3': '3 · Di dalam rating yang sama, DTI masih membedakan risiko',
+    'fp.c3': 'Tingkat macet per rating Prosper (AA paling aman, HR paling berisiko) dan rasio utang terhadap pendapatan (DTI). 10.535 pinjaman sejak Jul 2009 yang tenornya sudah habis.',
+    'fp.hn': 'Tidak tercatat',
+    'fp.k3': '<b>Di DTI 30-40%, peminjam AA macet 12,9%, mendekati peminjam D yang 13,9%, padahal bunga AA hanya 9,1% dibanding 25,5% untuk D.</b> Di rating AA, macet naik dari 0,7% ke 12,9% seiring naiknya DTI, jadi rating belum sepenuhnya menghitung beban utang. Pinjaman tanpa DTI macet 19,6%, setara rating D (20,8%). Sel AA DTI 30-40% berisi 70 pinjaman, jadi baca sebagai arah, bukan angka pasti.',
+    'fp.h4': '4 · Semua rating untung, dan yang paling berisiko paling untung',
+    'fp.c4': 'Ke mana bunga dari setiap $100 yang dipinjamkan. Panjang batang adalah bunga yang diterima; angkanya adalah yang tersisa untuk investor.',
+    'fp.l1': 'Pokok hilang',
+    'fp.l2': 'Biaya Prosper',
+    'fp.l3': 'Untung bersih investor',
+    'fp.k4': '<b>Bunga menutup pokok yang hilang dan biaya di semua rating: investor menyimpan $5,43 per $100 di AA dan $18,90 di HR.</b> Kelompok peminjam terbaik adalah HR berpendapatan $100.000+ per tahun ($27,09 per $100) dan HR peminjam ulang ($24,44). Kelompok yang rugi semuanya punya data yang hilang: AA tanpa DTI (−$3,21), tenor 12 bulan tanpa DTI (−$2,72), dan peminjam baru tanpa pendapatan (−$1,39).',
+    'fp.h5': '5 · Menolak peminjam berisiko lebih banyak ruginya daripada untungnya',
+    'fp.c5': 'Dua skenario penolakan pada 10.535 pinjaman yang sama: 1.618 macet, 8.917 lunas, untung bersih investor $5,32 jt.',
+    'fp.u0': 'Skenario',
+    'fp.u1': 'Macet terhindar',
+    'fp.u2': 'Lunas ikut ditolak',
+    'fp.u3': 'Untung investor',
+    'fp.u4': 'Tolak 9 pasangan rating dan DTI paling berisiko (macet 25%+)',
+    'fp.u5': 'Tolak 5 pasangan peminjam dengan untung paling rendah',
+    'fp.k5': '<b>Menolak pasangan paling berisiko menghindari 529 macet, tapi untung turun $0,94 jt, karena bunga tinggi mereka lebih dari cukup menutup kerugiannya.</b> Menolak pasangan dengan untung terendah hanya menambah $9.576. Menolak lebih banyak peminjam bukan sumber tambahan untung.',
+    'fp.h6': '6 · Model dari ciri peminjam mengurutkan risiko lebih baik dari rating Prosper',
+    'fp.c6': 'Random forest dengan 300 pohon, diuji pada 2.107 pinjaman yang tidak pernah dilihatnya. AUC adalah porsi pasangan pinjaman (macet, lunas) yang pinjaman macetnya diberi skor risiko lebih tinggi.',
+    'fp.g1': 'AUC di data uji',
+    'fp.g1a': 'Rating Prosper',
+    'fp.g2': 'Turunnya AUC kalau kolom diacak',
+    'fp.k6': '<b>Skor kredit dan tenor paling menentukan macet, lalu cicilan dibanding pendapatan.</b> Model tidak pernah melihat rating maupun bunga, tapi mengurutkan peminjam berisiko sedikit lebih baik dari rating (72,7% pasangan dibanding 68,8%), jadi ciri-ciri ini layak diberi bobot lebih dalam penetapan bunga.',
+    'fp.h7': 'Dashboard Power BI',
+    'fp.c7': 'Dua halaman: seluruh portofolio, serta risiko dan untung per segmen. Dibangun ulang di browser dari data dan measure DAX yang sama, dengan filter yang sama.',
+    'fp.pg1': 'Portofolio pinjaman',
+    'fp.h8': 'Rekomendasi kebijakan',
+    'fp.n1': 'Jangan menolak segmen berisiko secara massal',
+    'fp.n1p': 'Menolak segmen paling berisiko menurunkan untung $0,94 jt. Peminjam HR berpendapatan tinggi dan HR peminjam ulang adalah pembawa untung terbesar.',
+    'fp.n2': 'Wajibkan DTI tercatat dan masukkan ke bunga di dalam rating',
+    'fp.n2p': 'Pinjaman tanpa DTI macet setara rating D dan muncul di kelompok yang rugi. Peminjam AA dengan DTI 30-40% macet setara D tapi membayar bunga AA.',
+    'fp.n3': 'Beri bobot lebih ke skor kredit, tenor, dan cicilan/pendapatan',
+    'fp.n3p': 'Model dari ciri-ciri ini mengurutkan risiko lebih baik dari rating saat ini (AUC 0,727 vs 0,688).',
+    'fp.h9': 'Yang saya pelajari',
+    'fp.x1': '<b>Nilai pinjaman dari yang tersisa untuk investor, bukan hanya dari macet atau tidaknya.</b> Rating paling berisiko paling sering macet dan tetap paling untung.',
+    'fp.x2': '<b>Hanya hitung pinjaman yang tenornya sudah habis.</b> 57.963 pinjaman sejak 2011 masih dicicil per Maret 2014; kalau ikut dihitung, tingkat macet terlihat jauh lebih rendah dari aslinya.',
+    'fp.o1': 'Buka slide presentasi',
+    'fp.o2': 'Buka notebook Colab',
+    'fp.o3': 'Folder lengkap project (Google Drive)',
+    'fp.n': 'Credit Risk Segmentation',
+    'fp.ns': 'Python · SQL · Power BI · Final Project',
     'w5.n': 'Skripsi: Pricing Bonus-Malus', 'w5.ns': 'Pemodelan Aktuaria',
     'w6.n': 'Analisis Lainnya', 'w6.ns': '5 Karya Singkat',
     'm3.link': 'Buka file',
@@ -1516,6 +1593,151 @@
 
 
   /* ------------------------------------------------------------------
+     Prosper Power BI rebuild (final project): two report pages, same
+     measures as the DAX model. Data loads the first time the tab opens.
+  ------------------------------------------------------------------ */
+  const px = { pg: 1, loading: false, ready: false, f1: { e: -1, r: -1, t: -1, d: -1, p: -1 }, f2: { r: -1, t: -1, d: -1, p: -1, i: -1 } };
+  const PXC = { ink: '#13264A', teal: '#2E7A6B', axis: '#56617A', grid: '#E3E7EC' };
+  const xen = new Intl.NumberFormat('en-US');
+  const xK = v => Math.round(v / 1000) + 'K';
+  const xM = (v, dg) => '$' + (v / 1e6).toFixed(dg) + 'M';
+  const xP = v => (v * 100).toFixed(1) + '%';
+  const xD = v => (v < 0 ? '-$' : '$') + Math.abs(v).toFixed(2);
+
+  function pxLoad() {
+    if (px.loading) return; px.loading = true;
+    $('#pbx').innerHTML = '<p class="pbx__empty">Memuat data…</p>';
+    const sc = document.createElement('script');
+    sc.src = 'assets/prosper-data.js?v=1';
+    sc.onload = () => { px.ready = true; renderPx(); };
+    sc.onerror = () => { px.loading = false; $('#pbx').innerHTML = '<p class="pbx__empty">Data gagal dimuat. Coba muat ulang halaman.</p>'; };
+    document.head.appendChild(sc);
+  }
+  $$('#pbxPages button').forEach(b => b.addEventListener('click', () => {
+    px.pg = +b.dataset.pg;
+    $$('#pbxPages button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    $('#pbx').dataset.pg = px.pg; px.built = 0; renderPx();
+  }));
+
+  const pxDrop = (key, label, opts, val) => `<label class="pbx__dd"><span>${label}</span><select data-f="${key}"><option value="-1">All</option>${opts.map((o, i) => `<option value="${i}"${val === i ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+  function pxShell() {
+    const P = window.PROSPER, pg = px.pg, f = pg === 1 ? px.f1 : px.f2;
+    const ten = P.tenors.map(t => t + ' bulan'), peminjam = ['Baru', 'Ulang'];
+    const head = pg === 1
+      ? '<h5>Portofolio Pinjaman Prosper Periode Nov 2005 - Mar 2014</h5>'
+      : '<div><h5>Customer Segmentation</h5><p class="pbx__note"><b>Keterangan</b>Risiko dan untung per segmen dari pinjaman sejak Juli 2009 yang tenornya sudah habis dan statusnya Lunas atau Macet.</p></div>';
+    let filt = '<b>Filter</b>';
+    if (pg === 1) filt += `<div class="pbx__tiles" role="group" aria-label="Periode">${[['-1', 'Select all'], ['0', 'Sebelum<br>berhenti'], ['1', 'Sesudah<br>berhenti']].map(([v, l]) => `<button type="button" data-era="${v}" aria-pressed="${String(f.e === +v)}">${l}</button>`).join('')}</div>`;
+    filt += pxDrop('r', 'Rating', P.ratings, f.r) + pxDrop('t', 'Tenor', ten, f.t) + pxDrop('d', 'DTI', P.dti, f.d) + pxDrop('p', 'Peminjam', peminjam, f.p);
+    if (pg === 2) filt += pxDrop('i', 'Pendapatan', P.income, f.i);
+    const kpis = (pg === 1 ? ['Jumlah pinjaman', 'Total disalurkan', 'Rata-rata pinjaman', 'Masih dicicil', 'Macet dari pinjaman selesai'] : ['Jumlah pinjaman', 'Tingkat macet', 'Pinjaman rugi', 'Untung bersih investor', 'Untung per $100'])
+      .map((k, i) => `<div class="pbx__box pbx__kpi"><span>${k}</span><b id="pxK${i}">–</b></div>`).join('');
+    const viz = (id, title, cls) => `<section class="pbx__box pbx__viz ${cls}"><h6>${title}</h6><div class="pbx__plot" id="${id}"></div></section>`;
+    const body = pg === 1
+      ? viz('pxA', 'Jumlah pinjaman cair per kuartal', 'pbx__viz--big') + viz('pxB', 'Status pinjaman per Maret 2014', 'pbx__viz--wide') + viz('pxC', 'Banyak pinjaman per rating', 'pbx__viz--q1') + viz('pxD', 'Banyak pinjaman per tenor', 'pbx__viz--q2')
+      : viz('pxA', 'Tingkat macet (%) per rating dan DTI', 'pbx__viz--big') + viz('pxB', 'Untung bersih per $100 per rating', 'pbx__viz--wide') + viz('pxC', 'Untung per $100, baru vs ulang', 'pbx__viz--q1') + viz('pxD', 'Untung per $100 per tenor', 'pbx__viz--q2');
+    const foot = Array(8).fill('PROSPER CREDIT RISK SEGMENTATION · DAVONN LEMUEL HALOMOAN · DIBIMBING FINAL PROJECT').join(' · ');
+    $('#pbx').innerHTML = `<div class="pbx__band"><span>Dashboard Credit Risk Segmentation</span><span>Final Project DaBi Dibimbing</span></div>
+      <div class="pbx__head">${head}<img src="assets/prosper-logo.svg" alt="Prosper" width="170" height="34"></div>
+      <div class="pbx__body"><div class="pbx__box pbx__filters">${filt}</div>${kpis}${body}</div><div class="pbx__foot" aria-hidden="true">${foot}</div>`;
+    $$('#pbx select').forEach(s => s.addEventListener('change', () => { f[s.dataset.f] = +s.value; renderPx(true); }));
+    $$('#pbx [data-era]').forEach(b => b.addEventListener('click', () => {
+      f.e = +b.dataset.era; $$('#pbx [data-era]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); renderPx(true);
+    }));
+    px.built = pg;
+  }
+
+  // column chart with data labels on top, the way the report draws it
+  function pxCols(el, cats, vals, o) {
+    const w = Math.max(160, Math.floor(el.getBoundingClientRect().width || 240)), h = o.h || 130, padB = o.wrap ? 30 : 18, padT = 16;
+    const max = Math.max(...vals.map(v => Math.abs(v)), 1e-9), step = w / cats.length, bw = Math.min(step * .72, o.bw || 64), ph = h - padB - padT;
+    let b = '';
+    cats.forEach((c, i) => {
+      const v = vals[i], bh = Math.max(v > 0 ? 1 : 0, v / max * ph), x = step * i + (step - bw) / 2, y = padT + ph - bh;
+      b += `<rect x="${x}" y="${y}" width="${bw}" height="${bh}" fill="${o.col || PXC.teal}" data-tip="${esc(c)}: <b>${o.tip(v)}</b>"/>`;
+      b += `<text x="${x + bw / 2}" y="${y - 4}" text-anchor="middle" font-size="10.5" style="fill:${PXC.ink}">${o.lab(v)}</text>`;
+      const words = o.wrap ? String(c).split(' ') : [c];
+      words.slice(0, 2).forEach((wd, k) => { b += `<text x="${x + bw / 2}" y="${h - padB + 13 + k * 11}" text-anchor="middle" font-size="10">${esc(wd)}</text>`; });
+    });
+    el.innerHTML = svgWrap(w, h, b, o.label);
+  }
+  function pxBars(el, cats, vals) {
+    const w = Math.max(200, Math.floor(el.getBoundingClientRect().width || 300)), rowH = 21, labW = 70, padR = 34, h = cats.length * rowH + 4, max = Math.max(...vals, 1);
+    let b = '';
+    cats.forEach((c, i) => {
+      const y = 2 + i * rowH, bw = Math.max(1, vals[i] / max * (w - labW - padR));
+      b += `<text x="${labW - 6}" y="${y + 14}" text-anchor="end" font-size="11" style="fill:${PXC.ink}">${esc(c)}</text><rect x="${labW}" y="${y + 3}" width="${bw}" height="${rowH - 6}" fill="${PXC.ink}" data-tip="${esc(c)}: <b>${xen.format(vals[i])}</b> pinjaman"/><text x="${labW + bw + 5}" y="${y + 14}" font-size="10.5" style="fill:${PXC.ink}">${xK(vals[i])}</text>`;
+    });
+    el.innerHTML = svgWrap(w, h, b, 'Status pinjaman per Maret 2014');
+  }
+  function pxLine(el, Q, vals) {
+    const w = Math.max(220, Math.floor(el.getBoundingClientRect().width || 400)), h = Math.max(200, Math.min(300, w * .55)), padL = 36, padB = 22, padT = 10, pw = w - padL - 8, ph = h - padB - padT;
+    const mxv = Math.max(...vals, 1), stepV = niceMax(mxv / 3), top = Math.ceil(mxv / stepV) * stepV;
+    const X = i => padL + pw * i / Math.max(1, Q.length - 1), Y = v => padT + ph - v / top * ph;
+    let b = '';
+    for (let v = 0; v <= top + 1e-6; v += stepV) b += `<line x1="${padL}" x2="${padL + pw}" y1="${Y(v)}" y2="${Y(v)}" stroke="${PXC.grid}" stroke-dasharray="2 3"/><text x="${padL - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="10.5">${v >= 1000 ? Math.round(v / 1000) + 'K' : Math.round(v)}</text>`;
+    Q.forEach((q, i) => { if (/Q1$/.test(q) && +q.slice(0, 4) % 2 === 0) b += `<text x="${X(i)}" y="${h - 5}" text-anchor="middle" font-size="10.5">${q.slice(0, 4)}</text>`; });
+    b += `<polyline points="${vals.map((v, i) => `${X(i)},${Y(v)}`).join(' ')}" fill="none" stroke="${PXC.teal}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    vals.forEach((v, i) => { b += `<circle cx="${X(i)}" cy="${Y(v)}" r="6" fill="transparent" data-tip="${Q[i].replace('Q', ' Q')}: <b>${xen.format(v)}</b> pinjaman"/>`; });
+    el.innerHTML = svgWrap(w, h, b, 'Jumlah pinjaman cair per kuartal');
+  }
+
+  function renderPx(keep) {
+    const root = $('#pbx');
+    if (!root || root.closest('[hidden]')) return;
+    const P = window.PROSPER;
+    if (!P) { pxLoad(); return; }
+    if (px.built !== px.pg || !keep) pxShell();
+    const empty = '<p class="pbx__empty">(Kosong)</p>';
+    if (px.pg === 1) {
+      const f = px.f1, rows = P.p1.filter(r => (f.e < 0 || r[1] === f.e) && (f.r < 0 || r[2] === f.r) && (f.t < 0 || r[3] === f.t) && (f.d < 0 || r[4] === f.d) && (f.p < 0 || r[5] === f.p));
+      const n = rows.reduce((a, r) => a + r[7], 0), amt = rows.reduce((a, r) => a + r[8], 0);
+      const st = [0, 0, 0, 0]; rows.forEach(r => { st[r[6]] += r[7]; });
+      const done = st[1] + st[2];
+      $('#pxK0').textContent = n ? xen.format(n) : '(Kosong)';
+      $('#pxK1').textContent = n ? xM(amt, 1) : '(Kosong)';
+      $('#pxK2').textContent = n ? '$' + xen.format(Math.round(amt / n)) : '(Kosong)';
+      $('#pxK3').textContent = n ? xP((st[0] + st[3]) / n) : '(Kosong)';
+      $('#pxK4').textContent = st[2] ? xP(st[2] / done) : '(Kosong)';
+      if (!n) { ['#pxA', '#pxB', '#pxC', '#pxD'].forEach(s => { $(s).innerHTML = empty; }); return; }
+      const q = new Array(P.quarters.length).fill(0); rows.forEach(r => { q[r[0]] += r[7]; });
+      let a = q.findIndex(v => v > 0), z = q.length - 1; while (z > a && !q[z]) z--;
+      pxLine($('#pxA'), P.quarters.slice(a, z + 1), q.slice(a, z + 1));
+      const so = P.status.map((s, i) => [s, st[i]]).filter(x => x[1] > 0).sort((x, y) => y[1] - x[1]);
+      pxBars($('#pxB'), so.map(x => x[0]), so.map(x => x[1]));
+      const byR = new Array(P.ratings.length).fill(0), byT = new Array(3).fill(0);
+      rows.forEach(r => { byR[r[2]] += r[7]; byT[r[3]] += r[7]; });
+      const ri = P.ratings.map((_, i) => i).filter(i => byR[i] > 0), ti = [0, 1, 2].filter(i => byT[i] > 0);
+      const cnt = { tip: v => xen.format(v) + ' pinjaman', lab: xK };
+      pxCols($('#pxC'), ri.map(i => P.ratings[i] === 'Tanpa rating' ? 'Ta…' : P.ratings[i]), ri.map(i => byR[i]), { ...cnt, label: 'Banyak pinjaman per rating', bw: 26 });
+      pxCols($('#pxD'), ti.map(i => P.tenors[i] + ' bulan'), ti.map(i => byT[i]), { ...cnt, label: 'Banyak pinjaman per tenor', bw: 46 });
+    } else {
+      const f = px.f2, rows = P.p2.filter(r => (f.r < 0 || r[0] === f.r) && (f.t < 0 || r[1] === f.t) && (f.d < 0 || r[2] === f.d) && (f.p < 0 || r[3] === f.p) && (f.i < 0 || r[4] === f.i));
+      const sum = (rs, k) => rs.reduce((a, r) => a + r[k], 0);
+      const n = sum(rows, 5), bad = sum(rows, 6), neg = sum(rows, 7), net = sum(rows, 8), amt = sum(rows, 9);
+      $('#pxK0').textContent = n ? xen.format(n) : '(Kosong)';
+      $('#pxK1').textContent = bad ? xP(bad / n) : '(Kosong)';
+      $('#pxK2').textContent = neg ? xen.format(neg) : '(Kosong)';
+      $('#pxK3').textContent = n ? xM(net, 2) : '(Kosong)';
+      $('#pxK4').textContent = n ? xD(net / amt * 100) : '(Kosong)';
+      if (!n) { ['#pxA', '#pxB', '#pxC', '#pxD'].forEach(s => { $(s).innerHTML = empty; }); return; }
+      // matrix: % macet per rating x DTI, white to red across the visible cells (report's colour scale)
+      const cell = {}; rows.forEach(r => { const k = r[0] + '_' + r[2]; cell[k] = cell[k] || [0, 0]; cell[k][0] += r[5]; cell[k][1] += r[6]; });
+      const ri = P.ratings.map((_, i) => i).filter(i => rows.some(r => r[0] === i)), di = P.dti.map((_, i) => i).filter(i => rows.some(r => r[2] === i));
+      const rates = Object.values(cell).filter(c => c[1]).map(c => c[1] / c[0]).concat(0), lo = Math.min(...rates), hi = Math.max(...rates);
+      const red = k => mix('#FFFFFF', '#B8433A', hi > lo ? (k - lo) / (hi - lo) : 0);
+      $('#pxA').innerHTML = `<div class="scroll-x"><table class="pbx__mx"><thead><tr><th>Rating</th>${di.map(j => `<th>${esc(P.dti[j])}</th>`).join('')}</tr></thead><tbody>${ri.map(i => `<tr><th scope="row">${esc(P.ratings[i])}</th>${di.map(j => { const c = cell[i + '_' + j]; return c && c[1] ? `<td style="background:${red(c[1] / c[0])}" data-tip="${esc(P.ratings[i])}, DTI ${esc(P.dti[j])}: <b>${xP(c[1] / c[0])}</b> macet dari ${xen.format(c[0])} pinjaman">${xP(c[1] / c[0])}</td>` : '<td></td>'; }).join('')}</tr>`).join('')}</tbody></table></div>`;
+      const per = idx => { const m = {}; rows.forEach(r => { const k = r[idx]; m[k] = m[k] || [0, 0]; m[k][0] += r[8]; m[k][1] += r[9]; }); return m; };
+      const pr = per(0), pp = per(3), pt = per(1);
+      const money = { tip: v => xD(v) + ' per $100', lab: xD };
+      pxCols($('#pxB'), ri.map(i => P.ratings[i]), ri.map(i => pr[i][0] / pr[i][1] * 100), { ...money, label: 'Untung bersih per $100 per rating', bw: 40, wrap: true });
+      const pi = [0, 1].filter(i => pp[i]), ti = [0, 1, 2].filter(i => pt[i]);
+      pxCols($('#pxC'), pi.map(i => ['Baru', 'Ulang'][i]), pi.map(i => pp[i][0] / pp[i][1] * 100), { ...money, label: 'Untung per $100, baru vs ulang', bw: 46 });
+      pxCols($('#pxD'), ti.map(i => P.tenors[i] + ' bulan'), ti.map(i => pt[i][0] / pt[i][1] * 100), { ...money, label: 'Untung per $100 per tenor', bw: 46 });
+    }
+  }
+
+  /* ------------------------------------------------------------------
      Project picker: links to #work-... open that project
   ------------------------------------------------------------------ */
   function openProject(id, scroll) {
@@ -1531,7 +1753,7 @@
   });
   if (/^#work-/.test(location.hash)) openProject(location.hash.slice(1), true);
 
-  function renderAll() { renderDashes(); renderOil(); renderTv(); renderChurn(); renderEc(); renderEcHm(); renderBms(); }
+  function renderAll() { renderDashes(); renderOil(); renderTv(); renderPx(); renderChurn(); renderEc(); renderEcHm(); renderBms(); }
   let rz; let lastW = innerWidth;
   addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; clearTimeout(rz); rz = setTimeout(renderAll, 120); });
 

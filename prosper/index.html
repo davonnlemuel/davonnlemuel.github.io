@@ -1,0 +1,2119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Presentasi] Credit Risk Segmentation, Prosper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.css">
+  <style>
+    /* Token dari DESIGN.md portofolio Davonn: kertas statement, tinta navy, teal untuk garis dan nilai baik, merah hanya untuk kerugian. */
+    :root {
+      --desk: #e2e7e0;
+      --paper: #f6f7f2;
+      --paper-2: #eceee6;
+      --white: #ffffff;
+      --ink: #13264a;
+      --ink-2: #3b4a68;
+      --ink-3: #56617a;
+      --rule: #c3cbd6;
+      --rule-2: #dce1e6;
+      --teal: #2e7a6b;
+      --teal-2: #4f8e7f;
+      --teal-3: #d3e6df;
+      --teal-deep: #1f5a4e;
+      --red: #c3382c;
+      --red-2: #f3d6d1;
+      --red-deep: #9e2a20;
+      --orange: #f07c00; --orange-2: #fcd9ab; --orange-3: #fff1df;
+      --display: "Archivo", "Segoe UI", system-ui, sans-serif;
+      --serif: "Source Serif 4", Georgia, serif;
+    }
+    html, body, .reveal-viewport { background: var(--desk); }
+    ::selection { background: var(--teal); color: #fff; }
+
+    .reveal { font-family: var(--display); color: var(--ink); font-size: 22px; font-variant-numeric: tabular-nums lining-nums; }
+    .reveal .slides section { height: 100%; padding: 0; box-sizing: border-box; text-align: left; }
+    .reveal .progress { color: var(--teal); height: 3px; }
+    .reveal a { color: inherit; }
+    .reveal h1, .reveal h2, .reveal h3 { margin: 0; font-family: var(--display); color: inherit; text-transform: none; }
+    .reveal p { margin: 0; line-height: 1.4; }
+    .reveal ul, .reveal ol { margin: 0; padding: 0; }
+    .reveal li { list-style: none; }
+    .reveal .slide-number { bottom: 34px; right: 34px; top: auto; background: none; font-family: var(--display); font-size: 12px; color: var(--ink-3); }
+    .reveal a:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+    /* Lembar kertas di atas meja */
+    .sheet { position: absolute; inset: 14px; background: var(--paper); box-shadow: 0 1px 2px rgba(19, 38, 74, 0.12); }
+    .frame { position: absolute; inset: 6px; pointer-events: none; }
+    .sheet { overflow: hidden; }
+    .sheet .wm { position: absolute; right: -150px; bottom: -170px; width: 480px; height: 480px; opacity: 0.16; pointer-events: none; }
+    .sheet .micro {
+      position: absolute; left: 0; right: 0; bottom: 5px; padding: 0 20px;
+      font-size: 6.5px; font-weight: 600; letter-spacing: 0.08em; line-height: 1;
+      color: var(--teal); opacity: 0.7; white-space: nowrap; overflow: hidden; pointer-events: none;
+    }
+    .sheet::before {
+      content: ""; position: absolute; left: 20px; right: 20px; bottom: 15px;
+      border-top: 1px solid rgba(46, 122, 107, 0.35);
+    }
+    .page { position: absolute; inset: 14px; padding: 30px 50px 26px; display: flex; flex-direction: column; }
+    .band {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--ink); color: var(--paper); margin: -30px -50px 0; padding: 10px 50px;
+      font-size: 14px; font-weight: 600; position: relative; overflow: hidden;
+    }
+    .band span { position: relative; }
+    .band .bright { display: flex; align-items: center; gap: 16px; }
+    .band .plogo { height: 15px; filter: brightness(0) invert(1); }
+    .band svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .page h2 {
+      font-size: 36px; font-weight: 820; font-variation-settings: "wdth" 114; line-height: 1.06;
+      letter-spacing: -0.015em; margin-top: 18px; max-width: 1120px; text-wrap: balance;
+    }
+    .page h2 + .lead { margin-top: 8px; }
+    .lead { font-family: var(--serif); font-size: 19px; color: var(--ink-2); max-width: 900px; line-height: 1.4; }
+    .row { display: flex; gap: 34px; margin-top: 18px; flex: 1; min-height: 0; }
+    .col { display: flex; flex-direction: column; min-width: 0; }
+    .label { font-size: 14px; font-weight: 600; color: var(--ink-3); }
+    .rule-top { border-top: 2px solid var(--ink); padding-top: 8px; }
+
+    /* Angka */
+    .fig b { display: block; font-size: 46px; font-weight: 860; font-variation-settings: "wdth" 120; letter-spacing: -0.02em; line-height: 1; }
+    .fig span { display: block; font-size: 15px; color: var(--ink-2); margin-top: 5px; line-height: 1.3; }
+    .fig.good b { color: var(--teal); }
+    .fig.bad b { color: var(--red); }
+    .strip { display: grid; gap: 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+    .strip .fig { padding: 14px 18px 14px 0; }
+    .strip .fig + .fig { border-left: 1px solid var(--rule-2); padding-left: 18px; }
+
+    table.t { border-collapse: collapse; width: 100%; font-size: 17px; }
+    table.t th { text-align: left; font-size: 13px; font-weight: 600; color: var(--ink-3); padding: 6px 10px 6px 0; border-bottom: 2px solid var(--ink); }
+    table.t td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+    table.t td.n, table.t th.n { text-align: right; font-weight: 760; white-space: nowrap; }
+    table.t code { font-size: 15px; font-weight: 600; background: var(--paper-2); padding: 1px 5px; }
+    .pill { display: inline-block; font-size: 13px; font-weight: 700; padding: 3px 7px; border-radius: 2px; background: var(--teal-3); color: var(--teal-deep); }
+    .pill.high { background: var(--red-2); color: var(--red-deep); }
+
+    /* Sampul */
+    .cover .rosette { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; }
+    .cover .content { position: absolute; left: 92px; top: 74px; bottom: 70px; width: 760px; display: flex; flex-direction: column; }
+    .cover .logo-dib { height: 44px; align-self: flex-start; }
+    .cover .dib-row { display: flex; align-items: center; gap: 18px; }
+    .cover .dib-row span { white-space: nowrap; padding-left: 18px; border-left: 2px solid var(--rule); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .cover h1 { font-size: 150px; font-weight: 880; font-variation-settings: "wdth" 125; line-height: 0.86; letter-spacing: -0.035em; margin-top: 54px; }
+    .cover .project { display: flex; align-items: center; gap: 18px; margin-top: 34px; border-top: 3px double var(--ink); padding-top: 18px; }
+    .cover .project img { height: 30px; }
+    .cover .project span { font-size: 30px; font-weight: 760; font-variation-settings: "wdth" 112; }
+    .cover .cover-folder { position: absolute; right: 60px; top: 72px; z-index: 2; }
+    .cover .who { margin-top: auto; display: flex; align-items: flex-end; gap: 28px; }
+    .cover .who b { font-size: 24px; font-weight: 800; font-variation-settings: "wdth" 112; }
+    .cover .contact { display: flex; gap: 16px; margin-top: 6px; font-size: 16px; color: var(--ink-2); }
+    .cover .contact a { text-decoration: none; }
+    .cover .contact a:hover { text-decoration: underline; }
+    .links { display: flex; gap: 10px; }
+    .thanks { margin-top: 6px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--ink); color: var(--paper); border-radius: 4px; padding: 34px 36px; }
+    .thanks b { display: block; font-size: 64px; font-weight: 880; font-variation-settings: "wdth" 120; letter-spacing: -0.02em; line-height: 1; }
+    .thanks span { display: block; margin-top: 10px; font-family: var(--serif); font-size: 19px; color: #cdd6e4; }
+    h2.lamp-h { font-size: 26px; margin-top: 30px; }
+    .links a {
+      display: inline-flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 700; text-decoration: none;
+      height: 40px; padding: 0 14px; border-radius: 3px; border: 1.5px solid var(--ink); color: var(--ink); background: var(--white);
+    }
+    .links a svg { width: 20px; height: 20px; flex: none; }
+    .links a:hover { background: var(--ink); color: var(--paper); }
+    .links a:hover svg .ico-fill { fill: var(--paper); }
+    .links a:hover svg .ico-line { stroke: var(--paper); }
+
+    /* Pembatas bab: pita navy bergelombang */
+    .divider .sheet { background: var(--ink); }
+    .divider .waves { position: absolute; inset: 14px; width: calc(100% - 28px); height: calc(100% - 28px); }
+    .divider .inner { position: absolute; left: 92px; right: 92px; top: 50%; transform: translateY(-50%); color: var(--paper); }
+    .divider .num { font-size: 22px; font-weight: 700; color: #9cc8bd; }
+    .divider h2 { font-size: 92px; font-weight: 880; font-variation-settings: "wdth" 125; line-height: 0.92; letter-spacing: -0.03em; margin-top: 14px; }
+    .divider p { font-family: var(--serif); font-size: 24px; color: #cdd6e4; margin-top: 18px; max-width: 760px; }
+    .divider .agenda { display: flex; gap: 0; margin-top: 34px; border-top: 1px solid rgba(246, 247, 242, 0.35); }
+    .divider .agenda li { flex: 1; font-size: 17px; color: var(--paper); padding: 12px 18px 0 0; }
+    .divider .agenda li + li { padding-left: 18px; border-left: 1px solid rgba(246, 247, 242, 0.2); }
+    .divider .agenda b { display: block; font-size: 13px; color: #9cc8bd; font-weight: 700; margin-bottom: 4px; }
+    .divider .tools { display: flex; gap: 10px; margin-top: 26px; }
+    .divider p.colab { position: absolute; left: 92px; bottom: 64px; margin: 0; font-family: var(--display); font-size: 17px; line-height: 1.5; color: var(--paper); }
+    .divider p.colab a { color: #9cc8bd; text-decoration: underline; }
+    .dash-frame { width: fit-content; max-width: 100%; margin: 12px auto 0; background: #fff; border: 1px solid #b9c1cc; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(19, 38, 74, 0.14); }
+    .win-bar { display: flex; align-items: center; height: 32px; padding-left: 12px; background: #f3f3f3; border-bottom: 1px solid #dcdcdc; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; color: #333; }
+    .win-bar img { width: 16px; height: 16px; margin-right: 8px; }
+    .win-bar span { flex: 1; }
+    .win-bar i { font-style: normal; width: 46px; height: 32px; display: grid; place-items: center; font-size: 13px; color: #333; }
+    .win-bar i.x:hover { background: #c42b1c; color: #fff; }
+    .win-body { padding: 10px; }
+    img.dash-shot { display: block; max-width: 100%; max-height: 478px; }
+    .dash-pair { flex: 1; display: flex; gap: 22px; align-items: center; justify-content: center; }
+    .dash-pair .dash-frame { flex: 1; margin: 0; }
+    .dash-pair img.dash-shot { width: 100%; max-height: none; }
+    .dash-pair .win-bar { font-size: 12px; }
+    .dash-pair .win-bar i { width: 34px; }
+    .mdl { display: grid; grid-template-columns: 1fr 1.05fr; gap: 36px; margin-top: 18px; align-items: start; }
+    table.t.mdl-t { font-size: 16px; }
+    p.mdl-note { margin-top: 6px; padding: 8px 12px; background: #eef6f3; border-left: 3px solid var(--teal); font-family: var(--serif); font-size: 16px; color: var(--ink); }
+    table.t.mdl-t td { padding: 6px 10px 6px 0; }
+    .fin { flex: 1; min-height: 0; display: grid; grid-template-columns: 230px 1fr; gap: 26px; margin-top: 12px; }
+    .fin-me { display: flex; flex-direction: column; justify-content: flex-end; }
+    .fin-bubble { position: relative; background: var(--ink); color: var(--paper); border-radius: 12px; padding: 12px 14px; font-family: var(--serif); font-size: 16px; line-height: 1.35; }
+    .fin-bubble b { font-family: var(--display); font-weight: 800; color: #9cc8bd; }
+    .fin-bubble::after { content: ""; position: absolute; left: 100px; bottom: -18px; border-style: solid; border-width: 18px 12px 0 12px; border-color: var(--ink) transparent transparent transparent; }
+    .fin-avatar { flex: none; width: 100%; height: 300px; margin-top: 14px; }
+    .fin-main { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+    p.fin-gong { font-family: var(--serif); font-size: 17.5px; line-height: 1.35; color: var(--ink); border-left: 4px solid var(--teal); padding: 2px 0 2px 14px; }
+    .fin-bq { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fin-bq > div { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--teal); border-radius: 4px; padding: 8px 12px 9px; }
+    .fin-bq span { display: block; font-size: 13px; font-weight: 800; color: var(--teal-deep); }
+    .fin-bq p { font-size: 14px; line-height: 1.38; color: var(--ink); margin-top: 3px; }
+    .fin-bq p b { font-weight: 800; }
+    p.fin-end { white-space: nowrap; font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--ink); text-align: center; padding-top: 2px; }
+    p.fin-end b { color: var(--teal-deep); font-weight: 860; }
+    .fin-rec { background: var(--ink); color: var(--paper); border-radius: 4px; padding: 11px 18px 12px; }
+    .fin-rec > b { display: block; font-size: 14px; font-weight: 800; color: #9cc8bd; }
+    .fin-rec ol { margin: 6px 0 0; padding: 0; list-style: none; font-size: 14.5px; line-height: 1.38; color: #cdd6e4; }
+    .fin-rec li { position: relative; padding-left: 26px; margin-bottom: 5px; }
+    .fin-rec li i { position: absolute; left: 0; top: 0; font-style: normal; font-weight: 800; color: #9cc8bd; }
+    .fin-rec li b { color: #fff; font-weight: 800; }
+    .divider .tools img { width: 42px; height: 42px; background: var(--paper); border-radius: 3px; padding: 7px; box-sizing: border-box; }
+    .divider .wip { display: inline-block; margin-top: 26px; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--red-2); padding: 6px 12px; border-radius: 2px; }
+    .perf { position: absolute; left: 14px; right: 14px; bottom: 30px; height: 8px; }
+
+    /* Perkenalan */
+    .about { display: grid; grid-template-columns: 300px 1fr; gap: 44px; margin-top: 20px; flex: 1; min-height: 0; }
+    .portrait { background: var(--white); padding: 10px; border: 1px solid var(--rule); align-self: start; }
+    .portrait img { width: 280px; height: 360px; object-fit: cover; display: block; }
+    .cv li { display: grid; grid-template-columns: 112px 1fr auto; gap: 18px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--rule-2); }
+    .cv li:first-child { border-top: 2px solid var(--ink); }
+    .cv img { max-width: 104px; max-height: 44px; }
+    .cv b { display: block; font-size: 21px; font-weight: 780; font-variation-settings: "wdth" 108; }
+    .cv span { font-size: 15px; color: var(--ink-2); }
+    .cv em { font-style: normal; font-size: 14px; color: var(--ink-3); white-space: nowrap; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .skills img { width: 34px; height: 34px; background: var(--white); border: 1px solid var(--rule-2); border-radius: 3px; padding: 5px; box-sizing: border-box; }
+
+    .about2 { display: grid; grid-template-columns: 310px 1fr; gap: 46px; margin-top: 20px; flex: 1; min-height: 0; }
+    .about2 .portrait { align-self: stretch; display: flex; }
+    .about2 .portrait img { width: 288px; height: auto; flex: 1; }
+    .about2 h2 { font-size: 42px; }
+    .about2 .lead { font-size: 19px; max-width: none; }
+    .about2 .label { font-size: 15px; }
+    .cv2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px; }
+    .about2 .tools-label { margin-top: auto; }
+    .about2 .toolset { margin-top: 18px; }
+    .cv2 .cv li { grid-template-columns: 62px 1fr; gap: 14px; padding: 14px 0; }
+    .cv2 .cv li:first-child { border-top: none; }
+    .cv2 .cv img { max-width: 58px; max-height: 36px; justify-self: center; align-self: center; }
+    .cv2 .cv b { font-size: 18px; line-height: 1.2; }
+    .cv2 .cv span { display: block; font-size: 16px; margin-top: 2px; }
+    .cv2 .cv em { display: block; font-size: 15px; margin-top: 2px; }
+    .toolset { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 14px; }
+    .toolset li { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+    .toolset img, .pyfam img { width: 30px; height: 30px; background: var(--white); border: 1px solid var(--rule-2); border-radius: 3px; padding: 4px; box-sizing: border-box; flex: none; }
+    /* Python dan library-nya: garis teal dari chip Python bercabang ke tiap library */
+    .pyfam { display: flex; align-items: flex-start; margin-top: 12px; }
+    .pyfam .root { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px 0 6px; border: 1.5px solid var(--teal); border-radius: 3px; font-size: 17px; font-weight: 800; background: var(--white); }
+    .pyfam .libs { display: flex; margin-top: 19px; padding-left: 26px; position: relative; }
+    .pyfam .libs::before { content: ""; position: absolute; top: 0; left: 0; width: 41px; border-top: 2px solid var(--teal); }
+    .pyfam .libs li { position: relative; display: flex; align-items: center; gap: 7px; padding: 16px 20px 0 0; font-size: 16px; font-weight: 600; }
+    .pyfam .libs li::after { content: ""; position: absolute; top: 0; left: 0; right: 0; border-top: 2px solid var(--teal); }
+    .pyfam .libs li:last-child::after { right: auto; width: 16px; }
+    .pyfam .libs li::before { content: ""; position: absolute; top: 0; left: 14px; height: 16px; border-left: 2px solid var(--teal); }
+
+    .projects3 { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; column-gap: 34px; margin-top: 14px; flex: 1; min-height: 0; }
+    .projects3 .group-head { justify-content: center; font-size: 18px; }
+    .projects3 .group-head.wide { grid-column: 1 / 3; }
+    .pcol { display: flex; flex-direction: column; justify-content: space-between; }
+    .pcol.uni { justify-content: flex-start; }
+    .p2 { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule-2); }
+    .p2 img { width: 28px; height: 28px; margin-top: 2px; }
+    .p2 b { display: block; font-size: 18px; font-weight: 760; font-variation-settings: "wdth" 106; line-height: 1.2; }
+    .p2 p { font-family: var(--serif); font-size: 15.5px; color: var(--ink-2); margin-top: 4px; line-height: 1.35; }
+    .go { display: flex; gap: 14px; margin-top: 6px; }
+    .go a { font-size: 14px; font-weight: 700; color: var(--teal-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--teal-2); }
+    .more { display: block; align-self: flex-end; margin-top: auto; padding: 14px 22px; background: var(--ink); color: var(--paper) !important; text-decoration: none; border-radius: 3px; }
+    .more b { display: block; font-size: 20px; font-weight: 820; }
+    .more span { display: block; font-size: 15px; color: #cdd6e4; margin-top: 4px; line-height: 1.35; }
+    .more:hover { background: var(--teal-deep); }
+
+    /* Overview project */
+    .projects { display: grid; grid-template-columns: 1.55fr 1fr; gap: 40px; margin-top: 16px; }
+    .group-head { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+    .group-head img { height: 24px; }
+    .proj { display: grid; grid-template-columns: 26px 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule-2); }
+    .proj img { width: 24px; height: 24px; }
+    .proj b { display: block; font-size: 17px; font-weight: 700; }
+    .proj span { font-size: 13px; color: var(--ink-3); }
+    .proj strong { font-size: 17px; font-weight: 800; color: var(--teal-deep); text-align: right; white-space: nowrap; }
+
+    /* Slide Prosper: foto + fakta di kiri, profil + definisi + alur di kanan, cara dapat uang di bawah */
+    .pros { display: grid; grid-template-columns: 420px 1fr; grid-template-rows: 1fr auto; gap: 16px 44px; margin-top: 16px; flex: 1; min-height: 0; }
+    .pros .left, .pros .right { display: flex; flex-direction: column; min-height: 0; }
+    .pros .right { justify-content: space-between; }
+    .pros .photo { margin: 0; }
+    .pros .photo img { display: block; width: 100%; height: 206px; object-fit: cover; object-position: 50% 45%; border-radius: 3px; }
+    .pros figcaption { margin-top: 6px; }
+    .pros figcaption b { display: block; font-size: 14px; font-weight: 700; }
+    .pros figcaption span { display: block; font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+    .facts { margin: 10px 0 0; border-top: 2px solid var(--ink); }
+    .facts div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--rule-2); }
+    .facts dt { font-size: 27px; font-weight: 880; font-variation-settings: "wdth" 120; color: var(--teal-deep); line-height: 1; }
+    .facts dd { margin: 0; font-family: var(--serif); font-size: 15.5px; color: var(--ink-2); line-height: 1.3; }
+    .def .k { font-size: 14px; font-weight: 700; color: var(--teal-deep); }
+    .def p { font-family: var(--serif); font-size: 18px; line-height: 1.38; color: var(--ink); margin-top: 3px; }
+    .def b { font-family: var(--display); font-weight: 800; color: var(--teal-deep); }
+    .pros .right svg.chart { flex: none; height: 200px; }
+    .money { grid-column: 1 / 3; display: grid; grid-template-columns: 200px 1fr 1fr; background: var(--ink); color: var(--paper); border-radius: 3px; }
+    .money > div { padding: 14px 22px; }
+    .money .mk { display: flex; align-items: center; font-size: 21px; font-weight: 880; font-variation-settings: "wdth" 114; line-height: 1.1; background: var(--teal-deep); border-radius: 3px 0 0 3px; }
+    .money > div + div + div { border-left: 1px solid rgba(246, 247, 242, 0.25); }
+    .money b { font-size: 17px; font-weight: 800; color: #9cc8bd; }
+    .money p { font-family: var(--serif); font-size: 19px; line-height: 1.35; margin-top: 3px; }
+
+    .hist-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 2px solid var(--ink); padding-top: 12px; margin-top: 8px; }
+    .hist-notes p { font-family: var(--serif); font-size: 18px; line-height: 1.4; color: var(--ink-2); }
+    .hist-notes .acc { font-family: var(--display); font-weight: 800; color: var(--teal-deep); }
+
+    /* Slide informasi data: kartu metrik + contoh kolom per kelompok */
+    .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 18px; }
+    .kpis > div { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--teal); padding: 14px 16px 16px; }
+    .kpis > div.mid { display: flex; flex-direction: column; }
+    .kpis > div.mid b { margin-top: auto; margin-bottom: auto; padding-top: 4px; text-align: center; }
+    .kpis > div.mid b.sm { align-self: center; text-align: left; }
+    .kpis .k { font-size: 15px; font-weight: 700; color: var(--teal-deep); }
+    .kpis b { display: block; font-size: 30px; font-weight: 880; font-variation-settings: "wdth" 120; letter-spacing: -0.02em; line-height: 1; margin-top: 8px; }
+    .kpis b.sm { font-size: 20px; line-height: 1.1; }
+    .kpis span { display: block; font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+    .kpis .kcol { display: flex; align-items: center; margin-top: 6px; }
+    .kpis .kcol > b { margin-top: 0; padding-right: 14px; letter-spacing: 0; }
+    /* Cabang keluar dari angka 81: tangkai pendek, garis tegak antar-cabang, lalu ranting ke tiap jenis */
+    .branch { position: relative; padding-left: 14px; margin-left: 18px; }
+    .branch::before { content: ""; position: absolute; left: 0; top: 50%; width: 14px; border-top: 2px solid var(--teal); }
+    .branch li { position: relative; padding: 1px 0 1px 14px; font-size: 13.5px; color: var(--ink-2); white-space: nowrap; }
+    .branch li::before { content: ""; position: absolute; left: 0; top: 50%; width: 10px; border-top: 2px solid var(--teal); }
+    .branch li::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-left: 2px solid var(--teal); }
+    .branch li:first-child::after { top: 50%; }
+    .branch li:last-child::after { bottom: 50%; }
+    .branch li b { display: inline; font-size: 13.5px; letter-spacing: 0; margin: 0; line-height: 1.3; color: var(--ink); }
+    table.coltab { margin-top: 26px; font-size: 17px; }
+    table.coltab th { font-size: 13px; padding-top: 0; }
+    table.coltab td { padding: 12px 14px 12px 0; vertical-align: middle; }
+    table.coltab td:first-child { width: 180px; font-weight: 700; }
+    table.coltab td.cols code { display: inline-block; font-size: 15px; font-weight: 600; background: var(--teal-3); color: var(--teal-deep); padding: 3px 8px; border-radius: 3px; margin: 1px 6px 1px 0; }
+    table.coltab td:last-child { width: 265px; color: var(--ink-2); }
+    table.coltab th.n, table.coltab td.n { width: 120px; text-align: center; padding-left: 0; padding-right: 14px; }
+    table.coltab td.n { font-size: 20px; font-weight: 880; font-variation-settings: "wdth" 116; color: var(--teal-deep); }
+
+    .chart-title { white-space: nowrap; font-size: 19px; font-weight: 700; color: var(--ink); padding-top: 22px !important; }
+    .defnote { margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--rule); }
+    .defnote .dk { font-size: 18px; font-weight: 800; color: var(--red-deep); }
+    .defnote p { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-top: 2px; }
+    .defnote p b { font-family: var(--display); color: var(--red-deep); }
+    .defnote .src { font-family: var(--display); font-size: 14px; color: var(--ink-3); margin-top: 4px; }
+    .defnote code { font-size: 13px; font-weight: 600; background: var(--paper-2); padding: 1px 5px; }
+
+    /* Slide anatomi pinjaman: dua kartu pinjaman, rumus, dan kesimpulan */
+    .anat { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) 322px; gap: 20px; margin-top: 16px; flex: 1; min-height: 0; }
+    .anat .cards { display: contents; }
+    .lc { background: var(--white); border: 1px solid var(--rule); padding: 14px 18px 12px; display: flex; flex-direction: column; }
+    .lc h3 { display: flex; justify-content: space-between; align-items: center; font-size: 20px; font-weight: 820; }
+    .lc .sec { font-size: 13.5px; font-weight: 700; color: var(--teal-deep); margin-top: 14px; padding-bottom: 3px; border-bottom: 1px solid var(--rule); }
+    .lc .kvs { font-size: 15.5px; }
+    .lc .kv { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--rule-2); }
+    .lc .kv span { color: var(--ink-2); }
+    /* Stabilo: karakteristik yang sama pada kedua pinjaman */
+    .lc .kv.same span, .lc .kv.same b, mark.hl { background: linear-gradient(transparent 45%, #f6e27f 45%, #f6e27f 92%, transparent 92%); color: var(--ink); }
+    mark.hl { padding: 0 2px; }
+    .lc .kv b { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .lc .kv b.pos { color: var(--teal-deep); }
+    .lc .kv b.neg { color: var(--red); }
+    .lc .net { display: flex; justify-content: space-between; margin-top: auto; padding-top: 8px; border-top: 2px solid var(--ink); font-size: 18px; font-weight: 820; }
+    .lc .net span:last-child { color: var(--teal); }
+    .anat .side { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+    .formula { background: var(--teal-3); padding: 14px 16px; border-radius: 3px; }
+    .formula .fk { font-size: 14px; font-weight: 800; color: var(--teal-deep); }
+    /* Pengurangan bersusun ke bawah: suku-suku ditumpuk, satu tanda minus di suku terakhir, satu garis utuh sebelum hasil */
+    .formula .sub { display: grid; grid-template-columns: 1fr 22px; row-gap: 6px; column-gap: 8px; margin-top: 10px; align-items: center; }
+    .formula .sub .op { font-size: 22px; font-weight: 800; line-height: 1; }
+    .formula .t { font-size: 16px; font-weight: 700; padding: 5px 10px; border-radius: 3px; background: var(--white); border: 1px solid var(--rule); }
+    .formula .t.pos { color: var(--teal-deep); }
+    .formula .t.neg { color: var(--red-deep); }
+    .formula .t.res { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .formula .sub .line { grid-column: 1 / 3; border-top: 2px solid var(--ink); margin: 2px 0; }
+    .verdict { flex: 1; background: var(--ink); color: var(--paper); padding: 14px 16px; border-radius: 3px; }
+    .verdict b { display: block; font-size: 23px; font-weight: 880; font-variation-settings: "wdth" 116; line-height: 1.1; color: #f3c2b9; }
+    .verdict p { font-family: var(--serif); font-size: 15.5px; line-height: 1.4; margin-top: 8px; color: #dfe5ec; }
+
+    /* Slide data preparation: alur angka di atas, tabel cleaning dan feature engineering di bawah */
+    .prepflow { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+    .prepflow .st { flex: 1; display: flex; flex-direction: column; text-align: center; background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--ink); padding: 8px 12px; }
+    .prepflow .st b { display: block; font-size: 27px; font-weight: 880; font-variation-settings: "wdth" 116; line-height: 1.05; }
+    .prepflow .st span { font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+    .prepflow .st.neg { border-top-color: var(--red); } .prepflow .st.neg b { color: var(--red-deep); }
+    .prepflow .st.ok { border-top-color: var(--teal); } .prepflow .st.ok b { color: var(--teal-deep); }
+    .prepflow .st.add { border-top-color: var(--teal-2); } .prepflow .st.add b { color: var(--teal); }
+    .prepflow .ar { width: 22px; flex: none; color: var(--ink-3); }
+    .prep { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 30px; margin-top: 16px; }
+    .kamus-h { margin-top: 28px; text-align: center; font-size: 17px; font-weight: 800; color: var(--paper); background: var(--ink); padding: 6px 10px; border-radius: 3px 3px 0 0; }
+    .kamus-h code { background: none; color: var(--paper); font-size: 16px; }
+    table.t.kamus { font-size: 18px; }
+    table.t.kamus td.n, table.t.kamus th.n { width: 56px; color: var(--teal-deep); padding-right: 14px; }
+    .prep .ph { text-align: center; font-size: 17px; font-weight: 800; color: var(--paper); background: var(--ink); padding: 6px 10px; border-radius: 3px 3px 0 0; }
+    table.pt { font-size: 16px; }
+    table.pt th { font-size: 13.5px; padding: 6px 10px 5px 0; }
+    table.pt td { padding: 6.5px 10px 6.5px 0; }
+    table.pt td.n, table.pt th.n { text-align: right; font-weight: 800; }
+    table.pt code { font-size: 14px; }
+    table.pt.fe td:first-child { white-space: nowrap; width: 1%; }
+
+    .trend { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; margin-top: 10px; }
+    .trend .col svg.chart { flex: none; height: 422px; margin-top: 8px; }
+    .trend .chart-title { font-size: 17px; }
+    ul.trend-note { margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--rule); font-family: var(--serif); font-size: 18px; color: var(--ink-2); }
+    .trend-note li { list-style: disc; margin-left: 20px; }
+    .trend-note b { font-family: var(--display); font-weight: 800; color: var(--teal-deep); }
+
+    /* Kotak tanggal data di pojok kanan atas slide informasi data */
+    .asof { position: absolute; right: 56px; top: 70px; border: 1.5px solid var(--ink); border-radius: 3px; padding: 12px 18px 13px; text-align: right; background: var(--white); }
+    .asof span { display: block; font-size: 13px; color: var(--ink-3); }
+    .asof b { display: block; margin-top: 3px; font-size: 20px; font-weight: 880; font-variation-settings: "wdth" 116; line-height: 1.1; }
+
+    .kbadge { display: inline-block; background: var(--teal-deep); color: var(--white); padding: 4px 16px 6px; border-radius: 6px; }
+    /* Key insight 1: perbandingan ringkas di kiri, grafik per tahun di kanan, kesimpulan di bawah */
+    .ki { display: grid; grid-template-columns: 370px 1fr; gap: 36px; margin-top: 14px; }
+    .cmps { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+    .cmp { background: var(--white); border: 1px solid var(--rule); border-radius: 4px; padding: 14px 18px 16px; text-align: center; }
+    .cmp .k { font-size: 15px; font-weight: 700; color: var(--ink-2); }
+    .cmp-row { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 8px; }
+    .cmp-row b { display: block; white-space: nowrap; font-size: 25px; font-weight: 880; font-variation-settings: "wdth" 114; letter-spacing: -0.02em; line-height: 1.05; }
+    .cmp-row b.bad { color: var(--red-deep); }
+    .cmp-row b.good { color: var(--teal-deep); }
+    .cmp-row span { display: block; font-size: 13px; color: var(--ink-3); margin-top: 3px; }
+    .cmp-ar { width: 34px; flex: none; color: var(--teal); }
+    .ki svg.chart { height: 360px; }
+    .funnel { flex: 1; display: grid; grid-template-columns: 260px 1fr 340px; column-gap: 28px; row-gap: 24px; align-content: center; }
+    .frow { display: contents; }
+    .flab { position: relative; padding-left: 38px; }
+    .fico { position: absolute; left: 0; top: 4px; width: 26px; height: 26px; fill: none; stroke: var(--ink-3); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .flab small { display: block; font-size: 16px; font-weight: 700; color: var(--ink-2); }
+    .flab b { display: block; font-size: 38px; line-height: 1.05; font-weight: 880; font-variation-settings: "wdth" 116; color: var(--ink); }
+    .fbar { position: relative; display: flex; align-items: center; justify-content: center; }
+    .fbar i { display: flex; height: 56px; border-radius: 3px; overflow: hidden; }
+    /* Makin ke bawah makin gelap: corong yang menyempit. */
+    .frow:nth-child(1) .fbar i { background: #7d8ba2; }
+    .frow:nth-child(2) .fbar i { background: #67778f; }
+    .frow:nth-child(3) .fbar i { background: #53637e; }
+    .frow:nth-child(4) .fbar i { background: #3f4f6d; }
+    .fbar i.split span:first-child { background: var(--teal); }
+    .fbar i.split span:last-child { background: var(--red); }
+    .fcut { align-self: center; font-size: 17px; line-height: 1.35; color: var(--ink-2); }
+    .fcut b { display: block; font-weight: 800; color: var(--red-deep); }
+    .frow.gong .flab b { font-size: 46px; color: var(--ink); }
+    .frow.gong .flab { background: #eef6f3; border: 1.5px solid var(--teal); border-radius: 6px; padding: 12px 16px 12px 52px; }
+    .frow.gong .fico { left: 16px; top: 15px; }
+    .frow.gong .fico { stroke: var(--teal-deep); }
+    .fstat { display: block; margin-top: 2px; font-size: 19px; font-weight: 700; color: var(--ink); }
+    .fstat em { font-style: normal; font-weight: 800; } .fstat .good { color: var(--teal-deep); } .fstat .bad { color: var(--red-deep); }
+    .sim-cards.uji-math { flex: none; margin-top: 28px; align-content: start; }
+    .uji-math .sim-card { padding: 20px 18px 12px; }
+    .uji-math .uji-verdict { padding: 6px 12px; }
+    .uji-math .uji-verdict strong { font-size: 17px; }
+    .uji-math table.uji-t { margin: 4px 0; font-size: 12.5px; }
+    .uji-math table.uji-t td, .uji-math table.uji-t th { padding: 1px 6px; }
+    .uji-math .sim-card h3 { font-size: 18px; }
+    .uji-math .uji-verdict { margin-top: auto; }
+    .uji-math table.uji-t { margin-bottom: 12px; }
+    p.uji-f { margin-top: 8px; font-size: 17px; font-weight: 700; color: var(--ink); }
+    p.uji-f small { display: block; font-size: 15px; font-weight: 500; color: var(--ink-2); margin-top: 2px; }
+    table.uji-t { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+    table.uji-t th { text-align: right; font-size: 12.5px; font-weight: 700; color: var(--ink-3); border-bottom: 2px solid var(--ink); padding: 3px 6px; }
+    table.uji-t td { text-align: right; padding: 3px 6px; border-bottom: 1px solid var(--rule-2); color: var(--ink); font-variant-numeric: tabular-nums; }
+    table.uji-t th:first-child, table.uji-t td:first-child { text-align: left; }
+    table.uji-t tr.sum td { font-weight: 800; border-bottom: none; }
+    ol.uji-steps { list-style: none; margin: 4px 0 8px; padding: 0; font-size: 13.5px; color: var(--ink); }
+    .sim-card ol.uji-steps li { display: block; padding: 2px 0; border-top: none; border-bottom: 1px solid var(--rule-2); }
+    .sim-card ol.uji-steps li > div { line-height: 1.4; }
+    .sim-card ol.uji-steps li b:not(:first-child), .sim-card ol.uji-steps div b { font-size: inherit; font-weight: 800; display: inline; color: var(--ink); font-variation-settings: normal; }
+    .sim-card ol.uji-steps li > b { display: block; font-size: 12.5px; font-weight: 800; color: var(--teal-deep); font-variation-settings: normal; text-align: left; }
+    ol.uji-steps i { font-family: var(--serif); font-style: italic; font-size: 1.08em; }
+    .sim-card ol.uji-steps span { font-size: inherit; font-weight: inherit; color: inherit; }
+    .sim-card ol.uji-steps .uji-note { font-size: 12.5px; color: var(--ink-2); }
+    .uji-verdict b { display: block; font-size: 13px; font-weight: 800; color: var(--teal-deep); }
+    .uji-math mjx-container[display="true"] { margin: 4px 0 !important; }
+    .uji-math mjx-container { font-size: 106%; }
+    .uji2 { flex: none; display: grid; grid-template-columns: 1.35fr 1fr; gap: 22px; margin-top: 18px; align-items: start; }
+    .uji2 .sim-card { padding: 22px 20px 14px; }
+    .uji-explain { display: flex; flex-direction: column; gap: 12px; }
+    .uji-explain > div { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--teal); border-radius: 4px; padding: 10px 14px; }
+    .uji-explain b { display: block; font-size: 15px; font-weight: 800; color: var(--ink); }
+    .uji-explain p { margin-top: 3px; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+    p.uji-how { margin-top: 10px; font-size: 16px; line-height: 1.4; color: var(--ink); background: var(--paper-2); border-left: 3px solid var(--ink); padding: 8px 14px; }
+    p.uji-how b { font-weight: 800; }
+    .uji-verdict { margin-top: 12px; background: #eef6f3; border: 1.5px solid var(--teal); border-radius: 4px; padding: 10px 14px; }
+    .uji-verdict span { display: block; font-size: 15px; color: var(--ink-2); }
+    .uji-verdict span b { color: var(--ink); font-weight: 800; }
+    .uji-verdict strong { display: block; font-size: 19px; font-weight: 800; color: var(--teal-deep); margin-top: 2px; }
+    .kconc { display: flex; align-items: center; gap: 18px; margin-top: 30px; background: var(--ink); color: var(--paper); border-radius: 4px; padding: 10px 22px 10px 14px; }
+    .kconc .happy { width: 112px; height: 76px; flex: none; }
+    .kconc .happy.booth { width: 138px; height: 84px; }
+    .kconc b { display: block; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; color: #9cc8bd; }
+    .kconc p { font-family: var(--serif); font-size: 19px; line-height: 1.35; margin-top: 2px; }
+    .row.prof { flex: none; }
+    .mcards { display: flex; flex-direction: column; gap: 10px; }
+    .mcards > div { background: var(--white); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 14px 11px; }
+    .mcards .ml { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--teal-deep); background: var(--teal-3); padding: 2px 8px; border-radius: 3px; }
+    .mcards b { display: block; font-size: 28px; font-weight: 880; font-variation-settings: "wdth" 116; line-height: 1.05; margin-top: 6px; }
+    .mcards small { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 3px; }
+    .mcards .mm { display: flex; gap: 6px; margin-top: 6px; }
+    .mcards .mm i { font-style: normal; font-size: 12px; font-weight: 600; color: var(--ink-2); background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 1px 7px; }
+    .prof-insight { margin-top: 18px; }
+    p.fac-note { align-self: flex-start; margin-top: 22px; font-size: 16px; font-weight: 700; color: var(--red-deep); background: #fbecea; border: 1.5px solid #e3a8a0; border-radius: 4px; padding: 5px 12px; }
+    .heat-row { flex: 1; min-height: 0; }
+    .hx { flex: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 26px; margin-top: 44px; }
+    .hx-c { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--ink); border-radius: 4px; padding: 22px 24px 26px; }
+    .hx-h { display: flex; align-items: baseline; gap: 10px; }
+    .hx-h span { font-size: 13px; font-weight: 800; color: var(--paper); background: var(--ink); padding: 2px 8px; border-radius: 2px; }
+    .hx-h b { font-size: 20px; font-weight: 800; color: var(--ink); }
+    .hx-h em { margin-left: auto; font-style: normal; font-size: 14px; font-weight: 700; color: var(--teal-deep); }
+    .hx-h0 { margin-top: 10px; font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--ink-2); }
+    .hx-c .cmp-row { margin-top: 26px; }
+    .hx-c .cmp-row > div { text-align: center; }
+    .hx-c .cmp-row b { font-size: 50px; }
+    .hx-c .cmp-row span { font-size: 15px; color: var(--ink); }
+    .hx-v { display: grid; grid-template-columns: auto auto auto; justify-content: center; align-items: center; gap: 8px 12px; margin-top: 40px; background: #eef6f3; border: 1.5px solid var(--teal); border-radius: 4px; padding: 10px 14px 12px; font-size: 21px; color: var(--ink); }
+    .hx-v i { font-style: normal; text-align: center; }
+    .hx-v i:nth-of-type(2) { grid-column: 2; }  /* panah maka sejajar di bawah panah jhj */
+    .hx-v div { display: flex; align-items: center; gap: 10px; }
+    .hx-v b { font-size: 19px; font-weight: 800; color: var(--paper); background: var(--teal-deep); padding: 4px 12px; border-radius: 3px; }
+    .hx-v small { font-size: 15px; color: var(--ink); }
+    .hx-link { margin-top: 40px; font-size: 16px; line-height: 1.5; color: var(--ink); }
+    .hx-link a { color: var(--teal-deep); text-decoration: underline; word-break: break-all; }
+    .bq-ans { margin-top: 12px; background: #eef6f3; border: 1.5px solid var(--teal); border-radius: 4px; padding: 9px 16px 10px; }
+    .bq-ans b { display: block; font-size: 13px; font-weight: 800; color: var(--teal-deep); letter-spacing: 0.02em; }
+    .bq-ans p { font-family: var(--serif); font-size: 17.5px; line-height: 1.35; color: var(--ink); margin-top: 2px; }
+    .seg-tbls { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 26px; margin-top: 10px; }
+    .seg-tbl-h { font-size: 17px; font-weight: 800; padding: 4px 10px; border-radius: 3px; display: inline-block; }
+    .seg-tbl.up .seg-tbl-h { color: var(--teal-deep); background: #eef6f3; border: 1px solid var(--teal); }
+    .seg-tbl.down .seg-tbl-h { color: var(--red-deep); background: #fbecea; border: 1px solid #e3a8a0; }
+    .seg-tbl table.t { font-size: 18px; margin-top: 8px; }
+    .seg-tbl td.gain { color: var(--teal-deep); }
+    .seg-chip { display: inline-block; font-size: 15.5px; font-weight: 600; color: var(--ink); background: var(--white); border: 1px solid var(--rule); border-radius: 3px; padding: 1px 8px; margin-right: 6px; }
+    .bq1-list .seg-chip { font-style: normal; font-size: 14.5px; }
+    p.seg-note { margin-top: 8px; font-size: 15px; font-weight: 600; color: var(--teal-deep); }
+    .seg-tbl td.loss { color: var(--red-deep); }
+    .seg-tbl table.t td, .seg-tbl table.t th { padding: 7px 12px 7px 0; }
+    .seg-tbl table.t th { font-size: 14px; }
+    .seg-tbl table.t th:first-child, .seg-tbl table.t td:first-child { width: 46%; }
+    .bq-done { margin-top: 16px; text-align: center; }
+    .bq-done b { font-size: 15px; }
+    .bq1-groups { flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 34px; }
+    .bq1-card { border-radius: 4px; padding: 20px 24px 22px; display: flex; flex-direction: column; }
+    .bq1-card.up { background: #eef6f3; border: 1.5px solid var(--teal); }
+    .bq1-card.down { background: #fbecea; border: 1.5px solid #e3a8a0; }
+    .bq1-head { display: flex; align-items: center; gap: 16px; }
+    .bq1-head .crowd { width: 190px; height: 118px; flex: none; }
+    .bq1-head b { display: block; font-size: 27px; font-weight: 860; }
+    .bq1-card.up .bq1-head b { color: var(--teal-deep); }
+    .bq1-card.down .bq1-head b { color: var(--red-deep); }
+    .bq1-head span { display: block; font-size: 15px; font-weight: 700; color: var(--ink); margin-top: 4px; }
+    ul.bq1-list { margin: 16px 0 0; padding: 0; list-style: none; }
+    .bq1-list li { display: flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 600; color: var(--ink); padding: 7px 0; border-bottom: 1px solid var(--rule-2); }
+    .bq1-list li svg { width: 18px; height: 18px; flex: none; }
+    .bq1-card.up .bq1-list li svg, .bq1-card.up .bq1-list b { color: var(--teal-deep); }
+    .bq1-card.down .bq1-list li svg, .bq1-card.down .bq1-list b { color: var(--red-deep); }
+    .bq1-list span { flex: 1; }
+    .bq1-list b { font-size: 16px; font-weight: 800; white-space: nowrap; }
+    ul.bq1-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .bq1-tags li { font-size: 15.5px; font-weight: 700; color: var(--ink); background: var(--white); border: 1px solid var(--rule); border-radius: 3px; padding: 4px 10px; }
+    p.bq1-key { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); font-family: var(--serif); font-size: 18px; line-height: 1.4; color: var(--ink); }
+    .bq1-key b { display: block; font-family: var(--sans, inherit); font-size: 13px; font-weight: 800; color: var(--ink-2); margin-bottom: 2px; }
+    .seg-chart { flex: 1; min-height: 0; margin-top: 12px; }
+    .seg-chart svg { width: 100%; height: 100%; }
+    .seg-insight { margin-top: 14px; padding: 12px 22px; }
+    .sim-cards { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 18px; align-content: center; }
+    .sim-card { position: relative; background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--ink); border-radius: 4px; padding: 30px 24px 20px; display: flex; flex-direction: column; }
+    .sim-tab { position: absolute; top: -16px; left: 22px; background: var(--ink); color: var(--paper); font-size: 15px; font-weight: 800; padding: 5px 14px; border-radius: 3px; }
+    .sim-card h3 { font-size: 21px; font-weight: 820; color: var(--ink); }
+    .sim-card > p { font-size: 15px; color: var(--ink-2); margin-top: 4px; }
+    .sim-segs { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: auto 0; padding: 14px 0; }
+    .sim-seg { display: inline-flex; align-items: center; font-size: 15px; font-weight: 600; background: var(--white); border: 1px solid var(--rule); border-radius: 3px; padding: 3px 9px; }
+    .sim-seg i { font-style: normal; color: var(--ink); }
+    .sim-seg i + i::before { content: "+"; margin: 0 7px; color: var(--teal-deep); font-weight: 800; }
+    .sim-card ul { margin: 0; padding: 0; list-style: none; }
+    .sim-card li { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding: 10px 0; border-top: 1px solid var(--rule-2); }
+    .sim-card li span { font-size: 16px; font-weight: 700; color: var(--ink); }
+    .sim-card li { align-items: center; }
+    .sim-card li b { font-size: 22px; font-weight: 880; font-variation-settings: "wdth" 116; text-align: right; display: flex; align-items: center; }
+    .sim-card li b em { font-style: normal; font-size: 22px; font-weight: 700; font-variation-settings: "wdth" 100; color: var(--ink-2); border-left: 2px solid var(--rule); margin-left: 12px; padding-left: 12px; width: 104px; text-align: right; }
+    p.sim-foot { margin-top: 10px; font-size: 13.5px; color: var(--ink-2); }
+    .sim-card li b.good { color: var(--teal-deep); }
+    .sim-card li b.bad { color: var(--red-deep); }
+    .pr-row { flex: 1; min-height: 0; margin-top: 14px; gap: 28px; align-items: center; }
+    #chart-profit { height: 420px; }
+    .pr-insight { margin-top: 16px; padding: 12px 22px; }
+    .rs-split { flex: none; width: 1.5px; background: var(--rule); align-self: stretch; }
+    .heat-side { padding-top: 60px; position: relative; left: -48px; }
+    table.t th.grp { text-align: center; font-size: 14px; font-weight: 800; color: var(--ink); background: var(--paper-2); border-bottom: 1px solid var(--rule); padding: 6px 0; }
+    .heat-insight { margin-top: 30px; padding: 12px 22px 0 18px; align-items: flex-end; gap: 28px; }
+    .heat-insight > div { align-self: center; padding-bottom: 12px; }
+    .heat-insight .thinker-sm { width: 120px; height: 160px; flex: none; margin-top: -70px; display: block; }
+    /* Tabel pembanding memakai jingga yang sama dengan bingkai sel AA dan D di heatmap. */
+    .heat-key { align-self: stretch; text-align: center; border: 2.5px solid var(--red-deep); border-radius: 3px; padding: 4px 6px; font-size: 13.5px; font-weight: 600; color: var(--red-deep); white-space: nowrap; }
+    table.heat-pick { border: 4px solid var(--orange); background: var(--orange-3); margin-top: 40px; }
+    table.heat-pick th.grp { background: var(--orange-2); color: var(--ink); }
+    table.heat-pick th, table.heat-pick td { padding-left: 10px; padding-right: 10px; }
+    table.heat-pick .bunga { background: var(--orange-2); }
+    p.heat-lead { font-family: var(--serif); font-size: 19px; line-height: 1.35; color: var(--ink); border-left: 3px solid var(--teal); padding-left: 12px; margin-bottom: 4px; }
+    p.fac-foot { margin-top: 10px; margin-bottom: 14px; font-size: 14px; color: var(--ink-2); }
+
+    /* Slide agenda: delapan langkah di satu jalur, dikelompokkan perkenalan dan main project */
+    .agenda-flow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .agenda-flow .groups { display: grid; grid-template-columns: 2fr 6fr; gap: 18px; margin-bottom: 18px; }
+    .agenda-flow .g { font-size: 14px; font-weight: 800; padding-bottom: 8px; border-bottom: 3px solid; }
+    .agenda-flow .g.intro { color: var(--ink-3); border-color: var(--rule); }
+    .agenda-flow .g.main { color: var(--teal-deep); border-color: var(--teal); }
+    .steps { display: grid; grid-template-columns: repeat(8, 1fr); gap: 18px; position: relative; }
+    .steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 38px; border-top: 2px dashed var(--rule); }
+    .steps li { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .steps .dot { position: relative; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; background: var(--white); border: 2px solid var(--rule); }
+    .steps .main .dot { border-color: var(--teal); background: #eef6f3; }
+    .steps .dot svg { width: 32px; height: 32px; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .steps .main .dot svg { stroke: var(--teal-deep); }
+    .steps .dot i { position: absolute; top: -6px; right: -6px; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 13px; font-weight: 800; color: var(--white); background: var(--ink); }
+    .steps .main .dot i { background: var(--teal-deep); }
+    .steps b { display: block; margin-top: 16px; font-size: 16.5px; font-weight: 800; line-height: 1.2; }
+    .steps b.final { background: var(--teal-deep); color: var(--white); border-radius: 6px; padding: 6px 10px; min-height: 0; }
+    .toolrow .tools { display: flex; flex-direction: column; }
+    .steps .tl, .toolrow .tl { display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+    .steps .tl img, .toolrow .tl img { width: 20px; height: 20px; }
+    .steps .tl.main, .toolrow .tl.main { font-size: 15px; font-weight: 800; color: var(--ink); }
+    .toolrow .tl.main img { width: 24px; height: 24px; }
+
+    /* Baris tools di bawah langkah. Garis penghubung digambar JS (agendaLines) dari posisi nyata judul ke tool. */
+    .agenda-flow { position: relative; }
+    .agenda-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+    .toolrow { display: grid; grid-template-columns: repeat(8, 1fr); gap: 18px; }
+    .toolrow > div { display: flex; justify-content: center; padding-top: 52px; }
+    .toolrow .shared { grid-column: 3 / 5; }
+    .toolrow .c5 { grid-column: 5; } .toolrow .c6 { grid-column: 6; } .toolrow .c7 { grid-column: 7; }
+    .toolrow .tl { white-space: nowrap; }
+    .toolrow .tools { display: flex; flex-direction: column; }
+    .steps .tl, .toolrow .tl { display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+    .steps .tl img, .toolrow .tl img { width: 20px; height: 20px; }
+    .steps .tl.main, .toolrow .tl.main { font-size: 15px; font-weight: 800; color: var(--ink); }
+    .toolrow .tl.main img { width: 24px; height: 24px; }
+
+    /* Package bercabang dari Python */
+    .toolrow .c5 { grid-column: 5; } .toolrow .c6 { grid-column: 6; } .toolrow .c7 { grid-column: 7; }
+    .toolrow .tools { display: flex; flex-direction: column; align-items: flex-start; }
+    .toolrow .kids { display: flex; flex-direction: column; gap: 0; margin-left: 11px; margin-top: 4px; }
+    .toolrow .kids .tl { position: relative; padding: 4px 0 4px 20px; }
+    .toolrow .kids .tl::before { content: ""; position: absolute; left: 0; top: 50%; width: 13px; border-top: 2px solid var(--rule); }
+    .toolrow .kids .tl::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-left: 2px solid var(--rule); }
+    .toolrow .kids .tl:last-child::after { bottom: 50%; }
+
+    /* Diagram dan kartu catatan */
+    .note { font-family: var(--serif); font-size: 16px; color: var(--ink-2); line-height: 1.4; }
+    .loan { background: var(--white); border: 1px solid var(--rule); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; align-self: flex-start; }
+    .loan h3 { font-size: 20px; font-weight: 820; font-variation-settings: "wdth" 112; display: flex; justify-content: space-between; align-items: center; }
+    .loan dl { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; margin: 0; font-size: 16px; }
+    .loan dt { color: var(--ink-3); }
+    .loan dd { margin: 0; text-align: right; font-weight: 700; }
+    .loan .total { border-top: 2px solid var(--ink); padding-top: 8px; display: flex; justify-content: space-between; font-size: 18px; font-weight: 800; }
+
+    /* Slide pertanyaan bisnis: Davonn menyapa di kiri, empat pertanyaan di kanan */
+    .bq { display: grid; grid-template-columns: 400px 1fr; gap: 44px; margin-top: 14px; flex: 1; min-height: 0; }
+    .bq .me { display: flex; flex-direction: column; justify-content: flex-end; min-height: 0; }
+    .bq .bubble { position: relative; background: var(--ink); color: var(--paper); border-radius: 14px; padding: 16px 20px; font-family: var(--serif); font-size: 17.5px; line-height: 1.42; }
+    .bq .bubble b { font-family: var(--display); font-weight: 800; color: #9cc8bd; }
+    /* Ekor balon mengarah ke kepala avatar (tengah kolom) */
+    .bq .bubble::after { content: ""; position: absolute; left: 186px; bottom: -22px; border-style: solid; border-width: 22px 14px 0 14px; border-color: var(--ink) transparent transparent transparent; }
+    .bq .avatar { flex: none; height: 330px; width: 100%; margin-top: 16px; }
+    .bq .ask { display: flex; flex-direction: column; gap: 28px; min-height: 0; }
+    .bq .goal { background: var(--teal-3); padding: 14px 20px; border-radius: 3px; }
+    .bq .goal b { display: block; font-size: 18px; font-weight: 800; color: var(--teal-deep); }
+    .bq .goal p { font-family: var(--serif); font-size: 16.5px; color: var(--ink-2); margin-top: 4px; line-height: 1.4; }
+    .qs { border-top: 2px solid var(--ink); counter-reset: q; }
+    .bq .qs { border-top: none; margin-top: 44px; }
+    .bq .qs li { border-bottom: none; }
+    .qs li { display: grid; grid-template-columns: 58px 1fr; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--rule-2); font-size: 21px; line-height: 1.32; }
+    .qs li::before { counter-increment: q; content: counter(q); font-size: 30px; font-weight: 880; font-variation-settings: "wdth" 120; color: var(--teal); }
+
+    .mirror { display: grid; grid-template-columns: minmax(0, 1fr) 180px minmax(0, 1fr); margin-top: 22px; }
+    .mirror .side { padding: 20px 26px; }
+    .mirror .before { background: var(--red-2); }
+    .mirror .after { background: var(--teal-3); }
+    .mirror .mid { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 12px; gap: 6px; }
+    .mirror .mid b { font-size: 15px; font-weight: 800; }
+    .mirror .mid span { font-size: 13px; color: var(--ink-3); }
+    .mirror .lab { font-size: 15px; font-weight: 700; color: var(--ink-2); }
+    .mirror .val { font-size: 44px; font-weight: 880; font-variation-settings: "wdth" 120; white-space: nowrap; letter-spacing: -0.02em; line-height: 1; margin-top: 14px; }
+    .mirror .before .val { color: var(--red-deep); }
+    .mirror .after .val { color: var(--teal-deep); }
+    .mirror .cap { font-size: 15px; color: var(--ink-2); }
+
+
+    svg.chart { width: 100%; height: 100%; overflow: visible; display: block; }
+    svg text { font-family: var(--display); fill: var(--ink-2); }
+    .present svg .grow { animation: grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; transform-box: fill-box; transform-origin: bottom; }
+    .present svg .grow-x { animation: growx 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; transform-box: fill-box; transform-origin: left; }
+    .present svg .draw { animation: fade 0.6s 0.7s ease-out both; }
+    @keyframes grow { from { transform: scaleY(0); } }
+    @keyframes growx { from { transform: scaleX(0); } }
+    @keyframes fade { from { opacity: 0; } }
+    .present svg .trace { animation: trace var(--dur) var(--delay) linear forwards; }
+    @keyframes trace { to { stroke-dashoffset: 0; } }
+    .present svg .late { animation: fade 0.5s var(--late, 1.85s) ease-out both; }
+    .present svg .pause-lbl { animation: fade 0.4s var(--pause, 0.8s) ease-out both; }
+    @media (prefers-reduced-motion: reduce) { .present svg .grow, .present svg .grow-x, .present svg .draw, .present svg .late, .present svg .pause-lbl { animation: none; } svg .trace { animation: none !important; stroke-dashoffset: 0 !important; } }
+  </style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Sampul -->
+  <section class="cover">
+    <div class="sheet"><svg class="frame" data-frame aria-hidden="true"></svg></div>
+    <svg class="rosette" id="rosette" viewBox="-280 -280 560 560" aria-hidden="true"></svg>
+    <div class="links cover-folder">
+      <a href="https://drive.google.com/drive/folders/1fqf25KRUmAeymgeu7kNQZmOu7ndt110g?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 20 20" aria-hidden="true" fill="none"><path class="ico-line" d="M2 5.5c0-.8.6-1.5 1.5-1.5h4l2 2h7c.8 0 1.5.7 1.5 1.5v7.5c0 .8-.7 1.5-1.5 1.5h-13c-.9 0-1.5-.7-1.5-1.5z" stroke="#2e7a6b" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Folder pengerjaan
+      </a>
+    </div>
+    <div class="content">
+      <div class="dib-row"><img class="logo-dib" src="assets/logo-dibimbing-clear.png" alt="Dibimbing"><span>Data Analytics and Business Intelligence Weekdays 2</span></div>
+      <h1>Final<br>Project</h1>
+      <div class="project"><img src="assets/prosper-logo.svg" alt="Prosper"><span>Credit Risk Segmentation</span></div>
+      <div class="who">
+        <div>
+          <b>Davonn Lemuel Halomoan</b>
+          <div class="contact"><a href="mailto:davonnlemuel@gmail.com">davonnlemuel@gmail.com</a><span>+62 812-8514-4266</span></div>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/davonnlemuel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><rect class="ico-fill" x="0" y="0" width="20" height="20" rx="3" fill="#13264a"/><rect x="4" y="8" width="2.6" height="8" fill="#fff"/><circle cx="5.3" cy="5" r="1.6" fill="#fff"/><path d="M9 8h2.5v1.2c.5-.8 1.4-1.4 2.6-1.4 2 0 2.9 1.2 2.9 3.4V16h-2.6v-4.3c0-1.1-.4-1.7-1.3-1.7-1 0-1.5.7-1.5 1.8V16H9z" fill="#fff"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://davonnlemuel.github.io" target="_blank" rel="noopener">
+            <svg viewBox="0 0 20 20" aria-hidden="true" fill="none"><circle class="ico-line" cx="10" cy="10" r="8.2" stroke="#2e7a6b" stroke-width="1.8"/><path class="ico-line" d="M1.8 10h16.4M10 1.8c2.3 2.3 3.4 5 3.4 8.2s-1.1 5.9-3.4 8.2M10 1.8C7.7 4.1 6.6 6.8 6.6 10s1.1 5.9 3.4 8.2" stroke="#2e7a6b" stroke-width="1.5"/></svg>
+            Portofolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Prosper dan P2P lending</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Mengenai Prosper dan P2P Lending</h2>
+      <div class="pros">
+        <div class="left">
+          <figure class="photo">
+            <img src="assets/prosper-hq-221-main.jpg" alt="Gedung 221 Main Street, San Francisco">
+          </figure>
+          <dl class="facts">
+            <div><dt>2005</dt><dd>Didirikan Chris Larsen dan John Witchel. Prosper menyebut dirinya platform P2P lending pertama di AS.</dd></div>
+            <div><dt>2006</dt><dd>Dibuka untuk publik pada 5 Februari 2006.</dd></div>
+            <div><dt>2,5 jt</dt><dd>orang sudah dibantu Prosper sampai sekarang, menurut situs resminya.</dd></div>
+          </dl>
+        </div>
+        <div class="right">
+          <div class="def">
+            <div class="k">Siapa itu Prosper?</div>
+            <p>Perusahaan fintech di bidang <b>P2P lending</b>. Lewat Prosper.com, orang bisa mengajukan pinjaman pribadi, dan orang lain bisa berinvestasi dengan mendanai pinjaman itu.</p>
+          </div>
+          <div class="def">
+            <div class="k">Apa itu P2P lending?</div>
+            <p><b>Peer-to-peer lending</b> adalah pinjam-meminjam uang antarorang lewat platform online, tanpa bank sebagai perantara. Platform mempertemukan peminjam dengan pemberi dana, lalu mengurus penyaluran dan penagihannya.</p>
+          </div>
+          <svg class="chart" id="flow" viewBox="0 0 640 200" aria-label="Alur dana P2P lending: investor, Prosper, peminjam"></svg>
+        </div>
+        <div class="money">
+          <div class="mk">Cara Prosper<br>dapat uang</div>
+          <div><b>Prosper</b><p>Biaya layanan dari peminjam saat pinjaman cair, dan dari investor selama pinjaman berjalan.</p></div>
+          <div><b>Investor</b><p>Menerima bunga, sekaligus menanggung risiko kalau peminjam macet.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Sejarah Prosper</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Ada perubahan sistem</h2>
+      <div style="flex:1; min-height:0; margin-top:12px;"><svg class="chart" id="timeline" viewBox="0 0 1150 420" aria-label="Linimasa Prosper dan jumlah pinjaman per tahun"></svg></div>
+      <div class="hist-notes">
+        <p>Aturan main Prosper berubah di 2009, termasuk cara memberi rating. Karena itu data sebelum dan sesudah 2009 dianalisis terpisah.</p>
+        <p>Satu pinjaman biasanya didanai banyak investor sekaligus. <b class="acc">Mediannya 1 pinjaman didanai 44 investor.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Informasi data</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <div class="asof"><span>Data per</span><b>12 Mar 2014</b></div>
+      <h2>Informasi data yang digunakan</h2>
+      <p class="lead">Dataset yang digunakan merupakan data nyata yang diambil dari Prosper.</p>
+      <div class="kpis">
+        <div class="mid"><div class="k">Periode data</div><b class="sm">Nov 2005 -<br>Mar 2014</b></div>
+        <div><div class="k">Banyak baris</div><b>113.937</b><span>1 baris = 1 pinjaman</span></div>
+        <div><div class="k">Banyak kolom</div><div class="kcol"><b>81</b><ul class="branch"><li>Numerik: <b>61</b></li><li>Kategorik: <b>15</b></li><li>Tanggal: <b>5</b></li></ul></div></div>
+        <div class="mid"><div class="k">Kolom dipakai</div><b>36</b></div>
+        <div class="mid"><div class="k">Total dana disalurkan</div><b>$940 jt</b></div>
+      </div>
+      <table class="t coltab">
+        <tr><th>Kelompok kolom</th><th class="n">Banyak kolom</th><th>Contoh kolom yang dipakai</th><th>Dipakai untuk</th></tr>
+        <tr><td>Identitas dan tanggal</td><td class="n">4</td><td class="cols"><code>ListingKey</code><code>LoanOriginationDate</code><code>ClosedDate</code></td><td>Kunci unik dan waktu</td></tr>
+        <tr><td>Detail pinjaman</td><td class="n">5</td><td class="cols"><code>LoanOriginalAmount</code><code>Term</code><code>ListingCategory (numeric)</code></td><td>Produk pinjaman</td></tr>
+        <tr><td>Penilaian Prosper</td><td class="n">6</td><td class="cols"><code>ProsperRating (Alpha)</code><code>BorrowerRate</code><code>EstimatedLoss</code></td><td>Penilaian risiko dan bunga</td></tr>
+        <tr><td>Profil peminjam</td><td class="n">9</td><td class="cols"><code>StatedMonthlyIncome</code><code>DebtToIncomeRatio</code><code>EmploymentStatus</code></td><td>Siapa peminjamnya</td></tr>
+        <tr><td>Riwayat kredit</td><td class="n">5</td><td class="cols"><code>CreditScoreRangeLower</code><code>InquiriesLast6Months</code><code>BankcardUtilization</code></td><td>Kesehatan kredit di luar Prosper</td></tr>
+        <tr><td>Riwayat di Prosper</td><td class="n">1</td><td class="cols"><code>TotalProsperLoans</code></td><td>Peminjam baru atau lama</td></tr>
+        <tr><td>Hasil akhir</td><td class="n">6</td><td class="cols"><code>LoanStatus</code><code>LP_InterestandFees</code><code>LP_NetPrincipalLoss</code></td><td>Lunas atau macet, untung atau rugi</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Rating dan status</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2 style="max-width:none; font-size:32px; white-space:nowrap;">Persebaran rating dan status pinjaman pada dataset Prosper</h2>
+      <div class="row">
+        <div class="col" style="flex:1;"><div class="label rule-top chart-title">Persebaran rating pinjaman sejak Jul 2009 hingga Mar 2014</div><svg class="chart" id="chart-grade" viewBox="0 0 540 330" style="max-height:300px; margin-top:18px;" aria-label="Sebaran rating"></svg></div>
+        <div class="rs-split" aria-hidden="true"></div>
+        <div class="col" style="flex:1;"><div class="label rule-top chart-title">Status pinjaman per Maret 2014</div><svg class="chart" id="chart-status" viewBox="0 0 540 330" style="max-height:300px; margin-top:18px;" aria-label="Status pinjaman"></svg></div>
+      </div>
+      <div class="defnote">
+        <div class="dk">Definisi</div>
+        <p><b>Macet</b>: peminjam gagal membayar cicilannya, sehingga pinjaman dinyatakan gagal bayar atau dihapusbukukan.</p>
+        <p class="src">Pada dataset, <code>Chargedoff</code> dan <code>Defaulted</code> didefinisikan sebagai Macet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Key Business Questions</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Empat pertanyaan untuk tim credit risk</h2>
+      <div class="bq">
+        <div class="me">
+          <div class="bubble"><b>Hi!</b> Saya berperan sebagai <b>data analyst di Prosper</b>. Saya akan menganalisis risiko dari karakteristik peminjam, supaya risiko yang ditanggung investor tetap terkontrol. Dengan begitu, makin banyak investor yang mau datang.</div>
+          <svg class="avatar" viewBox="0 0 360 400" role="img" aria-label="Ilustrasi Davonn sebagai data analyst Prosper, melambai">
+            <circle cx="180" cy="232" r="160" fill="#e7ece4"/>
+            <!-- lengan: kulit di belakang, lengan kemeja menempel di bahu -->
+            <path d="M84 330 L66 400" stroke="#d9a074" stroke-width="30" stroke-linecap="round"/>
+            <path d="M266 300 L300 232 L306 186" fill="none" stroke="#d9a074" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="289" y="188" width="33" height="11" rx="3" fill="#2b2f36" transform="rotate(5 305 193)"/>
+            <rect x="319" y="187" width="5" height="13" rx="1.5" fill="#9aa3ab" transform="rotate(5 305 193)"/>
+            <g fill="#d9a074">
+              <rect x="290" y="150" width="34" height="40" rx="14"/>
+              <rect x="289" y="118" width="9" height="38" rx="4.5"/>
+              <rect x="299" y="112" width="9" height="42" rx="4.5"/>
+              <rect x="309" y="115" width="9" height="40" rx="4.5"/>
+              <rect x="318" y="124" width="8.5" height="34" rx="4.2"/>
+              <rect x="276" y="160" width="22" height="9" rx="4.5" transform="rotate(-38 287 164)"/>
+            </g>
+            <!-- badan dan kemeja -->
+            <path d="M84 302 Q120 276 180 272 Q240 276 272 300 L286 400 L74 400 Z" fill="#ffffff" stroke="#d5dbd6" stroke-width="2"/>
+            <path d="M180 286 L180 400" stroke="#d5dbd6" stroke-width="2"/>
+            <circle cx="180" cy="318" r="3" fill="#c9d1cc"/><circle cx="180" cy="350" r="3" fill="#c9d1cc"/><circle cx="180" cy="382" r="3" fill="#c9d1cc"/>
+            <path d="M96 296 L80 344" stroke="#d5dbd6" stroke-width="46" stroke-linecap="butt"/>
+            <path d="M96 296 L80 344" stroke="#ffffff" stroke-width="42" stroke-linecap="butt"/>
+            <path d="M258 296 L282 258" stroke="#d5dbd6" stroke-width="46" stroke-linecap="butt"/>
+            <path d="M258 296 L282 258" stroke="#ffffff" stroke-width="42" stroke-linecap="butt"/>
+            <image href="assets/prosper-logo.svg" x="196" y="318" width="70" height="16"/>
+            <rect x="112" y="314" width="56" height="22" rx="3" fill="#ffffff" stroke="#13264a" stroke-width="1.6"/>
+            <rect x="112" y="314" width="56" height="6" rx="2" fill="#13264a"/>
+            <text x="140" y="332" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10.5" font-weight="800" fill="#13264a">Davonn</text>
+            <!-- leher dan kerah -->
+            <path d="M160 232 L200 232 L204 282 Q180 296 156 282 Z" fill="#c98d63"/>
+            <path d="M150 272 L180 288 L162 304 Z M210 272 L180 288 L198 304 Z" fill="#ffffff" stroke="#c9d1cc" stroke-width="2" stroke-linejoin="round"/>
+            <!-- telinga dan wajah -->
+            <ellipse cx="119" cy="176" rx="13" ry="18" fill="#d9a074"/>
+            <ellipse cx="241" cy="176" rx="13" ry="18" fill="#d9a074"/>
+            <path d="M120 150 Q120 236 180 248 Q240 236 240 150 Q240 96 180 96 Q120 96 120 150 Z" fill="#e2ac82"/>
+            <!-- rambut ikal berponi -->
+            <path d="M112 168 Q100 120 122 92 Q134 70 158 66 Q170 52 192 58 Q214 52 228 70 Q252 78 254 104 Q264 128 248 168
+                     Q244 146 236 136 Q228 146 214 140 Q206 150 192 142 Q182 152 168 144 Q156 152 146 142 Q134 150 126 138 Q118 150 112 168 Z" fill="#17181d"/>
+            <path d="M134 86 Q146 78 156 84 M182 70 Q194 64 204 72 M214 84 Q226 80 236 90 M150 104 Q160 98 170 104 M196 98 Q208 92 218 100" fill="none" stroke="#33353d" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- alis, mata, kacamata -->
+            <path d="M138 156 Q152 150 166 155 M194 155 Q208 150 222 156" fill="none" stroke="#17181d" stroke-width="3.4" stroke-linecap="round"/>
+            <ellipse cx="153" cy="178" rx="4.6" ry="5.4" fill="#17181d"/>
+            <ellipse cx="207" cy="178" rx="4.6" ry="5.4" fill="#17181d"/>
+            <g fill="rgba(255,255,255,0.18)" stroke="#202227" stroke-width="3.2">
+              <path d="M128 168 Q130 160 152 160 Q172 160 174 170 Q176 196 152 198 Q128 196 128 168 Z"/>
+              <path d="M186 170 Q188 160 208 160 Q230 160 232 168 Q232 196 208 198 Q184 196 186 170 Z"/>
+            </g>
+            <path d="M174 170 Q180 165 186 170 M128 168 L118 166 M232 168 L242 166" fill="none" stroke="#202227" stroke-width="3"/>
+            <!-- hidung dan senyum -->
+            <path d="M180 186 Q177 202 172 208 Q178 212 186 209" fill="none" stroke="#b9774f" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M163 222 Q180 232 198 222" fill="none" stroke="#8f4f37" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M166 217 Q180 214 194 217" fill="none" stroke="#b9774f" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="ask">
+          <ol class="qs">
+            <li>Peminjam seperti apa yang membuat investor untung, dan yang membuat investor rugi?</li>
+            <li>Kalau peminjam paling berisiko ditolak, berapa macet yang terhindar, dan berapa pinjaman lancar serta untung yang ikut hilang?</li>
+            <li>Apakah peminjam berisiko sudah membayar bunga yang cukup untuk menutup kerugiannya?</li>
+            <li>Ciri peminjam apa yang paling menentukan macet?</li>
+          </ol>
+          <div class="goal"><b>Hasil yang diharapkan: rekomendasi kebijakan kredit</b><p>Segmen yang perlu diperketat atau dinaikkan bunganya, beserta dampaknya ke tingkat macet, volume penyaluran, dan untung investor.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Tren</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Tren penyaluran dan pinjaman yang sudah selesai</h2>
+      <div class="trend">
+        <div class="col"><div class="label rule-top chart-title">Pinjaman cair per kuartal</div><svg class="chart" id="chart-quarter" viewBox="0 0 716 440" aria-label="Pinjaman cair per kuartal"></svg></div>
+        <div class="col"><div class="label rule-top chart-title">Persentase pinjaman yang sudah selesai per tahun cair</div><svg class="chart" id="chart-resolved" viewBox="0 0 500 440" aria-label="Persen pinjaman selesai per tahun"></svg></div>
+      </div>
+      <ul class="trend-note"><li>Pinjaman 2011 sampai 2014 sebagian besar (<b>57.963</b>) masih dicicil, jadi status akhirnya belum diketahui.</li><li>Tingkat macet per segmen dihitung dari <b>10.535 pinjaman</b> sejak Jul 2009 yang tenornya sudah habis.</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Key Insight</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2><span class="kbadge">Key Insight</span></h2>
+      <p class="lead" style="max-width:none;">Setelah 2009, macet turun separuh dan investor berbalik untung.</p>
+      <div class="ki">
+        <div class="cmps">
+          <div class="cmp">
+            <div class="k">Tingkat macet</div>
+            <div class="cmp-row"><div><b class="bad">36,9%</b><span>2006 - 2008</span></div><svg class="cmp-ar" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h30M25 3l9 7-9 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b class="good">16,3%</b><span>2009 - 2010</span></div></div>
+          </div>
+          <div class="cmp">
+            <div class="k">Untung bersih investor</div>
+            <div class="cmp-row"><div><b class="bad">−$14,71 jt</b><span>2006 - 2008</span></div><svg class="cmp-ar" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h30M25 3l9 7-9 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b class="good">+$4,35 jt</b><span>2009 - 2010</span></div></div>
+          </div>
+        </div>
+        <svg class="chart" id="chart-ki1" viewBox="0 0 740 360" aria-label="Tingkat macet dan untung bersih investor per tahun cair, 2006 sampai 2010"></svg>
+      </div>
+      <div class="kconc">
+        <svg class="happy" viewBox="86 14 140 96" role="img" aria-label="Ilustrasi investor senang memegang koin">
+            <circle cx="150" cy="62" r="46" fill="#dbeee9"/>
+            <path d="M118 110 Q118 80 150 78 Q182 80 182 110 Z" fill="#13264a"/>
+            <path d="M150 80 l-7 9 l7 21 l7 -21 z" fill="#ffffff"/>
+            <path d="M150 86 l-3.5 5 l3.5 13 l3.5 -13 z" fill="#2e7a6b"/>
+            <circle cx="150" cy="56" r="18" fill="#e2ac82"/>
+            <path d="M132 54 Q130 34 150 33 Q170 34 168 54 Q164 44 150 44 Q138 44 132 54 Z" fill="#3b2a20"/>
+            <path d="M142 55 q2.5 -3 5 0 M153 55 q2.5 -3 5 0" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round"/>
+            <path d="M143 62 Q150 69 157 62" fill="none" stroke="#8f4f37" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M178 92 L196 62" stroke="#e2ac82" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="200" cy="52" r="13" fill="#e8b04b" stroke="#c48d2a" stroke-width="2"/>
+            <text x="200" y="57.5" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#7a5410">$</text>
+            <path d="M92 74 l12 -12 l9 8 l16 -18" fill="none" stroke="#2e7a6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M129 52 l-7 0 m7 0 l0 7" fill="none" stroke="#2e7a6b" stroke-width="3" stroke-linecap="round"/>
+            <path d="M214 30 l3 -7 m6 9 l7 -3 m-6 11 l7 3" stroke="#e8b04b" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        <div><b>Insight diperoleh</b><p>Perubahan sistem pada 2009 diduga ikut membuat macet berkurang dan investor lebih untung.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Preparation · Struktur data</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Alur Persiapan Data</h2>
+      <!-- Lebar batang = jumlah pinjaman / data mentah (notebook 01, penanda "Struktur data"). -->
+      <div class="funnel">
+        <div class="frow">
+          <div class="flab"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><small>Data Raw Pinjaman</small><b>113.937</b></div>
+          <div class="fbar"><i style="width:100%"></i></div>
+          <div class="fcut"></div>
+        </div>
+        <div class="frow">
+          <div class="flab"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2l-4 9"/><path d="M6 11h9l2 10H4z"/><path d="M9 15v6M13 15v6"/></svg><small>Data Cleaned Pinjaman</small><b>113.060</b></div>
+          <div class="fbar"><i style="width:99.23%"></i></div>
+          <div class="fcut"><b>− 877 baris</b></div>
+        </div>
+        <div class="frow">
+          <div class="flab"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><small>Era rating baru</small><b>84.112</b></div>
+          <div class="fbar"><i style="width:73.82%"></i></div>
+          <div class="fcut"><b>− 28.948 baris</b>Periode rating lama dibuang<br>(Nov 2005 - Mei 2009)</div>
+        </div>
+        <div class="frow">
+          <div class="flab"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 5 10 6 10 9s-10 4-10 9M17 3c0 5-10 6-10 9s10 4 10 9"/></svg><small>Tenor sudah habis</small><b>10.761</b></div>
+          <div class="fbar"><i style="width:9.44%"></i></div>
+          <div class="fcut"><b>− 73.351 baris</b>Pinjaman yang tenornya belum habis</div>
+        </div>
+        <div class="frow gong">
+          <div class="flab"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><small>Data Akhir</small><b>10.535</b><span class="fstat">Lunas = <em class="good">8.917</em></span><span class="fstat">Macet = <em class="bad">1.618</em></span></div>
+          <div class="fbar"><i class="split" style="width:9.25%"><span style="width:84.6%"></span><span style="width:15.4%"></span></i></div>
+          <div class="fcut"><b>− 226 baris</b>Pinjaman masih berjalan atau telat bayar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Hubungan antarvariabel</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Skor kredit terhadap kemacetan</h2>
+      <p class="fac-note">Merah: tingkat macet 20% ke atas</p>
+      <div class="seg-chart"><svg class="chart" id="chart-score" viewBox="0 0 1150 360" aria-label="Tingkat macet per kelompok skor kredit"></svg></div>
+      <div class="kconc seg-insight"><div><b>Insight diperoleh</b><p>Makin tinggi skor kredit, makin jarang macet: dari 22,0% di skor 600-639 turun ke 2,5% di skor 840 ke atas.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Hubungan antarvariabel</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Pengaruh rating dan DTI terhadap kemacetan</h2>
+      <div class="row heat-row">
+        <div class="col" style="flex:1;"><svg class="chart" id="chart-heat" viewBox="0 0 660 440" aria-label="Tingkat macet per rating dan DTI"></svg></div>
+        <div class="col heat-side" style="flex:0 0 330px; gap:16px;">
+          <p class="heat-lead">Di rating yang sama, DTI masih membedakan macet.</p>
+          <table class="t heat-pick">
+            <tr><th class="grp" colspan="3">DTI 30-40%</th></tr>
+            <tr><th>Rating</th><th class="n">Macet</th><th class="n bunga">Bunga</th></tr>
+            <tr><td>AA</td><td class="n">12,9%</td><td class="n bunga">9,1%</td></tr>
+            <tr><td>D</td><td class="n">13,9%</td><td class="n bunga last">25,5%</td></tr>
+          </table>
+          <span class="heat-key">Border merah menunjukkan tingkat macet ≥ 25%</span>
+        </div>
+      </div>
+      <div class="kconc heat-insight">
+        <svg class="thinker-sm" viewBox="66 34 244 326" role="img" aria-label="Ilustrasi Davonn sedang berpikir">
+              <circle cx="184" cy="196" r="114" fill="#e7ece4"/>
+              <path d="M84 302 Q120 276 180 272 Q240 276 272 300 L286 400 L74 400 Z" fill="#ffffff" stroke="#d5dbd6" stroke-width="2"/>
+              <path d="M180 286 L180 400" stroke="#d5dbd6" stroke-width="2"/>
+              <path d="M160 232 L200 232 L204 282 Q180 296 156 282 Z" fill="#c98d63"/>
+              <image href="assets/prosper-logo.svg" x="94" y="316" width="80" height="13"/>
+              <path d="M150 272 L180 288 L162 304 Z M210 272 L180 288 L198 304 Z" fill="#ffffff" stroke="#c9d1cc" stroke-width="2" stroke-linejoin="round"/>
+              <ellipse cx="119" cy="176" rx="13" ry="18" fill="#d9a074"/>
+              <ellipse cx="241" cy="176" rx="13" ry="18" fill="#d9a074"/>
+              <path d="M120 150 Q120 236 180 248 Q240 236 240 150 Q240 96 180 96 Q120 96 120 150 Z" fill="#e2ac82"/>
+              <path d="M112 168 Q100 120 122 92 Q134 70 158 66 Q170 52 192 58 Q214 52 228 70 Q252 78 254 104 Q264 128 248 168
+                       Q244 146 236 136 Q228 146 214 140 Q206 150 192 142 Q182 152 168 144 Q156 152 146 142 Q134 150 126 138 Q118 150 112 168 Z" fill="#17181d"/>
+              <path d="M134 86 Q146 78 156 84 M182 70 Q194 64 204 72 M214 84 Q226 80 236 90 M150 104 Q160 98 170 104 M196 98 Q208 92 218 100" fill="none" stroke="#33353d" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M138 154 Q152 150 166 155 M194 150 Q208 141 222 148" fill="none" stroke="#17181d" stroke-width="3.4" stroke-linecap="round"/>
+              <ellipse cx="157" cy="173" rx="4.6" ry="5.4" fill="#17181d"/>
+              <ellipse cx="211" cy="173" rx="4.6" ry="5.4" fill="#17181d"/>
+              <g fill="rgba(255,255,255,0.18)" stroke="#202227" stroke-width="3.2">
+                <path d="M128 168 Q130 160 152 160 Q172 160 174 170 Q176 196 152 198 Q128 196 128 168 Z"/>
+                <path d="M186 170 Q188 160 208 160 Q230 160 232 168 Q232 196 208 198 Q184 196 186 170 Z"/>
+              </g>
+              <path d="M174 170 Q180 165 186 170 M128 168 L118 166 M232 168 L242 166" fill="none" stroke="#202227" stroke-width="3"/>
+              <path d="M180 186 Q177 202 172 208 Q178 212 186 209" fill="none" stroke="#b9774f" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M168 225 Q178 221 190 224" fill="none" stroke="#8f4f37" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M262 304 L226 372" stroke="#d5dbd6" stroke-width="44" stroke-linecap="round"/>
+              <path d="M262 304 L226 372" stroke="#ffffff" stroke-width="40" stroke-linecap="round"/>
+              <path d="M222 360 L210 262" stroke="#d9a074" stroke-width="26" stroke-linecap="round"/>
+              <rect x="201" y="300" width="30" height="11" rx="3" fill="#2b2f36" transform="rotate(-7 216 305)"/>
+              <rect x="186" y="232" width="40" height="34" rx="15" fill="#d9a074"/>
+              <path d="M192 240 Q205 236 218 240 M192 249 Q205 245 218 249" fill="none" stroke="#b9774f" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="256" cy="110" r="4.5" fill="#ffffff" stroke="#9fb9b1" stroke-width="2"/>
+              <circle cx="268" cy="92" r="7" fill="#ffffff" stroke="#9fb9b1" stroke-width="2"/>
+              <circle cx="284" cy="64" r="20" fill="#ffffff" stroke="#9fb9b1" stroke-width="2"/>
+              <text x="284" y="73" text-anchor="middle" font-family="Archivo, sans-serif" font-size="26" font-weight="800" fill="#13264a">?</text>
+            </svg>
+        <div><b>Insight diperoleh</b><p>Di DTI 30-40%, peminjam rating AA memiliki risiko macet yang mendekati peminjam rating D <span style="white-space:nowrap">(12,9% dan 13,9%)</span>, tetapi bunga rating AA jauh di bawah rating D <span style="white-space:nowrap">(9,1% dan 25,5%)</span>.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Analisis Segmen · Jawaban</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2 style="max-width:none; white-space:nowrap; font-size:34px;">Business Question 1: Segmentasi Keuntungan dan Kerugian</h2>
+      <div class="bq1-groups">
+        <div class="bq1-card up">
+          <div class="bq1-head"><svg class="crowd" viewBox="0 0 152 94" aria-hidden="true"><g transform="translate(0 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#2e7a6b"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#e2ac82"/><circle cx="30" cy="34" r="17" fill="#e2ac82"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#17181d"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><g transform="translate(46 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#3f8f7e"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#c58a63"/><circle cx="30" cy="34" r="17" fill="#c58a63"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#3a2a22"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><g transform="translate(92 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#1f5a4e"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#f0c39c"/><circle cx="30" cy="34" r="17" fill="#f0c39c"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#5a3b25"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M24 42 Q30 48 36 42" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M70 42 Q76 48 82 42" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M116 42 Q122 48 128 42" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/></svg><div><b>Pembawa untung</b><span>Top 3 pasangan segmen paling untung untuk setiap $100 dipinjamkan</span></div></div>
+          <ul class="bq1-list">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">Rating HR</i><i class="seg-chip">pendapatan $100.000+/tahun</i></span><b>$27,09</b></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">Rating HR</i><i class="seg-chip">peminjam ulang</i></span><b>$24,44</b></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">Rating HR</i><i class="seg-chip">pendapatan $75.000-99.999/tahun</i></span><b>$22,72</b></li>
+          </ul>
+          <p class="bq1-key"><b>Key point</b>Untung terbesar justru datang dari rating berisiko yang berpendapatan tinggi atau sudah pernah meminjam. Segmen ini bisa jadi kunci pertumbuhan Prosper.</p>
+        </div>
+        <div class="bq1-card down">
+          <div class="bq1-head"><svg class="crowd" viewBox="0 0 152 94" aria-hidden="true"><g transform="translate(0 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#c3382c"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#e2ac82"/><circle cx="30" cy="34" r="17" fill="#e2ac82"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#17181d"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><g transform="translate(46 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#a8443a"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#c58a63"/><circle cx="30" cy="34" r="17" fill="#c58a63"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#3a2a22"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><g transform="translate(92 0)"><path d="M4 92 Q4 62 30 60 Q56 62 56 92 Z" fill="#d06a5f"/><rect x="25" y="46" width="10" height="16" rx="3" fill="#f0c39c"/><circle cx="30" cy="34" r="17" fill="#f0c39c"/><path d="M13 32 Q12 14 30 14 Q48 14 47 32 Q42 22 30 22 Q18 22 13 32 Z" fill="#5a3b25"/><circle cx="24" cy="36" r="2" fill="#1b1b1b"/><circle cx="36" cy="36" r="2" fill="#1b1b1b"/></g><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M25 44 Q30 41 35 44" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M71 44 Q76 41 81 44" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/><path d="M117 44 Q122 41 127 44" fill="none" stroke="#8f4f37" stroke-width="2" stroke-linecap="round"/></svg><div><b>Pembawa rugi</b><span>Top 3 pasangan segmen paling rugi untuk setiap $100 dipinjamkan</span></div></div>
+          <ul class="bq1-list">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">DTI tidak tercatat</i><i class="seg-chip">rating AA</i></span><b>$3,21</b></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">DTI tidak tercatat</i><i class="seg-chip">tenor 12 bulan</i></span><b>$2,72</b></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><i class="seg-chip">Peminjam baru</i><i class="seg-chip">tanpa pendapatan</i></span><b>$1,39</b></li>
+          </ul>
+          <p class="bq1-key"><b>Key point</b>DTI penting untuk dinilai, karena 2 dari 3 pasangan segmen paling rugi melibatkan peminjam yang DTI-nya tidak tercatat. Pinjaman tanpa DTI bisa dinilai setara rating D (macet 19,6% dan 20,8%).</p>
+        </div>
+      </div>
+      <div class="bq-ans bq-done" style="margin-top:26px;"><b>Business Question 1 terjawab</b></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Analisis Segmen · Simulasi tolak</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2 style="max-width:none; white-space:nowrap;">Business Question 2: Simulasi Menolak Segmen</h2>
+      <div class="sim-cards">
+        <div class="sim-card">
+          <span class="sim-tab">Skenario 1</span>
+          <h3>Menolak segmen paling berisiko</h3>
+          <p>9 pasangan segmen berisiko (Rating dan DTI) dari EDA.</p>
+          <div class="sim-segs"><span class="sim-seg"><i>HR</i><i>semua DTI tercatat</i></span><span class="sim-seg"><i>E</i><i>DTI 10-20%</i></span><span class="sim-seg"><i>E</i><i>DTI 30-40%</i></span><span class="sim-seg"><i>E</i><i>DTI 40%+</i></span><span class="sim-seg"><i>D</i><i>DTI tidak tercatat</i></span></div>
+          <ul>
+            <li><span>Macet terhindar</span><b class="good">529<em>32,7%</em></b></li>
+            <li><span>Lancar ikut ditolak</span><b class="bad">1.456<em>16,3%</em></b></li>
+            <li><span>Untung bersih investor</span><b class="bad">−$0,94 juta<em>−17,7%</em></b></li>
+          </ul>
+        </div>
+        <div class="sim-card">
+          <span class="sim-tab">Skenario 2</span>
+          <h3>Menolak pasangan segmen kerugian terbesar</h3>
+          <p>5 pasangan segmen paling rugi dari Business Question 1.</p>
+          <div class="sim-segs"><span class="sim-seg"><i>DTI tidak tercatat</i><i>rating AA</i></span><span class="sim-seg"><i>DTI tidak tercatat</i><i>tenor 12 bulan</i></span><span class="sim-seg"><i>Peminjam baru</i><i>tanpa pendapatan</i></span><span class="sim-seg"><i>Tenor 12 bulan</i><i>pendapatan $1-24.999</i></span><span class="sim-seg"><i>DTI tidak tercatat</i><i>pendapatan $75.000-99.999</i></span></div>
+          <ul>
+            <li><span>Macet terhindar</span><b class="good">73<em>4,5%</em></b></li>
+            <li><span>Lancar ikut ditolak</span><b class="bad">370<em>4,1%</em></b></li>
+            <li><span>Untung bersih investor</span><b class="good">+$9.576<em>+0,2%</em></b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="sim-foot">Persen dihitung dari 1.618 macet, 8.917 lancar, dan untung bersih investor $5,32 juta di kohort.</p>
+      <div class="bq-ans"><b>Business Question 2 terjawab</b><p>Menolak segmen paling berisiko justru menurunkan untung investor $0,94 juta. Menolak pasangan segmen kerugian terbesar menaikkan untung, tapi hanya $9.576 (0,2%). Menolak peminjam bukan cara utama menambah untung.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Analisis Segmen · Bunga dan kerugian</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2 style="max-width:none; white-space:nowrap;">Business Question 3: Kecukupan Bunga Menutup Kerugian</h2>
+      <div class="seg-chart"><svg class="chart" id="chart-cover" viewBox="0 0 1150 440" aria-label="Bunga, biaya, pokok hilang, dan untung per 100 dolar per rating"></svg></div>
+      <div class="bq-ans"><b>Business Question 3 terjawab</b><p>Bunga sudah menutup pokok yang hilang dan biaya Prosper di semua rating, sehingga tidak ada rating yang rugi.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Dashboard</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Power BI Dashboard</h2>
+      <div class="dash-pair">
+      <div class="dash-frame"><div class="win-bar"><img src="assets/power-bi.svg" alt=""><span>Portofolio pinjaman - Dashboard Prosper.pbix</span><i aria-hidden="true">&#x2212;</i><i aria-hidden="true">&#x25A1;</i><i class="x" aria-hidden="true">&#x2715;</i></div><div class="win-body"><img class="dash-shot" src="assets/dashboard/halaman_1.png" alt="Dashboard Power BI halaman 1: Portofolio pinjaman"></div></div>
+      <div class="dash-frame"><div class="win-bar"><img src="assets/power-bi.svg" alt=""><span>Customer Segmentation - Dashboard Prosper.pbix</span><i aria-hidden="true">&#x2212;</i><i aria-hidden="true">&#x25A1;</i><i class="x" aria-hidden="true">&#x2715;</i></div><div class="win-body"><img class="dash-shot" src="assets/dashboard/halaman_2.png" alt="Dashboard Power BI halaman 2: Customer Segmentation"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Modelling · Random forest</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Data Modelling</h2>
+      <div class="mdl">
+        <div>
+          <table class="t mdl-t">
+            <tr><th>Bagian</th><th>Isi</th></tr>
+            <tr><td>Data</td><td>10.535 pinjaman matang dengan tingkat macet 15,4%</td></tr>
+            <tr><td>Fitur</td><td>14 ciri profil peminjam (rating dan bunga tidak dipakai)</td></tr>
+            <tr><td>Pembagian</td><td>80% latih dan 20% uji</td></tr>
+            <tr><td>Model</td><td>Random forest dengan 300 pohon</td></tr>
+          </table>
+          <div class="label rule-top" style="margin-top:18px;">Skor AUC</div>
+          <svg class="chart" id="chart-auc" viewBox="0 0 600 170" style="height:132px;" aria-label="AUC rating Prosper dan random forest"></svg>
+          <p class="mdl-note">Random forest membedakan risiko lebih baik dari rating Prosper.</p>
+        </div>
+        <div>
+          <svg class="chart" id="chart-importance" viewBox="0 0 640 380" style="width:100%; height:330px;" aria-label="Kepentingan variabel random forest"></svg>
+        </div>
+      </div>
+      <div class="bq-ans" style="margin-top:18px;"><b>Business Question 4 terjawab</b><p>Skor kredit dan tenor paling menentukan macet.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Insight dan Rekomendasi</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Kesimpulan dan rekomendasi kebijakan risiko</h2>
+      <div class="fin">
+        <div class="fin-me">
+          <div class="fin-bubble"><b>Yay!</b> Keempat pertanyaan bisnis sudah terjawab.</div>
+          <svg class="avatar fin-avatar" viewBox="0 0 360 400" role="img" aria-label="Ilustrasi Davonn sebagai data analyst Prosper, senang analisis selesai">
+            <circle cx="180" cy="232" r="160" fill="#e7ece4"/><rect x="30" y="70" width="9" height="16" rx="2" fill="#2e7a6b" transform="rotate(-25 34 78)"/><rect x="70" y="24" width="9" height="16" rx="2" fill="#e8b04b" transform="rotate(20 74 32)"/><rect x="322" y="40" width="9" height="16" rx="2" fill="#c3382c" transform="rotate(30 326 48)"/><rect x="250" y="18" width="9" height="16" rx="2" fill="#2e7a6b" transform="rotate(-15 254 26)"/><rect x="24" y="160" width="9" height="16" rx="2" fill="#e8b04b" transform="rotate(40 28 168)"/><rect x="330" y="96" width="9" height="16" rx="2" fill="#9cc8bd" transform="rotate(-35 334 104)"/><rect x="118" y="8" width="9" height="16" rx="2" fill="#c3382c" transform="rotate(10 122 16)"/>
+            <!-- lengan: kulit di belakang, lengan kemeja menempel di bahu -->
+            <path d="M84 330 L66 400" stroke="#d9a074" stroke-width="30" stroke-linecap="round"/>
+            <path d="M266 300 L300 232 L306 186" fill="none" stroke="#d9a074" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="289" y="188" width="33" height="11" rx="3" fill="#2b2f36" transform="rotate(5 305 193)"/>
+            <rect x="319" y="187" width="5" height="13" rx="1.5" fill="#9aa3ab" transform="rotate(5 305 193)"/>
+            <g fill="#d9a074">
+              <rect x="290" y="150" width="34" height="40" rx="14"/>
+              <rect x="289" y="118" width="9" height="38" rx="4.5"/>
+              <rect x="299" y="112" width="9" height="42" rx="4.5"/>
+              <rect x="309" y="115" width="9" height="40" rx="4.5"/>
+              <rect x="318" y="124" width="8.5" height="34" rx="4.2"/>
+              <rect x="276" y="160" width="22" height="9" rx="4.5" transform="rotate(-38 287 164)"/>
+            </g>
+            <!-- badan dan kemeja -->
+            <path d="M84 302 Q120 276 180 272 Q240 276 272 300 L286 400 L74 400 Z" fill="#ffffff" stroke="#d5dbd6" stroke-width="2"/>
+            <path d="M180 286 L180 400" stroke="#d5dbd6" stroke-width="2"/>
+            <circle cx="180" cy="318" r="3" fill="#c9d1cc"/><circle cx="180" cy="350" r="3" fill="#c9d1cc"/><circle cx="180" cy="382" r="3" fill="#c9d1cc"/>
+            <path d="M96 296 L80 344" stroke="#d5dbd6" stroke-width="46" stroke-linecap="butt"/>
+            <path d="M96 296 L80 344" stroke="#ffffff" stroke-width="42" stroke-linecap="butt"/>
+            <path d="M258 296 L282 258" stroke="#d5dbd6" stroke-width="46" stroke-linecap="butt"/>
+            <path d="M258 296 L282 258" stroke="#ffffff" stroke-width="42" stroke-linecap="butt"/>
+            <image href="assets/prosper-logo.svg" x="196" y="318" width="70" height="16"/>
+            <rect x="112" y="314" width="56" height="22" rx="3" fill="#ffffff" stroke="#13264a" stroke-width="1.6"/>
+            <rect x="112" y="314" width="56" height="6" rx="2" fill="#13264a"/>
+            <text x="140" y="332" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10.5" font-weight="800" fill="#13264a">Davonn</text>
+            <!-- leher dan kerah -->
+            <path d="M160 232 L200 232 L204 282 Q180 296 156 282 Z" fill="#c98d63"/>
+            <path d="M150 272 L180 288 L162 304 Z M210 272 L180 288 L198 304 Z" fill="#ffffff" stroke="#c9d1cc" stroke-width="2" stroke-linejoin="round"/>
+            <!-- telinga dan wajah -->
+            <ellipse cx="119" cy="176" rx="13" ry="18" fill="#d9a074"/>
+            <ellipse cx="241" cy="176" rx="13" ry="18" fill="#d9a074"/>
+            <path d="M120 150 Q120 236 180 248 Q240 236 240 150 Q240 96 180 96 Q120 96 120 150 Z" fill="#e2ac82"/>
+            <!-- rambut ikal berponi -->
+            <path d="M112 168 Q100 120 122 92 Q134 70 158 66 Q170 52 192 58 Q214 52 228 70 Q252 78 254 104 Q264 128 248 168
+                     Q244 146 236 136 Q228 146 214 140 Q206 150 192 142 Q182 152 168 144 Q156 152 146 142 Q134 150 126 138 Q118 150 112 168 Z" fill="#17181d"/>
+            <path d="M134 86 Q146 78 156 84 M182 70 Q194 64 204 72 M214 84 Q226 80 236 90 M150 104 Q160 98 170 104 M196 98 Q208 92 218 100" fill="none" stroke="#33353d" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- alis, mata, kacamata -->
+            <path d="M138 156 Q152 150 166 155 M194 155 Q208 150 222 156" fill="none" stroke="#17181d" stroke-width="3.4" stroke-linecap="round"/>
+            <ellipse cx="153" cy="178" rx="4.6" ry="5.4" fill="#17181d"/>
+            <ellipse cx="207" cy="178" rx="4.6" ry="5.4" fill="#17181d"/>
+            <g fill="rgba(255,255,255,0.18)" stroke="#202227" stroke-width="3.2">
+              <path d="M128 168 Q130 160 152 160 Q172 160 174 170 Q176 196 152 198 Q128 196 128 168 Z"/>
+              <path d="M186 170 Q188 160 208 160 Q230 160 232 168 Q232 196 208 198 Q184 196 186 170 Z"/>
+            </g>
+            <path d="M174 170 Q180 165 186 170 M128 168 L118 166 M232 168 L242 166" fill="none" stroke="#202227" stroke-width="3"/>
+            <!-- hidung dan senyum -->
+            <path d="M180 186 Q177 202 172 208 Q178 212 186 209" fill="none" stroke="#b9774f" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M163 222 Q180 232 198 222" fill="none" stroke="#8f4f37" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M166 217 Q180 214 194 217" fill="none" stroke="#b9774f" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="fin-main">
+          <p class="fin-gong">Pinjaman yang cair setelah 2009 lebih jarang macet (36,9% menjadi 16,3%), dan semua rating menghasilkan untung. Bunga sudah menutup kerugian, sehingga menolak peminjam bukan cara utama menambah untung.</p>
+          <div class="fin-bq">
+            <div><span>BQ1 · Untung dan rugi</span><p>Dilihat per satu segmen, semua untung. Untung terbesar dari rating HR berpendapatan $100.000+ (<b>$27,09</b> per $100). Rugi hanya muncul di pasangan segmen, 3 dari 5 melibatkan DTI tidak tercatat.</p></div>
+            <div><span>BQ2 · Menolak segmen</span><p>Menolak 9 pasangan paling berisiko menghindari 529 macet, tapi untung investor turun <b>$0,94 juta (−17,7%)</b>. Menolak 5 pasangan paling rugi hanya menambah $9.576 (+0,2%).</p></div>
+            <div><span>BQ3 · Bunga cukup?</span><p>Sudah. Di semua rating, bunga lebih besar dari pokok yang hilang, sehingga investor untung <b>$5,43 (AA) sampai $18,90 (HR)</b> per $100.</p></div>
+            <div><span>BQ4 · Penentu macet</span><p>Skor kredit dan tenor, lalu cicilan/pendapatan. Random forest (AUC <b>0,727</b>) mengurutkan risiko lebih baik dari rating Prosper (0,688).</p></div>
+          </div>
+          <div class="fin-rec">
+            <b>Rekomendasi kebijakan</b>
+            <ol>
+              <li><i>1</i><b>Jangan menolak segmen berisiko secara massal.</b></li>
+              <li><i>2</i><b>Pastikan DTI tercatat dan masukkan ke penetapan bunga di dalam rating.</b></li>
+              <li><i>3</i><b>Perkuat penilaian risiko dengan skor kredit, tenor, dan cicilan/pendapatan.</b></li>
+            </ol>
+          </div>
+          <p class="fin-end">Kunci untung Prosper bukan menolak lebih banyak peminjam, melainkan <b>menilai risiko lebih tajam di dalam rating</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="thanks">
+        <div><b>Terima kasih!</b></div>
+        <div class="links">
+        <a href="https://www.linkedin.com/in/davonnlemuel" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect class="ico-fill" x="0" y="0" width="20" height="20" rx="3" fill="#13264a"/><rect x="4" y="8" width="2.6" height="8" fill="#fff"/><circle cx="5.3" cy="5" r="1.6" fill="#fff"/><path d="M9 8h2.5v1.2c.5-.8 1.4-1.4 2.6-1.4 2 0 2.9 1.2 2.9 3.4V16h-2.6v-4.3c0-1.1-.4-1.7-1.3-1.7-1 0-1.5.7-1.5 1.8V16H9z" fill="#fff"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://davonnlemuel.github.io" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true" fill="none"><circle class="ico-line" cx="10" cy="10" r="8.2" stroke="#2e7a6b" stroke-width="1.8"/><path class="ico-line" d="M1.8 10h16.4M10 1.8c2.3 2.3 3.4 5 3.4 8.2s-1.1 5.9-3.4 8.2M10 1.8C7.7 4.1 6.6 6.8 6.6 10s1.1 5.9 3.4 8.2" stroke="#2e7a6b" stroke-width="1.5"/></svg>
+          Portofolio
+        </a>
+        </div>
+      </div>
+      <h2 class="lamp-h">Lampiran</h2>
+      <table class="t" style="margin-top:10px; font-size:18px;">
+        <tr><th>Materi</th><th>Tautan</th></tr>
+        <tr><td>Dataset</td><td><a href="https://www.kaggle.com/datasets/henryokam/prosper-loan-data" target="_blank" rel="noopener">kaggle.com/datasets/henryokam/prosper-loan-data</a></td></tr>
+        <tr><td>Sejarah Prosper</td><td><a href="https://en.wikipedia.org/wiki/Prosper_Marketplace" target="_blank" rel="noopener">en.wikipedia.org/wiki/Prosper_Marketplace</a></td></tr>
+        <tr><td>Profil Prosper</td><td><a href="https://www.prosper.com/about" target="_blank" rel="noopener">prosper.com/about</a></td></tr>
+        <tr><td>Foto gedung 221 Main Street</td><td><a href="https://www.flickr.com/photos/24648322@N00/31105735090" target="_blank" rel="noopener">"221 Main, San Francisco" oleh Greg Robbins</a>, CC BY-NC-SA 2.0</td></tr>
+        <tr><td>Data bersih</td><td><a href="https://drive.google.com/file/d/1HAISuGqowaBGhqo2-ExMMKlf8EGddxgY/view?usp=sharing" target="_blank" rel="noopener">prosper_clean.csv</a></td></tr>
+        <tr><td>Folder pengerjaan</td><td><a href="https://drive.google.com/drive/folders/1fqf25KRUmAeymgeu7kNQZmOu7ndt110g?usp=sharing" target="_blank" rel="noopener">Folder Google Drive Final Project</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Pembatas: slide cadangan -->
+  <section data-background-color="#000000"></section>
+
+  <!-- Agenda -->
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Agenda</span><span></span></div>
+      <h2>Alur Pembahasan</h2>
+      <div class="agenda-flow">
+        <svg class="agenda-lines" aria-hidden="true"></svg>
+        <div class="groups"><span class="g intro">Perkenalan</span><span class="g main">Main Project: Credit Risk Segmentation</span></div>
+        <ol class="steps">
+          <li class="intro"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><i>1</i></span><b>About me</b></li>
+          <li class="intro"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 11h18"/></svg><i>2</i></span><b>Overview Project</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><i>3</i></span><b>Data Understanding</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><circle cx="18" cy="7" r="3"/><path d="M20.2 9.2L22 11"/></svg><i>4</i></span><b>Data Preparation & EDA</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg><i>5</i></span><b>Analisis Segmen</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M12.5 17l2.5-3 2 2 2.5-3.5"/></svg><i>6</i></span><b>Dashboard</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="17" r="2.2"/><circle cx="12" cy="17" r="2.2"/><circle cx="19" cy="17" r="2.2"/><path d="M12 7.2v7.6M11 6.8L6 15M13 6.8l5 8.2"/></svg><i>7</i></span><b>Modelling</b></li>
+          <li class="main"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg><i>8</i></span><b class="final">Insight &amp; Rekomendasi</b></li>
+        </ol>
+        <div class="toolrow">
+          <div class="shared"><span class="tools"><span class="tl main"><img src="assets/python.svg" alt="">Python</span><span class="kids"><span class="tl"><img src="assets/pandas.svg" alt="">pandas</span><span class="tl"><img src="assets/numpy.svg" alt="">NumPy</span><span class="tl"><img src="assets/matplotlib.svg" alt="">Matplotlib</span><span class="tl"><img src="assets/seaborn.svg" alt="">Seaborn</span></span></span></div>
+          <div class="c5"><span class="tools"><span class="tl main"><img src="assets/postgresql.svg" alt="">PostgreSQL</span></span></div>
+          <div class="c6"><span class="tools"><span class="tl main"><img src="assets/power-bi.svg" alt="">Power BI</span></span></div>
+          <div class="c7"><span class="tools"><span class="tl main"><img src="assets/python.svg" alt="">Python</span><span class="kids"><span class="tl"><img src="assets/scikit-learn.svg" alt="">scikit-learn</span></span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About me -->
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>About me</span><span></span></div>
+      <div class="about2">
+        <div class="portrait"><img src="assets/davonn-portrait.jpg" alt="Foto Davonn Lemuel"></div>
+        <div class="col">
+          <h2 style="margin-top:4px;">Davonn Lemuel Halomoan</h2>
+          <p class="lead" style="margin-top:8px;">I'm interested in building a career as a Data Analyst, Data Scientist, Business Intelligence or Actuarial professional, turning operational data into business decisions.</p>
+          <div class="cv2">
+            <div>
+              <div class="label rule-top">Education</div>
+              <ul class="cv">
+                <li><img src="assets/logo-unpar.png" alt="UNPAR"><div><b>S1 Matematika</b><span>Universitas Katolik Parahyangan</span><em>Sep 2021 - Feb 2026</em></div></li>
+                <li><img src="assets/logo-dibimbing-mark-clear.png" alt="Dibimbing"><div><b>Data Analytics &amp; Business Intelligence</b><span>Dibimbing Bootcamp</span><em>Jul - Des 2026</em></div></li>
+              </ul>
+            </div>
+            <div>
+              <div class="label rule-top">Experience</div>
+              <ul class="cv">
+                <li><img src="assets/logo-asei.png" alt="Asuransi Asei Indonesia"><div><b>Underwriting Intern</b><span>PT Asuransi Asei Indonesia</span><em>Agu 2026 - sekarang</em></div></li>
+                <li><img src="assets/logo-kka-nurichwan.png" alt="KKA Nurichwan"><div><b>Actuarial Intern</b><span>Konsultan Aktuaria Nurichwan</span><em>Jul - Sep 2024</em></div></li>
+                <li><img src="assets/logo-ssb-mark.png" alt="PT Sido Sumber Berkat"><div><b>Administrative &amp; Finance Assistant</b><span>PT Sido Sumber Berkat, part-time</span><em>Jan 2022 - Agu 2023</em></div></li>
+              </ul>
+            </div>
+          </div>
+          <div class="label rule-top tools-label">Tools</div>
+          <div class="pyfam">
+            <div class="root"><img src="assets/python.svg" alt="">Python</div>
+            <ul class="libs">
+              <li><img src="assets/pandas.svg" alt="">Pandas</li>
+              <li><img src="assets/numpy.svg" alt="">NumPy</li>
+              <li><img src="assets/scikit-learn.svg" alt="">Scikit-learn</li>
+              <li><img src="assets/matplotlib.svg" alt="">Matplotlib</li>
+              <li><img src="assets/seaborn.svg" alt="">Seaborn</li>
+            </ul>
+          </div>
+          <ul class="toolset">
+            <li><img src="assets/postgresql.svg" alt="">SQL</li>
+            <li><img src="assets/r.svg" alt="">R</li>
+            <li><img src="assets/power-bi.svg" alt="">Power BI</li>
+            <li><img src="assets/tableau.svg" alt="">Tableau</li>
+            <li><img src="assets/looker-studio.svg" alt="">Looker Studio</li>
+            <li><img src="assets/excel.svg" alt="">Excel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Project -->
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Overview Project</span><span><a href="https://davonnlemuel.github.io" target="_blank" rel="noopener">davonnlemuel.github.io</a></span></div>
+      <h2>Project selama bootcamp dan kuliah</h2>
+      <div class="projects3">
+        <div class="group-head wide"><img src="assets/logo-dibimbing-mark-clear.png" alt="">Dibimbing Bootcamp Projects</div>
+        <div class="group-head"><img src="assets/logo-unpar.png" alt="">University Projects</div>
+        <div class="pcol">
+          <div class="p2"><img src="assets/excel.svg" alt="Excel"><div><b>Dashboard toko alat tulis</b><p>10.005 pesanan dalam satu halaman. Denpasar dan Surabaya menyumbang 52% nilai pesanan.</p><span class="go"><a href="https://docs.google.com/spreadsheets/d/1Ac-u6ttJoLIXUpHNz-Hh4mewDGjsGeui/edit?usp=sharing" target="_blank" rel="noopener">Excel</a></span></div></div>
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>Pembatalan booking hotel</b><p>37% dari 83.293 booking batal, nilai booking yang hilang $9,13 juta.</p><span class="go"><a href="https://drive.google.com/file/d/1Gj3-96s3x7clcUoqOTGdqpfRIF1bOSwy/view?usp=sharing" target="_blank" rel="noopener">Slide</a><a href="https://drive.google.com/file/d/1U6SfHR2V4p8IurPP1Ptdj_FX1Y6SiyDZ/view?usp=sharing" target="_blank" rel="noopener">Notebook</a></span></div></div>
+          <div class="p2"><img src="assets/tableau.svg" alt="Tableau"><div><b>Data story penjualan Olist</b><p>97.688 pesanan di Brasil. Pengiriman ke Alagoas telat 21,4%, São Paulo hanya 4,5%.</p><span class="go"><a href="https://public.tableau.com/app/profile/davonn.halomoan/viz/DavonnLemuel-Tugas8DibimbingDataStory/DashboardOlist" target="_blank" rel="noopener">Tableau</a></span></div></div>
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>Customer journey e-commerce</b><p>Pengunjung turun 21,4% di 2025, tapi pembeli naik 13,0%.</p><span class="go"><a href="https://drive.google.com/file/d/1TROW1I6URR2MhNZ0erql31UtHJeKDM1U/view?usp=sharing" target="_blank" rel="noopener">Slide</a><a href="https://colab.research.google.com/drive/1MadLMw-Xp_t2ndvEnE9h2FS-5-BXqc04?usp=sharing" target="_blank" rel="noopener">Notebook</a></span></div></div>
+        </div>
+        <div class="pcol">
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>Funnel edtech dan cohort fintech</b><p>Booking ke trial jadi tahap terlemah (62,7%). 9 akun dengan transaksi identik menekan retensi dari 67% ke 27%.</p><span class="go"><a href="https://drive.google.com/file/d/1wsXOpe1ZhfORYU1Z9KvkK0iU4xWel3nL/view?usp=sharing" target="_blank" rel="noopener">Slide</a><a href="https://colab.research.google.com/drive/1mMJLdPM8xWvfqdBhYpMdsgsTCSdK8Nre?usp=sharing" target="_blank" rel="noopener">Notebook</a></span></div></div>
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>Engagement media sosial</b><p>Post dengan engagement rate tertinggi (27,1%) hanya 3,8% interaksi per reach.</p><span class="go"><a href="https://drive.google.com/file/d/1OBSrr4B_-n0wW9wJKBKxDa61WpE7U63O/view?usp=sharing" target="_blank" rel="noopener">Slide</a><a href="https://colab.research.google.com/drive/1YC5FTqftjwec730QSS35f0-nyuTEIAMJ?usp=sharing" target="_blank" rel="noopener">Notebook</a></span></div></div>
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>A/B test kampanye Spotify</b><p>100.000 pengguna diuji. Porsi Premium naik dari 59,7% ke 80,3%.</p><span class="go"><a href="https://drive.google.com/file/d/1ppb92QJVk01gpL0BifqqYnPmsQW1UrnC/view?usp=sharing" target="_blank" rel="noopener">Slide</a><a href="https://colab.research.google.com/drive/15SlaVV993LyfbYYjgwfOlvmYH9iFGd8H?usp=sharing" target="_blank" rel="noopener">Notebook</a></span></div></div>
+          <div class="p2"><img src="assets/power-bi.svg" alt="Power BI"><div><b>Segmentasi pelanggan RFM</b><p>Skor Recency, Frequency, Monetary di DAX membagi pelanggan Superstore jadi 11 segmen.</p><span class="go"><a href="https://drive.google.com/file/d/15Wx7YaLCs_jlwzJwLJ7cSQS8FS4bzwCq/view?usp=sharing" target="_blank" rel="noopener">Power BI</a></span></div></div>
+        </div>
+        <div class="pcol uni">
+          <div class="p2"><img src="assets/python.svg" alt="Python"><div><b>Skripsi: premi kendaraan Bonus-Malus</b><p>Premi yang turun setelah tahun tanpa klaim dan naik setelah klaim, diuji pada 14.505 pemegang polis.</p><span class="go"><a href="https://repository.unpar.ac.id/items/b185cae5-3231-4024-9535-252fa59194eb" target="_blank" rel="noopener">Skripsi</a></span></div></div>
+          <div class="p2"><img src="assets/scikit-learn.svg" alt="scikit-learn"><div><b>Prediksi churn pelanggan telko</b><p>7.032 pelanggan. LightGBM jadi model terbaik; kontrak bulanan jadi pemicu churn utama.</p><span class="go"><a href="https://drive.google.com/file/d/14q5q-wnIUVCEGapt05bdBqjZeDigMBmb/view?usp=sharing" target="_blank" rel="noopener">Laporan</a></span></div></div>
+          <a class="more" href="https://davonnlemuel.github.io" target="_blank" rel="noopener"><b>And more...</b></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Understanding · Anatomi pinjaman</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Perhatikan 2 contoh kasus ini,</h2>
+      <p class="lead" style="max-width:none;">Dua peminjam dengan karakteristik yang cenderung mirip, tapi status akhirnya berbeda.</p>
+      <div class="anat">
+        <div class="cards">
+          <div class="lc">
+            <h3>Pinjaman A <span class="pill">Lunas</span></h3>
+            <div class="sec">Profil pinjaman</div>
+            <div class="kvs">
+              <div class="kv same"><span>Rating</span><b>D</b></div>
+              <div class="kv same"><span>Tujuan pinjaman</span><b>Konsolidasi utang</b></div>
+              <div class="kv same"><span>Tenor</span><b>36 bulan</b></div>
+              <div class="kv same"><span>Tahun cair</span><b>2010</b></div>
+              <div class="kv"><span>Plafon</span><b>$3.500</b></div>
+              <div class="kv"><span>Bunga per tahun</span><b>23,99%</b></div>
+              <div class="kv"><span>Cicilan per bulan</span><b>$131,50</b></div>
+              <div class="kv"><span>Pendapatan per bulan</span><b>$2.840</b></div>
+              <div class="kv"><span>Rasio utang terhadap pendapatan (DTI)</span><b>28%</b></div>
+              <div class="kv same"><span>Skor kredit</span><b>640</b></div>
+              <div class="kv"><span>Didanai oleh</span><b>209 investor</b></div>
+            </div>
+            <div class="sec">Hasil untuk investor</div>
+            <div class="kvs">
+              <div class="kv"><span>Bunga diterima</span><b class="pos">+$1.448,61</b></div>
+              <div class="kv"><span>Biaya layanan Prosper</span><b>−$60,39</b></div>
+              <div class="kv"><span>Pokok hilang</span><b>$0</b></div>
+            </div>
+            <div class="net"><span>Untung bersih</span><span>+$1.388,22</span></div>
+          </div>
+          <div class="lc">
+            <h3>Pinjaman B <span class="pill high">Macet</span></h3>
+            <div class="sec">Profil pinjaman</div>
+            <div class="kvs">
+              <div class="kv same"><span>Rating</span><b>D</b></div>
+              <div class="kv same"><span>Tujuan pinjaman</span><b>Konsolidasi utang</b></div>
+              <div class="kv same"><span>Tenor</span><b>36 bulan</b></div>
+              <div class="kv same"><span>Tahun cair</span><b>2010</b></div>
+              <div class="kv"><span>Plafon</span><b>$2.500</b></div>
+              <div class="kv"><span>Bunga per tahun</span><b>26,25%</b></div>
+              <div class="kv"><span>Cicilan per bulan</span><b>$101,06</b></div>
+              <div class="kv"><span>Pendapatan per bulan</span><b>$4.183</b></div>
+              <div class="kv"><span>Rasio utang terhadap pendapatan (DTI)</span><b>10%</b></div>
+              <div class="kv same"><span>Skor kredit</span><b>640</b></div>
+              <div class="kv"><span>Didanai oleh</span><b>68 investor</b></div>
+            </div>
+            <div class="sec">Hasil untuk investor</div>
+            <div class="kvs">
+              <div class="kv"><span>Bunga diterima</span><b class="pos">+$1.395,51</b></div>
+              <div class="kv"><span>Biaya layanan Prosper</span><b>−$49,16</b></div>
+              <div class="kv"><span>Pokok hilang</span><b class="neg">−$425,53</b></div>
+            </div>
+            <div class="net"><span>Untung bersih</span><span>+$920,82</span></div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="formula">
+            <div class="fk">Rumus untung bersih investor</div>
+            <div class="sub">
+              <span class="t pos">Bunga diterima</span><span></span>
+              <span class="t">Biaya layanan Prosper</span><span></span>
+              <span class="t neg">Pokok hilang</span><span class="op">−</span>
+              <span class="line"></span>
+              <span class="t res">Untung bersih investor</span><span></span>
+            </div>
+          </div>
+          <div class="verdict">
+            <b>Macet tidak sama dengan rugi!</b>
+            <p>Sebelum macet, peminjam B sudah membayar bunga $1.395,51, lebih besar dari pokok yang hilang ($425,53). Investor tetap untung $920,82.</p>
+            <p>Karena itu, project ini juga menilai peminjam dari untung bersihnya, bukan hanya dari status macet atau lunas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Preparation</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Langkah cleaning dan feature engineering</h2>
+      <div class="prepflow"><div class="st "><b>113.937</b><span>Baris data awal</span></div><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h22M17 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><div class="st neg"><b>−871</b><span>Duplikat</span></div><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h22M17 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><div class="st neg"><b>−6</b><span>Batal dan tanggal salah</span></div><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h22M17 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><div class="st ok"><b>113.060</b><span>Baris data bersih</span></div><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h22M17 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><div class="st add"><b>+15</b><span>Penambahan kolom</span></div><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h22M17 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><div class="st ok"><b>44</b><span>Banyak total kolom</span></div></div>
+      <div class="prep">
+        <div>
+          <div class="ph">Cleaning</div>
+          <table class="t pt">
+            <tr><th>Masalah</th><th class="n">Jumlah</th><th>Tindakan</th></tr>
+            <tr><td>Pinjaman tercatat dua kali</td><td class="n">871</td><td>Remove duplicate</td></tr>
+            <tr><td>Status batal (<code>Cancelled</code>)</td><td class="n">5</td><td>Dibuang</td></tr>
+            <tr><td>Tanggal tutup sebelum tanggal cair</td><td class="n">1</td><td>Dibuang</td></tr>
+            <tr><td>Skor kredit bernilai 0</td><td class="n">133</td><td>Ganti jadi NA</td></tr>
+            <tr><td>Pendapatan tidak wajar</td><td class="n">410</td><td>Ganti jadi NA</td></tr>
+            <tr><td>Outlier pendapatan (IQR)</td><td class="n">5.667</td><td>Biarkan</td></tr>
+          </table>
+          <div class="ph" style="margin-top:14px;">Drop Columns: 45 dari 81 kolom</div>
+          <table class="t pt">
+            <tr><th>Alasan</th><th class="n">Kolom</th></tr>
+            <tr><td>Detail biro kredit yang sudah terwakili skor kredit dan DTI</td><td class="n">15</td></tr>
+            <tr><td>Isi sama atau turunan kolom lain</td><td class="n">12</td></tr>
+            <tr><td>Kosong lebih dari 80%</td><td class="n">8</td></tr>
+            <tr><td>ID tambahan, cukup <code>ListingKey</code></td><td class="n">5</td></tr>
+            <tr><td>Tidak terkait pertanyaan bisnis</td><td class="n">5</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="ph">Feature Engineering</div>
+          <table class="t pt fe">
+            <tr><th>Kolom baru</th><th>Rumus atau aturan</th></tr>
+            <tr><td><code>net_return</code></td><td>Bunga diterima − biaya − pokok hilang</td></tr>
+            <tr><td><code>is_bad</code></td><td>1 kalau statusnya Macet</td></tr>
+            <tr><td><code>is_matured</code></td><td>1 kalau bulan sejak cair ≥ tenor</td></tr>
+            <tr><td><code>is_resolved</code></td><td>1 kalau Lunas atau Macet</td></tr>
+            <tr><td><code>risk_grade</code></td><td>Rating Prosper; sebelum Jul 2009 pakai rating lama</td></tr>
+            <tr><td><code>rating_era</code></td><td>Lama (sebelum Jul 2009) atau baru</td></tr>
+            <tr><td><code>payment_to_income</code></td><td>Cicilan ÷ pendapatan per bulan</td></tr>
+            <tr><td><code>dti_band, pti_band</code></td><td>DTI dan cicilan ÷ pendapatan dikelompokkan</td></tr>
+            <tr><td><code>is_repeat_borrower</code></td><td>1 kalau pernah pinjam di Prosper</td></tr>
+            <tr><td><code>investor_fees</code></td><td>Biaya layanan + biaya penagihan</td></tr>
+            <tr><td><code>status_group</code></td><td>11 status → Lunas, Macet, Berjalan, Telat bayar</td></tr>
+            <tr><td><code>orig_year, orig_quarter</code></td><td>Tahun dan kuartal cair</td></tr>
+            <tr><td><code>purpose</code></td><td>Kode tujuan pinjaman → nama</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>Data Preparation · Kamus data</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Kode numerik pada data ditransformasi berdasarkan dokumen Prosper</h2>
+      <div class="ph kamus-h">ListingCategory (Purpose)</div>
+      <table class="t kamus"><tr><th class="n">Kode</th><th>purpose</th><th class="n">Kode</th><th>purpose</th><th class="n">Kode</th><th>purpose</th></tr><tr><td class="n">0</td><td>Not Available</td><td class="n">7</td><td>Other</td><td class="n">14</td><td>Large Purchases</td></tr><tr><td class="n">1</td><td>Debt Consolidation</td><td class="n">8</td><td>Baby &amp; Adoption Loans</td><td class="n">15</td><td>Medical/Dental</td></tr><tr><td class="n">2</td><td>Home Improvement</td><td class="n">9</td><td>Boat</td><td class="n">16</td><td>Motorcycle</td></tr><tr><td class="n">3</td><td>Business</td><td class="n">10</td><td>Cosmetic Procedures</td><td class="n">17</td><td>RV</td></tr><tr><td class="n">4</td><td>Personal Loan</td><td class="n">11</td><td>Engagement Ring Financing</td><td class="n">18</td><td>Taxes</td></tr><tr><td class="n">5</td><td>Student Use</td><td class="n">12</td><td>Green Loans</td><td class="n">19</td><td>Vacation</td></tr><tr><td class="n">6</td><td>Auto</td><td class="n">13</td><td>Household Expenses</td><td class="n">20</td><td>Wedding Loans</td></tr></table>
+      <p class="hx-link" style="margin-top:90px;">Sumber: ProsperDataExport Specification v1.2.7, Prosper</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Uji hipotesis</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Uji hipotesis: sebelum dan sesudah 2009</h2>
+      <p class="lead" style="max-width:none;">Kedua perbedaan di Key Insight terbukti signifikan secara statistik, dengan \(\alpha\) = 5%.</p>
+      <div class="hx">
+        <div class="hx-c">
+          <div class="hx-h"><span>Uji 1</span><b>Tingkat macet</b><em>Pearson chi-square</em></div>
+          <p class="hx-h0">H\(_0\): status pinjaman tidak berhubungan dengan periode cair.</p>
+          <div class="cmp-row"><div><b class="bad">36,9%</b><span>Periode 1</span></div><svg class="cmp-ar" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h30M25 3l9 7-9 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b class="good">16,3%</b><span>Periode 2</span></div></div>
+          <div class="hx-v"><span>\(1.171{,}18>3{,}841\)</span><i>\(\iff\)</i><span>\(\chi^2>\chi^2_{1;\,5\%}\)</span><i>\(\implies\)</i><div><b>Signifikan</b><small>H\(_0\) ditolak</small></div></div>
+        </div>
+        <div class="hx-c">
+          <div class="hx-h"><span>Uji 2</span><b>Untung investor per $100</b><em>Uji t Welch</em></div>
+          <p class="hx-h0">H\(_0\): rata-rata untung bersih kedua periode sama.</p>
+          <div class="cmp-row"><div><b class="bad">−$5,73</b><span>Periode 1</span></div><svg class="cmp-ar" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h30M25 3l9 7-9 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b class="good">+$13,75</b><span>Periode 2</span></div></div>
+          <div class="hx-v"><span>\(43{,}60>1{,}960\)</span><i>\(\iff\)</i><span>\(|t|>t_{\nu;\,2{,}5\%}\)</span><i>\(\implies\)</i><div><b>Signifikan</b><small>H\(_0\) ditolak</small></div></div>
+        </div>
+      </div>
+      <div class="bq-ans" style="margin-top:32px;"><b>Kesimpulan</b><p>Pinjaman cair 2009-2010 terbukti lebih jarang macet dan lebih menguntungkan investor.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Profil peminjam</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Profil Peminjam</h2>
+      <div class="row prof">
+        <div class="col" style="flex:1.15;"><div class="label rule-top chart-title">Tujuan pinjaman</div><svg class="chart" id="chart-purpose" viewBox="0 0 520 330" style="height:350px; margin-top:6px;" aria-label="Tujuan pinjaman"></svg></div>
+        <div class="col" style="flex:1;"><div class="label rule-top chart-title">Tenor pinjaman (3 pilihan)</div><svg class="chart" id="chart-term" viewBox="0 0 440 150" style="height:150px; margin-top:6px;" aria-label="Tenor"></svg>
+          <div class="label rule-top chart-title" style="margin-top:14px;">Top 5 negara bagian peminjam</div><svg class="chart" id="chart-state" viewBox="0 0 440 184" style="height:184px; margin-top:6px;" aria-label="Negara bagian"></svg></div>
+        <div class="col" style="flex:0 0 250px;">
+          <div class="mcards">
+            <div><span class="ml">Median plafon</span><b>$6.300</b><span class="mm"><i>Min: $1.000</i><i>Max: $35.000</i></span></div>
+            <div><span class="ml">Median pendapatan per bulan</span><b>$4.667</b></div>
+            <div><span class="ml">Median skor kredit</span><b>680</b></div>
+            <div><span class="ml">Peminjam punya rumah</span><b>50,5%</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="kconc prof-insight">
+        <svg class="happy booth" viewBox="0 0 180 110" role="img" aria-label="Ilustrasi peminjam menerima uang tunai di counter Prosper">
+            <rect width="180" height="110" rx="8" fill="#dbeee9"/>
+            <line x1="6" y1="103" x2="174" y2="103" stroke="#b7d3cb" stroke-width="2"/>
+            <rect x="102" y="4" width="74" height="19" rx="2" fill="#ffffff" stroke="#c9bfa9" stroke-width="1"/>
+            <image href="assets/prosper-logo.svg" x="106" y="8.2" width="66" height="10.7"/>
+            <circle cx="146" cy="39" r="9" fill="#c58a63"/>
+            <path d="M137 38 Q137 28 146 28 Q155 28 155 38 Q151 33 146 33 Q141 33 137 38 Z" fill="#3a2a22"/>
+            <circle cx="142.5" cy="39" r="3.2" fill="none" stroke="#1b1b1b" stroke-width="1"/>
+            <circle cx="149.5" cy="39" r="3.2" fill="none" stroke="#1b1b1b" stroke-width="1"/>
+            <path d="M145.7 39 L146.3 39" stroke="#1b1b1b" stroke-width="1"/>
+            <circle cx="142.5" cy="39" r="1.1" fill="#1b1b1b"/><circle cx="149.5" cy="39" r="1.1" fill="#1b1b1b"/>
+            <path d="M143.5 44 Q146 46 148.5 44" fill="none" stroke="#8f4f37" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M134 60 L134 55 Q134 48 146 48 Q158 48 158 55 L158 60 Z" fill="#2e7a6b"/>
+            <path d="M138 53 L112 53" stroke="#2e7a6b" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="110" cy="53" r="2.8" fill="#c58a63"/>
+            <rect x="100" y="60" width="76" height="43" fill="#ece6d8"/>
+            <rect x="96" y="56" width="82" height="5" rx="1" fill="#c9bfa9"/>
+            <rect x="108" y="70" width="58" height="3" fill="#2e7a6b"/>
+            <g transform="rotate(-6 104 50)"><rect x="96" y="45" width="17" height="10" rx="1.5" fill="#7fbf6a" stroke="#4f8a3e" stroke-width="1.2"/><circle cx="104.5" cy="50" r="2.6" fill="none" stroke="#4f8a3e" stroke-width="1"/></g>
+            <rect x="51" y="68" width="8" height="32" fill="#23314f"/>
+            <path d="M50 99 L62 99 Q66 99 66 103 L50 103 Z" fill="#17181d"/>
+            <path d="M47 71 L47 46 Q47 38 56 38 Q65 38 65 46 L65 71 Z" fill="#2f5d9e"/>
+            <path d="M58 44 L78 52 L95 53" fill="none" stroke="#2f5d9e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="97" cy="53" r="3" fill="#e2ac82"/>
+            <rect x="53" y="33" width="6" height="6" fill="#e2ac82"/>
+            <circle cx="56" cy="26" r="10" fill="#e2ac82"/>
+            <circle cx="66" cy="27.5" r="2.2" fill="#e2ac82"/>
+            <path d="M46 28 Q44 15 56 15 Q66 15 66 22 Q60 20 56 20 Q51 21 50 28 Z" fill="#17181d"/>
+            <circle cx="61.5" cy="25" r="1.4" fill="#1b1b1b"/>
+            <path d="M60 31 Q62.5 33 65 31" fill="none" stroke="#8f4f37" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        <div><b>Insight diperoleh</b><p>Kebanyakan peminjam meminjam sekitar $6.300 untuk melunasi utang lain dan mencicilnya selama 3 tahun.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Hubungan antarvariabel</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Pengaruh variabel terhadap kemacetan</h2>
+      <p class="fac-note">Merah: tingkat macet 20% ke atas</p>
+      <div style="flex:1; margin-top:14px;"><svg class="chart" id="chart-factors" viewBox="0 0 1150 420" aria-label="Tingkat macet per ciri peminjam"></svg></div>
+      <p class="fac-foot">* Tenor 60 bulan tidak ditampilkan karena belum ada pinjaman 60 bulan yang tenornya habis.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sheet"></div>
+    <div class="page">
+      <div class="band"><svg data-band aria-hidden="true"></svg><span>EDA · Untung rugi</span><span class="bright"><img class="plogo" src="assets/prosper-logo.svg" alt="Prosper"></span></div>
+      <h2>Untung bersih investor per rating</h2>
+      <div class="row pr-row">
+        <div class="col" style="flex:1;"><svg class="chart" id="chart-profit" viewBox="0 0 840 420" aria-label="Untung bersih per 100 dolar per rating"></svg></div>
+      </div>
+      <div class="kconc pr-insight"><div><b>Insight diperoleh</b><p>Bunga tinggi di rating berisiko lebih dari cukup menutup kerugian dari pinjaman yang macet.</p></div></div>
+    </div>
+  </section>
+
+
+</div></div>
+
+<script>window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] }, svg: { fontCache: "global" } };</script>
+<script src="lib/mathjax/tex-svg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"></script>
+<script>
+  // Angka dihitung dari data/processed/prosper_clean.csv dan notebooks/01_cleaning_eda.ipynb.
+  const NS = "http://www.w3.org/2000/svg";
+  const css = getComputedStyle(document.documentElement);
+  const C = n => css.getPropertyValue(n).trim();
+  const id = s => document.getElementById(s);
+  const fmt = n => n.toLocaleString("id-ID");
+  const dec = (v, d = 1) => v.toFixed(d).replace(".", ",");
+  function el(parent, tag, attrs, text) {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text !== undefined) n.textContent = text;
+    parent.append(n);
+    return n;
+  }
+  const txt = (svg, x, y, s, size, extra = {}) => el(svg, "text", { x, y, "font-size": size, ...extra }, s);
+  const bar = (svg, x, y, w, h, fill, delay, cls = "grow") =>
+    el(svg, "rect", { x, y, width: Math.max(w, 0), height: Math.max(h, 0), fill, class: cls, style: `animation-delay:${delay}ms` });
+  // Anotasi: garis penunjuk dari titik data ke label.
+  function note(svg, x1, y1, x2, y2, lines, color = C("--ink"), anchor = "start") {
+    const g = el(svg, "g", { class: "draw" });
+    el(g, "line", { x1, y1, x2, y2, stroke: color, "stroke-width": 1.4 });
+    el(g, "circle", { cx: x1, cy: y1, r: 3.5, fill: color });
+    lines.forEach((s, i) => el(g, "text", { x: x2 + (anchor === "start" ? 6 : -6), y: y2 + 4 + i * 18, "font-size": i ? 14 : 15,
+      "font-weight": i ? 500 : 800, "text-anchor": anchor, style: `fill:${i ? C("--ink-2") : color}` }, s));
+  }
+
+  // Ornamen garis ala kertas berharga: bingkai, rosette, dan gelombang.
+  function frame(svg) {
+    // Ukuran tetap: lembar 1252 x 692 di kanvas 1280 x 720, dikurangi inset 6px.
+    const W = 1240, H = 680;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    for (let k = 0; k < 3; k++) {
+      let d = "";
+      const step = 6, amp = 3 + k;
+      const edge = (x0, y0, x1, y1, n) => {
+        for (let i = 0; i <= n; i++) {
+          const t = i / n, x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t, o = Math.sin(t * n / 2 + k * 2.1) * amp;
+          d += `${d ? "L" : "M"}${(x + (y0 === y1 ? 0 : o)).toFixed(1)},${(y + (y0 === y1 ? o : 0)).toFixed(1)}`;
+        }
+      };
+      edge(8, 8, W - 8, 8, Math.round(W / step)); edge(W - 8, 8, W - 8, H - 8, Math.round(H / step));
+      edge(W - 8, H - 8, 8, H - 8, Math.round(W / step)); edge(8, H - 8, 8, 8, Math.round(H / step));
+      el(svg, "path", { d, fill: "none", stroke: C("--teal"), "stroke-width": 0.8, opacity: 0.45 - k * 0.1 });
+    }
+  }
+  document.querySelectorAll("[data-frame]").forEach(frame);
+
+  function rosette(svg, opacity) {
+    for (let k = 0; k < 28; k++) {
+      let d = "";
+      const A = 120 + k * 4.5, B = 34 + (k % 4) * 3;
+      for (let i = 0; i <= 900; i++) {
+        const t = (i / 900) * Math.PI * 2, r = A + B * Math.sin(16 * t + k * 0.32);
+        d += `${i ? "L" : "M"}${(r * Math.cos(t)).toFixed(1)},${(r * Math.sin(t)).toFixed(1)}`;
+      }
+      el(svg, "path", { d, fill: "none", stroke: C("--teal"), "stroke-width": 0.7, opacity });
+    }
+  }
+  rosette(id("rosette"), 0.3);
+
+  // Latar halaman isi: rosette samar di pojok dan baris microprint di tepi bawah, seperti kertas berharga.
+  const micro = "PROSPER CREDIT RISK SEGMENTATION · DAVONN LEMUEL HALOMOAN · DIBIMBING FINAL PROJECT · ".repeat(14);
+  document.querySelectorAll("section:not(.cover):not(.divider) > .sheet").forEach(sheet => {
+    const wm = el(sheet, "svg", { class: "wm", viewBox: "-280 -280 560 560", "aria-hidden": "true" });
+    rosette(wm, 0.5);
+    const line = document.createElement("div");
+    line.className = "micro";
+    line.setAttribute("aria-hidden", "true");
+    line.textContent = micro;
+    sheet.append(line);
+  });
+
+  function waves(svg, color, count, ampMax) {
+    const W = 1252, H = svg.getAttribute("data-band") !== null ? 40 : 692;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("preserveAspectRatio", "none");
+    for (let k = 0; k < count; k++) {
+      let d = "";
+      const base = (H / (count + 1)) * (k + 1), amp = ampMax * (0.4 + 0.6 * Math.sin(k * 0.7) ** 2), f = 0.006 + k * 0.0004;
+      for (let x = 0; x <= W; x += 8) d += `${x ? "L" : "M"}${x},${(base + Math.sin(x * f + k) * amp).toFixed(1)}`;
+      el(svg, "path", { d, fill: "none", stroke: color, "stroke-width": 0.8, opacity: 0.18 });
+    }
+  }
+  document.querySelectorAll("[data-waves]").forEach(s => waves(s, "#9cc8bd", 22, 24));
+  document.querySelectorAll("[data-band]").forEach(s => waves(s, "#9cc8bd", 4, 6));
+
+  const quarters = [["2005Q4",22],["2006Q1",314],["2006Q2",1251],["2006Q3",1934],["2006Q4",2403],["2007Q1",3079],["2007Q2",3118],["2007Q3",2671],["2007Q4",2592],["2008Q1",3074],["2008Q2",4344],["2008Q3",3602],["2008Q4",531],["2009Q1",0],["2009Q2",13],["2009Q3",585],["2009Q4",1449],["2010Q1",1243],["2010Q2",1539],["2010Q3",1270],["2010Q4",1600],["2011Q1",1744],["2011Q2",2478],["2011Q3",3093],["2011Q4",3913],["2012Q1",4435],["2012Q2",5061],["2012Q3",5632],["2012Q4",4425],["2013Q1",3616],["2013Q2",7099],["2013Q3",9143],["2013Q4",14053],["2014Q1",11734]];
+
+  // Alur P2P lending: dana dari investor lewat Prosper ke peminjam, cicilan balik ke investor
+  (() => {
+    const svg = id("flow"), cy = 100;
+    function person(cx, y, k, fill) {
+      el(svg, "circle", { cx, cy: y - 12 * k, r: 8.5 * k, fill });
+      el(svg, "path", { d: `M${cx - 15 * k},${y + 18 * k} a${15 * k},${16 * k} 0 0 1 ${30 * k},0 z`, fill });
+    }
+    function actor(cx, label, group) {
+      el(svg, "circle", { cx, cy, r: 44, fill: C("--white"), stroke: C("--rule"), "stroke-width": 1.5 });
+      if (group) { person(cx - 12, cy - 2, 0.8, C("--teal-2")); person(cx + 10, cy + 2, 0.9, C("--ink")); }
+      else person(cx, cy, 1, C("--ink"));
+      txt(svg, cx, cy + 68, label, 18, { "text-anchor": "middle", "font-weight": 820, style: `fill:${C("--ink")}` });
+    }
+    function arrow(x1, y1, x2, y2, label, color, lx, ly) {
+      const len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+      el(svg, "line", { x1, y1, x2: x2 - 9 * ux, y2: y2 - 9 * uy, stroke: color, "stroke-width": 2.4 });
+      el(svg, "path", { d: "M0,0 l-12,-7 v14 z", fill: color, transform: `translate(${x2},${y2}) rotate(${Math.atan2(uy, ux) * 180 / Math.PI})` });
+      if (label) txt(svg, lx, ly, label, 15, { "text-anchor": "middle", "font-weight": 700, style: `fill:${color}` });
+    }
+    function pill(cx, y, label) {
+      const w = label.length * 8.6 + 30;
+      el(svg, "rect", { x: cx - w / 2, y, width: w, height: 30, rx: 15, fill: C("--white"), stroke: C("--teal"), "stroke-width": 1.4 });
+      txt(svg, cx, y + 20, label, 15, { "text-anchor": "middle", "font-weight": 700, style: `fill:${C("--teal-deep")}` });
+    }
+    actor(64, "Investor", true);
+    actor(576, "Peminjam", false);
+    el(svg, "rect", { x: 228, y: 64, width: 184, height: 72, rx: 10, fill: C("--teal-3"), stroke: C("--teal"), "stroke-width": 2 });
+    el(svg, "image", { href: "assets/prosper-logo.svg", x: 250, y: 84, width: 140, height: 32 });
+    pill(320, 2, "menilai risiko");
+    pill(320, 168, "menentukan bunga");
+    arrow(320, 32, 320, 64, "", C("--teal"));
+    arrow(320, 168, 320, 136, "", C("--teal"));
+    arrow(110, 86, 228, 86, "dana", C("--ink"), 168, 77);
+    arrow(412, 86, 530, 86, "dana", C("--ink"), 472, 77);
+    arrow(530, 116, 412, 116, "cicilan", C("--teal-deep"), 472, 136);
+    arrow(228, 116, 110, 116, "cicilan", C("--teal-deep"), 168, 136);
+  })();
+
+  // Linimasa Prosper + pinjaman per tahun, dengan kolom jeda saat Prosper berhenti menyalurkan
+  (() => {
+    const svg = id("timeline"), W = 1150, base = 292, maxH = 220, max = 34000;
+    const yearly = { 2005:22, 2006:5906, 2007:11460, 2008:11552, 2009:2047, 2010:5652, 2011:11228, 2012:19553, 2013:33912, 2014:11734 };
+    const slots = [2005, 2006, 2007, 2008, "gap", 2009, 2010, 2011, 2012, 2013, 2014], bw = W / slots.length, pad = 16;
+    const cx = i => i * bw + bw / 2;
+    txt(svg, 0, 24, "Pinjaman cair per tahun", 22, { "font-weight": 820, style: `fill:${C("--ink")}` });
+    slots.forEach((y, i) => {
+      const x = i * bw + pad, w = bw - 2 * pad;
+      if (y === "gap") {
+        // Jeda penyaluran: garis putus-putus dan putusan sumbu, tanpa batang
+        el(svg, "line", { x1: cx(i), x2: cx(i), y1: base - 150, y2: base - 8, stroke: C("--red"), "stroke-width": 1.6, "stroke-dasharray": "5 5" });
+        txt(svg, cx(i), base - 182, "Berhenti", 17, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--red-deep")}` });
+        txt(svg, cx(i), base - 161, "Okt 2008 - Jul 2009", 14, { "text-anchor": "middle", "font-weight": 600, style: `fill:${C("--ink-2")}` });
+        return;
+      }
+      const h = maxH * yearly[y] / max;
+      bar(svg, x, base - h, w, h, y === 2009 ? C("--red") : y === 2014 ? C("--rule") : C("--ink"), i * 50);
+      txt(svg, cx(i), base - h - 9, fmt(yearly[y]), 16, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      txt(svg, cx(i), base + 24, y === 2014 ? "2014 (Jan-Mar)" : y === 2005 ? "2005 (Nov-Des)" : y, 16, { "text-anchor": "middle", "font-weight": 600 });
+    });
+    // Panah pertumbuhan 2009 sampai 2013, sekitar 85px di atas label batang 2010 sampai 2012
+    const ax0 = cx(5), ay0 = 200, ax1 = cx(9) - 56, ay1 = 50, ang = Math.atan2(ay1 - ay0, ax1 - ax0) * 180 / Math.PI;
+    el(svg, "line", { x1: ax0, y1: ay0, x2: ax1, y2: ay1, stroke: C("--teal"), "stroke-width": 3, "stroke-dasharray": "8 6", class: "draw" });
+    el(svg, "path", { d: "M0,0 l-16,-9 v18 z", fill: C("--teal"), transform: `translate(${ax1},${ay1}) rotate(${ang})`, class: "draw" });
+    const gx = cx(4);
+    el(svg, "line", { x1: 0, x2: gx - 14, y1: base, y2: base, stroke: C("--ink"), "stroke-width": 2 });
+    el(svg, "line", { x1: gx + 14, x2: W, y1: base, y2: base, stroke: C("--ink"), "stroke-width": 2 });
+    [-14, 6].forEach(d => el(svg, "line", { x1: gx + d, x2: gx + d + 8, y1: base + 8, y2: base - 8, stroke: C("--ink"), "stroke-width": 2 }));
+    const ev = [[1, "Feb 2006", "Dibuka untuk publik", "middle"], [5, "Jul 2009", ["Dibuka lagi dengan", "sistem rating baru"], "middle"]];
+    ev.forEach(([i, when, what, anchor], k) => {
+      const x = cx(i), y = 352, c = i === 5 ? C("--red") : C("--ink"), tx = anchor === "start" ? i * bw + pad : x;
+      el(svg, "line", { x1: x, x2: x, y1: base + 34, y2: y - 18, stroke: c, "stroke-width": 1.2, class: "draw" });
+      txt(svg, tx, y, when, 16, { "text-anchor": anchor, "font-weight": 800, style: `fill:${c}`, class: "draw" });
+      [].concat(what).forEach((line, j) => txt(svg, tx, y + 20 + j * 18, line, 15, { "text-anchor": anchor, class: "draw" }));
+    });
+  })();
+
+  // Key insight 1: macet dan untung bersih per tahun cair, dengan celah saat Prosper berhenti
+  (() => {
+    const svg = id("chart-ki1"); if (!svg) return;
+    const rows = [[2006, 39.4, -1.96], [2007, 39.5, -9.31], [2008, 33.0, -3.44], [null], [2009, 15.2, 1.01], [2010, 16.7, 3.34]];
+    const W = 740, L = 10, bw = (W - L) / rows.length, cx = i => L + i * bw + bw / 2, w = bw * 0.56;
+    const topBase = 150, topH = 112, zero = 238, scale = 6.4;
+    txt(svg, 0, 18, "Tingkat macet per tahun cair", 15, { "font-weight": 800, style: `fill:${C("--ink")}` });
+    txt(svg, 0, 190, "Untung bersih investor per tahun cair", 15, { "font-weight": 800, style: `fill:${C("--ink")}` });
+    el(svg, "line", { x1: 0, x2: W, y1: topBase, y2: topBase, stroke: C("--ink"), "stroke-width": 1.6 });
+    el(svg, "line", { x1: 0, x2: W, y1: zero, y2: zero, stroke: C("--ink"), "stroke-width": 1.6 });
+    rows.forEach(([yr, bad, net], i) => {
+      if (yr === null) {
+        // Garis putus-putus tegak menembus kedua panel, menandai masa berhenti
+        el(svg, "line", { x1: cx(i), x2: cx(i), y1: 30, y2: 330, stroke: C("--red"), "stroke-width": 1.8, "stroke-dasharray": "5 5" });
+        el(svg, "rect", { x: cx(i) - 40, y: 180, width: 80, height: 24, rx: 12, fill: C("--paper"), stroke: C("--red"), "stroke-width": 1.4 });
+        txt(svg, cx(i), 197, "Berhenti", 13, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--red-deep")}` });
+        return;
+      }
+      const col = yr < 2009 ? C("--red") : C("--teal"), h = topH * bad / 45;
+      bar(svg, cx(i) - w / 2, topBase - h, w, h, col, i * 60);
+      txt(svg, cx(i), topBase - h - 7, dec(bad) + "%", 14, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      const nh = Math.abs(net) * scale, y = net < 0 ? zero : zero - nh;
+      bar(svg, cx(i) - w / 2, y, w, nh, col, i * 60 + 200);
+      const lab = (net < 0 ? "−$" : "+$") + dec(Math.abs(net), 2) + " jt";
+      txt(svg, cx(i), net < 0 ? zero + nh + 16 : zero - nh - 7, lab, 13.5, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      txt(svg, cx(i), 356, yr, 14, { "text-anchor": "middle", "font-weight": 600 });
+    });
+  })();
+
+  // Garis penghubung slide agenda: dari bawah judul langkah 3-7 ke tool utamanya; langkah 3 dan 4 bertemu di satu siku.
+  function agendaLines() {
+    const flow = document.querySelector(".agenda-flow"), svg = flow && flow.querySelector(".agenda-lines");
+    if (!svg || !flow.offsetWidth) return;
+    const fr = flow.getBoundingClientRect(), k = fr.width / flow.offsetWidth;
+    const box = e => { const r = e.getBoundingClientRect(); return { x: (r.left - fr.left + r.width / 2) / k, top: (r.top - fr.top) / k, bottom: (r.bottom - fr.top) / k }; };
+    const lis = flow.querySelectorAll(".steps li"), row = flow.querySelector(".toolrow");
+    const roots = [".shared", ".c5", ".c6", ".c7"].map(q => box(row.querySelector(q + " .tl.main img")));
+    const cx = i => box(lis[i]).x, col = C("--teal"), seg = [];
+    // Semua garis sama panjang: mulai dari bawah judul terpanjang (langkah 3-7), berakhir di atas tools yang sejajar.
+    const startY = Math.max(...[2, 3].map(i => box(lis[i].querySelector("b")).bottom)) + 10;
+    const endY = Math.min(...roots.map(r => r.top)) - 8, bracketY = (startY + endY) / 2;
+    seg.push(`M${cx(2)},${startY} V${bracketY - 6} Q${cx(2)},${bracketY} ${cx(2) + 6},${bracketY} H${cx(3) - 6} Q${cx(3)},${bracketY} ${cx(3)},${bracketY - 6} V${startY}`);
+    seg.push(`M${(cx(2) + cx(3)) / 2},${bracketY} V${endY}`);
+    [4, 5, 6].forEach(li => seg.push(`M${cx(li)},${box(lis[li].querySelector("b")).bottom + 10} V${endY}`));
+    svg.innerHTML = "";
+    seg.forEach(d => el(svg, "path", { d, fill: "none", stroke: col, "stroke-width": 2, "stroke-linecap": "round" }));
+  }
+
+  // Bunga vs pokok hilang per rating (output sql/23_q3_bunga_cukup.sql bagian A)
+  (() => {
+    const svg = id("chart-cover"); if (!svg) return;
+    const data = [["AA",9.69,1.16,3.10,5.43],["A",12.09,1.27,4.10,6.72],["B",15.81,1.31,5.87,8.63],["C",21.37,1.41,8.71,11.25],
+                  ["D",29.35,1.54,13.96,13.85],["E",32.65,1.59,17.10,13.96],["HR",38.84,1.76,18.18,18.90]];
+    const W = 1150, base = 408, k = 8.8, L = 0, bw = (W - L) / data.length, w = bw * 0.5;
+    // Legenda satu baris: tiga warna batang, lalu arti tinggi batang.
+    [["Untung bersih", C("--teal"), 0], ["Biaya Prosper", C("--ink-3"), 150], ["Pokok hilang", C("--red"), 300]].forEach(([lab, col, x]) => {
+      el(svg, "rect", { x, y: 4, width: 16, height: 16, fill: col });
+      txt(svg, x + 24, 17, lab, 15, { "font-weight": 700, style: `fill:${C("--ink")}` });
+    });
+    el(svg, "rect", { x: 440, y: 0, width: 290, height: 24, rx: 3, fill: C("--teal-3") });
+    txt(svg, 452, 17, "Tinggi batang = bunga yang diterima", 15, { "font-weight": 700, style: `fill:${C("--ink")}` });
+    el(svg, "rect", { x: 0, y: 34, width: 296, height: 24, rx: 3, fill: "none", stroke: C("--ink"), "stroke-width": 1.4 });
+    txt(svg, 12, 51, "Semua angka per $100 yang dipinjamkan", 14, { "font-weight": 700, style: `fill:${C("--ink")}` });
+    el(svg, "line", { x1: L, x2: W, y1: base, y2: base, stroke: C("--ink"), "stroke-width": 2 });
+    data.forEach(([g, bunga, biaya, pokok, untung], i) => {
+      const x = L + i * bw + (bw - w) / 2, hp = pokok * k, hb = biaya * k, hu = untung * k, d = i * 70;
+      bar(svg, x, base - hp, w, hp, C("--red"), d);
+      bar(svg, x, base - hp - hb, w, hb, C("--ink-3"), d);
+      bar(svg, x, base - hp - hb - hu, w, hu, C("--teal"), d);
+      txt(svg, x + w / 2, base - hp - hb - hu + 22, "$" + dec(untung, 2), 15, { "text-anchor": "middle", "font-weight": 800, style: "fill:#fff" });
+      if (hp > 22) txt(svg, x + w / 2, base - hp / 2 + 5, "$" + dec(pokok, 2), 13.5, { "text-anchor": "middle", "font-weight": 700, style: "fill:#fff" });
+      txt(svg, x + w / 2, base - bunga * k - 9, "bunga $" + dec(bunga, 2), 13, { "text-anchor": "middle", "font-weight": 700, style: `fill:${C("--ink")}` });
+      txt(svg, x + w / 2, base + 24, g, 17, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+    });
+  })();
+
+  // Macet per kelompok skor kredit (notebook, marker "Skor kredit")
+  (() => {
+    const svg = id("chart-score"); if (!svg) return;
+    const data = [["600-639",22.0,609],["640-679",21.8,2770],["680-719",17.3,2412],["720-759",12.3,2278],
+                  ["760-799",8.8,1516],["800-839",5.9,749],["840+",2.5,201]];
+    const W = 1150, L = 70, R = 70, T = 40, base = 290, max = 25;
+    const xOf = i => L + i * (W - L - R) / (data.length - 1), yOf = v => base - (base - T) * v / max;
+    el(svg, "line", { x1: 30, x2: W - 30, y1: base, y2: base, stroke: C("--ink"), "stroke-width": 2 });
+    let d = "", len = 0;
+    data.forEach(([, v], i) => {
+      d += `${i ? "L" : "M"}${xOf(i).toFixed(1)},${yOf(v).toFixed(1)}`;
+      if (i) len += Math.hypot(xOf(i) - xOf(i - 1), yOf(v) - yOf(data[i - 1][1]));
+    });
+    el(svg, "path", { d, fill: "none", stroke: C("--ink"), "stroke-width": 3, "stroke-linejoin": "round", class: "trace",
+      style: `stroke-dasharray:${len};stroke-dashoffset:${len};--dur:1.4s;--delay:0.2s` });
+    data.forEach(([lab, v, n], i) => {
+      const x = xOf(i), y = yOf(v), hot = v >= 20;
+      el(svg, "circle", { cx: x, cy: y, r: 7, fill: hot ? C("--red") : C("--ink"), stroke: C("--paper"), "stroke-width": 2.5 });
+      txt(svg, x, y - 16, dec(v) + "%", 17, { "text-anchor": "middle", "font-weight": 800, style: `fill:${hot ? C("--red-deep") : C("--ink")}` });
+      txt(svg, x, base + 28, lab, 16, { "text-anchor": "middle", "font-weight": 700, style: `fill:${C("--ink")}` });
+      txt(svg, x, base + 50, `${fmt(n)} pinjaman`, 13, { "text-anchor": "middle", style: `fill:${C("--ink-2")}` });
+    });
+  })();
+
+  function hbars(svgId, data, max, opts = {}) {
+    const svg = id(svgId), W = +svg.viewBox.baseVal.width, L = opts.L || 170, rowH = opts.rowH || 40;
+    data.forEach(([lab, v, hot], i) => {
+      const y = (opts.T || 10) + i * rowH, w = (W - L - 70) * v / max;
+      txt(svg, L - 12, y + rowH / 2 + 2, lab, 15, { "text-anchor": "end", "font-weight": 600, style: `fill:${C("--ink")}` });
+      bar(svg, L, y + 6, w, rowH - 14, hot ? C("--teal") : C("--ink-3"), i * 40, "grow-x");
+      txt(svg, L + w + 8, y + rowH / 2 + 3, opts.label ? opts.label(v) : dec(v) + "%", 15, { "font-weight": 800, style: `fill:${C("--ink")}` });
+    });
+  }
+  hbars("chart-purpose", [["Konsolidasi utang",51.0,1],["Tidak diisi",15.0],["Lainnya",9.2],["Renovasi rumah",6.5],["Bisnis",6.3],["Kendaraan",2.3],["15 kategori lain",9.7]], 55, { rowH: 47 });
+  hbars("chart-term", [["36 bulan",77.1,1],["60 bulan",21.4],["12 bulan",1.4]], 80, { L: 110, rowH: 46, T: 6 });
+  hbars("chart-state", [["California",13.6,1],["Texas",6.3],["Florida",6.2],["New York",6.2],["Illinois",5.5],["46 lainnya",62.3]], 70, { L: 110, rowH: 30, T: 2 });
+
+  (() => {
+    const svg = id("chart-grade"), data = [["AA",6.3],["A",17.1],["B",18.3],["C",21.5],["D",16.9],["E",11.6],["HR",8.2]];
+    const W = 540, base = 270, bw = W / data.length, max = 24;
+    el(svg, "line", { x1: 0, x2: W, y1: base, y2: base, stroke: C("--ink"), "stroke-width": 2 });
+    data.forEach(([g, v], i) => {
+      const h = 210 * v / max, x = i * bw + 10, risky = i >= 4;
+      bar(svg, x, base - h, bw - 20, h, risky ? "#e3968b" : "#7fb5a5", i * 50);
+      txt(svg, x + (bw - 20) / 2, base - h - 8, dec(v) + "%", 15, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      txt(svg, x + (bw - 20) / 2, base + 22, g, 16, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+    });
+    txt(svg, 0, 318, "← risiko terendah", 14, { style: `fill:${C("--teal-deep")}`, "font-weight": 700 });
+    txt(svg, W, 318, "risiko tertinggi →", 14, { "text-anchor": "end", style: `fill:${C("--red-deep")}`, "font-weight": 700 });
+  })();
+
+  (() => {
+    const svg = id("chart-status"), total = 113066;
+    const data = [["Masih dicicil", 55933, C("--ink-3")], ["Lunas", 38061, C("--teal")], ["Macet", 17010, C("--red")], ["Telat bayar", 2057, C("--rule")]];
+    let x = 0; const W = 540, y = 40, h = 64;
+    data.forEach(([lab, v, c], i) => {
+      const w = W * v / total;
+      bar(svg, x, y, w, h, c, i * 80, "grow-x");
+      x += w;
+    });
+    data.forEach(([lab, v, c], i) => {
+      const yy = 150 + i * 42;
+      el(svg, "rect", { x: 0, y: yy - 14, width: 16, height: 16, fill: c });
+      txt(svg, 26, yy, lab, 17, { "font-weight": 700, style: `fill:${C("--ink")}` });
+      txt(svg, W, yy, `${fmt(v)}  (${dec(v / total * 100)}%)`, 17, { "text-anchor": "end", "font-weight": 800, style: `fill:${C("--ink")}` });
+    });
+  })();
+
+  // Garis pinjaman per kuartal; garis diputus saat Prosper berhenti (Q1 sampai Q2 2009)
+  (() => {
+    const svg = id("chart-quarter"), W = 716, H = 440, L = 56, B = 30, T = 30, max = 15000;
+    const step = (W - L - 14) / (quarters.length - 1), xOf = i => L + 7 + i * step, yOf = v => T + (H - T - B) * (1 - v / max);
+    [0, 5000, 10000, 15000].forEach(v => {
+      el(svg, "line", { x1: L, x2: W, y1: yOf(v), y2: yOf(v), stroke: v ? C("--rule-2") : C("--ink"), "stroke-width": v ? 1 : 2 });
+      txt(svg, L - 10, yOf(v) + 5, fmt(v), 13, { "text-anchor": "end" });
+    });
+    const gapFrom = quarters.findIndex(([q]) => q === "2008Q4"), gapTo = quarters.findIndex(([q]) => q === "2009Q3");
+    // Jeda berhenti: celah garis dibiarkan kosong, cukup keterangan di dalamnya
+    const gmid = (xOf(gapFrom) + xOf(gapTo)) / 2, gy = yOf(0) - 52;
+    txt(svg, gmid, gy, "Berhenti", 13.5, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--red-deep")}`, class: "pause-lbl" });
+    txt(svg, gmid, gy + 16, "Okt 2008 -", 11.5, { "text-anchor": "middle", style: `fill:${C("--ink-3")}`, class: "pause-lbl" });
+    txt(svg, gmid, gy + 30, "Jul 2009", 11.5, { "text-anchor": "middle", style: `fill:${C("--ink-3")}`, class: "pause-lbl" });
+    // Garis "berjalan" dari kiri ke kanan: panjang tiap ruas dihitung manual supaya animasinya sama cepat di kedua ruas
+    const segs = [[0, gapFrom], [gapTo, quarters.length - 1]].map(([i0, i1]) => {
+      const pts = quarters.slice(i0, i1 + 1).map(([, v], k) => [xOf(i0 + k), yOf(v)]);
+      const len = pts.slice(1).reduce((a, p, k) => a + Math.hypot(p[0] - pts[k][0], p[1] - pts[k][1]), 0);
+      return { pts, len };
+    });
+    const speed = segs.reduce((a, g) => a + g.len, 0) / 1.6;
+    let t0 = 0;
+    segs.forEach(({ pts, len }, k) => {
+      const d = pts.map(([x, y], j) => `${j ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join("");
+      el(svg, "path", { d, fill: "none", stroke: C("--ink"), "stroke-width": 3, "stroke-linejoin": "round", class: "trace",
+        style: `stroke-dasharray:${len};stroke-dashoffset:${len};--dur:${(len / speed).toFixed(2)}s;--delay:${t0.toFixed(2)}s` });
+      if (!k) svg.style.setProperty("--pause", `${t0 + len / speed}s`);
+      t0 += len / speed + (k ? 0 : 0.8);
+    });
+    // Urutan: garis sampai 2008, "Berhenti" muncul, garis lanjut sampai 2014, lalu panah kenaikan
+    svg.style.setProperty("--late", `${t0 + 0.1}s`);
+    quarters.forEach(([q], i) => { if (q.endsWith("Q1")) txt(svg, xOf(i), H - 8, q.slice(0, 4), 13, { "text-anchor": "middle" }); });
+    const peak = quarters.findIndex(([q]) => q === "2008Q2"), top = quarters.findIndex(([q]) => q === "2013Q4");
+    // Pertumbuhan: panah dari puncak 2008 ke puncak 2013, diberi jarak dari kedua titik; label miring sejajar panah
+    const pv = quarters[peak][1], tv = quarters[top][1];
+    const px = xOf(peak), py = yOf(pv), tx = xOf(top), ty = yOf(tv);
+    const dx = tx - px, dy = ty - py, len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len, ang = Math.atan2(dy, dx) * 180 / Math.PI;
+    const sx = px + ux * 22, sy = py + uy * 22, ex = tx - ux * 22, ey = ty - uy * 22;
+    el(svg, "line", { x1: sx, y1: sy, x2: ex - ux * 10, y2: ey - uy * 10, stroke: C("--teal"), "stroke-width": 2.4, "stroke-linecap": "round", class: "late" });
+    el(svg, "path", { d: "M0,0 l-12,-6 v12 z", fill: C("--teal"), transform: `translate(${ex},${ey}) rotate(${ang})`, class: "late" });
+    const lx = (sx + ex) / 2 + uy * 14, ly = (sy + ey) / 2 - ux * 14;
+    txt(svg, lx, ly, dec(tv / pv, 1) + "× lipat", 15, { "text-anchor": "middle", "font-weight": 800, transform: `rotate(${ang} ${lx} ${ly})`, style: `fill:${C("--teal-deep")}`, class: "late" });
+    [[peak, "Q2 2008: 4.344"], [top, "Q4 2013: 14.053"]].forEach(([i, label]) => {
+      el(svg, "circle", { cx: xOf(i), cy: yOf(quarters[i][1]), r: 5, fill: C("--ink"), class: "late" });
+      // Label puncak 2008 di kiri titik, label puncak 2013 di kiri atas, supaya panah punya jalur bebas
+      const left = i === peak;
+      txt(svg, xOf(i) + (left ? -12 : -10), yOf(quarters[i][1]) + (left ? 5 : -12), label, 14, { "text-anchor": "end", "font-weight": 800, style: `fill:${C("--ink")}`, class: "late" });
+    });
+  })();
+
+  (() => {
+    const data = [[2006,100],[2007,100],[2008,100],[2009,100],[2010,99.5],[2011,68.0],[2012,41.6],[2013,7.7],[2014,0.6]];
+    const svg = id("chart-resolved"), W = 500, H = 440, L = 6, B = 30, T = 30;
+    const bw = (W - L) / data.length, yOf = v => T + (H - T - B) * (1 - v / 100);
+    el(svg, "line", { x1: 0, x2: W, y1: yOf(0), y2: yOf(0), stroke: C("--ink"), "stroke-width": 2 });
+    data.forEach(([yr, v], i) => {
+      const x = L + i * bw + 5, w = bw - 10;
+      bar(svg, x, yOf(v), w, H - B - yOf(v), yr >= 2011 ? C("--red") : C("--teal"), i * 90);
+      txt(svg, x + w / 2, yOf(v) - 8, dec(v, v % 1 ? 1 : 0) + "%", 12.5, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      txt(svg, x + w / 2, H - 8, yr, 13, { "text-anchor": "middle" });
+    });
+  })();
+
+
+  (() => {
+    const panels = [
+      ["Rating", [["AA",3.9],["A",7.9],["B",9.9],["C",13.4],["D",20.8],["E",23.6],["HR",25.7]]],
+      ["DTI (%)", [["<10",11.4],["10-20",13.7],["20-30",15.1],["30-40",17.1],["40+",20.9],["Tidak\ntercatat",19.6]]],
+      ["Pendapatan/tahun ($ ribu)", [["100+",9.6],["75-100",11.0],["50-75",14.9],["25-50",19.2],["<25",20.7],["Tanpa\npendapatan",24.8]]],
+      ["Tenor*", [["12 bln",5.3],["36 bln",17.1]]],
+    ];
+    const svg = id("chart-factors"), W = 1150, H = 420, gap = 22, pad = 18, T = 96, B = 44, max = 30;
+    const wts = [5.8, 7.6, 8.6, 3], unit = (W - gap * 3) / wts.reduce((a, b) => a + b);
+    let x0 = 0;
+    panels.forEach(([title, rows], p) => {
+      const pw = wts[p] * unit, iw = pw - pad * 2, bw = iw / rows.length, cx = x0 + pw / 2;
+      el(svg, "rect", { x: x0 + 1, y: 1, width: pw - 2, height: H - 2, rx: 4, fill: C("--white"), stroke: C("--rule"), "stroke-width": 1.5 });
+      txt(svg, cx, 34, title, 17, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      el(svg, "line", { x1: x0 + pad, x2: x0 + pw - pad, y1: H - B, y2: H - B, stroke: C("--ink"), "stroke-width": 2 });
+      rows.forEach(([lab, v], i) => {
+        const x = x0 + pad + i * bw + 4;
+        const h = (H - T - B) * v / max;
+        bar(svg, x, H - B - h, bw - 8, h, v >= 20 ? C("--red") : C("--ink"), (p * 7 + i) * 22);
+        txt(svg, x + (bw - 8) / 2, H - B - h - 7, dec(v), 13, { "text-anchor": "middle", "font-weight": 700, style: `fill:${C("--ink")}` });
+        lab.split("\n").forEach((t, k) => txt(svg, x + (bw - 8) / 2, H - B + 22 + k * 15, t, 12.5, { "text-anchor": "middle" }));
+      });
+      x0 += pw + gap;
+    });
+  })();
+
+  (() => {
+    const grades = ["AA","A","B","C","D","E","HR"], bands = ["<10%","10-20%","20-30%","30-40%","40%+","tidak tercatat"];
+    const v = {
+      AA:[0.7,3.1,6.7,12.9,null,9.1], A:[4.6,6.4,9.0,10.0,13.8,9.3], B:[9.1,9.5,8.0,12.3,11.9,14.6],
+      C:[17.0,11.3,12.5,15.1,14.3,14.0], D:[21.3,20.7,20.5,13.9,21.5,27.0], E:[19.7,25.2,19.6,28.5,28.1,21.3], HR:[25.0,25.9,25.3,27.5,28.9,22.6],
+    };
+    const rate = {
+      AA:[7.3,7.7,8.4,9.1,8.6,9.0], A:[9.4,9.6,10.1,10.0,11.2,10.2], B:[13.5,13.7,13.9,13.8,14.0,14.4], C:[18.6,18.9,19.7,19.7,19.5,19.8],
+      D:[25.7,25.8,25.7,25.5,25.5,25.4], E:[30.3,30.9,30.8,31.0,30.2,29.3], HR:[32.7,33.0,32.5,32.3,32.5,31.2],
+    };
+    const svg = id("chart-heat"), L = 56, T = 40, cw = 100, ch = 54;
+    bands.forEach((b, j) => b === "tidak tercatat"
+      ? ["DTI tidak", "tercatat"].forEach((t, k) => txt(svg, L + j * cw + cw / 2, 13 + k * 16, t, 14, { "text-anchor": "middle", "font-weight": 700 }))
+      : txt(svg, L + j * cw + cw / 2, 22, "DTI " + b, 14, { "text-anchor": "middle", "font-weight": 700 }));
+    grades.forEach((g, i) => {
+      txt(svg, L - 12, T + i * ch + ch / 2 + 6, g, 17, { "text-anchor": "end", "font-weight": 800, style: `fill:${C("--ink")}` });
+      v[g].forEach((val, j) => {
+        const x = L + j * cw, y = T + i * ch;
+        // Bunga di kotak kecil transparan, warnanya sama dengan angka macet di sel itu.
+        const pill = (col, rgb) => {
+          el(svg, "rect", { x: x + cw / 2 - 26, y: y + ch / 2 + 5, width: 52, height: 18, rx: 3, fill: "rgba(255, 255, 255, 0.5)", stroke: `rgba(${rgb}, 0.55)`, "stroke-width": 1 });
+          txt(svg, x + cw / 2, y + ch / 2 + 18, dec(rate[g][j]) + "%", 12, { "text-anchor": "middle", "font-weight": 600, style: `fill:${col}` });
+        };
+        if (val === null) {
+          el(svg, "rect", { x: x + 1, y: y + 1, width: cw - 2, height: ch - 2, fill: C("--paper-2") });
+          txt(svg, x + cw / 2, y + ch / 2 - 3, "< 50 pinjaman", 11, { "text-anchor": "middle", style: `fill:${C("--ink")}` });
+          pill(C("--ink"), "19, 38, 74");
+          return;
+        }
+        // Merah dibatasi supaya teks navy tetap terbaca di semua sel, jadi semua angka satu warna.
+        const t = Math.min(val / 31, 1);
+        el(svg, "rect", { x: x + 1, y: y + 1, width: cw - 2, height: ch - 2, fill: `rgba(195, 56, 44, ${0.06 + t * 0.56})` });
+        txt(svg, x + cw / 2, y + ch / 2 - 1, dec(val) + "%", 17, { "text-anchor": "middle", "font-weight": 700, style: `fill:${C("--ink")}` });
+        pill(C("--ink"), "19, 38, 74");
+      });
+    });
+    // Bingkai merah: segmen macet 25% ke atas, yang ditolak di simulasi Business Question 2.
+    grades.forEach((g, i) => v[g].forEach((val, j) => val >= 25 && el(svg, "rect", { x: L + j * cw + 3, y: T + i * ch + 3, width: cw - 6, height: ch - 6, fill: "none", stroke: C("--red-deep"), "stroke-width": 2.5 })));
+    // Bingkai jingga: dua sel yang dibandingkan di tabel kanan (AA dan D, DTI 30-40%).
+    [0, 4].forEach(i => el(svg, "rect", { x: L + 3 * cw + 2, y: T + i * ch + 2, width: cw - 4, height: ch - 4, fill: "none", stroke: C("--orange"), "stroke-width": 4.5 }));
+    [["Angka dalam kotak: bunga", 182], ["Angka atas: tingkat macet", 192]].reduce((right, [lab, w]) => {
+      el(svg, "rect", { x: right - w, y: T + 7 * ch + 8, width: w, height: 22, rx: 3, fill: "#eef6f3", stroke: C("--teal"), "stroke-width": 1 });
+      txt(svg, right - w / 2, T + 7 * ch + 23, lab, 13, { "text-anchor": "middle", style: `fill:${C("--teal-deep")}`, "font-weight": 600 });
+      return right - w - 10;
+    }, L + 6 * cw);
+  })();
+
+  (() => {
+    const data = [["AA",5.43,7.8],["A",6.72,9.9],["B",8.63,13.8],["C",11.25,19.3],["D",13.85,25.6],["E",13.96,30.5],["HR",18.90,32.4]];
+    const svg = id("chart-profit"), W = 840, H = 420, L = 20, B = 60, T = 40, max = 20;
+    const bw = (W - L) / data.length;
+    el(svg, "line", { x1: L, x2: W, y1: H - B, y2: H - B, stroke: C("--ink"), "stroke-width": 2 });
+    data.forEach(([g, v, rate], i) => {
+      const h = (H - T - B) * v / max, x = L + i * bw + 26;
+      bar(svg, x, H - B - h, bw - 52, h, C("--teal"), i * 50);
+      txt(svg, x + (bw - 52) / 2, H - B - h - 10, "$" + dec(v, 2), 22, { "text-anchor": "middle", "font-weight": 880, style: `fill:${C("--ink")}` });
+      txt(svg, x + (bw - 52) / 2, H - B + 24, g, 18, { "text-anchor": "middle", "font-weight": 800, style: `fill:${C("--ink")}` });
+      txt(svg, x + (bw - 52) / 2, H - B + 44, `bunga ${dec(rate)}%`, 13, { "text-anchor": "middle" });
+    });
+    note(svg, L + 6.5 * bw, H - B - (H - T - B) * 18.9 / max + 4, L + 5.3 * bw, 60, ["HR: macet paling sering,", "tapi untung per $100 paling besar"], C("--ink"), "end");
+  })();
+
+  (() => {
+    const data = [["Rating Prosper", 0.688, C("--ink-3")], ["Random forest", 0.727, C("--teal")]];
+    const svg = id("chart-auc"), W = 600, L = 170, rowH = 72, min = 0.5, max = 0.75;
+    data.forEach(([lab, v, fill], i) => {
+      const y = 22 + i * rowH, w = (W - L - 80) * (v - min) / (max - min);
+      txt(svg, L - 14, y + 28, lab, 17, { "text-anchor": "end", "font-weight": 700, style: `fill:${C("--ink")}` });
+      bar(svg, L, y, w, 42, fill, i * 90, "grow-x");
+      txt(svg, L + w + 10, y + 30, dec(v, 3), 24, { "font-weight": 880, style: `fill:${C("--ink")}` });
+    });
+    el(svg, "line", { x1: L, x2: L, y1: 12, y2: 164, stroke: C("--ink"), "stroke-width": 2 });
+  })();
+
+  (() => {
+    const forest = [["Skor kredit",0.079],["Tenor",0.052],["Cicilan/pendapatan",0.026],["Pengajuan kredit 6 bln",0.014],["Peminjam ulang",0.012]];
+    const svg = id("chart-importance"), W = 640, L = 200;
+    txt(svg, 0, 20, "Faktor penentu macet", 19, { "font-weight": 820, style: `fill:${C("--ink")}` });
+    el(svg, "line", { x1: 0, x2: W, y1: 34, y2: 34, stroke: C("--ink"), "stroke-width": 2 });
+    forest.forEach(([lab, v], i) => {
+      const y = 52 + i * 62, w = (W - L - 70) * v / 0.08;
+      txt(svg, 0, y + 22, lab, 17, { "font-weight": 700, style: `fill:${C("--ink")}` });
+      bar(svg, L, y, w, 32, C("--teal"), i * 50, "grow-x");
+      txt(svg, L + w + 10, y + 22, dec(v, 3), 16, { "font-weight": 800, style: `fill:${C("--ink")}` });
+    });
+  })();
+
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0.02,
+    hash: true, navigationMode: "linear",
+    controls: false, progress: true, slideNumber: "c/t",
+    center: false, transition: "fade", backgroundTransition: "none"
+  });
+  ["ready", "slidechanged", "resize"].forEach(ev => Reveal.on(ev, agendaLines));
+</script>
+</body>
+</html>
