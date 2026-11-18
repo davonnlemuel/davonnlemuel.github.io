@@ -330,7 +330,7 @@
     'fp.t': 'Segmentasi Risiko Kredit Peminjam Prosper',
     'fp.org1': 'Bootcamp Data Analytics dan Business Intelligence',
     'fp.org2': 'Final Project',
-    'fp.p': 'Prosper adalah platform P2P lending di Amerika Serikat, tempat investor mendanai pinjaman dan menanggung kerugian kalau peminjam berhenti membayar. Sebagai data analyst di tim credit risk, saya menyegmentasi 113.937 pinjaman untuk melihat peminjam mana yang membuat investor untung, mana yang merugikan, dan bagaimana risikonya bisa dinilai lebih tepat.',
+    'fp.p': 'Prosper adalah platform P2P lending di Amerika Serikat, tempat investor mendanai pinjaman dan menanggung kerugian kalau peminjam berhenti membayar. Dalam project ini, saya mensimulasikan diri sebagai data analyst di tim credit risk Prosper dan menyegmentasi 113.937 pinjaman untuk melihat pinjaman mana yang menguntungkan atau merugikan investor, serta karakteristik peminjam seperti apa yang paling berisiko menyumbang kemacetan.',
     'fp.o1': 'Buka slide presentasi',
     'fp.o2': 'Buka notebook Colab',
     'fp.o3': 'Folder lengkap project (Google Drive)',
