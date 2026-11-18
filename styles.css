@@ -1140,11 +1140,9 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .nw { white-space: nowrap; }
 
 /* ---------- Final project: Prosper credit risk ---------- */
+.figs--fp b, .figs--fp5 b { font-size: clamp(1.3rem, 2.2vw, 1.75rem); white-space: nowrap; }
+.figs--fp { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .figs--fp b small { font-size: .5em; font-weight: 700; color: var(--ink-3); letter-spacing: 0; }
-.fdt--fp { min-width: 460px; max-width: 620px; }
-.fdt--fp td + td, .fdt--fp th + th { text-align: right; font: 600 13.5px/1.4 var(--f-head); color: var(--ink); font-variant-numeric: tabular-nums; }
-.fdt--fp tr.fp-tot td { border-top: 1px solid var(--ink); border-bottom: 0; font-weight: 700; color: var(--ink); }
-.fdt--fp tr.fp-tot td:first-child { font: 700 14px/1.4 var(--f-head); }
 .fdt--fp2 { min-width: 540px; }
 .fdt--fp2 td + td { white-space: nowrap; font: 600 13.5px/1.4 var(--f-head); color: var(--ink); font-variant-numeric: tabular-nums; }
 .fdt--fp2 small { font-weight: 500; color: var(--ink-3); }
@@ -1217,4 +1215,61 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
   .pbx__band span + span { display: none; }
   .pbx__head { flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
   .pbx__head img { width: 110px; }
+}
+
+/* section slicer: five tiles across the project, like a Power BI tile slicer */
+.fp-nav { display: grid; grid-template-columns: repeat(5, minmax(min-content, 1fr)); margin: 20px 0 6px; border: 1px solid var(--ink); border-radius: 3px; overflow: hidden; }
+.fp-nav button { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 58px; padding: 9px 11px; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: 700 clamp(13px, 1.25vw, 14.5px)/1.15 var(--f-head); transition: background-color .2s var(--out), color .2s var(--out); }
+.fp-nav button + button { border-left: 1px solid var(--ink); }
+.fp-nav button small { font: 600 11px/1 var(--f-head); letter-spacing: .06em; color: var(--ink-3); transition: color .2s var(--out); }
+.fp-nav button:hover { background: var(--paper-2); }
+.fp-nav button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.fp-nav button[aria-selected="true"] small { color: #9CC8BD; }
+.fp-nav button:focus-visible { outline: 2px solid var(--teal); outline-offset: -4px; }
+.fp-pane { padding-top: 8px; }
+.fp-pane[hidden] { display: none; }
+.fp-pane > p:first-child { max-width: 68ch; }
+.fp-lead { margin: 10px 0 0; font-size: 19px; line-height: 1.45; color: var(--ink); max-width: 60ch; }
+.figs--fp5 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fp-bq { list-style: none; counter-reset: bq; margin: 4px 0 6px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; border-top: 1px solid var(--ink); }
+.fp-bq li { counter-increment: bq; padding: 12px 0 12px 46px; position: relative; border-bottom: 1px solid var(--rule-2); font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.fp-bq li::before { content: "BQ" counter(bq); position: absolute; left: 0; top: 13px; font: 800 12px/1 var(--f-head); color: var(--teal); letter-spacing: .02em; }
+.fp-bq b { display: block; font: 700 14px/1.3 var(--f-head); color: var(--ink); margin-bottom: 3px; }
+.fp-fn { list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 8px; max-width: 720px; }
+.fp-fn li { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr) 5.2em; grid-template-areas: "n b v" ". e e"; align-items: center; gap: 2px 12px; }
+.fp-fn span { grid-area: n; font: 600 13.5px/1.25 var(--f-head); color: var(--ink); }
+.fp-fn i { grid-area: b; display: block; height: 18px; width: var(--w); background: #8E9A96; border-radius: 0 3px 3px 0; }
+.fp-fn i.hi { background: var(--teal); }
+.fp-fn b { grid-area: v; font: 700 13.5px/1 var(--f-head); text-align: right; font-variant-numeric: tabular-nums; }
+.fp-fn em { grid-area: e; font: 500 12.5px/1.3 var(--f-head); font-style: normal; color: var(--ink-3); }
+.fdt--fp3 { min-width: 520px; }
+.fdt--fp3 td:nth-child(2) { font: 600 13.5px/1.4 var(--f-head); color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fdt--fp3 td:last-child { font: 500 14px/1.45 var(--f-body); color: var(--ink-2); }
+.fp-vol { grid-template-columns: repeat(4, minmax(0, 1fr)) .6fr repeat(6, minmax(0, 1fr)); max-width: 620px; }
+.fp-vol b { color: var(--ink-3); } .fp-vol b.hi { color: #1F5A4E; }
+.fp-score { grid-template-columns: repeat(7, minmax(0, 1fr)); max-width: 560px; }
+.fp-score > div { cursor: default; }
+.fp-score span { font-size: 10.5px; white-space: nowrap; }
+.fz2__r b.fp-negb { color: var(--red); }
+.fp-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin: 22px 0 4px; padding: 12px 0 0; border-top: 1px solid var(--rule); }
+.fp-links > b { font: 600 12.5px/1.2 var(--f-head); color: var(--ink-3); margin-right: 2px; }
+.fp-links a { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; font: 600 13.5px/1.2 var(--f-head); color: var(--ink); text-decoration: underline; text-decoration-color: var(--teal-2); text-underline-offset: 4px; }
+.fp-links a:hover { text-decoration-color: var(--teal); }
+.fp-links svg { width: 15px; height: 15px; flex: none; }
+.fp-actions { margin-top: 26px; }
+@media (max-width: 760px) {
+  .fp-nav { display: flex; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent); mask-image: linear-gradient(90deg, #000 82%, transparent); }
+  .fp-nav::-webkit-scrollbar { display: none; }
+  .fp-nav.is-end { -webkit-mask-image: none; mask-image: none; }
+  .fp-nav button { flex: 0 0 auto; min-width: 84px; max-width: 108px; padding: 8px 10px; }
+  .fp-bq { grid-template-columns: minmax(0, 1fr); }
+  .figs--fp, .figs--fp5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figs--fp > div:nth-child(3), .figs--fp5 > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .figs--fp > div:nth-child(n+3), .figs--fp5 > div:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
+  .fp-fn li { grid-template-columns: minmax(0, 1fr) 5.2em; grid-template-areas: "n v" "b b" "e e"; }
+  .fp-lead { font-size: 17.5px; }
+}
+@media (max-width: 639px) {
+  .fp-vol b { font-size: 8.5px; }
+  .fp-score span { font-size: 8.5px; }
 }
