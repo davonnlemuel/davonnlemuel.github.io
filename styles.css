@@ -1275,11 +1275,11 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 }
 
 /* final project: logos */
-.pj__list button .pj__logo { height: 12px; width: auto; margin-bottom: 3px; }
 .pj__list button span strong { font-weight: 700; color: var(--ink-2); }
 .fp-org { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule-2); }
 .fp-org img { height: 30px; width: auto; flex: none; }
 .fp-org p { margin: 0; padding-left: 14px; border-left: 1px solid var(--rule); display: grid; gap: 1px; font-family: var(--f-head); line-height: 1.25; }
 .fp-org p span { font-size: 13px; color: var(--ink-3); font-weight: 500; }
 .fp-org p b { font-size: 14px; color: var(--ink); font-weight: 700; }
-@media (max-width: 480px) { .fp-org img { height: 24px; } .fp-org { gap: 10px; } .fp-org p { padding-left: 10px; } }
+.fp-org img.fp-org__p { height: 20px; margin-left: auto; }
+@media (max-width: 480px) { .fp-org img { height: 24px; } .fp-org img.fp-org__p { height: 13px; } .fp-org { gap: 10px; } .fp-org p { padding-left: 10px; } }
