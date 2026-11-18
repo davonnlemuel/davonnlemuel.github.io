@@ -1301,3 +1301,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 @media (max-width: 600px) { .fp-k { padding: 14px 16px; } .fp-k__v { grid-template-columns: 1fr 1.8rem 1fr; align-items: start; } .fp-k__v b { font-size: 1.4rem; } .fp-k__v i { align-self: center; font-size: 18px; } }
 
 .figs--fp3k { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fp-fn-cap { color: var(--ink); margin-top: -4px; margin-bottom: 10px; }
+.fp-fn em small { display: inline-block; margin: 2px 6px 0 0; padding: 2px 8px; border-radius: 3px; font: 600 12px/1.3 var(--f-head); }
+.fp-fn em small.ok { background: #E3EFEB; color: var(--teal); }
+.fp-fn em small.bad { background: #F6E3E0; color: var(--red); }
