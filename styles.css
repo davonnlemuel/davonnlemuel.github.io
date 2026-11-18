@@ -1287,9 +1287,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 /* final project: KPI rows */
 .fp-kpi { display: grid; gap: 10px; margin: 0 0 8px; }
 .fp-k { display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; padding: 16px 22px; background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
-.fp-k__t { flex: 1 1 22ch; min-width: 0; max-width: 40ch; }
-.fp-k__t h5 { margin: 0 0 4px; font: 700 16px/1.25 var(--f-head); color: var(--ink); }
-.fp-k__t p { margin: 0; font: 500 13px/1.4 var(--f-head); color: var(--ink-3); }
+.fp-k h5 { margin: 0; font: 700 18px/1.25 var(--f-head); color: var(--ink); }
 .fp-k__v { display: flex; align-items: center; gap: 18px; flex: none; text-align: center; }
 .fp-k__v b { display: block; font: 800 clamp(1.7rem, 3vw, 2.3rem)/1.05 var(--f-head); color: var(--ink); white-space: nowrap; }
 .fp-k__v b.bad { color: var(--red); } .fp-k__v b.good { color: var(--teal); }
@@ -1298,6 +1296,5 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-k__v i.vs { font-size: 14px; color: var(--ink-3); }
 @media (max-width: 600px) {
   .fp-k { flex-direction: column; align-items: flex-start; padding: 14px 16px; }
-  .fp-k__t { flex: none; max-width: none; }
   .fp-k__v { gap: 14px; }
 }
