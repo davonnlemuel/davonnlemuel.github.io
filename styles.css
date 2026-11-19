@@ -1383,3 +1383,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-note--r { text-align: right; margin: 8px 0 10px; }
 @media (max-width: 600px) { .fp-note--r { text-align: left; } }
 .fp-pts { margin: 10px 0 6px; padding-left: 22px; font-size: 16.5px; line-height: 1.55; color: var(--ink); } .fp-pts li { margin-bottom: 6px; padding-left: 4px; } .fp-pts li::marker { font-weight: 800; color: var(--teal); }
+.fp-dhead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 8px 0 10px; }
+.fp-dhead .yearsw { margin: 0; } .fp-dhead .fp-note--r { margin: 0; }
+.fp-dhead { flex-wrap: nowrap; } .fp-dhead .yearsw { flex: none; } .fp-dhead .fp-note--r { flex: 1 1 auto; min-width: 0; max-width: 34ch; text-align: right; }
+@media (max-width: 600px) { .fp-dhead { flex-wrap: wrap; } .fp-dhead .fp-note--r { max-width: none; text-align: left; } }
+.fp-dhead .fp-note--r { font-size: 12.5px; text-wrap: balance; max-width: 40ch; }
