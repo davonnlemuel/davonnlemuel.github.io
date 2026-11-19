@@ -224,6 +224,7 @@
     'fp.f1': 'tingkat macet setelah<br>aturan 2009', 'fp.f1b': 'dari 36,9%',
     'fp.kp1': 'Tingkat kemacetan', 'fp.kp1n': 'Setelah perubahan sistem pada 2009, tingkat kemacetan turun lebih dari setengahnya.', 'fp.kp2n': 'Setelah perubahan yang sama, keuntungan investor meningkat drastis, dari rugi menjadi untung.', 'fp.kp3n': 'Model yang saya pilih lebih baik membedakan pinjaman macet dibanding klasifikasi rating yang dipakai Prosper.', 'fp.kp1a': '36,9%', 'fp.kp1b': '16,3%', 'fp.kpP1': 'Periode 1', 'fp.kpP2': 'Periode 2',
     'fp.lnn': 'Merah: tingkat macet 20% ke atas. Angka kecil: jumlah pinjaman per kelompok skor.', 'fp.pk1': 'Macet', 'fp.pk2': 'Bunga', 'fp.pk3': '12,9%', 'fp.pk4': '9,1%', 'fp.pk5': '13,9%', 'fp.pk6': '25,5%',
+    'fp.d0': '*) Dashboard berikut adalah replika dari dashboard pada Power BI.',
     'fp.e0': '*) EDA dilakukan dengan menggunakan Python.',
     'fp.tlh': 'Timeline data Prosper', 'fp.tl1': 'Sistem rating lama', 'fp.tl1d': 'Nov 2005 - Okt 2008', 'fp.tlg': 'Berhenti', 'fp.tlgd': '9 bulan', 'fp.tl2': 'Sistem rating baru', 'fp.tl2d': 'Jul 2009 - Mar 2014',
     'fp.kp2': 'Total keuntungan', 'fp.kp2a': '−$14,71 jt', 'fp.kp2b': '+$4,35 jt',

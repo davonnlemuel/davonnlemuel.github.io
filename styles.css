@@ -1380,3 +1380,5 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-mt th, .fp-mt td { padding: 6px 18px 6px 0; border-bottom: 1px solid var(--rule-2); text-align: left; font-size: 13.5px; color: var(--ink); }
 .fp-mt tr:last-child th, .fp-mt tr:last-child td { border-bottom: 0; }
 .fp-mt th { font-weight: 500; color: var(--ink-3); white-space: nowrap; } .fp-mt td { font-weight: 700; }
+.fp-note--r { text-align: right; margin: 8px 0 10px; }
+@media (max-width: 600px) { .fp-note--r { text-align: left; } }
