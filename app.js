@@ -320,7 +320,7 @@
     'fp.l1': 'Pokok hilang',
     'fp.l2': 'Biaya Prosper',
     'fp.l3': 'Untung bersih investor',
-    'fp.k4': '<b>Ya, di semua rating: investor menyimpan $5,43 per $100 di AA dan $18,90 di HR.</b> HR kehilangan pokok paling besar ($18,18 per $100) tapi juga membayar bunga paling besar ($38,84), jadi rating paling berisiko justru paling untung.',
+    'fp.k4': '<b>Bunga sudah sesuai risiko di setiap rating.</b> Perhatikan bahwa investor untung $5,43 di AA dan $18,90 di HR per $100 pinjaman. HR kehilangan pokok paling besar, tetapi juga membayar bunga paling besar. Jadi, rating paling berisiko justru paling untung.',
     'fp.h6': '<small>Business Question 4</small>Ciri peminjam apa yang paling menentukan macet?',
     'fp.c6': 'Random forest dengan 300 pohon dari 14 ciri peminjam (tanpa rating dan bunga), diuji pada 2.107 pinjaman yang tidak pernah dilihatnya. AUC adalah porsi pasangan pinjaman (macet, lunas) yang pinjaman macetnya diberi skor risiko lebih tinggi.',
     'fp.g1': 'AUC di data uji',
