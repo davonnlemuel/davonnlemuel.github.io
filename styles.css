@@ -1345,3 +1345,5 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-pick th:last-child, .fp-pick td.b { background: #F1F3F6; }
 .fp-pick td.b { color: var(--ink); font-weight: 800; }
 @media (max-width: 600px) { .fp-line .v { font-size: 19px; } .fp-line .lab { font-size: 15.5px; } .fp-line .n { font-size: 14px; } .fp-line .pt { r: 7px; } }
+.fp-tl .p1 { padding-right: 12px; } .fp-tl .p2 { padding-left: 16px; } .fp-tl__gap { padding-left: 6px; padding-right: 6px; }
+@media (max-width: 600px) { .fp-tl .p2 { padding-left: 10px; } }
