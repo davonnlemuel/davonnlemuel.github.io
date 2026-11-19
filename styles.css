@@ -1348,3 +1348,4 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-tl .p1, .fp-tl .p2 { text-align: center; justify-items: center; padding-left: 8px; padding-right: 8px; } .fp-tl__gap { padding-left: 6px; padding-right: 6px; }
 @media (max-width: 600px) { .fp-tl .p1, .fp-tl .p2 { padding-left: 4px; padding-right: 4px; } }
 @media (max-width: 600px) { .fp-vol { gap: 3px; } .fp-vol span { font-size: 8.5px; letter-spacing: -.02em; } }
+.fp-note { margin: 16px 0 6px; font: 500 13px/1.45 var(--f-head); color: var(--ink-3); }

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=130">
+<link rel="stylesheet" href="styles.css?v=131">
 </head>
 <body>
 
@@ -438,6 +438,7 @@
               </ol>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/16" target="_blank" rel="noopener"><span data-i18n="fp.l1a">Slide: conclusion</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/5" target="_blank" rel="noopener"><span data-i18n="fp.l1b">Slide: business questions</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-2" aria-labelledby="fpt-2" hidden>
+              <p class="fp-note" data-i18n="fp.e0">*) EDA was done in Python.</p>
               <div class="figs figs--fp5 figs--fp3k">
                 <div><b>113,937</b><span data-i18n="fp.a1">loans</span></div>
                 <div><b>36</b><span data-i18n="fp.a3">columns</span></div>
@@ -464,7 +465,7 @@
               <p class="ch-concl" data-i18n="fp.k3">Note that at a DTI of 30-40%, AA borrowers default almost as often as D borrowers, yet AA interest is far below D (black boxes). This shows DTI can be used to set a borrower's risk rating and the interest they pay.</p>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/3" target="_blank" rel="noopener"><span data-i18n="fp.l2a">Slide: the data</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/8" target="_blank" rel="noopener"><span data-i18n="fp.l2b">Slide: data preparation</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/6" target="_blank" rel="noopener"><span data-i18n="fp.l3a">Slide: trends and key insight</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/10" target="_blank" rel="noopener"><span data-i18n="fp.l3b">Slide: rating and DTI</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://colab.research.google.com/drive/1k4pZlPJBYEqWk4JE8x67S8qtw5uPn8pE?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l3c">Colab: cleaning, EDA and tests</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://drive.google.com/file/d/1HAISuGqowaBGhqo2-ExMMKlf8EGddxgY/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l2d">Clean data (CSV)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-3" aria-labelledby="fpt-3" hidden>
-              <p data-i18n="fp.s0">Done in PostgreSQL on the 10,535 loans from July 2009 whose term has ended. A segment is one borrower trait or a pair of them (rating, DTI, income, term, new or repeat borrower) with at least 50 loans, compared per $100 lent so big and small groups can be ranked fairly.</p>
+              <p class="fp-note" data-i18n="fp.s0">Segment risk analysis was done in PostgreSQL and Python on the 10,535 loans from July 2009 whose term has ended.</p>
 
               <h4 class="h4 ch-h" data-i18n="fp.bh1">BQ1 · Which borrowers make investors money, and which lose it?</h4>
               <p class="fz__cap" data-i18n="fp.bc1">Net return per $100 lent: the three best and three worst borrower pairs.</p>
@@ -1040,6 +1041,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=133"></script>
+<script src="app.js?v=134"></script>
 </body>
 </html>
