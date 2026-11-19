@@ -500,14 +500,14 @@
               </tbody></table>
               <div class="fz2 fz2--fp">
                 <div class="fz2__g"><p class="fz2__h" data-i18n="fp.g1">AUC on test data</p>
-                  <div class="fz2__r"><span data-i18n="fp.g1a">Prosper rating</span><i style="--w:68.8%" class="mute"></i><b>0.688</b></div>
-                  <div class="fz2__r"><span>Random forest</span><i style="--w:72.7%" class="hi"></i><b>0.727</b></div>
+                  <div class="fz2__r"><span data-i18n="fp.g1a">Prosper rating</span><i style="--w:68.8%" class="mute"></i><b data-i18n="fp.g1v">68.8%</b></div>
+                  <div class="fz2__r"><span>Random forest</span><i style="--w:72.7%" class="hi"></i><b data-i18n="fp.g1w">72.7%</b></div>
                 </div>
                 <div class="fz2__g"><p class="fz2__h" data-i18n="fp.g2">Drop in AUC when the column is shuffled</p><div class="fz2__r"><span data-i18n="fp.i1">Credit score</span><i style="--w:100.0%" class="hi"></i><b>0.079</b></div><div class="fz2__r"><span data-i18n="fp.i2">Term</span><i style="--w:65.8%" class="hi"></i><b>0.052</b></div><div class="fz2__r"><span data-i18n="fp.i3">Payment to income</span><i style="--w:32.9%" class="hi"></i><b>0.026</b></div><div class="fz2__r"><span data-i18n="fp.i4">Credit checks, last 6 months</span><i style="--w:17.7%" class="hi"></i><b>0.014</b></div><div class="fz2__r"><span data-i18n="fp.i5">Repeat borrower</span><i style="--w:15.2%" class="hi"></i><b>0.012</b></div></div>
               </div>
               <ol class="fp-pts">
-                <li data-i18n="fp.k6a">The random forest model tells defaulted and repaid loans apart better than Prosper's rating (AUC 72.7% vs 68.8%).</li>
-                <li data-i18n="fp.k6b">Credit score and term are the most important variables in the model, so these two factors deserve more weight when setting rating and interest.</li>
+                <li data-i18n="fp.k6a">The random forest model tells defaulted and repaid loans apart better than Prosper's rating.</li>
+                <li data-i18n="fp.k6b">Credit score and term are the most important variables in the model, so these factors deserve more weight when setting rating and interest.</li>
               </ol>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/11" target="_blank" rel="noopener"><span data-i18n="fp.l4a">Slides: BQ1 to BQ3</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/15" target="_blank" rel="noopener"><span data-i18n="fp.l4b">Slide: model (BQ4)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://drive.google.com/drive/folders/1fqf25KRUmAeymgeu7kNQZmOu7ndt110g?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l4c">SQL queries (project folder)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://colab.research.google.com/drive/1k4pZlPJBYEqWk4JE8x67S8qtw5uPn8pE?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l4d">Colab: model</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-4" aria-labelledby="fpt-4" hidden>
@@ -1049,6 +1049,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=149"></script>
+<script src="app.js?v=150"></script>
 </body>
 </html>
