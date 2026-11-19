@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=131">
+<link rel="stylesheet" href="styles.css?v=133">
 </head>
 <body>
 
@@ -465,17 +465,17 @@
               <p class="ch-concl" data-i18n="fp.k3">Note that at a DTI of 30-40%, AA borrowers default almost as often as D borrowers, yet AA interest is far below D (black boxes). This shows DTI can be used to set a borrower's risk rating and the interest they pay.</p>
               <div class="fp-links"><b data-i18n="fp.lk">Work behind this section</b><a href="prosper/#/3" target="_blank" rel="noopener"><span data-i18n="fp.l2a">Slide: the data</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/8" target="_blank" rel="noopener"><span data-i18n="fp.l2b">Slide: data preparation</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/6" target="_blank" rel="noopener"><span data-i18n="fp.l3a">Slide: trends and key insight</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="prosper/#/10" target="_blank" rel="noopener"><span data-i18n="fp.l3b">Slide: rating and DTI</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://colab.research.google.com/drive/1k4pZlPJBYEqWk4JE8x67S8qtw5uPn8pE?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l3c">Colab: cleaning, EDA and tests</span><svg aria-hidden="true"><use href="#i-out"/></svg></a><a href="https://drive.google.com/file/d/1HAISuGqowaBGhqo2-ExMMKlf8EGddxgY/view?usp=sharing" target="_blank" rel="noopener"><span data-i18n="fp.l2d">Clean data (CSV)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
             <div class="fp-pane" role="tabpanel" id="fpp-3" aria-labelledby="fpt-3" hidden>
-              <p class="fp-note" data-i18n="fp.s0">Segment risk analysis was done in PostgreSQL and Python on the 10,535 loans from July 2009 whose term has ended.</p>
+              <p class="fp-note" data-i18n="fp.s0">*) Segment risk analysis was done in PostgreSQL and Python on the 10,535 loans from July 2009 whose term has ended.</p>
 
-              <h4 class="h4 ch-h" data-i18n="fp.bh1">BQ1 · Which borrowers make investors money, and which lose it?</h4>
-              <p class="fz__cap" data-i18n="fp.bc1">Net return per $100 lent: the three best and three worst borrower pairs.</p>
+              <h4 class="h4 ch-h fp-bqh" data-i18n="fp.bh1"><small>Business Question 1</small>Which borrowers make investors money, and which lose it?</h4>
+              <p class="fp-box" data-i18n="fp.bc1">The three best and three worst borrower pairs by net return per $100 lent.</p>
               <div class="fz2 fz2--fp">
                 <div class="fz2__g"><p class="fz2__h" data-i18n="fp.bg1">Most profitable</p><div class="fz2__r"><span data-i18n="fp.b1">HR · income $100,000+</span><i style="--w:100.0%" class="hi"></i><b>+$27.09</b></div><div class="fz2__r"><span data-i18n="fp.b2">HR · repeat borrower</span><i style="--w:90.2%" class="hi"></i><b>+$24.44</b></div><div class="fz2__r"><span data-i18n="fp.b3">HR · income $75,000-99,999</span><i style="--w:83.9%" class="hi"></i><b>+$22.72</b></div></div>
                 <div class="fz2__g"><p class="fz2__h" data-i18n="fp.bg2">Lost money</p><div class="fz2__r"><span data-i18n="fp.w1">AA · DTI not recorded</span><i style="--w:11.8%" class="low"></i><b class="fp-negb">−$3.21</b></div><div class="fz2__r"><span data-i18n="fp.w2">12-month term · DTI not recorded</span><i style="--w:10.0%" class="low"></i><b class="fp-negb">−$2.72</b></div><div class="fz2__r"><span data-i18n="fp.w3">New borrower · no income</span><i style="--w:5.1%" class="low"></i><b class="fp-negb">−$1.39</b></div></div>
               </div>
               <p class="ch-concl" data-i18n="fp.bk1"><b>The biggest earners are high-risk HR borrowers who earn well or have borrowed before.</b> Their high interest more than pays for their defaults. Every single trait made money on its own; losses only appear in pairs, and two of the three worst involve a loan with no DTI on file. The top pair holds 85 loans, so treat its exact figure with care.</p>
 
-              <h4 class="h4 ch-h" data-i18n="fp.h5">BQ2 · What happens if the riskiest borrowers are rejected?</h4>
+              <h4 class="h4 ch-h fp-bqh" data-i18n="fp.h5"><small>Business Question 2</small>What happens if the riskiest borrowers are rejected?</h4>
               <p class="fz__cap" data-i18n="fp.c5">Two rejection scenarios on the same 10,535 loans: 1,618 defaulted, 8,917 repaid, $5.32M net return to investors.</p>
               <div class="scroll-x"><table class="fdt fdt--fp2">
                 <thead><tr><th data-i18n="fp.u0">Scenario</th><th data-i18n="fp.u1">Defaults avoided</th><th data-i18n="fp.u2">Repaid loans lost</th><th data-i18n="fp.u3">Investor profit</th></tr></thead>
@@ -486,13 +486,13 @@
               </table></div>
               <p class="ch-concl" data-i18n="fp.k5"><b>Rejecting the riskiest pairs avoids 529 defaults but loses $0.94M of profit, because their high interest more than paid for their losses.</b> Rejecting the worst-earning pairs adds only $9,576. Rejecting more borrowers is not where the extra profit is.</p>
 
-              <h4 class="h4 ch-h" data-i18n="fp.h4">BQ3 · Do risky borrowers pay enough interest to cover their losses?</h4>
+              <h4 class="h4 ch-h fp-bqh" data-i18n="fp.h4"><small>Business Question 3</small>Do risky borrowers pay enough interest to cover their losses?</h4>
               <p class="fz__cap" data-i18n="fp.c4">Where the interest from each $100 lent went. Bar length is the interest received; the number is what investors kept.</p>
               <ul class="hb-leg"><li><i class="s2"></i><span data-i18n="fp.l1">Principal lost</span></li><li><i class="s3"></i><span data-i18n="fp.l2">Prosper fees</span></li><li><i class="s1"></i><span data-i18n="fp.l3">Kept by investors</span></li></ul>
               <div class="fp-st" role="img" aria-label="Net return per 100 dollars lent: AA 5.43, A 6.72, B 8.63, C 11.25, D 13.85, E 13.96, HR 18.90"><div class="fp-st__r" data-tip="AA · interest $9.69, principal lost $3.10, fees $1.16<br>Kept by investors: <b>$5.43</b> per $100"><span>AA</span><div class="fp-st__b" style="--w:24.9%"><i class="s2" style="--w:32.0%"></i><i class="s3" style="--w:12.0%"></i><i class="s1" style="--w:56.0%"></i></div><b>$5.43</b></div><div class="fp-st__r" data-tip="A · interest $12.09, principal lost $4.10, fees $1.27<br>Kept by investors: <b>$6.72</b> per $100"><span>A</span><div class="fp-st__b" style="--w:31.1%"><i class="s2" style="--w:33.9%"></i><i class="s3" style="--w:10.5%"></i><i class="s1" style="--w:55.6%"></i></div><b>$6.72</b></div><div class="fp-st__r" data-tip="B · interest $15.81, principal lost $5.87, fees $1.31<br>Kept by investors: <b>$8.63</b> per $100"><span>B</span><div class="fp-st__b" style="--w:40.7%"><i class="s2" style="--w:37.1%"></i><i class="s3" style="--w:8.3%"></i><i class="s1" style="--w:54.6%"></i></div><b>$8.63</b></div><div class="fp-st__r" data-tip="C · interest $21.37, principal lost $8.71, fees $1.41<br>Kept by investors: <b>$11.25</b> per $100"><span>C</span><div class="fp-st__b" style="--w:55.0%"><i class="s2" style="--w:40.8%"></i><i class="s3" style="--w:6.6%"></i><i class="s1" style="--w:52.6%"></i></div><b>$11.25</b></div><div class="fp-st__r" data-tip="D · interest $29.35, principal lost $13.96, fees $1.54<br>Kept by investors: <b>$13.85</b> per $100"><span>D</span><div class="fp-st__b" style="--w:75.6%"><i class="s2" style="--w:47.6%"></i><i class="s3" style="--w:5.2%"></i><i class="s1" style="--w:47.2%"></i></div><b>$13.85</b></div><div class="fp-st__r" data-tip="E · interest $32.65, principal lost $17.10, fees $1.59<br>Kept by investors: <b>$13.96</b> per $100"><span>E</span><div class="fp-st__b" style="--w:84.1%"><i class="s2" style="--w:52.4%"></i><i class="s3" style="--w:4.9%"></i><i class="s1" style="--w:42.8%"></i></div><b>$13.96</b></div><div class="fp-st__r" data-tip="HR · interest $38.84, principal lost $18.18, fees $1.76<br>Kept by investors: <b>$18.90</b> per $100"><span>HR</span><div class="fp-st__b" style="--w:100.0%"><i class="s2" style="--w:46.8%"></i><i class="s3" style="--w:4.5%"></i><i class="s1" style="--w:48.7%"></i></div><b>$18.90</b></div></div>
               <p class="ch-concl" data-i18n="fp.k4"><b>Yes, in every rating: investors kept $5.43 per $100 in AA and $18.90 in HR.</b> HR loses the most principal ($18.18 per $100) but also charges the most interest ($38.84), so the riskiest rating is also the most profitable one.</p>
 
-              <h4 class="h4 ch-h" data-i18n="fp.h6">BQ4 · Which borrower traits predict default?</h4>
+              <h4 class="h4 ch-h fp-bqh" data-i18n="fp.h6"><small>Business Question 4</small>Which borrower traits predict default?</h4>
               <p class="fz__cap" data-i18n="fp.c6">Random forest with 300 trees on 14 borrower traits (rating and interest rate left out), tested on 2,107 loans it never saw. AUC is the share of (defaulted, repaid) loan pairs where the defaulted loan gets the higher risk score.</p>
               <div class="fz2 fz2--fp">
                 <div class="fz2__g"><p class="fz2__h" data-i18n="fp.g1">AUC on test data</p>
@@ -1041,6 +1041,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=134"></script>
+<script src="app.js?v=135"></script>
 </body>
 </html>
