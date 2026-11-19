@@ -292,7 +292,7 @@
     'fp.h3': '4 · Di dalam rating yang sama, DTI masih membedakan risiko',
     'fp.c3': 'Tingkat macet per rating Prosper (AA paling aman, HR paling berisiko) dan rasio utang terhadap pendapatan (DTI).',
     'fp.hn': 'Tidak tercatat',
-    'fp.k3': 'Perhatikan bahwa pada tingkat DTI 30-40%, tingkat kemacetan peminjam AA mendekati peminjam D, padahal bunga AA jauh di bawah peminjam rating D (perhatikan kotak hitam). Dari sini didapatkan bahwa DTI bisa digunakan untuk menentukan risiko atau rating peminjam sekaligus besaran bunganya.',
+    'fp.k3': 'Perhatikan bahwa pada tingkat DTI 30-40%, tingkat kemacetan peminjam AA mendekati peminjam D, padahal bunga AA jauh di bawah peminjam rating D (kotak hitam). Dari sini didapatkan bahwa DTI bisa digunakan untuk menentukan risiko atau rating peminjam sekaligus besaran bunganya.',
     'fp.l3a': 'Slide: tren dan key insight',
     'fp.l3b': 'Slide: rating dan DTI',
     'fp.l3c': 'Colab: cleaning, EDA, dan uji hipotesis',
