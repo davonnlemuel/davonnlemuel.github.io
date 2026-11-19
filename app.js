@@ -327,7 +327,7 @@
     'fp.g1': 'AUC di data uji',
     'fp.g1a': 'Rating Prosper',
     'fp.g2': 'Turunnya AUC kalau kolom diacak',
-    'fp.k6': '<b>Skor kredit dan tenor paling menentukan macet, lalu cicilan dibanding pendapatan.</b> Model tidak pernah melihat rating maupun bunga, tapi mengurutkan peminjam berisiko sedikit lebih baik dari rating (72,7% pasangan dibanding 68,8%), jadi ciri-ciri ini layak diberi bobot lebih dalam penetapan bunga.',
+    'fp.k6': '<b>Skor kredit dan tenor paling menentukan macet.</b> Model tidak pernah melihat rating maupun bunga, tapi mengurutkan peminjam berisiko sedikit lebih baik dari rating (72,7% pasangan dibanding 68,8%), jadi ciri-ciri ini layak diberi bobot lebih dalam penetapan bunga.',
     'fp.l4a': 'Slide: BQ1 sampai BQ3',
     'fp.l4b': 'Slide: model (BQ4)',
     'fp.l4c': 'Query SQL (folder project)',
