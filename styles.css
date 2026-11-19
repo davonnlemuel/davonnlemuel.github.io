@@ -1354,3 +1354,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-box { max-width: none; margin: 6px 0 12px; padding: 10px 14px; border: 1.5px solid var(--ink); border-radius: 4px; font: 600 14px/1.45 var(--f-head); color: var(--ink); }
 .fz2__r .fp-plus, .fp-plus { margin: 0 4px; font: 800 14px/1 var(--f-head); font-style: normal; color: var(--teal); }
 .fdt--fp2 th { border-top-color: var(--ink); border-bottom: 1.5px solid var(--ink); } .fdt--fp2 td { border-bottom: 1px solid var(--ink-3); }
+.fdt--fp2 th { color: var(--ink); } .fdt--fp2 td { border-bottom-color: var(--ink); color: var(--ink); } .fdt--fp2 small { color: var(--ink); }
+.fdt--fp2 th + th, .fdt--fp2 td + td { text-align: center; padding-left: 8px; padding-right: 8px; }
+.fdt--fp2 td.fp-neg { color: var(--red); } .fdt--fp2 td.fp-pos { color: var(--teal); } .fdt--fp2 td.fp-neg small, .fdt--fp2 td.fp-pos small { color: inherit; }
