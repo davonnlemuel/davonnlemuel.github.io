@@ -1382,3 +1382,4 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fp-mt th { font-weight: 500; color: var(--ink-3); white-space: nowrap; } .fp-mt td { font-weight: 700; }
 .fp-note--r { text-align: right; margin: 8px 0 10px; }
 @media (max-width: 600px) { .fp-note--r { text-align: left; } }
+.fp-pts { margin: 10px 0 6px; padding-left: 22px; font-size: 16.5px; line-height: 1.55; color: var(--ink); } .fp-pts li { margin-bottom: 6px; padding-left: 4px; } .fp-pts li::marker { font-weight: 800; color: var(--teal); }
