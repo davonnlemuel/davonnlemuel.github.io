@@ -237,7 +237,7 @@
     'fp.q2': 'Bagaimana kalau yang paling berisiko ditolak?',
     'fp.q2a': '529 macet terhindar, tetapi 1.456 pinjaman lancar ikut hilang dan untung turun $0,94 jt.',
     'fp.q3': 'Apakah bunga sudah sesuai dengan risikonya?',
-    'fp.q3a': 'Di level rating, ya. Bunga Prosper sudah cukup menutup kerugian akibat macet di semua rating, sehingga tidak ada rating yang rugi. Namun di dalam rating yang sama, DTI belum ikut diperhitungkan.',
+    'fp.q3a': 'Ya. Bunga Prosper sudah cukup menutup kerugian akibat macet di semua rating, sehingga tidak ada rating yang rugi.',
     'fp.q4': 'Ciri apa yang paling menentukan macet?',
     'fp.q4a': 'Berdasarkan model random forest, skor kredit dan tenor merupakan faktor terpenting yang menentukan kemacetan. Selain itu, model random forest dari ciri-ciri ini mengurutkan risiko lebih baik dari rating.',
     'fp.h8': 'Rekomendasi kebijakan',
