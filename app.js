@@ -162,7 +162,7 @@
     'w5.findh': 'Temuan skripsi',
     'w5.repo': 'Baca skripsi (repositori UNPAR)',
     'w5.gd': 'Data',
-    'w5.f1': 'pemegang polis<br>89,4% tidak mengajukan klaim dalam setahun',
+    'w5.f1': 'pemegang polis',
     'w5.gg': 'Geometrik · frekuensi klaim',
     'w5.f2': 'χ² = 1,579, di bawah nilai kritis 7,815 pada α = 5%',
     'w5.gl': 'Lomax · tingkat keparahan klaim',
