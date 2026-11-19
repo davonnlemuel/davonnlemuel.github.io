@@ -1357,3 +1357,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 .fdt--fp2 th { color: var(--ink); } .fdt--fp2 td { border-bottom-color: var(--ink); color: var(--ink); } .fdt--fp2 small { color: var(--ink); }
 .fdt--fp2 th + th, .fdt--fp2 td + td { text-align: center; padding-left: 8px; padding-right: 8px; }
 .fdt--fp2 td.fp-neg { color: var(--red); } .fdt--fp2 td.fp-pos { color: var(--teal); } .fdt--fp2 td.fp-neg small, .fdt--fp2 td.fp-pos small { color: inherit; }
+.fdt--fp2 small.neg { color: var(--red); font-weight: 600; } .fdt--fp2 small.pos { color: var(--teal); font-weight: 600; }
+.fdt--fp2 tr.fp-base td { background: #EEF1F4; font-weight: 700; }
+.fp-note--tbl { margin: 6px 0 4px; font-size: 12.5px; }

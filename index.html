@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=137">
+<link rel="stylesheet" href="styles.css?v=138">
 </head>
 <body>
 
@@ -477,12 +477,14 @@
 
               <h4 class="h4 ch-h fp-bqh" data-i18n="fp.h5"><small>Business Question 2</small>What happens if the riskiest borrowers are rejected?</h4>
               <div class="scroll-x"><table class="fdt fdt--fp2">
-                <thead><tr><th data-i18n="fp.u0">Scenario</th><th data-i18n="fp.u1">Defaults avoided</th><th data-i18n="fp.u2">Repaid loans lost</th><th data-i18n="fp.u3">Δ Investor profit</th></tr></thead>
+                <thead><tr><th data-i18n="fp.u0">Scenario</th><th data-i18n="fp.u1">Defaults avoided</th><th data-i18n="fp.u2">Repaid loans lost</th><th data-i18n="fp.u3">Investor profit</th></tr></thead>
                 <tbody>
-                  <tr><td data-i18n="fp.u4">Reject risky segments</td><td>529 <small>(32.7%)</small></td><td>1,456 <small>(16.3%)</small></td><td class="fp-neg">−$0.94M <small>(−17.7%)</small></td></tr>
-                  <tr><td data-i18n="fp.u5">Reject loss-making segments</td><td>73 <small>(4.5%)</small></td><td>370 <small>(4.1%)</small></td><td class="fp-pos">+$9,576 <small>(+0.2%)</small></td></tr>
+                  <tr class="fp-base"><td data-i18n="fp.u6">No rejection</td><td>–</td><td>–</td><td data-i18n="fp.u7">$5.32M</td></tr>
+                  <tr><td data-i18n="fp.u4">Reject risky segments</td><td>529 <small>(32.7%)</small></td><td>1,456 <small>(16.3%)</small></td><td data-i18n="fp.u8">$4.38M <small class="neg">(−$0.94M)</small></td></tr>
+                  <tr><td data-i18n="fp.u5">Reject loss-making segments</td><td>73 <small>(4.5%)</small></td><td>370 <small>(4.1%)</small></td><td data-i18n="fp.u9">$5.33M <small class="pos">(+$9,576)</small></td></tr>
                 </tbody>
               </table></div>
+              <p class="fp-note fp-note--tbl" data-i18n="fp.u10">Investor profit from the 10,535 loans from July 2009 whose term has ended.</p>
               <p class="ch-concl" data-i18n="fp.k5"><b>Rejecting the riskiest pairs avoids 529 defaults, but profit falls by $0.94M.</b> Rejecting the worst-earning pairs adds only $9,576. So rejecting risky borrowers is not the main source of profit.</p>
 
               <h4 class="h4 ch-h fp-bqh" data-i18n="fp.h4"><small>Business Question 3</small>Do risky borrowers pay enough interest to cover their losses?</h4>
@@ -1040,6 +1042,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=139"></script>
+<script src="app.js?v=140"></script>
 </body>
 </html>
