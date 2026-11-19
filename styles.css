@@ -1314,7 +1314,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
 
 /* final project: timeline */
 .fp-tl-h { margin: 22px 0 8px; font: 700 12px/1 var(--f-head); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
-.fp-tl { display: grid; grid-template-columns: minmax(0, 35fr) minmax(76px, 9fr) minmax(0, 56fr); gap: 4px; }
+.fp-tl { margin-bottom: 18px; display: grid; grid-template-columns: minmax(0, 35fr) minmax(76px, 9fr) minmax(0, 56fr); gap: 4px; }
 .fp-tl > div { display: grid; gap: 2px; align-content: start; padding-top: 10px; border-top: 6px solid; font-family: var(--f-head); }
 .fp-tl .p1 { border-color: var(--red); } .fp-tl .p2 { border-color: var(--teal); }
 .fp-tl__gap { border-top: 2px dashed var(--red) !important; margin-top: 2px; text-align: center; padding-top: 12px !important; }

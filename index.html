@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=122">
+<link rel="stylesheet" href="styles.css?v=123">
 </head>
 <body>
 
@@ -412,13 +412,12 @@
             <p data-i18n="fp.p">Prosper is a US peer-to-peer lending platform where investors fund loans and take the loss when a borrower stops paying. In this project, I put myself in the role of a data analyst on Prosper's credit risk team and segmented 113,937 loans to see which loans make or lose investors money, and which borrower traits contribute most to defaults.</p>
             <div class="fp-nav" role="tablist" aria-label="Project sections"><button type="button" role="tab" id="fpt-1" aria-controls="fpp-1" aria-selected="true"><small>01</small><span data-i18n="fp.n1t">Results</span></button><button type="button" role="tab" id="fpt-2" aria-controls="fpp-2" aria-selected="false" tabindex="-1"><small>02</small><span data-i18n="fp.n3t">EDA</span></button><button type="button" role="tab" id="fpt-3" aria-controls="fpp-3" aria-selected="false" tabindex="-1"><small>03</small><span data-i18n="fp.n4t">Segmentation</span></button><button type="button" role="tab" id="fpt-4" aria-controls="fpp-4" aria-selected="false" tabindex="-1"><small>04</small><span data-i18n="fp.n5t">Dashboard</span></button></div>
             <div class="fp-pane" role="tabpanel" id="fpp-1" aria-labelledby="fpt-1">
-              <h5 class="fp-tl-h" data-i18n="fp.tlh">Timeline</h5>
+              <h5 class="fp-tl-h" data-i18n="fp.tlh">Prosper data timeline</h5>
               <div class="fp-tl">
-                <div class="fp-tl__p p1"><small data-i18n="fp.kpP1">Period 1</small><b data-i18n="fp.tl1">Old rating system</b><span data-i18n="fp.tl1d">Nov 2005 to Oct 2008</span></div>
+                <div class="fp-tl__p p1"><small data-i18n="fp.kpP1">Period 1</small><b data-i18n="fp.tl1">Old rating system</b><span data-i18n="fp.tl1d">Nov 2005 - Oct 2008</span></div>
                 <div class="fp-tl__gap"><small data-i18n="fp.tlg">Paused</small><span data-i18n="fp.tlgd">9 months</span></div>
-                <div class="fp-tl__p p2"><small data-i18n="fp.kpP2">Period 2</small><b data-i18n="fp.tl2">New rating system</b><span data-i18n="fp.tl2d">Jul 2009 to Mar 2014</span></div>
+                <div class="fp-tl__p p2"><small data-i18n="fp.kpP2">Period 2</small><b data-i18n="fp.tl2">New rating system</b><span data-i18n="fp.tl2d">Jul 2009 - Mar 2014</span></div>
               </div>
-              <p class="fp-tl__note" data-i18n="fp.tln">The figures below only count loans whose term has ended: 2006-2008 for period 1 and 2009-2010 for period 2.</p>
               <div class="fp-kpi">
                 <div class="fp-k"><div class="fp-k__t"><h5 data-i18n="fp.kp1">Default rate</h5><p data-i18n="fp.kp1n">After the 2009 system change, the default rate fell by more than half.</p></div><div class="fp-k__v"><b class="bad" data-i18n="fp.kp1a">36.9%</b><i aria-hidden="true">→</i><b class="good" data-i18n="fp.kp1b">16.3%</b><span class="l1" data-i18n="fp.kpP1">Period 1</span><span class="l2" data-i18n="fp.kpP2">Period 2</span></div></div>
                 <div class="fp-k"><div class="fp-k__t"><h5 data-i18n="fp.kp2">Total profit</h5><p data-i18n="fp.kp2n">After the same change, investor profit rose sharply, from a loss to a gain.</p></div><div class="fp-k__v"><b class="bad" data-i18n="fp.kp2a">−$14.71M</b><i aria-hidden="true">→</i><b class="good" data-i18n="fp.kp2b">+$4.35M</b><span class="l1" data-i18n="fp.kpP1">Period 1</span><span class="l2" data-i18n="fp.kpP2">Period 2</span></div></div>
@@ -1041,6 +1040,6 @@
 
 <div class="tip" id="tip" aria-hidden="true"></div>
 <script src="assets/oil-data.js"></script>
-<script src="app.js?v=130"></script>
+<script src="app.js?v=131"></script>
 </body>
 </html>

@@ -223,7 +223,7 @@
     'fp.r0': 'Menolak lebih banyak peminjam bukan sumber tambahan untung Prosper. Setiap rating sudah menghasilkan bunga lebih besar dari kerugian akibat macet; tambahannya ada di penilaian risiko yang lebih tajam di dalam setiap rating.',
     'fp.f1': 'tingkat macet setelah<br>aturan 2009', 'fp.f1b': 'dari 36,9%',
     'fp.kp1': 'Tingkat kemacetan', 'fp.kp1n': 'Setelah perubahan sistem pada 2009, tingkat kemacetan turun lebih dari setengahnya.', 'fp.kp2n': 'Setelah perubahan yang sama, keuntungan investor meningkat drastis, dari rugi menjadi untung.', 'fp.kp3n': 'Model yang saya pilih lebih baik membedakan pinjaman macet dibanding klasifikasi rating yang dipakai Prosper.', 'fp.kp1a': '36,9%', 'fp.kp1b': '16,3%', 'fp.kpP1': 'Periode 1', 'fp.kpP2': 'Periode 2',
-    'fp.tlh': 'Timeline', 'fp.tl1': 'Sistem rating lama', 'fp.tl1d': 'Nov 2005 sampai Okt 2008', 'fp.tlg': 'Berhenti', 'fp.tlgd': '9 bulan', 'fp.tl2': 'Sistem rating baru', 'fp.tl2d': 'Jul 2009 sampai Mar 2014', 'fp.tln': 'Angka di bawah hanya menghitung pinjaman yang tenornya sudah habis: 2006-2008 untuk periode 1 dan 2009-2010 untuk periode 2.',
+    'fp.tlh': 'Timeline data Prosper', 'fp.tl1': 'Sistem rating lama', 'fp.tl1d': 'Nov 2005 - Okt 2008', 'fp.tlg': 'Berhenti', 'fp.tlgd': '9 bulan', 'fp.tl2': 'Sistem rating baru', 'fp.tl2d': 'Jul 2009 - Mar 2014',
     'fp.kp2': 'Total keuntungan', 'fp.kp2a': '−$14,71 jt', 'fp.kp2b': '+$4,35 jt',
     'fp.kp3': 'AUC score', 'fp.kp3a': '72,7%', 'fp.kp3b': 'Model random forest', 'fp.kp3c': '68,8%', 'fp.kp3d': 'Klasifikasi rating risiko Prosper',
     'fp.f4': 'untung investor per $100,<br>$5,32 jt dari 10.535 pinjaman',
